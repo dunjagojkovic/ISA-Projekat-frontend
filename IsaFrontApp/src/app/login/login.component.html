@@ -1,1 +1,24 @@
-<p>login works!</p>
+
+ <mat-toolbar class="toolbar">
+    <span>Login</span>
+    <span class="example-spacer"></span>
+  </mat-toolbar>
+
+<div class="example-form">
+    <mat-form-field class="input-box" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="" value="">
+    </mat-form-field>
+    
+    <mat-form-field class="input-box" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+    </mat-form-field>
+   
+    <div class="rightbtn">
+        <button class="btn">Login</button>
+    </div>
+</div>

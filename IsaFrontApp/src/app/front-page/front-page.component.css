@@ -233,9 +233,10 @@ hr{
 
 .login-btn{
     border-radius: 20px;
-    background: #52796F;
+    border: 3px solid #52796F ;
+    color: #354F52;
+    font-weight: bold;
     padding: 10px 0px 10px 0px !important;
-    color: white;
     position: relative;
     left: 530%;
     top: 1%;
