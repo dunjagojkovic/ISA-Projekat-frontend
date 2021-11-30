@@ -230,3 +230,19 @@ hr{
     flex-wrap: wrap;
 }
 
+
+.login-btn{
+    border-radius: 20px;
+    background: #52796F;
+    padding: 10px 0px 10px 0px !important;
+    color: white;
+    position: relative;
+    left: 530%;
+    top: 1%;
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+

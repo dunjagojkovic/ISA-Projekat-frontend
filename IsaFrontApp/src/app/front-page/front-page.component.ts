@@ -15,7 +15,7 @@ export class FrontPageComponent implements OnInit {
   }
 
   switchPage(){
-    this.router.navigate(['registration'])
+    this.router.navigate(['login'])
   }
 
 }
