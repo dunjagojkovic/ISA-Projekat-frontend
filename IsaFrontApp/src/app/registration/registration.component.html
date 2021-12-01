@@ -1,62 +1,92 @@
-
- <mat-toolbar class="toolbar">
+<mat-toolbar class="toolbar">
     <span>Registration</span>
     <span class="example-spacer"></span>
-    <button mat-icon-button class="icon">
-    <mat-icon>exit_to_app</mat-icon>
+    <button routerLink="/" mat-icon-button class="icon">
+    <mat-icon>arrow_back</mat-icon>
   </button>
 </mat-toolbar>
 
+<div class="row d-flex align-items-center w-100">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 website_name_label">BOOKING AGENCY</div>
+    <div class="col-md-2"></div>
+</div>
+
 <div class="example-form">
-    <mat-form-field class="input-box" appearance="fill">
+    <mat-form-field class="input-box" appearance="outline">
       <mat-label>Email</mat-label>
       <input matInput placeholder="" value="">
     </mat-form-field>
-    <mat-form-field class="input-box" appearance="fill">
+    <div class="double-input">
+    <mat-form-field class="input-box-small" appearance="outline">
         <mat-label>Name</mat-label>
         <input matInput placeholder="" value="">
     </mat-form-field>
-    <mat-form-field class="input-box" appearance="fill">
+    <mat-form-field class="input-box-small" appearance="outline">
         <mat-label>Surname</mat-label>
         <input matInput placeholder="" value="">
-    </mat-form-field>  
-    <mat-form-field class="input-box" appearance="fill">
+    </mat-form-field>
+    </div>  
+    <mat-form-field class="input-box" appearance="outline">
         <mat-label>City</mat-label>
         <input matInput placeholder="" value="">
     </mat-form-field>  
-    <mat-form-field class="input-box" appearance="fill">
+    <mat-form-field class="input-box" appearance="outline">
         <mat-label>Street</mat-label>
         <input matInput placeholder="" value="">
     </mat-form-field>  
-    <mat-form-field class="input-box" appearance="fill">
+    <mat-form-field class="input-box" appearance="outline">
         <mat-label>Telephone number</mat-label>
         <input matInput placeholder="" value="">
     </mat-form-field>  
-    <mat-form-field class="input-box" appearance="fill">
+    <mat-form-field class="input-box" appearance="outline">
         <mat-label>Registration type</mat-label>
         <mat-select>
           <mat-option></mat-option>
         </mat-select>
     </mat-form-field>
-    <mat-form-field class="input-box" appearance="fill">
+    <mat-form-field class="input-box" appearance="outline">
         <mat-label>Reason</mat-label>
         <input matInput placeholder="" value="">
     </mat-form-field>
-    <mat-form-field class="input-box" appearance="fill">
+    <mat-form-field class="input-box" appearance="outline">
         <mat-label>Password</mat-label>
         <input matInput [type]="hide ? 'password' : 'text'">
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
     </mat-form-field>
-    <mat-form-field class="input-box" appearance="fill">
+    <mat-form-field class="input-box" appearance="outline">
         <mat-label>Confirm password</mat-label>
         <input matInput [type]="hide ? 'password' : 'text'">
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
     </mat-form-field><br /><br />
-    <div class="rightbtn">
-        <button class="btn">Register</button>
+    <button class="btn">Register</button>
+</div>
+
+<div class="footer-down">
+<div class="row d-flex align-items-center footer">
+    <div class="col-md-3">
+      <h2 class="link_title">Product</h2>
+      <h4 class="link_subtitle">Our plan</h4>
+      <h4 class="link_subtitle">Free trial</h4>
     </div>
+    <div class="col-md-3">
+      <h2 class="link_title">About us</h2>
+      <h4 class="link_subtitle">Request demo</h4>
+      <h4 class="link_subtitle">FAQs</h4>
+    </div>
+    <div class="col-md-3">
+      <h2 class="link_title">Support</h2>
+      <h4 class="link_subtitle">Services</h4>
+      <h4 class="link_subtitle">Contact us</h4>
+    </div>
+    <div class="col-md-3">
+      <h2 class="link_title">Product</h2>
+      <h4 class="link_subtitle">Our plan</h4>
+      <h4 class="link_subtitle">Free trial</h4>
+    </div>
+  </div>
 </div>
