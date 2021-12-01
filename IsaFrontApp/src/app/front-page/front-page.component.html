@@ -6,8 +6,9 @@
     </div>
     <div class="col-md-2">
     </div>
-    <button class="login-btn" routerLink="login" >Login</button>
+    <button class="login-btn" (click)="loginBox = true" >Login</button>
   </div>
+
   
   <div class="row d-flex align-items-center w-100">
     <div class="col-md-4">
@@ -29,13 +30,26 @@
   <div class="row d-flex align-items-center frontpage_gray_banner">
     <div class="col-md-2">
     </div>
-    <div class="col-md-8">
+    <div class="col-md-6">
       <div class="row d-flex align-items-center frontpage_gray_banner_label">BOOKING AGENCY:</div>
-      <div class="row d-flex align-items-center frontpage_gray_banner_label">TRUSTED PROFESSIONALS</div>
+      <div class="row d-flex align-items-center frontpage_gray_banner_label">TRUSTED PROFESSIONALS</div> 
     </div>
-    <div class="col-md-2">
+    <div class="col-md-4">
+      <div class="login-box" *ngIf="loginBox">
+        <mat-form-field class="input-box" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="" value="">
+        </mat-form-field>
+        <mat-form-field class="input-box" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'">
+      </mat-form-field>
+      <br /><br />
+      <button class="btn">Confirm</button>
+      </div>
     </div>
   </div>
+
 
   <div class="row d-flex align-items-center">
     <img src="assets/homepage1.png" class="photo_stretch" >
@@ -53,17 +67,17 @@
         <div class="col-md-6 h-100">
           <div class="row d-flex align-items-center frontpage_top front_page_right_card">
             <div class="col-md-6 deep_dark_blue_card h-100" style="text-align: center; padding-top: 20px;">
-              <img src="assets/fisherman.png" class="frontpage_card_picture_small">
+              <img src="assets/fishingBoy.png" class="frontpage_card_picture_small">
               <div class="text-white" style="margin-top: 5px; font-weight: bold;">CHOOSE YOUR INSTRUCTOR</div>
             </div>
             <div class="col-md-6 dark_blue_card h-100" style="text-align: center; padding-top: 20px;">
-              <img src="assets/house.png" class="frontpage_card_picture_small">
+              <img src="assets/wooden-house.png" class="frontpage_card_picture_small">
               <div class="text-white" style="margin-top: 5px; font-weight: bold;">BOOK A COTTAGE</div>
             </div>
           </div>
           <div class="row d-flex align-items-center frontpage_top front_page_right_card">
             <div class="col-md-6 dark_blue_card h-100" style="text-align: center; padding-top: 20px;">
-              <img src="assets/boat.png" class="frontpage_card_picture_small">
+              <img src="assets/yatch.png" class="frontpage_card_picture_small">
               <div class="text-white" style="margin-top: 5px; font-weight: bold;">BOOK A BOAT</div>
             </div>
             <div class="col-md-6 light_blue_card h-100 " style="text-align: center; padding-top: 20px;">

@@ -1,8 +1,8 @@
 <mat-toolbar class="toolbar">
-    <span>Registration</span>
-    <span class="example-spacer"></span>
-    <button routerLink="/" mat-icon-button class="icon">
-    <mat-icon>arrow_back</mat-icon>
+  <span>Registration</span>
+  <span class="example-spacer"></span>
+  <button routerLink="/" mat-icon-button class="icon">
+      <mat-icon>arrow_back</mat-icon>
   </button>
 </mat-toolbar>
 
@@ -28,13 +28,19 @@
     </mat-form-field>
     </div>  
     <mat-form-field class="input-box" appearance="outline">
-        <mat-label>City</mat-label>
-        <input matInput placeholder="" value="">
-    </mat-form-field>  
-    <mat-form-field class="input-box" appearance="outline">
         <mat-label>Street</mat-label>
         <input matInput placeholder="" value="">
     </mat-form-field>  
+    <div class="double-input">
+      <mat-form-field class="input-box-small" appearance="outline">
+          <mat-label>Country</mat-label>
+          <input matInput placeholder="" value="">
+      </mat-form-field>
+      <mat-form-field class="input-box-small" appearance="outline">
+          <mat-label>City</mat-label>
+          <input matInput placeholder="" value="">
+      </mat-form-field>
+      </div>  
     <mat-form-field class="input-box" appearance="outline">
         <mat-label>Telephone number</mat-label>
         <input matInput placeholder="" value="">

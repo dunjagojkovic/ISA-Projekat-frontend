@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { FrontPageComponent } from './front-page/front-page.component';
-import { LoginComponent } from './login/login.component';
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -20,7 +19,6 @@ import { HomepageClientComponent } from './homepage-client/homepage-client.compo
     AppComponent,
     RegistrationComponent,
     FrontPageComponent,
-    LoginComponent,
     HomepageClientComponent
   ],
   imports: [
