@@ -11,6 +11,9 @@ export class FrontPageComponent implements OnInit {
 
   constructor(private router: Router) { }
 
+  loginBox : boolean = false;
+  hide = true;
+
   ngOnInit(): void {
   }
 

@@ -6,8 +6,9 @@
     </div>
     <div class="col-md-2">
     </div>
-    <button class="login-btn" routerLink="login" >Login</button>
+    <button class="login-btn" (click)="loginBox = true" >Login</button>
   </div>
+
   
   <div class="row d-flex align-items-center w-100">
     <div class="col-md-4">
@@ -29,13 +30,26 @@
   <div class="row d-flex align-items-center frontpage_gray_banner">
     <div class="col-md-2">
     </div>
-    <div class="col-md-8">
+    <div class="col-md-6">
       <div class="row d-flex align-items-center frontpage_gray_banner_label">BOOKING AGENCY:</div>
-      <div class="row d-flex align-items-center frontpage_gray_banner_label">TRUSTED PROFESSIONALS</div>
+      <div class="row d-flex align-items-center frontpage_gray_banner_label">TRUSTED PROFESSIONALS</div> 
     </div>
-    <div class="col-md-2">
+    <div class="col-md-4">
+      <div class="login-box" *ngIf="loginBox">
+        <mat-form-field class="input-box" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="" value="">
+        </mat-form-field>
+        <mat-form-field class="input-box" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'">
+      </mat-form-field>
+      <br /><br />
+      <button class="btn">Confirm</button>
+      </div>
     </div>
   </div>
+
 
   <div class="row d-flex align-items-center">
     <img src="assets/homepage1.png" class="photo_stretch" >
