@@ -115,6 +115,7 @@
     color: #52796F ;
 }
 
+
 /* FOOTER */
 
 .footer {
@@ -147,8 +148,8 @@ hr{
 }
 
 .link_title {
-    color: rgb(19, 103, 168);;
-    font-weight: bolder;
+    color: #354F52;
+    font-weight: bold;
     font-size: 24px;
     margin-bottom: 20px;
 }
