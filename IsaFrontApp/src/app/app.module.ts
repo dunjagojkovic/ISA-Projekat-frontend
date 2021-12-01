@@ -12,6 +12,8 @@ import { CottageProfilesClientComponent } from './cottage-profiles-client/cottag
 import { HomepageClientComponent } from './homepage-client/homepage-client.component';
 import { BoatProfilesClientComponent } from './boat-profiles-client/boat-profiles-client.component';
 import { InstructorProfilesClientComponent } from './instructor-profiles-client/instructor-profiles-client.component';
+import { ClientProfileComponent } from './client-profile/client-profile.component';
+
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -20,7 +22,6 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HomepageClientComponent,
     CottageProfilesClientComponent,
     BoatProfilesClientComponent,
-    InstructorProfilesClientComponent
+    InstructorProfilesClientComponent,
+    ClientProfileComponent
   ],
   imports: [
     BrowserModule,
