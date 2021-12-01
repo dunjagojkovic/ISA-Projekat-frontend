@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { FrontPageComponent } from './front-page/front-page.component';
-import { LoginComponent } from './login/login.component';
 import { CottageProfilesClientComponent } from './cottage-profiles-client/cottage-profiles-client.component';
 import { HomepageClientComponent } from './homepage-client/homepage-client.component';
 import { BoatProfilesClientComponent } from './boat-profiles-client/boat-profiles-client.component';
@@ -21,6 +20,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import {MatListModule} from '@angular/material/list';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -29,7 +30,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppComponent,
     RegistrationComponent,
     FrontPageComponent,
-    LoginComponent,
     CottageProfilesClientComponent,
     BoatProfilesClientComponent,
     InstructorProfilesClientComponent,
@@ -45,7 +45,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatToolbarModule,
     MatIconModule,
     MatInputModule,
+    MatCardModule,
     MatSelectModule,
+    MatListModule,
     NgbModule
   ],
   providers: [],
