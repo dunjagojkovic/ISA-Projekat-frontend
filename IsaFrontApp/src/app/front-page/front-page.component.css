@@ -104,6 +104,7 @@
 
 .frontpage_gray_banner {
     background: #CAD2C5;    
+    color: #354F52;
     height: 400px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-top: 2%;
@@ -236,12 +237,13 @@ hr{
     border-radius: 20px;
     border: 3px solid #52796F ;
     color: #354F52;
+    background-color: white;
     font-weight: bold;
     padding: 10px 0px 10px 0px !important;
-    position: relative;
-    left: 530%;
-    top: 1%;
-    width: 200px;
+    position: absolute;
+    top: 2%;
+    right: 1%;
+    width: 120px;
     height: 50px;
     cursor: pointer;
     font-size: 16px;
