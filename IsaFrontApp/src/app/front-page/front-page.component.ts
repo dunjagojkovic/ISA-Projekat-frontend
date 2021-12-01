@@ -11,11 +11,10 @@ export class FrontPageComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  ngOnInit(): void {
-  }
+  loginBox : boolean = false;
+  hide = true;
 
-  switchPage(){
-    this.router.navigate(['login'])
+  ngOnInit(): void {
   }
 
 }

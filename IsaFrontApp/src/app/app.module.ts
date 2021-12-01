@@ -30,11 +30,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RegistrationComponent,
     FrontPageComponent,
     LoginComponent,
-    HomepageClientComponent,
     CottageProfilesClientComponent,
     BoatProfilesClientComponent,
     InstructorProfilesClientComponent,
-    ClientProfileComponent
+    ClientProfileComponent,
+    HomepageClientComponent
   ],
   imports: [
     BrowserModule,
