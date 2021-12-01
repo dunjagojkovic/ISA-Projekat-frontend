@@ -17,8 +17,4 @@ export class FrontPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  switchPage(){
-    this.router.navigate(['login'])
-  }
-
 }
