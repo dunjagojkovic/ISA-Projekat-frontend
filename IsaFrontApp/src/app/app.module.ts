@@ -23,6 +23,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HomepageHouseOwnerComponent } from './homepage-house-owner/homepage-house-owner.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BoatProfilesClientComponent,
     InstructorProfilesClientComponent,
     ClientProfileComponent,
-    HomepageClientComponent
+    HomepageClientComponent,
+    HomepageHouseOwnerComponent
   ],
   imports: [
     BrowserModule,
