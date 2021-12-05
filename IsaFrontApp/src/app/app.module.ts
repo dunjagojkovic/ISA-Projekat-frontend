@@ -44,8 +44,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ProfileSettingsComponent,
     CottagesClientComponent,
     BoatsClientComponent,
-    InstructorsClientComponent
-    ClientProfileComponent,
+    InstructorsClientComponent,
     HomepageClientComponent,
     HomepageHouseOwnerComponent,
     SettingsHouseOwnerComponent
