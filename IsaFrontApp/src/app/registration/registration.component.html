@@ -13,6 +13,12 @@
 </div>
 
 <div class="example-form">
+  <mat-form-field class="input-box" appearance="outline">
+    <mat-label>Registration type</mat-label>
+    <mat-select>
+      <mat-option></mat-option>
+    </mat-select>
+  </mat-form-field>
     <mat-form-field class="input-box" appearance="outline">
       <mat-label>Email</mat-label>
       <input matInput placeholder="" value="">
@@ -45,15 +51,9 @@
         <mat-label>Telephone number</mat-label>
         <input matInput placeholder="" value="">
     </mat-form-field>  
-    <mat-form-field class="input-box" appearance="outline">
-        <mat-label>Registration type</mat-label>
-        <mat-select>
-          <mat-option></mat-option>
-        </mat-select>
-    </mat-form-field>
-    <mat-form-field class="input-box" appearance="outline">
-        <mat-label>Reason</mat-label>
-        <input matInput placeholder="" value="">
+    <mat-form-field class="text-area" appearance="outline">
+      <mat-label>Reason</mat-label>
+      <textarea matInput></textarea>
     </mat-form-field>
     <mat-form-field class="input-box" appearance="outline">
         <mat-label>Password</mat-label>

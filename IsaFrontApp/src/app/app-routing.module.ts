@@ -8,6 +8,8 @@ import { BoatProfilesClientComponent} from './boat-profiles-client/boat-profiles
 import { InstructorProfilesClientComponent } from './instructor-profiles-client/instructor-profiles-client.component';
 import { HomepageClientComponent } from './homepage-client/homepage-client.component';
 import { ClientProfileComponent } from './client-profile/client-profile.component';
+import { HomepageHouseOwnerComponent } from './homepage-house-owner/homepage-house-owner.component';
+import { SettingsHouseOwnerComponent } from './homepage-house-owner/settings-house-owner/settings-house-owner.component';
 
 const routes: Routes = [
   { path: '', component: FrontPageComponent},
@@ -16,7 +18,10 @@ const routes: Routes = [
   { path: "boats", component: BoatProfilesClientComponent},
   { path: "instructors", component: InstructorProfilesClientComponent},
   { path: "home-client", component: HomepageClientComponent},
-  { path: "client-profile", component: ClientProfileComponent}
+  { path: "client-profile", component: ClientProfileComponent},
+  { path: "home-house-owner", component: HomepageHouseOwnerComponent},
+  { path: "settings-house-owner", component: SettingsHouseOwnerComponent}
+
 ];
 
 @NgModule({

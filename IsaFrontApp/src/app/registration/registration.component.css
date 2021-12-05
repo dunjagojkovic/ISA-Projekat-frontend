@@ -49,6 +49,16 @@
     font-weight: bold;
   }
 
+  .text-area {
+    width: 380px;
+    color: #354F52;
+    align-items: center;
+    height: 80px;
+    border-bottom: 5px;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+
   ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
     color: #354F52!important;
     font-weight: bold;
