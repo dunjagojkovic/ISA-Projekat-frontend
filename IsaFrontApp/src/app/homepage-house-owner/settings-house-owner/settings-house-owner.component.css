@@ -27,7 +27,7 @@
     text-transform: uppercase;
     font-weight: bolder;
     display: inline-block;
-    margin-left: 15px;
+    margin-left: 13px;
     margin-right: 15px;
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
@@ -78,29 +78,17 @@
     margin-top: 2%;
 }
 
-.login-btn{
-    border-radius: 20px;
-    border: 3px solid #84A98C ;
-    color:white;
-    background-color: #84A98C;
-    font-weight: bold;
-    padding: 10px 0px 10px 0px !important;
-    position: absolute;
-    top: 2%;
-    right: 1%;
-    width: 120px;
-    height: 44px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-}
-
 .frontpage_gray_banner_label {
     padding-bottom: 50px;
     text-align: center;
     font-size: 52px;
     display: inline-block;
     vertical-align: center;
+}
+
+
+.footer-down {
+    margin-top: 540px;
 }
 
 .footer {
@@ -159,4 +147,107 @@
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
+}
+
+.example-form {
+    position: absolute;
+    left: 29%;
+    height: max-content;
+    width: 1000px;
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  .input-box {
+    width: 320px;
+    color: #354F52;
+    align-items: center;
+    height: 58px;
+    margin-bottom: 5px;
+    border-radius: 15px;
+    margin-inline: 5px;
+    font-weight: bold;
+  }
+
+  .text-area {
+    width: 380px;
+    color: #354F52;
+    align-items: center;
+    height: 80px;
+    border-bottom: 5px;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+
+  .reason-area {
+    width: 660px;
+    color: #354F52;
+    position: relative;
+    left: 19%;
+    height: 80px;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+
+  ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #354F52!important;
+    font-weight: bold;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #354F52!important;
+    font-weight: bold;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: #354F52!important;
+  font-weight: bold;
+}
+
+  .example-right-align {
+    text-align: right;
+  }
+  
+  .double-input {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    left: 7.5%;
+  }
+
+  .btn {
+    color:#ebf0e9;
+    background-color: #84A98C;
+    border-radius: 20px;
+    height: 48px;
+    font-size: 18px;
+    width: 200px;
+    margin-bottom: 20px;
+    position: relative;
+    margin-left: 30px;
+    top: 34%;
+    right: 10.8%;
+  }
+
+  .reason-btn {
+    color:#ebf0e9;
+    background-color: #84A98C;
+    border-radius: 20px;
+    height: 48px;
+    font-size: 18px;
+    width: 200px;
+    margin-top: 10px;
+    position: relative;
+    left: 50%;
+  }
+
+  .heading {
+      position: relative;
+      left: 44%;
+      margin-top: 25px;
+  }
+
+  .delete-box{
+    width: 400px;
+    height: 250px;
 }

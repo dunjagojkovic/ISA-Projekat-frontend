@@ -24,6 +24,7 @@ import { MatCardModule } from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomepageHouseOwnerComponent } from './homepage-house-owner/homepage-house-owner.component';
+import { SettingsHouseOwnerComponent } from './homepage-house-owner/settings-house-owner/settings-house-owner.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { HomepageHouseOwnerComponent } from './homepage-house-owner/homepage-hou
     InstructorProfilesClientComponent,
     ClientProfileComponent,
     HomepageClientComponent,
-    HomepageHouseOwnerComponent
+    HomepageHouseOwnerComponent,
+    SettingsHouseOwnerComponent
   ],
   imports: [
     BrowserModule,
