@@ -15,7 +15,8 @@ import { ProfileSettingsComponent } from './homepage-client/profile-settings/pro
 import { CottagesClientComponent } from './homepage-client/cottages-client/cottages-client.component';
 import { BoatsClientComponent } from './homepage-client/boats-client/boats-client.component';
 import { InstructorsClientComponent } from './homepage-client/instructors-client/instructors-client.component';
-
+import { HomepageHouseOwnerComponent } from './homepage-house-owner/homepage-house-owner.component';
+import { SettingsHouseOwnerComponent } from './homepage-house-owner/settings-house-owner/settings-house-owner.component';
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -27,6 +28,7 @@ import {MatListModule} from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 
@@ -43,6 +45,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CottagesClientComponent,
     BoatsClientComponent,
     InstructorsClientComponent
+    ClientProfileComponent,
+    HomepageClientComponent,
+    HomepageHouseOwnerComponent,
+    SettingsHouseOwnerComponent
   ],
   imports: [
     BrowserModule,
