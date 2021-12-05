@@ -1,0 +1,120 @@
+<div class="row d-flex align-items-center w-100">
+  <div class="col-md-2">
+  </div>
+  <div class="col-md-8 website_name_label">
+   BOOKING AGENCY
+  </div>
+  <div class="col-md-2">
+  </div>
+  <img src="assets/user.png" class="profile" [routerLink]="['/settings-client']">
+</div>
+  
+  <div class="row d-flex align-items-center w-100">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <nav class="navMenu">
+        <a href="cottages-client" style="float:none">Cottages</a>
+        <a href="boats-client" style="float:none">Boats</a>
+        <a href="instructors-client" style="float:none">Instructors</a>
+        <a href="/#" style="float:none">Reservations</a>
+        <a href="/#" style="float:none">Sales</a>
+        <a href="/#" style="float:none">Complaints</a>
+        <a href="/#" style="float:none">Penalty</a>
+      </nav>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div> 
+   
+  <div class="row d-flex align-items-center frontpage_gray_banner">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
+      <div class="row d-flex align-items-center frontpage_gray_banner_label">BOOKING AGENCY:</div>
+      <div class="row d-flex align-items-center frontpage_gray_banner_label">TRUSTED PROFESSIONALS</div>
+    </div>
+    <div class="col-md-2">
+    </div>
+  </div>
+
+  <mat-toolbar class="navMenu">      
+    <div class="row d-flex align-items-center w-100">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <nav class="navMenu" style="font-size: 15px;">
+          <a style="float:none; max-width: 20px; ">Sort by  
+                  <mat-select style="max-width: 20px;" [formControl]="sortingList" multiple>
+                      <mat-option *ngFor="let sortingValue of sortingList" [value]="sortingValue">{{sortingValue}}</mat-option>
+                    </mat-select>           
+          </a>                 
+          <a style="float:none">Dates and price</a>
+          <a style="float:none">View on map</a>
+        </nav>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div>  
+    </mat-toolbar>
+
+  <div class="row d-flex align-items-center cottages-panel">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6">
+      <div class="row d-flex align-items-center h-100" style="background-color: white; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <div class="col-md-6 h-100">
+          <div class="cottages-left-col">
+            <h1>Naziv kuce</h1>
+            <h2>Adresa kuce</h2>
+            <br>
+            <h3> Ostali podaci</h3>
+            <form>           
+              <div class="btn-box">
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img src="assets/boat.Newspng.jpg" style="width: 100%; height: 400px;">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>
+
+
+  
+  
+
+<div class="row d-flex align-items-center footer">
+  <div class="col-md-3">
+    <h2 class="link_title">Product</h2>
+    <h4 class="link_subtitle">Our plan</h4>
+    <h4 class="link_subtitle">Free trial</h4>
+  </div>
+  <div class="col-md-3">
+    <h2 class="link_title">About us</h2>
+    <h4 class="link_subtitle">Request demo</h4>
+    <h4 class="link_subtitle">FAQs</h4>
+  </div>
+  <div class="col-md-3">
+    <h2 class="link_title">Support</h2>
+    <h4 class="link_subtitle">Services</h4>
+    <h4 class="link_subtitle">Contact us</h4>
+  </div>
+  <div class="col-md-3">
+    <h2 class="link_title">Product</h2>
+    <h4 class="link_subtitle">Our plan</h4>
+    <h4 class="link_subtitle">Free trial</h4>
+  </div>
+</div>
+
+
+  
+
+  
+
+
+  

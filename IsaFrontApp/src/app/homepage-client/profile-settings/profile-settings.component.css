@@ -183,3 +183,23 @@
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
+*{
+    margin: 0;
+    padding: 0;
+ }
+
+.toolbar {
+    background-color: #ebf0e9;
+    color: #52796F;
+    font-size: 24px;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.icon {
+      background-color:#ebf0e9;
+      color: #52796F;
+}
