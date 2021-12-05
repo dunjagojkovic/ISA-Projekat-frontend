@@ -132,10 +132,54 @@
     vertical-align: center;
 }
 
-.user-icon{
-    width: 37px;
-    position: relative;
+.profile {
+    position: absolute;
     top: 2%;
-    right: 2%;
-    left: 13%;
+    right: 1%;
+    width: 37px;
+    height: 37px;
+    cursor: pointer;
+}
+
+
+.footer {
+    align-content: right;
+    padding-left:20px !important;
+    padding-right:20px !important;
+    padding-top:15px !important;
+    padding-bottom:10px !important;
+    text-align: center;
+    background: #ebf0e9;
+}
+
+
+.footer-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-links{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.link_title {
+    color: #354F52;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.link_subtitle {
+    font-weight: bold;
+}
+
+.footer-info{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
