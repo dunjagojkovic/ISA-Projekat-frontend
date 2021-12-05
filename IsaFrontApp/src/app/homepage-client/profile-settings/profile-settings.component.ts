@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile-settings.component.css']
 })
 export class ProfileSettingsComponent implements OnInit {
-  hide = true;
   constructor() { }
+  deleteAccountBox : boolean = false;
+  hide = true;
+
 
   ngOnInit(): void {
   }
