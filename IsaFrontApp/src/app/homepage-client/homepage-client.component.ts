@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
 export class HomepageClientComponent implements OnInit {
 
   constructor(private router: Router) { }
-  
+   deleteAccountBox : boolean = false;
+  hide = true;
+
 
   ngOnInit(): void {
   }

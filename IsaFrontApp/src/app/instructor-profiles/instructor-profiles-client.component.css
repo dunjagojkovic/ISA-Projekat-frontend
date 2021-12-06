@@ -87,37 +87,6 @@
     vertical-align: center;
 }
 
-
-.cottages-card {
-    background-color: whitesmoke;
-    margin-top: 65px;
-    background: -webkit-linear-gradient(to border-bottom, rgb(245, 245, 245), rgb(255, 255, 255));
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin-bottom: 5%;
-}
-
-.staff-card {
-    max-width: 850px;
-    min-width: 800px;
-    text-align: justify;
-    display: flex;
-    margin-top: 45px;
-    margin-bottom: 45px;
-    margin-left: 6%;
-    background-color: whitesmoke;
-}
-
-.hospital-title, .staff-title, .doctor-title {
-    margin-top: 5%;
-    margin-left: 2%;
-    font-size: 30px;
-    font-weight: bold;
-    color: #52796F ;
-}
-
-
-/* FOOTER */
-
 .footer {
     align-content: right;
     padding-left:20px !important;
@@ -128,11 +97,6 @@
     background: whitesmoke;
 }
 
-hr{
-    width:100%;
-    border: 0;
-    border-top: 1px solid #b3cfee;
-}
 
 .footer-row{
     display: flex;
@@ -165,3 +129,16 @@ hr{
     flex-wrap: wrap;
 }
 
+
+.cottages-panel {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background: whitesmoke;
+    background: -webkit-linear-gradient(to border-bottom, rgb(245, 245, 245), rgb(255, 255, 255));
+    background: linear-gradient(to border-bottom, rgb(245, 245, 245), rgb(255, 255, 255))
+}
+
+.cottages-left-col-left-col h1{
+    margin-left: 30%;
+    font-weight: bolder;
+}
