@@ -1,5 +1,5 @@
 import { Component, OnInit, Type } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
 
@@ -10,7 +10,8 @@ import { ApiService } from '../api.service';
 })
 export class RegistrationComponent implements OnInit {
   form: FormGroup;
-
+  
+  
   hide = true;
 
   constructor(

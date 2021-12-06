@@ -16,12 +16,13 @@
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <mat-form-field class="input-box" appearance="outline">
     <mat-label>Registration type</mat-label>
-    <mat-select>
-      <mat-option>Client</mat-option>
-      <mat-option>House owner</mat-option>
-      <mat-option>Boat owner</mat-option>
-      <mat-option>Instructor</mat-option>
-    </mat-select>
+   <mat-select formControlName="type">
+    <mat-option value="Client">Client</mat-option>
+    <mat-option value="House owner">House owner</mat-option>
+    <mat-option value="Boat owner">Boat owner</mat-option>
+    <mat-option value="Instructor">Instructor</mat-option>
+    <mat-option value="Admin">Admin</mat-option>
+     </mat-select>  
   </mat-form-field>
     <mat-form-field class="input-box" appearance="outline" >
       <mat-label>Email</mat-label>
@@ -30,7 +31,7 @@
     <div class="double-input">
     <mat-form-field class="input-box-small" appearance="outline">
         <mat-label>Name</mat-label>
-        <input matInput placeholder="" value="">
+        <input matInput placeholder="" value="" formControlName="name">
     </mat-form-field>
     <mat-form-field class="input-box-small" appearance="outline">
         <mat-label>Surname</mat-label>
