@@ -45,10 +45,10 @@
       <div class="col-md-4">
         <nav class="navMenu" style="font-size: 15px;">
           <a style="float:none; max-width: 20px; ">Sort by  
-                  <mat-select style="max-width: 20px;" [formControl]="sortingList" multiple>
+                  <!-- <mat-select style="max-width: 20px;" [formControl]="sortingList" multiple> -->
                       <mat-option *ngFor="let sortingValue of sortingList" [value]="sortingValue">{{sortingValue}}</mat-option>
-                    </mat-select>           
-          </a>                 
+                   <!-- </mat-select> -->           
+                  </a>                 
           <a style="float:none">Dates and price</a>
           <a style="float:none">View on map</a>
         </nav>
