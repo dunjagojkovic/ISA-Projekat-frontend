@@ -11,7 +11,7 @@ import { ApiService } from '../api.service';
 export class RegistrationComponent implements OnInit {
   form: FormGroup;  
   hide = true;
-  isClientSelected: boolean | undefined;
+
 
   constructor(
     private formBuilder : FormBuilder,
@@ -82,16 +82,7 @@ export class RegistrationComponent implements OnInit {
     
     }
 
-    selectInput(event : any) {
-      let selected = event.target.value;
-      if (selected == "Client") {
-        this.isClientSelected = true;
-        this.hide = true;
-      } else {
-        this.isClientSelected = false;
-        this.hide = false;
-      }
-    }
+
 
 
     
