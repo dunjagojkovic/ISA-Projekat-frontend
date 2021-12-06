@@ -9,26 +9,26 @@ import { ApiService } from '../api.service';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-  form: FormGroup;
-  
-  
+  form: FormGroup;  
   hide = true;
+  isClientSelected: boolean | undefined;
 
   constructor(
     private formBuilder : FormBuilder,
     private router: Router,
     private api: ApiService
+   
     ) {
 
     this.form = this.formBuilder.group({
-      name: ['', Validators.required],
-      surname: ['', Validators.required],
+      name: ['', Validators.pattern('[a-zA-Z]*')],
+      surname: ['', Validators.pattern('[a-zA-Z]*')],
       email: ['', Validators.email],
       password: ['', Validators.required],
       address: ['', Validators.required],
-      city: ['', Validators.required],
-      country: ['', Validators.required],
-      phoneNumber: ['', Validators.required],
+      city: ['', Validators.pattern('[a-zA-Z ]*')],
+      country: ['', Validators.pattern('[a-zA-Z ]*')],
+      phoneNumber: ['', Validators.minLength(10)],
       description: ['', Validators.required],
       type: ['', Validators.required]
 
@@ -39,9 +39,8 @@ export class RegistrationComponent implements OnInit {
   }
 
   onSubmit() {
-    //if(this.form.valid) 
-
-    try {
+    if(this.form.valid) {
+    
       const name = this.form.get('name')?.value;
       const surname = this.form.get('surname')?.value;
       const email = this.form.get('email')?.value;
@@ -78,11 +77,26 @@ export class RegistrationComponent implements OnInit {
       else {
         this.api.registerClient(data).subscribe( (any: any) => this.router.navigate(['/']));
       }
+      
+    }  
+    
     }
-    catch {
-      this.router.navigate(['/'])
+
+    selectInput(event : any) {
+      let selected = event.target.value;
+      if (selected == "Client") {
+        this.isClientSelected = true;
+        this.hide = true;
+      } else {
+        this.isClientSelected = false;
+        this.hide = false;
+      }
     }
+
+
+    
   }
+  
 
+ 
 
-}
