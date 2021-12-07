@@ -13,6 +13,7 @@ import { BoatsClientComponent } from './homepage-client/boats-client/boats-clien
 import { InstructorsClientComponent } from './homepage-client/instructors-client/instructors-client.component';
 import { HomepageHouseOwnerComponent } from './homepage-house-owner/homepage-house-owner.component';
 import { SettingsHouseOwnerComponent } from './homepage-house-owner/settings-house-owner/settings-house-owner.component';
+import { HistoryHouseOwnerComponent } from './homepage-house-owner/history-house-owner/history-house-owner.component';
 
 
 const routes: Routes = [
@@ -27,7 +28,8 @@ const routes: Routes = [
   { path: "boats-client", component: BoatsClientComponent},
   { path: "instructors-client", component: InstructorsClientComponent},
   { path: "home-house-owner", component: HomepageHouseOwnerComponent},
-  { path: "settings-house-owner", component: SettingsHouseOwnerComponent}
+  { path: "settings-house-owner", component: SettingsHouseOwnerComponent},
+  { path: "history-house-owner", component: HistoryHouseOwnerComponent}
 
 ];
 

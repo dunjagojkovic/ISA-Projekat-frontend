@@ -30,6 +30,7 @@ import { MatInputModule } from '@angular/material/input';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HttpClientModule } from '@angular/common/http';
+import { HistoryHouseOwnerComponent } from './homepage-house-owner/history-house-owner/history-house-owner.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { HttpClientModule } from '@angular/common/http';
     InstructorsClientComponent,
     HomepageClientComponent,
     HomepageHouseOwnerComponent,
-    SettingsHouseOwnerComponent
+    SettingsHouseOwnerComponent,
+    HistoryHouseOwnerComponent
   ],
   imports: [
     BrowserModule,
