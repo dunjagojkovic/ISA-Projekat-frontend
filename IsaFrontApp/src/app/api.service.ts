@@ -24,7 +24,11 @@ export class ApiService {
     return this.http.post(this.baseURL + "/api/users/client/register", data);
   }
 
-  registerOwner(data: any) {
-    return this.http.post(this.baseURL + "/api/users/owner/register", data);
+  registerHouseOwner(data: any) {
+    return this.http.post(this.baseURL + "/api/users/house-owner/register", data);
+  }
+
+  registerBoatOwner(data: any) {
+    return this.http.post(this.baseURL + "/api/users/boat-owner/register", data);
   }
 }
