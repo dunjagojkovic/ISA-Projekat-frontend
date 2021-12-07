@@ -31,4 +31,9 @@ export class ApiService {
   registerBoatOwner(data: any) {
     return this.http.post(this.baseURL + "/api/users/boat-owner/register", data);
   }
+
+  loginUser(data: any) {
+    return this.http.post(this.baseURL + "/api/users/login", data);
+
+  }
 }
