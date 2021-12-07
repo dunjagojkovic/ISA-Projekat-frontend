@@ -86,6 +86,80 @@
     vertical-align: center;
 }
 
+.big-panel {
+    margin-top: 2%;
+}
+
+.toolbar {
+    display: flex;
+    align-items: center;
+}
+
+.btn-review{
+    border-radius: 20px;
+    border: 3px solid #52796F;
+    color:white;
+    background-color: #52796F;
+    font-weight: bold;
+    padding: 10px 0px 10px 0px !important;
+    width: 120px;
+    height: 44px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 34%;
+}
+
+.panel-middle {
+    margin-top: 2%;
+    margin-bottom: 4%;
+    height: max-content;
+    width: 1890px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.rooms-table {
+    display: block;
+    background-color: white;
+  }
+  
+  .rooms-table th {
+    display: inline-block;
+    padding: 15px 101.5px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    text-transform: uppercase;
+    background: #52796F;
+  }
+  
+  .rooms-table tbody {
+    display: inline-block;
+    height: 300px;
+    overflow-y: scroll;
+    background: #CAD2C5;
+    scrollbar-color: #84A98C;
+    width: 1060px;
+  }
+  
+  .rooms-table thead {
+    width: 560px;
+  }
+  
+  .rooms-table tbody tr {
+    height: 15px;
+  }
+  
+  .rooms-table td {
+    padding: 10px;  
+    font-size: 16px;
+    color: #52796F;
+    font-weight: bold;
+    word-wrap: break-word;
+  }
 
 .footer {
     align-content: right;
