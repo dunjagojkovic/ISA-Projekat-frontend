@@ -69,13 +69,10 @@ export class RegistrationComponent implements OnInit {
         this.api.registerClient(data).subscribe( (any: any) => this.router.navigate(['/']));
       }
       else if (type == "House owner"){
-        this.api.registerClient(data).subscribe( (any: any) => this.router.navigate(['/']));
+        this.api.registerOwner(data).subscribe( (any: any) => this.router.navigate(['/']));
       }
       else if (type == "Boat owner"){
-        this.api.registerClient(data).subscribe( (any: any) => this.router.navigate(['/']));
-      }
-      else {
-        this.api.registerClient(data).subscribe( (any: any) => this.router.navigate(['/']));
+        this.api.registerOwner(data).subscribe( (any: any) => this.router.navigate(['/']));
       }
       
     }  
