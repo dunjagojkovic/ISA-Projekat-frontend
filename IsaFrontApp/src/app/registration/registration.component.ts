@@ -25,6 +25,7 @@ export class RegistrationComponent implements OnInit {
       surname: ['', Validators.pattern('[a-zA-Z]*')],
       email: ['', Validators.email],
       password: ['', Validators.required],
+      passwordRepeat: ['', Validators.required],
       address: ['', Validators.required],
       city: ['', Validators.pattern('[a-zA-Z ]*')],
       country: ['', Validators.pattern('[a-zA-Z ]*')],
@@ -40,17 +41,24 @@ export class RegistrationComponent implements OnInit {
 
   onSubmit() {
     if(this.form.valid) {
-    
+
       const name = this.form.get('name')?.value;
       const surname = this.form.get('surname')?.value;
       const email = this.form.get('email')?.value;
       const password = this.form.get('password')?.value;
+      const passwordRepeat = this.form.get('passwordRepeat')?.value;
       const address = this.form.get('address')?.value;
       const city = this.form.get('city')?.value;
       const country = this.form.get('country')?.value;
       const phoneNumber = this.form.get('phoneNumber')?.value;
       const description = this.form.get('description')?.value;
       const type = this.form.get('type')?.value;
+
+      if(passwordRepeat != password) {
+        alert('Passwords do not match')
+        return;
+      }
+
 
       let data = {
         name: name,
@@ -66,7 +74,12 @@ export class RegistrationComponent implements OnInit {
       }
 
       if(type == "Client") {
-        this.api.registerClient(data).subscribe( (any: any) => this.router.navigate(['/']));
+        this.api.registerClient(data).subscribe( (any: any) => {
+
+          this.router.navigate(['/'])
+        }, error => {
+          alert('Email already exists')
+        });
       }
       else if (type == "House owner"){
         this.api.registerHouseOwner(data).subscribe( (any: any) => this.router.navigate(['/']));
