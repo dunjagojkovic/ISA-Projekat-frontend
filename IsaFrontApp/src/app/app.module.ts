@@ -16,7 +16,6 @@ import { BoatsClientComponent } from './homepage-client/boats-client/boats-clien
 import { InstructorsClientComponent } from './homepage-client/instructors-client/instructors-client.component';
 import { HomepageHouseOwnerComponent } from './homepage-house-owner/homepage-house-owner.component';
 import { SettingsHouseOwnerComponent } from './homepage-house-owner/settings-house-owner/settings-house-owner.component';
-import { InstructorProfilesClientComponent } from './instructor-profiles/instructor-profiles-client.component';
 
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,10 +26,10 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 @NgModule({
@@ -61,12 +60,11 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatSelectModule,
     MatListModule,
-    MatFormFieldModule,
     NgbModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatDatepickerModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent],

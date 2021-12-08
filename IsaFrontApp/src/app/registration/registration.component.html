@@ -67,7 +67,7 @@
     </mat-form-field>
     <mat-form-field class="input-box" appearance="outline">
         <mat-label>Confirm password</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="passwordRepeat">
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
