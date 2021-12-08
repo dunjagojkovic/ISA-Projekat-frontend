@@ -19,6 +19,7 @@ import { SettingsHouseOwnerComponent } from './homepage-house-owner/settings-hou
 
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
@@ -27,7 +28,6 @@ import { MatCardModule } from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
@@ -61,7 +61,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatSelectModule,
     MatListModule,
     NgbModule,
-    FormsModule, ReactiveFormsModule, HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     MatFormFieldModule
   ],
   providers: [],
