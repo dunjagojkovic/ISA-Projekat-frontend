@@ -28,26 +28,27 @@
   
   
   <div class="row d-flex align-items-center frontpage_gray_banner">
-    <div class="col-md-2">
-    </div>
+    <div class="col-md-2"></div>
     <div class="col-md-6">
       <div class="row d-flex align-items-center frontpage_gray_banner_label">BOOKING AGENCY:</div>
       <div class="row d-flex align-items-center frontpage_gray_banner_label">TRUSTED PROFESSIONALS</div> 
     </div>
     <div class="col-md-4">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="login-box" *ngIf="loginBox">
-        <mat-form-field class="input-box" appearance="outline">
-          <mat-label>Email</mat-label>
-          <input matInput placeholder="" value="">
+          <mat-form-field class="input-box" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="" value="" formControlName="email">
+          </mat-form-field>
+          <mat-form-field class="input-box" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
         </mat-form-field>
-        <mat-form-field class="input-box" appearance="outline">
-          <mat-label>Password</mat-label>
-          <input matInput [type]="hide ? 'password' : 'text'">
-      </mat-form-field>
-      <br /><br />
-      <button class="btn">Confirm</button>
-      </div>
+        <br /><br />
+        <button class="btn">Confirm</button>
     </div>
+  </form>
+  </div>
   </div>
 
 

@@ -82,10 +82,19 @@ export class RegistrationComponent implements OnInit {
         });
       }
       else if (type == "House owner"){
-        this.api.registerHouseOwner(data).subscribe( (any: any) => this.router.navigate(['/']));
+        this.api.registerHouseOwner(data).subscribe( (any: any) => {
+
+          this.router.navigate(['/'])
+        },  error => {
+          alert('Email already exists')
+        });
       }
       else if (type == "Boat owner"){
-        this.api.registerBoatOwner(data).subscribe( (any: any) => this.router.navigate(['/']));
+        this.api.registerBoatOwner(data).subscribe( (any: any) => {
+          this.router.navigate(['/'])
+        },  error => {
+          alert('Email already exists')
+        });
       }
       
     }  
