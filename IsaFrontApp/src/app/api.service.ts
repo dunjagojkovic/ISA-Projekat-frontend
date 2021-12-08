@@ -13,11 +13,19 @@ export class ApiService {
   getAuthoHeader() : any {
     const headers = {
       'Content-Type': 'application/json',
-      'Authorization' : 'Bearer' + localStorage.getItem("token")
+      'Authorization' : 'Bearer ' + localStorage.getItem("token")
     }
     return{
       headers: headers
     };
+  }
+
+  login(data: any) {
+    return this.http.post(this.baseURL + "/api/users/login", data);
+  }
+
+  current() {
+    return this.http.get(this.baseURL + "/api/users/current", this.getAuthoHeader());
   }
 
   registerClient(data: any) {
