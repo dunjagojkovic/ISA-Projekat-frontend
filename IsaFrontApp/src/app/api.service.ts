@@ -52,4 +52,12 @@ export class ApiService {
     return this.http.get(this.baseURL + "/api/homes/my", this.getAuthoHeader());
   }
 
+  loadHousesForClients(){
+    return this.http.get(this.baseURL + "/api/homes/home-profiles", this.getAuthoHeader());
+  }
+
+  loadHousesForAllUsers(){
+    return this.http.get(this.baseURL + "/api/homes/home-profiles", this.getAuthoHeader());
+  }
+
 }

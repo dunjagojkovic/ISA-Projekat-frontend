@@ -8,13 +8,14 @@ import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { FrontPageComponent } from './front-page/front-page.component';
 import { CottageProfilesClientComponent } from './cottage-profiles/cottage-profiles-client.component';
-import { HomepageClientComponent } from './homepage-client/homepage-client.component';
-import { BoatProfilesComponent } from './boat-profiles/boat-profiles.component';
-import { ProfileSettingsComponent } from './homepage-client/profile-settings/profile-settings.component';
 import { CottagesClientComponent } from './homepage-client/cottages-client/cottages-client.component';
+import { BoatProfilesComponent } from './boat-profiles/boat-profiles.component';
 import { BoatsClientComponent } from './homepage-client/boats-client/boats-client.component';
 import { InstructorsClientComponent } from './homepage-client/instructors-client/instructors-client.component';
+import { InstructorProfilesClientComponent } from './instructor-profiles/instructor-profiles-client.component';
+import { HomepageClientComponent } from './homepage-client/homepage-client.component';
 import { HomepageHouseOwnerComponent } from './homepage-house-owner/homepage-house-owner.component';
+import { ProfileSettingsComponent } from './homepage-client/profile-settings/profile-settings.component';
 import { SettingsHouseOwnerComponent } from './homepage-house-owner/settings-house-owner/settings-house-owner.component';
 
 
