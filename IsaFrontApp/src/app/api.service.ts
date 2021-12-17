@@ -60,4 +60,8 @@ export class ApiService {
     return this.http.get(this.baseURL + "/api/homes/home-profiles", this.getAuthoHeader());
   }
 
+  loadBoatsForClients(){
+    return this.http.get(this.baseURL + "/api/boats/boat-profiles", this.getAuthoHeader())
+  }
+
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
-
+import { Router } from '@angular/router';
+import { ApiService } from 'src/app/api.service';
 
 @Component({
   selector: 'app-boats-client',
@@ -9,11 +10,17 @@ import {FormControl} from '@angular/forms';
 })
 export class BoatsClientComponent implements OnInit {
 
-  constructor() { }
-  sortingValue = new FormControl();
-  sortingList: string[] = ['Name', 'Location', 'Rate'];
+  boats = [] as any
+ 
+  constructor(
+    private router: Router,
+    private api: ApiService   
+  ) { }
 
   ngOnInit(): void {
+    this.api.loadBoatsForClients().subscribe((response:any) => {
+      this.boats = response;
+    });
   }
 
 }

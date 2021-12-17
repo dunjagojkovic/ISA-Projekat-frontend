@@ -27,16 +27,32 @@
     </div>
   </div> 
    
+  
   <div class="row d-flex align-items-center frontpage_gray_banner">
     <div class="col-md-2">
     </div>
-    <div class="col-md-8">
-      <div class="row d-flex align-items-center frontpage_gray_banner_label">BOOKING AGENCY:</div>
-      <div class="row d-flex align-items-center frontpage_gray_banner_label">TRUSTED PROFESSIONALS</div>
+    <div class="col-md-6">
+      <div class="row d-flex align-items-center frontpage_gray_banner_label">Welcome,</div>
+      <div class="row d-flex align-items-center frontpage_gray_banner_label">...</div> 
     </div>
-    <div class="col-md-2">
-    </div>
+    <div class="col-md-4"></div>
   </div>
+
+  <mat-toolbar class="navMenu" style="cursor: pointer; margin-top: 2%; align-items: left;">      
+    <div class="row d-flex align-items-center w-100">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <nav class="navMenu" style="font-size: 15px;">            
+          <a style="float:none">Sort by</a>
+          <a style="float:none">Dates and price</a>
+          <a style="float:none">View on map</a>
+        </nav>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div>  
+    </mat-toolbar>
 
  
 
@@ -47,9 +63,9 @@
       <mat-card-subtitle style="font-weight: bold; font-size: 16px; margin-top: 2%;">{{h.address}}</mat-card-subtitle>
       <br>
       <mat-card-content style="width: 400px; font-weight: bold; font-size: 16px;">
-        <p>Price: {{h.pricelist}}e</p>
+        <p>Price: {{h.pricelist}}e per week</p>
         <p>Number of rooms: {{h.numberOfRooms}}</p>
-        <p>Number of beds: {{h.numberOfBeds}}</p>
+        <p>Sleeps: Up to {{h.numberOfBeds}} people</p>
         <p>Rules: {{h.behaviourRules}}</p>
         <p>Extra service: {{h.extraService}}</p>
         <p>Description: {{h.promoDescription}}</p>
