@@ -35,6 +35,7 @@ export class HomepageHouseOwnerComponent implements OnInit {
 
      }
 
+  addHouseBox : boolean = false;
   images: any;
 
   ngOnInit(): void {

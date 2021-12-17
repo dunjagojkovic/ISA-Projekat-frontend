@@ -194,12 +194,12 @@
 
 .example-form {
     position: relative;
-    margin-left: 28%;
+    margin-left: 27.5%;
     margin-bottom: 20px;
     height: max-content;
     width: 1000px;
     text-align: center;
-    margin-top: 12px;
+    margin-top: 20px;
   }
 
   .input-box {
@@ -207,6 +207,29 @@
     color: #354F52;
     align-items: center;
     height: 58px;
+    margin-bottom: 5px;
+    border-radius: 15px;
+    margin-inline: 5px;
+    font-weight: bold;
+  }
+
+  .small-input-box {
+    width: 210px;
+    color: #354F52;
+    align-items: center;
+    height: 58px;
+    margin-bottom: 5px;
+    border-radius: 15px;
+    margin-inline: 5px;
+    font-weight: bold;
+  }
+
+  
+  .big-input-box {
+    width: 650px;
+    color: #354F52;
+    align-items: center;
+    height: 74px;
     margin-bottom: 5px;
     border-radius: 15px;
     margin-inline: 5px;
@@ -224,13 +247,13 @@
     color:#ebf0e9;
     background-color: #84A98C;
     border-radius: 20px;
-    height: 44px;
+    height: 42px;
     font-size: 18px;
-    width: 160px;
+    width: 140px;
     margin-bottom: 20px;
     position: relative;
     margin-left: 30px;
-    margin-top: 12px;
+    margin-top: 1px;
     top: 34%;
     right: 10.8%;
   }
