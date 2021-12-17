@@ -1,7 +1,7 @@
 <div class="row d-flex align-items-center w-100">
   <div class="col-md-2">
   </div>
-  <div class="col-md-8 website_name_label">
+  <div class="col-md-8 website_name_label" [routerLink]="['/home-client']">
    BOOKING AGENCY
   </div>
   <div class="col-md-2">
@@ -30,12 +30,11 @@
   <div class="row d-flex align-items-center frontpage_gray_banner">
     <div class="col-md-2">
     </div>
-    <div class="col-md-8">
-      <div class="row d-flex align-items-center frontpage_gray_banner_label">BOOKING AGENCY:</div>
-      <div class="row d-flex align-items-center frontpage_gray_banner_label">TRUSTED PROFESSIONALS</div>
+    <div class="col-md-6">
+      <div class="row d-flex align-items-center frontpage_gray_banner_label">Welcome,</div>
+      <div class="row d-flex align-items-center frontpage_gray_banner_label">{{user.name}}  {{user.surname}} </div> 
     </div>
-    <div class="col-md-2">
-    </div>
+    <div class="col-md-4"></div>
   </div>
 
   <mat-toolbar class="navMenu" style="cursor: pointer;">      
@@ -104,14 +103,7 @@
     <div class="col-md-3">
     </div>
   </div>
-
-
-  
-  
-
-
-  
-  
+ 
 
 <div class="row d-flex align-items-center footer">
   <div class="col-md-3">

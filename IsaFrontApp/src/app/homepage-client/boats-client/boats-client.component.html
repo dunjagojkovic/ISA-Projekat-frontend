@@ -1,8 +1,8 @@
 <div class="row d-flex align-items-center w-100">
   <div class="col-md-2">
   </div>
-  <div class="col-md-8 website_name_label">
-   BOOKING AGENCY
+  <div [routerLink]="['/home-client']" class="col-md-8 website_name_label">
+   BOOKING AGENCY 
   </div>
   <div class="col-md-2">
   </div>
@@ -32,10 +32,11 @@
     </div>
     <div class="col-md-6">
       <div class="row d-flex align-items-center frontpage_gray_banner_label">Welcome,</div>
-      <div class="row d-flex align-items-center frontpage_gray_banner_label">...</div> 
+      <div class="row d-flex align-items-center frontpage_gray_banner_label">{{user.name}}  {{user.surname}} </div> 
     </div>
     <div class="col-md-4"></div>
   </div>
+ 
 
   <mat-toolbar class="navMenu" style="cursor: pointer; margin-top: 2%; align-items: left;">      
     <div class="row d-flex align-items-center w-100">

@@ -47,7 +47,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     InstructorsClientComponent,
     HomepageClientComponent,
     HomepageHouseOwnerComponent,
-    SettingsHouseOwnerComponent
+    SettingsHouseOwnerComponent,
+    InstructorProfilesClientComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +67,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     ReactiveFormsModule,
     HttpClientModule,
     MatFormFieldModule
-  ],
+   ],
   providers: [],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

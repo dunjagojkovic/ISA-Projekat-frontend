@@ -10,7 +10,8 @@ import { ApiService } from 'src/app/api.service';
 })
 export class BoatsClientComponent implements OnInit {
 
-  boats = [] as any
+  boats = [] as any;
+  user: any = {} as any;
  
   constructor(
     private router: Router,
@@ -21,6 +22,9 @@ export class BoatsClientComponent implements OnInit {
     this.api.loadBoatsForClients().subscribe((response:any) => {
       this.boats = response;
     });
+    this.api.current().subscribe((response:any) => {
+      this.user = response;      
+  });
   }
 
 }
