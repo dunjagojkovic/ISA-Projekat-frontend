@@ -52,4 +52,8 @@ export class ApiService {
     return this.http.get(this.baseURL + "/api/homes/my", this.getAuthoHeader());
   }
 
+  editInfo(id: number, data: any) {
+    return this.http.put(this.baseURL + "/api/users/id", this.getAuthoHeader());
+  }
+
 }
