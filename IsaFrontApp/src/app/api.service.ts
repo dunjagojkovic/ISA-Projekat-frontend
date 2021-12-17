@@ -42,6 +42,14 @@ export class ApiService {
 
   loginUser(data: any) {
     return this.http.post(this.baseURL + "/api/users/login", data);
-
   }
+
+  addHouse(data: any) {
+    return this.http.post(this.baseURL + "/api/homes", data, this.getAuthoHeader());
+  }
+
+  loadHouse() {
+    return this.http.get(this.baseURL + "/api/homes/my", this.getAuthoHeader());
+  }
+
 }

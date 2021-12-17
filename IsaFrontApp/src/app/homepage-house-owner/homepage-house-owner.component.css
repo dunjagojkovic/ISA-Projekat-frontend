@@ -192,5 +192,45 @@
     font-weight: bolder;
 }
 
+.example-form {
+    position: relative;
+    margin-left: 28%;
+    margin-bottom: 20px;
+    height: max-content;
+    width: 1000px;
+    text-align: center;
+    margin-top: 12px;
+  }
 
+  .input-box {
+    width: 320px;
+    color: #354F52;
+    align-items: center;
+    height: 58px;
+    margin-bottom: 5px;
+    border-radius: 15px;
+    margin-inline: 5px;
+    font-weight: bold;
+  }
 
+  .double-input {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    left: 7.5%;
+  }
+
+  .btn {
+    color:#ebf0e9;
+    background-color: #84A98C;
+    border-radius: 20px;
+    height: 44px;
+    font-size: 18px;
+    width: 160px;
+    margin-bottom: 20px;
+    position: relative;
+    margin-left: 30px;
+    margin-top: 12px;
+    top: 34%;
+    right: 10.8%;
+  }
