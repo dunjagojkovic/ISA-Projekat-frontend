@@ -23,7 +23,7 @@
     </div>
     <div class="col-md-6">
       <div class="row d-flex align-items-center frontpage_gray_banner_label">Welcome,</div>
-      <div class="row d-flex align-items-center frontpage_gray_banner_label">...</div> 
+      <div class="row d-flex align-items-center frontpage_gray_banner_label">{{user.name}} {{user.surname}}</div> 
     </div>
     <div class="col-md-4"></div>
   </div>
@@ -34,7 +34,7 @@
       </div>
       <div class="col-md-4">
         <nav class="navMenu" style="font-size: 15px;">            
-          <a style="float:none">New house</a>
+          <a (click)="addHouseBox = true" style="float:none">New house</a>
           <a style="float:none">Edit info</a>
           <a style="float:none">Remove</a>
           <a style="float:none">Free terms</a>
@@ -45,7 +45,69 @@
     </div>  
     </mat-toolbar>
 
+    <div class="example-form" *ngIf="addHouseBox">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="double-input">
+          <mat-form-field class="input-box" appearance="outline">
+              <mat-label>Name</mat-label>
+              <input matInput placeholder="" value="" formControlName="name">
+          </mat-form-field>
+          <mat-form-field class="input-box" appearance="outline">
+              <mat-label>Address</mat-label>
+              <input matInput placeholder="" value="" formControlName="address">
+          </mat-form-field>
+        </div>  
+        <div class="double-input">
+          <mat-form-field class="input-box" appearance="outline">
+              <mat-label>Number of rooms</mat-label>
+              <input matInput placeholder="" value="" formControlName="numberOfRooms">
+          </mat-form-field>
+          <mat-form-field class="input-box" appearance="outline">
+              <mat-label>Number of beds</mat-label>
+              <input matInput placeholder="" value="" formControlName="numberOfBeds">
+          </mat-form-field>
+        </div>  
+        <div class="double-input">
+          <mat-form-field class="input-box" appearance="outline">
+              <mat-label>Description</mat-label>
+              <input matInput placeholder="" value="" formControlName="promoDescription">
+          </mat-form-field>
+          <mat-form-field class="input-box" appearance="outline">
+              <mat-label>Price</mat-label>
+              <input matInput placeholder="" value=""  formControlName="pricelist">
+          </mat-form-field>
+        </div> 
+        <div class="double-input">
+          <mat-form-field class="input-box" appearance="outline">
+              <mat-label>Rules</mat-label>
+              <input matInput placeholder="" value=""  formControlName="behaviourRules">
+          </mat-form-field>
+          <mat-form-field class="input-box" appearance="outline">
+              <mat-label>Extra service</mat-label>
+              <input matInput placeholder="" value=""  formControlName="extraService">
+          </mat-form-field>
+        </div>
+        <div style="display: flex; flex-direction: row;">
+            <div class="form-group" style="margin-top: 10px; margin-left: 8%;">
+              <label for="file">Interior image </label>
+              <input type="file"
+                     id="file"
+                     (change)="handleInteriorImage($event)">
+            </div>
+            <div class="form-group" style="margin-top: 10px; margin-left: -1%;">
+              <label for="file">Exterior image </label>
+              <input type="file"
+                     id="file"
+                     (change)="handleExteriorImage($event)">
+            </div>
+        </div>
+        <button class="btn">Add house</button>
+        
+      </form>
+      <button class="btn" (click)="addHouseBox = false">Cancel</button>
+    </div>
   
+
   <div *ngFor="let home of homes">
     <div style="display: flex; flex-direction: row; margin-top: 1%; margin-left: 25%; margin-bottom: 5%; margin-right: 25%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
       <mat-card style="width: 500px; border: none; font-weight: bold; color: #52796F;">
@@ -88,68 +150,6 @@
     </div>
   </div>
   
-
-  <h1 class="heading" style="margin-left: 44%;">Add new house</h1>
-  <div class="example-form">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <div class="double-input">
-        <mat-form-field class="input-box" appearance="outline">
-            <mat-label>Name</mat-label>
-            <input matInput placeholder="" value="" formControlName="name">
-        </mat-form-field>
-        <mat-form-field class="input-box" appearance="outline">
-            <mat-label>Address</mat-label>
-            <input matInput placeholder="" value="" formControlName="address">
-        </mat-form-field>
-      </div>  
-      <div class="double-input">
-        <mat-form-field class="input-box" appearance="outline">
-            <mat-label>Number of rooms</mat-label>
-            <input matInput placeholder="" value="" formControlName="numberOfRooms">
-        </mat-form-field>
-        <mat-form-field class="input-box" appearance="outline">
-            <mat-label>Number of beds</mat-label>
-            <input matInput placeholder="" value="" formControlName="numberOfBeds">
-        </mat-form-field>
-      </div>  
-      <div class="double-input">
-        <mat-form-field class="input-box" appearance="outline">
-            <mat-label>Description</mat-label>
-            <input matInput placeholder="" value="" formControlName="promoDescription">
-        </mat-form-field>
-        <mat-form-field class="input-box" appearance="outline">
-            <mat-label>Price</mat-label>
-            <input matInput placeholder="" value=""  formControlName="pricelist">
-        </mat-form-field>
-      </div> 
-      <div class="double-input">
-        <mat-form-field class="input-box" appearance="outline">
-            <mat-label>Rules</mat-label>
-            <input matInput placeholder="" value=""  formControlName="behaviourRules">
-        </mat-form-field>
-        <mat-form-field class="input-box" appearance="outline">
-            <mat-label>Extra service</mat-label>
-            <input matInput placeholder="" value=""  formControlName="extraService">
-        </mat-form-field>
-      </div>
-      <div style="display: flex; flex-direction: row;">
-          <div class="form-group" style="margin-top: 10px; margin-left: 8%;">
-            <label for="file">Interior image </label>
-            <input type="file"
-                   id="file"
-                   (change)="handleInteriorImage($event)">
-          </div>
-          <div class="form-group" style="margin-top: 10px; margin-left: -1%;">
-            <label for="file">Exterior image </label>
-            <input type="file"
-                   id="file"
-                   (change)="handleExteriorImage($event)">
-          </div>
-      </div>
-      <button class="btn">Add house</button>
-    </form>
-  </div>
-
 
   <div class="row d-flex align-items-center footer">
     <div class="col-md-3">

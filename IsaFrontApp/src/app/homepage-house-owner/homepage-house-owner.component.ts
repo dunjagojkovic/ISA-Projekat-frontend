@@ -13,6 +13,8 @@ import { FormGroup } from '@angular/forms';
 export class HomepageHouseOwnerComponent implements OnInit {
   form: FormGroup;
   homes: any;
+  addHouseBox : boolean = false;
+  user: any;
 
   constructor(
     private formBuilder : FormBuilder,
@@ -41,6 +43,10 @@ export class HomepageHouseOwnerComponent implements OnInit {
     this.api.loadHouse().subscribe((response:any) => {
         this.homes = response;
     });
+
+    this.api.current().subscribe((response:any) => {
+      this.user = response;
+  });
   }
 
   onSubmit() {
