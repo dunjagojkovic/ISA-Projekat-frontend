@@ -23,7 +23,8 @@ export class CottagesClientComponent implements OnInit {
       this.houses = response;
     });
     this.api.current().subscribe((response:any) => {
-      this.user = response;      
+      this.user = response;     
+      console.log(response); 
   });
   }
 }

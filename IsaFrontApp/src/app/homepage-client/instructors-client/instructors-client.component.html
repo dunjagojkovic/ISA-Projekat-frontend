@@ -37,17 +37,13 @@
     <div class="col-md-4"></div>
   </div>
 
-  <mat-toolbar class="navMenu" style="cursor: pointer;">      
+  <mat-toolbar class="navMenu" style="cursor: pointer; margin-top: 2%; align-items: left;">      
     <div class="row d-flex align-items-center w-100">
       <div class="col-md-4">
       </div>
       <div class="col-md-4">
-        <nav class="navMenu" style="font-size: 15px;">
-          <a style="float:none; max-width: 20px; ">Sort by  
-                  <!-- <mat-select style="max-width: 20px;" [formControl]="sortingList" multiple> -->
-                      <mat-option *ngFor="let sortingValue of sortingList" [value]="sortingValue">{{sortingValue}}</mat-option>
-                   <!-- </mat-select> -->           
-                  </a>                 
+        <nav class="navMenu" style="font-size: 15px;">            
+          <a style="float:none">Sort by</a>
           <a style="float:none">Dates and price</a>
           <a style="float:none">View on map</a>
         </nav>
@@ -57,35 +53,37 @@
     </div>  
     </mat-toolbar>
 
-  <div class="row d-flex align-items-center cottages-panel">
-    <div class="col-md-3">
-    </div>
-    <div class="col-md-6">
-      <div class="row d-flex align-items-center h-100" style="background-color: white; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-        <div class="col-md-6 h-100">
-          <div class="cottages-left-col">
-            <h1>Naziv kuce</h1>
-            <h2>Adresa kuce</h2>
-            <br>
-            <h3> Ostali podaci</h3>
-            <form>           
-              <div class="btn-box">
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+ 
+
+    <div *ngFor="let i of instructors">
+      <div style="display: flex; flex-direction: row; margin-top: 1%; margin-left: 25%; margin-bottom: 5%; margin-right: 25%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <mat-card style="width: 500px; border: none; font-weight: bold; color: #52796F;">
+          <mat-card-title style="font-size: 26px; margin-top: 4%; font-weight: bold;">{{i.name}}</mat-card-title>
+      <mat-card-subtitle style="font-weight: bold; font-size: 16px; margin-top: 2%;">{{i.address}}</mat-card-subtitle>
+      <br>
+      <mat-card-content style="width: 400px; font-weight: bold; font-size: 16px;">
+        <p>Cena:{{i.priceList}}</p>
+        <p>kapacitet {{i.maxNumberOfPeople}}</p>
+        <p>pecaroska oprema {{i.fishingEquipment}} </p>
+        <p>dodatne usluge:{{i.extraService}}} </p>
+        <p>pravila ponasanja {{i.behaviourRules}}</p>
+        <p>uslovi otkazivanja {{i.cancelConditions}} </p>
+        <p>Biographz {{i.instructorBiography}} </p>
+        <p>promotivni opis {{i.promoDescription}} </p>
+      </mat-card-content>
+        </mat-card>  
+        <mat-card >
+          <div   id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
             </ol>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img class="d-block w-100 left_frontpage_picture"  src="assets/boat.Newspng.jpg" style="max-width: 500px; height: 400px;" alt="First slide">
+                <img class="d-block w-100 left_frontpage_picture"  src="{{i.ambientImage}}" style="max-width: 500px; height: 400px;" alt="First slide">
               </div>
               <div class="carousel-item">
-                <img class="d-block w-100" src="assets/fishing.png"  style="max-width: 600px; height: 400px;" alt="Second slide">
+                <img class="d-block w-100" src="{{i.ambientImage}}"  style="max-width: 500px; height: 400px;" alt="Second slide">
               </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -97,13 +95,9 @@
               <span class="sr-only">Next</span>
             </a>
           </div>
-        </div>
+        </mat-card>
       </div>
     </div>
-    <div class="col-md-3">
-    </div>
-  </div>
- 
 
 <div class="row d-flex align-items-center footer">
   <div class="col-md-3">

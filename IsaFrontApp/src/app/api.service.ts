@@ -20,6 +20,8 @@ export class ApiService {
     };
   }
 
+  
+
   login(data: any) {
     return this.http.post(this.baseURL + "/api/users/login", data);
   }
@@ -67,5 +69,9 @@ export class ApiService {
   editInfo(id: number, data: any) {
     return this.http.put(this.baseURL + "/api/users/id", this.getAuthoHeader());
   }
+
+loadIstructorsForClients(){
+  return this.http.get(this.baseURL + "/api/adventures", this.getAuthoHeader());
+}
 
 }
