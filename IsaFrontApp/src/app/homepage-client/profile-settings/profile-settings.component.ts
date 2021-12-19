@@ -64,6 +64,7 @@ export class ProfileSettingsComponent implements OnInit {
     const type = this.form.get('type')?.value;
     const id = this.form.get('id')?.value;
 
+    console.log(atob(password)); 
     let data = {
 
       name: name,
@@ -81,6 +82,11 @@ export class ProfileSettingsComponent implements OnInit {
     this.api.editInfo(id, data).subscribe((response: any) => {
       console.log(response);
     });
+  }
+
+  logout() {
+    this.user = null;
+    this.router.navigate(['/']);
   }
 
 }

@@ -23,4 +23,9 @@ constructor(
   });
   }
 
+  logout(): void{
+    localStorage.removeItem('user');
+
+  }
+
 }

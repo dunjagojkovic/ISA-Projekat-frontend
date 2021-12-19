@@ -1,7 +1,7 @@
 <div class="row d-flex align-items-center w-100">
   <div class="col-md-2">
   </div>
-  <div class="col-md-8 website_name_label">
+  <div class="col-md-8 website_name_label" [routerLink]="['/']">
    BOOKING AGENCY
   </div>
   <div class="col-md-2">
@@ -9,22 +9,22 @@
 </div>
 
   
-  <div class="row d-flex align-items-center w-100">
-    <div class="col-md-4">
-    </div>
-    <div class="col-md-4">
-      <nav class="navMenu">
-        <a href=" " style="float:none">Home</a>
-        <a href="cottages" style="float:none">Cottages</a>
-        <a href="boats" style="float:none">Boats</a>
-        <a href="instructors" style="float:none">Instructors</a>
-        <a href="registration" style="float:none">Sign up</a>
-      </nav>
-    </div>
-    <div class="col-md-4">
-    </div>
-  </div>  
-  
+<div class="row d-flex align-items-center w-100">
+  <div class="col-md-4">
+  </div>
+  <div class="col-md-4">
+    <nav class="navMenu">
+      <a [routerLink]="['/']" style="float:none">Home</a>
+      <a [routerLink]="['/cottages']" style="float:none">Cottages</a>
+      <a [routerLink]="['/boats']" style="float:none">Boats</a>
+      <a [routerLink]="['/instructors']" style="float:none">Instructors</a>
+      <a [routerLink]="['/registration']" style="float:none">Sign up</a>
+    </nav>
+  </div>
+  <div class="col-md-4">
+  </div>
+</div> 
+
    
   <div class="row d-flex align-items-center frontpage_gray_banner">
     <div class="col-md-2">

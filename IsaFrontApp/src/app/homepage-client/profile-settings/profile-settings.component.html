@@ -1,8 +1,8 @@
 <div class="row d-flex align-items-center w-100">
   <div class="col-md-2"></div>
-  <div class="col-md-8 website_name_label">BOOKING AGENCY</div>
+  <div class="col-md-8 website_name_label" [routerLink]="['/home-client']" >BOOKING AGENCY</div>
   <div class="col-md-2"></div>
-  <button class="logout-btn"  routerLink="/">Log out</button>
+  <button class="logout-btn" (click)="logout()" >Log out</button>
 </div>
 
 <div class="row d-flex align-items-center w-100">
@@ -37,7 +37,7 @@
       <div class="double-input">
         <mat-form-field class="input-box" appearance="outline">
             <mat-label>Email</mat-label>
-            <input matInput placeholder="" value="{{user.email}}">
+            <input disabled matInput placeholder="" value="{{user.email}}">
         </mat-form-field>
         <mat-form-field class="input-box" appearance="outline">
             <mat-label>Country</mat-label>
@@ -68,7 +68,7 @@
       <div class="double-input">
         <mat-form-field class="input-box" appearance="outline">
             <mat-label>Password</mat-label>
-            <input matInput placeholder="" value="">
+            <input matInput placeholder="" value="{{user.password}}">
         </mat-form-field>
         <mat-form-field class="input-box" appearance="outline">
             <mat-label>Telephone</mat-label>
