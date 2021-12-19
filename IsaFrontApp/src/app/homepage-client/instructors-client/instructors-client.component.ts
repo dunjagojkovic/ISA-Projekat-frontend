@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./instructors-client.component.css']
 })
 export class InstructorsClientComponent implements OnInit {
-
  
   constructor(
     private router: Router,

@@ -35,7 +35,8 @@ export class ProfileSettingsComponent implements OnInit {
         description: ['', Validators.required],
         password: ['', Validators.required],
         type: ['', Validators.required],
-        id: ['', Validators.required],
+        id: ['', Validators.required],    
+        
 
       })
 

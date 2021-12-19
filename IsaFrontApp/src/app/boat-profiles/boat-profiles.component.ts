@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ApiService } from 'src/app/api.service';
 
 
 
@@ -10,9 +12,17 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class BoatProfilesComponent implements OnInit {
 
-  constructor() {}
+  boats = [] as any;
+ 
+  constructor(
+    private router: Router,
+    private api: ApiService   
+  ) { }
 
   ngOnInit(): void {
+    this.api.loadBoatsForClients().subscribe((response:any) => {
+      this.boats = response;
+    });
   }
 
   
