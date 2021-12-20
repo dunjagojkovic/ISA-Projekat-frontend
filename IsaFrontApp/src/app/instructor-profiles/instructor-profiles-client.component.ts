@@ -18,7 +18,7 @@ export class InstructorProfilesClientComponent implements OnInit {
 
 
   ngOnInit(): void {
-  this.api.loadIstructorsForClients().subscribe((response:any) => {
+  this.api.loadInstructorsForAllUsers().subscribe((response:any) => {
     this.instructors = response;
   });
   }

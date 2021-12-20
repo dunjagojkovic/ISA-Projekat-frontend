@@ -19,15 +19,15 @@ export class RegistrationComponent implements OnInit {
     ) {
 
     this.form = this.formBuilder.group({
-      name: ['', [Validators.pattern('[a-zA-Z]*'), Validators.required]],
-      surname: ['', [Validators.pattern('[a-zA-Z]*'), Validators.required]],
-      email: ['', [Validators.email], Validators.required],
+      name: ['', Validators.pattern('[a-zA-Z]*')],
+      surname: ['', Validators.pattern('[a-zA-Z]*')],
+      email: ['', Validators.email],
       password: ['', Validators.required],
       passwordRepeat: ['', Validators.required],
       address: ['', Validators.required],
-      city: ['', [Validators.pattern('[a-zA-Z ]*')], Validators.required],
-      country: ['', [Validators.pattern('[a-zA-Z ]*')], Validators.required],
-      phoneNumber: ['', [Validators.minLength(10), Validators.required]],
+      city: ['', Validators.pattern('[a-zA-Z ]*')],
+      country: ['', Validators.pattern('[a-zA-Z ]*')],
+      phoneNumber: ['', Validators.minLength(10)],
       description: ['', Validators.required],
       type: ['', Validators.required]
 

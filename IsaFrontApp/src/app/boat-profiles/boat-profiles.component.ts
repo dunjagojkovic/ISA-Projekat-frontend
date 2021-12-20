@@ -20,7 +20,7 @@ export class BoatProfilesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.api.loadBoatsForClients().subscribe((response:any) => {
+    this.api.loadBoatsForAllUsers().subscribe((response:any) => {
       this.boats = response;
     });
   }

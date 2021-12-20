@@ -17,7 +17,7 @@ import { HomepageClientComponent } from './homepage-client/homepage-client.compo
 import { HomepageHouseOwnerComponent } from './homepage-house-owner/homepage-house-owner.component';
 import { ProfileSettingsComponent } from './homepage-client/profile-settings/profile-settings.component';
 import { SettingsHouseOwnerComponent } from './homepage-house-owner/settings-house-owner/settings-house-owner.component';
-
+import { ClientActivationComponent } from './client-activation/client-activation.component';
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -48,7 +48,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     HomepageClientComponent,
     HomepageHouseOwnerComponent,
     SettingsHouseOwnerComponent,
-    InstructorProfilesClientComponent
+    InstructorProfilesClientComponent,
+    ClientActivationComponent
   ],
   imports: [
     BrowserModule,

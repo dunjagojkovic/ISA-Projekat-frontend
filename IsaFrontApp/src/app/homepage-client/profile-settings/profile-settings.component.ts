@@ -25,18 +25,16 @@ export class ProfileSettingsComponent implements OnInit {
 
       this.form = this.formBuilder.group({
 
-        name: ['', Validators.required],
-        surname: ['', Validators.required],
+        name: ['', Validators.pattern('[a-zA-Z]*')],
+        surname: ['', Validators.pattern('[a-zA-Z]*')],
         email: ['', Validators.required],
-        address: ['', Validators.required],
-        city: ['', Validators.required],
-        country: ['', Validators.required],
-        phoneNumber: ['', Validators.required],
-        description: ['', Validators.required],
+        address: ['', Validators.minLength(3)],
+        city: ['', Validators.pattern('[a-zA-Z]*')],
+        country: ['', Validators.pattern('[a-zA-Z]*')],
+        phoneNumber: ['', Validators.minLength(10)],
         password: ['', Validators.required],
         type: ['', Validators.required],
-        id: ['', Validators.required],    
-        
+        id: ['', Validators.required]
 
       })
 
@@ -64,7 +62,6 @@ export class ProfileSettingsComponent implements OnInit {
     const type = this.form.get('type')?.value;
     const id = this.form.get('id')?.value;
 
-    console.log(atob(password)); 
     let data = {
 
       name: name,
