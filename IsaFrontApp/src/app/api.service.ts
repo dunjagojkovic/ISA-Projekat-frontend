@@ -68,4 +68,7 @@ export class ApiService {
     return this.http.put(this.baseURL + "/api/users/id", this.getAuthoHeader());
   }
 
+  deleteMyHouse(id: number) {
+    return this.http.delete(this.baseURL + "/api/homes/" + id, this.getAuthoHeader())
+  }
 }
