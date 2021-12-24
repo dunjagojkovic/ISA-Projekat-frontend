@@ -61,7 +61,7 @@ export class ApiService {
   }
 
   loadIstructorsForClients(){
-    return this.http.get(this.baseURL + "/api/adventures", this.getAuthoHeader());
+    return this.http.get(this.baseURL + "/api/adventures/adventure-profiles", this.getAuthoHeader());
   }
 
   loadHousesForAllUsers(){

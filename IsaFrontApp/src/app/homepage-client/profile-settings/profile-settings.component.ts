@@ -25,14 +25,14 @@ export class ProfileSettingsComponent implements OnInit {
 
       this.form = this.formBuilder.group({
 
-        name: ['', Validators.pattern('[a-zA-Z]*')],
-        surname: ['', Validators.pattern('[a-zA-Z]*')],
+        name: ['', Validators.pattern('[a-zčćžšđA-ZČĆŽŠĐ]*')],
+        surname: ['', Validators.pattern('[a-zčćžšđA-ZČĆŽŠĐ]*')],
         email: ['', Validators.required],
         address: ['', Validators.minLength(3)],
-        city: ['', Validators.pattern('[a-zA-Z]*')],
-        country: ['', Validators.pattern('[a-zA-Z]*')],
+        city: ['', Validators.pattern('[a-zčćžšđA-ZČĆŽŠĐ]*')],
+        country: ['', Validators.pattern('[a-zčćžšđA-ZČĆŽŠĐ]*')],
         phoneNumber: ['', Validators.minLength(10)],
-        password: ['', Validators.required],
+        password: [''],
         type: ['', Validators.required],
         id: ['', Validators.required]
 
@@ -44,7 +44,6 @@ export class ProfileSettingsComponent implements OnInit {
   ngOnInit(): void {
     this.api.current().subscribe((response:any) => {
       this.user = response;     
-      console.log(response); 
   });
   }
 
