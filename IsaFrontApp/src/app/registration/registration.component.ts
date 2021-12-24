@@ -29,7 +29,7 @@ export class RegistrationComponent implements OnInit {
       city: ['', Validators.pattern('[a-zA-Z ]*')],
       country: ['', Validators.pattern('[a-zA-Z ]*')],
       phoneNumber: ['', Validators.minLength(10)],
-      description: ['', Validators.required],
+      description: [''],
       type: ['', Validators.required]
 
     })

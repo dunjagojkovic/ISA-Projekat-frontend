@@ -71,4 +71,9 @@ export class ApiService {
   deleteMyHouse(id: number) {
     return this.http.delete(this.baseURL + "/api/homes/" + id, this.getAuthoHeader())
   }
+
+  addHouseFreeTerms(data: any){
+    return this.http.post(this.baseURL + "/api/hometerms", data, this.getAuthoHeader());
+  }
+  
 }

@@ -14,6 +14,7 @@ import { HomepageHouseOwnerComponent } from './homepage-house-owner/homepage-hou
 import { ProfileSettingsComponent } from './homepage-client/profile-settings/profile-settings.component';
 import { SettingsHouseOwnerComponent } from './homepage-house-owner/settings-house-owner/settings-house-owner.component';
 import { HistoryHouseOwnerComponent } from './homepage-house-owner/history-house-owner/history-house-owner.component';
+import { SetFreeTermsComponent } from './homepage-house-owner/set-free-terms/set-free-terms.component';
 
 
 const routes: Routes = [
@@ -29,7 +30,8 @@ const routes: Routes = [
   { path: "instructors-client", component: InstructorsClientComponent},
   { path: "home-house-owner", component: HomepageHouseOwnerComponent},
   { path: "settings-house-owner", component: SettingsHouseOwnerComponent},
-  { path: "history-house-owner", component: HistoryHouseOwnerComponent}
+  { path: "history-house-owner", component: HistoryHouseOwnerComponent},
+  { path: "set-house-terms", component: SetFreeTermsComponent}
 
 ];
 

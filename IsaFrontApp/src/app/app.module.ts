@@ -20,7 +20,6 @@ import { SettingsHouseOwnerComponent } from './homepage-house-owner/settings-hou
 
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
@@ -31,6 +30,10 @@ import { MatInputModule } from '@angular/material/input';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { SetFreeTermsComponent } from './homepage-house-owner/set-free-terms/set-free-terms.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { EdithouseHouseOwnerComponent } from './homepage-house-owner/edithouse-house-owner/edithouse-house-owner.component';
 
 
 @NgModule({
@@ -48,7 +51,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     HomepageClientComponent,
     HomepageHouseOwnerComponent,
     SettingsHouseOwnerComponent,
-    InstructorProfilesClientComponent
+    InstructorProfilesClientComponent,
+    SetFreeTermsComponent,
+    EdithouseHouseOwnerComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +71,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule
    ],
   providers: [],
   bootstrap: [AppComponent],

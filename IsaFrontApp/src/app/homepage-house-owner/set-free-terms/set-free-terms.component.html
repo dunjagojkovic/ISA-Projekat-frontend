@@ -1,0 +1,19 @@
+<form [formGroup]="form">
+
+    <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input formControlName="startDate" matInput [matDatepicker]="pickerStart">
+        <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
+        <mat-datepicker #pickerStart></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input  formControlName="endDate" matInput [matDatepicker]="pickerEnd">
+        <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+        <mat-datepicker #pickerEnd></mat-datepicker>
+    </mat-form-field>
+
+    <button (click)="onSave()">SAVE</button>
+
+</form>

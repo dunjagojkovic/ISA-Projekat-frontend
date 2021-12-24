@@ -52,8 +52,6 @@ export class HomepageHouseOwnerComponent implements OnInit {
   onDelete(id: number) {
     this.api.deleteMyHouse(id).subscribe((response:any) => {
       this.homes = this.homes.filter((e:any) => e.id != id);
-      console.log("komponenta");
-      console.log(response);
   });
   }
 
