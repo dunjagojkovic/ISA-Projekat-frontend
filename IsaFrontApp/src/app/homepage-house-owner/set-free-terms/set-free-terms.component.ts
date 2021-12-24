@@ -11,7 +11,8 @@ import { ApiService } from 'src/app/api.service';
 export class SetFreeTermsComponent implements OnInit {
   form: FormGroup;
   id: any;
-
+  user: any = {} as any;
+  
   constructor(
     private formBuilder : FormBuilder,
     private router: Router,
@@ -32,6 +33,9 @@ export class SetFreeTermsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.api.current().subscribe((response:any) => {
+      this.user = response;
+  });
   }
 
   onSave() {

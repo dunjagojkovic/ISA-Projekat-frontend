@@ -15,7 +15,7 @@ import { ProfileSettingsComponent } from './homepage-client/profile-settings/pro
 import { SettingsHouseOwnerComponent } from './homepage-house-owner/settings-house-owner/settings-house-owner.component';
 import { HistoryHouseOwnerComponent } from './homepage-house-owner/history-house-owner/history-house-owner.component';
 import { SetFreeTermsComponent } from './homepage-house-owner/set-free-terms/set-free-terms.component';
-
+import { EdithouseHouseOwnerComponent } from './homepage-house-owner/edithouse-house-owner/edithouse-house-owner.component';
 
 const routes: Routes = [
   { path: '', component: FrontPageComponent},
@@ -31,7 +31,8 @@ const routes: Routes = [
   { path: "home-house-owner", component: HomepageHouseOwnerComponent},
   { path: "settings-house-owner", component: SettingsHouseOwnerComponent},
   { path: "history-house-owner", component: HistoryHouseOwnerComponent},
-  { path: "set-house-terms", component: SetFreeTermsComponent}
+  { path: "set-house-terms", component: SetFreeTermsComponent},
+  { path: "edit-house-info", component: EdithouseHouseOwnerComponent}
 
 ];
 
