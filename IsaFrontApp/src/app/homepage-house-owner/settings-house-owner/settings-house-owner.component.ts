@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/api.service';
 
 @Component({
   selector: 'app-settings-house-owner',
@@ -8,12 +9,17 @@ import { Router } from '@angular/router';
 })
 export class SettingsHouseOwnerComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private api: ApiService   ) { }
 
   deleteAccountBox : boolean = false;
   hide = true;
+  user: any = {} as any;
 
   ngOnInit(): void {
+    this.api.current().subscribe((response:any) => {
+      this.user = response;
+  });
   }
 
 }
