@@ -55,7 +55,7 @@
 
  
 
-    <div *ngFor="let h of houses">
+    <div *ngFor="let h of houses; let i = index">
       <div style="display: flex; flex-direction: row; margin-top: 1%; margin-left: 25%; margin-bottom: 5%; margin-right: 25%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
         <mat-card style="width: 500px; border: none; font-weight: bold; color: #52796F;">
           <mat-card-title style="font-size: 26px; margin-top: 4%; font-weight: bold;">{{h.name}}</mat-card-title>
@@ -71,10 +71,10 @@
       </mat-card-content>
         </mat-card>  
         <mat-card >
-          <div   id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <div   id="carouselExampleIndicators{{i}}" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
-              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li [attr.data-target]="'#carouselExampleIndicators' + i" data-slide-to="0" class="active"></li>
+              <li [attr.data-target]="'#carouselExampleIndicators' + i" data-slide-to="1"></li>
             </ol>
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -84,22 +84,18 @@
                 <img class="d-block w-100" src="{{h.exteriorImage}}"  style="max-width: 500px; height: 400px;" alt="Second slide">
               </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#carouselExampleIndicators{{i}}" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <a class="carousel-control-next" href="#carouselExampleIndicators{{i}}" role="button" data-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
           </div>
         </mat-card>
       </div>
-    </div>
-    
-  
-  
-  
+    </div>  
 
 <div class="row d-flex align-items-center footer">
   <div class="col-md-3">
