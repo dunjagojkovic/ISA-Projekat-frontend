@@ -2,6 +2,7 @@ import { Component, OnInit, Type } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
+import { CalendarView } from 'angular-calendar';
 
 @Component({
   selector: 'app-set-free-terms',
@@ -12,7 +13,10 @@ export class SetFreeTermsComponent implements OnInit {
   form: FormGroup;
   id: any;
   user: any = {} as any;
-  
+  viewDate: Date = new Date();
+  view: CalendarView = CalendarView.Month;
+  CalendarView = CalendarView;
+
   constructor(
     private formBuilder : FormBuilder,
     private router: Router,
@@ -53,6 +57,10 @@ export class SetFreeTermsComponent implements OnInit {
       console.log(response)
     });
 
+  }
+
+  setView(view: CalendarView) {
+    this.view = view;
   }
 
 }

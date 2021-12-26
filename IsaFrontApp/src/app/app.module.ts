@@ -34,7 +34,8 @@ import { SetFreeTermsComponent } from './homepage-house-owner/set-free-terms/set
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { EdithouseHouseOwnerComponent } from './homepage-house-owner/edithouse-house-owner/edithouse-house-owner.component';
-
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,11 @@ import { EdithouseHouseOwnerComponent } from './homepage-house-owner/edithouse-h
     HttpClientModule,
     MatFormFieldModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    })
    ],
   providers: [],
   bootstrap: [AppComponent],
