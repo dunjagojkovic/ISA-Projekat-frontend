@@ -4,16 +4,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { FrontPageComponent } from './front-page/front-page.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { CottageProfilesClientComponent } from './cottage-profiles/cottage-profiles-client.component';
-import { BoatProfilesComponent} from './boat-profiles/boat-profiles.component';
-import { InstructorProfilesClientComponent } from './instructor-profiles/instructor-profiles-client.component';
-import { HomepageClientComponent } from './homepage-client/homepage-client.component';
-import { ProfileSettingsComponent } from './homepage-client/profile-settings/profile-settings.component';
 import { CottagesClientComponent } from './homepage-client/cottages-client/cottages-client.component';
+import { BoatProfilesComponent} from './boat-profiles/boat-profiles.component';
 import { BoatsClientComponent } from './homepage-client/boats-client/boats-client.component';
+import { InstructorProfilesClientComponent } from './instructor-profiles/instructor-profiles-client.component';
 import { InstructorsClientComponent } from './homepage-client/instructors-client/instructors-client.component';
+import { HomepageClientComponent } from './homepage-client/homepage-client.component';
 import { HomepageHouseOwnerComponent } from './homepage-house-owner/homepage-house-owner.component';
+import { ProfileSettingsComponent } from './homepage-client/profile-settings/profile-settings.component';
 import { SettingsHouseOwnerComponent } from './homepage-house-owner/settings-house-owner/settings-house-owner.component';
 import { HistoryHouseOwnerComponent } from './homepage-house-owner/history-house-owner/history-house-owner.component';
+import { SearchFreeCottagesClientComponent } from './homepage-client/search-free-cottages-client/search-free-cottages-client.component';
+
 
 
 const routes: Routes = [
@@ -29,7 +31,8 @@ const routes: Routes = [
   { path: "instructors-client", component: InstructorsClientComponent},
   { path: "home-house-owner", component: HomepageHouseOwnerComponent},
   { path: "settings-house-owner", component: SettingsHouseOwnerComponent},
-  { path: "history-house-owner", component: HistoryHouseOwnerComponent}
+  { path: "history-house-owner", component: HistoryHouseOwnerComponent},
+  {path: "filter-free-cottages", component: SearchFreeCottagesClientComponent}
 
 ];
 

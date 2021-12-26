@@ -12,7 +12,6 @@ export class RegistrationComponent implements OnInit {
   form: FormGroup;  
   hide = true;
 
-
   constructor(
     private formBuilder : FormBuilder,
     private router: Router,
@@ -20,20 +19,22 @@ export class RegistrationComponent implements OnInit {
     ) {
 
     this.form = this.formBuilder.group({
-      name: ['', Validators.pattern('[a-zA-Z]*')],
-      surname: ['', Validators.pattern('[a-zA-Z]*')],
+      name: ['', Validators.pattern('[a-zčćžšđA-ZČĆŽŠĐ]*')],
+      surname: ['', Validators.pattern('[a-zčćžšđA-ZČĆŽŠĐ]*')],
       email: ['', Validators.email],
       password: ['', Validators.required],
       passwordRepeat: ['', Validators.required],
       address: ['', Validators.required],
-      city: ['', Validators.pattern('[a-zA-Z ]*')],
-      country: ['', Validators.pattern('[a-zA-Z ]*')],
+      city: ['', Validators.pattern('[a-zčćžšđA-ZČĆŽŠĐ]*')],
+      country: ['', Validators.pattern('[a-zčćžšđA-ZČĆŽŠĐ]*')],
       phoneNumber: ['', Validators.minLength(10)],
       description: ['', Validators.required],
       type: ['', Validators.required]
 
     })
    } 
+
+  
 
   ngOnInit(): void {
   }
@@ -74,7 +75,6 @@ export class RegistrationComponent implements OnInit {
 
       if(type == "Client") {
         this.api.registerClient(data).subscribe( (any: any) => {
-
           this.router.navigate(['/'])
         }, error => {
           alert('Email already exists')

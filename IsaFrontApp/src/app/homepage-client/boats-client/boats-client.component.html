@@ -1,54 +1,44 @@
 <div class="row d-flex align-items-center w-100">
-  <div class="col-md-2">
-  </div>
-  <div class="col-md-8 website_name_label">
-   BOOKING AGENCY
-  </div>
-  <div class="col-md-2">
-  </div>
-  <img src="assets/user.png" class="profile" [routerLink]="['/settings-client']">
+  <div class="col-md-2"></div>
+  <div class="col-md-8 website_name_label" [routerLink]="['/home-client']">BOOKING AGENCY</div>
+  <div class="col-md-2"></div>
+  <button class="logout-btn"  routerLink="/">Log out</button>
 </div>
   
-  <div class="row d-flex align-items-center w-100">
-    <div class="col-md-4">
-    </div>
-    <div class="col-md-4">
-      <nav class="navMenu">
-        <a href="cottages-client" style="float:none">Cottages</a>
-        <a href="boats-client" style="float:none">Boats</a>
-        <a href="instructors-client" style="float:none">Instructors</a>
-        <a href="/#" style="float:none">Reservations</a>
-        <a href="/#" style="float:none">Sales</a>
-        <a href="/#" style="float:none">Complaints</a>
-        <a href="/#" style="float:none">Penalty</a>
-      </nav>
-    </div>
-    <div class="col-md-4">
-    </div>
-  </div> 
+<div class="row d-flex align-items-center w-100">
+  <div class="col-md-4">
+  </div>
+  <div class="col-md-4">
+    <nav class="navMenu">
+      <a [routerLink]="['/cottages-client']" style="float:none">Cottages</a>
+      <a [routerLink]="['/boats-client']" style="float:none">Boats</a>
+      <a [routerLink]="['/instructors-client']" style="float:none">Instructors</a>
+      <a [routerLink]="['/settings-client']" style="float:none">Reservations</a>
+      <a [routerLink]="['/settings-client']" style="float:none">Profile</a>
+    </nav>
+  </div>
+  <div class="col-md-4">
+  </div>
+</div>   
    
   <div class="row d-flex align-items-center frontpage_gray_banner">
     <div class="col-md-2">
     </div>
-    <div class="col-md-8">
-      <div class="row d-flex align-items-center frontpage_gray_banner_label">BOOKING AGENCY:</div>
-      <div class="row d-flex align-items-center frontpage_gray_banner_label">TRUSTED PROFESSIONALS</div>
+    <div class="col-md-6">
+      <div class="row d-flex align-items-center frontpage_gray_banner_label">Welcome,</div>
+      <div class="row d-flex align-items-center frontpage_gray_banner_label">{{user.name}}  {{user.surname}} </div> 
     </div>
-    <div class="col-md-2">
-    </div>
+    <div class="col-md-4"></div>
   </div>
+ 
 
-  <mat-toolbar class="navMenu" style="cursor: pointer;">      
+  <mat-toolbar class="navMenu" style="cursor: pointer; margin-top: 2%; align-items: left;">      
     <div class="row d-flex align-items-center w-100">
       <div class="col-md-4">
       </div>
       <div class="col-md-4">
-        <nav class="navMenu" style="font-size: 15px;">
-          <a style="float:none; max-width: 20px; ">Sort by  
-                  <!-- <mat-select style="max-width: 20px;" [formControl]="sortingList" multiple> -->
-                      <mat-option *ngFor="let sortingValue of sortingList" [value]="sortingValue">{{sortingValue}}</mat-option>
-                   <!-- </mat-select> -->           
-                  </a>                 
+        <nav class="navMenu" style="font-size: 15px;">            
+          <a style="float:none">Sort by</a>
           <a style="float:none">Dates and price</a>
           <a style="float:none">View on map</a>
         </nav>
@@ -58,56 +48,51 @@
     </div>  
     </mat-toolbar>
 
-  <div class="row d-flex align-items-center cottages-panel">
-    <div class="col-md-3">
-    </div>
-    <div class="col-md-6">
-      <div class="row d-flex align-items-center h-100" style="background-color: white; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-        <div class="col-md-6 h-100">
-          <div class="cottages-left-col">
-            <h1>Naziv kuce</h1>
-            <h2>Adresa kuce</h2>
-            <br>
-            <h3> Ostali podaci</h3>
-            <form>           
-              <div class="btn-box">
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+ 
+
+    <div *ngFor="let b of boats; let i=index">
+      <div style="display: flex; flex-direction: row; margin-top: 1%; margin-left: 25%; margin-bottom: 5%; margin-right: 25%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <mat-card style="width: 500px; border: none; font-weight: bold; color: #52796F;">
+          <mat-card-title style="font-size: 26px; margin-top: 4%; font-weight: bold;">{{b.name}}</mat-card-title>
+      <mat-card-subtitle style="font-weight: bold; font-size: 16px; margin-top: 2%;">{{b.address}}</mat-card-subtitle>
+      <br>
+      <mat-card-content style="width: 400px; font-weight: bold; font-size: 16px;">
+        <p>Cena:{{b.pricelist}}</p>
+        <p>kapacitet {{b.capacity}}</p>
+        <p>Navigaciona oprema</p>
+        <p>pecaroska oprema</p>
+        <p>tip:{{b.type}}, duzina{{b.length}}, broj motora {{b.engineNumber}}, snaga motora {{b.enginePower}}, maks brzina {{b.maxSpeed}} </p>
+        <p>pravila ponasanja {{b.behaviourRules}}</p>
+        <p>uslovi otkazivanja {{b.cancelConditions}} </p>
+        <p>promotivni opis {{b.promoDescription}} </p>
+      </mat-card-content>
+        </mat-card>  
+        <mat-card >
+          <div   id="carouselExampleIndicators{{i}}" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
-              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li [attr.data-target]="'#carouselExampleIndicators' + i" data-slide-to="0" class="active"></li>
+              <li [attr.data-target]="'#carouselExampleIndicators' + i" data-slide-to="1"></li>
             </ol>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img class="d-block w-100 left_frontpage_picture"  src="assets/boat.Newspng.jpg" style="max-width: 500px; height: 400px;" alt="First slide">
+                <img class="d-block w-100 left_frontpage_picture"  src="{{b.interiorImage}}" style="max-width: 500px; object-fit:cover; height: 400px;" alt="First slide">
               </div>
               <div class="carousel-item">
-                <img class="d-block w-100" src="assets/boat-interiro.png"  style="max-width: 600px; height: 400px;" alt="Second slide">
+                <img class="d-block w-100" src="{{b.exteriorImage}}"  style="max-width: 500px; height: 400px; object-fit:cover;" alt="Second slide">
               </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#carouselExampleIndicators{{i}}" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <a class="carousel-control-next" href="#carouselExampleIndicators{{i}}" role="button" data-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
           </div>
-        </div>
+        </mat-card>
       </div>
-    </div>
-    <div class="col-md-3">
-    </div>
-  </div>
-
-
-  
-  
+    </div> 
 
 <div class="row d-flex align-items-center footer">
   <div class="col-md-3">

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-homepage-client',
@@ -8,12 +9,23 @@ import { Router } from '@angular/router';
 })
 export class HomepageClientComponent implements OnInit {
 
-  constructor(private router: Router) { }
-   deleteAccountBox : boolean = false;
-  hide = true;
+  user: any = {} as any;
 
+constructor(
+  private router: Router,
+  private api: ApiService   
+) { }
 
   ngOnInit(): void {
+    this.api.current().subscribe((response:any) => {
+      this.user = response;      
+      console.log(response);
+  });
+  }
+
+  logout(): void{
+    localStorage.clear();
+
   }
 
 }

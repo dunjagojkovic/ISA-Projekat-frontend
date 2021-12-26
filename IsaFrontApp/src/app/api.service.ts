@@ -18,7 +18,7 @@ export class ApiService {
     return{
       headers: headers
     };
-  }
+  }  
 
   login(data: any) {
     return this.http.post(this.baseURL + "/api/users/login", data);
@@ -42,6 +42,42 @@ export class ApiService {
 
   loginUser(data: any) {
     return this.http.post(this.baseURL + "/api/users/login", data);
-
   }
+
+  addHouse(data: any) {
+    return this.http.post(this.baseURL + "/api/homes", data, this.getAuthoHeader());
+  }
+
+  loadHouse() {
+    return this.http.get(this.baseURL + "/api/homes/my", this.getAuthoHeader());
+  }
+
+  loadHousesForClients(){
+    return this.http.get(this.baseURL + "/api/homes/home-profiles", this.getAuthoHeader());
+  }
+
+  loadBoatsForClients(){
+    return this.http.get(this.baseURL + "/api/boats/boat-profiles", this.getAuthoHeader())
+  }
+
+  loadIstructorsForClients(){
+    return this.http.get(this.baseURL + "/api/adventures/adventure-profiles", this.getAuthoHeader());
+  }
+
+  loadHousesForAllUsers(){
+    return this.http.get(this.baseURL + "/api/homes/home-profiles");
+  }
+
+  loadBoatsForAllUsers(){
+    return this.http.get(this.baseURL + "/api/boats/boat-profiles");
+  }
+
+  loadInstructorsForAllUsers(){
+    return this.http.get(this.baseURL + "/api/adventures/adventure-profiles");
+  }
+
+  editInfo(id: number, data: any) {
+    return this.http.put(this.baseURL + "/api/users/", data, this.getAuthoHeader());
+  }
+
 }
