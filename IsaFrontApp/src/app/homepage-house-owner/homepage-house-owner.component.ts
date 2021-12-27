@@ -84,7 +84,8 @@ export class HomepageHouseOwnerComponent implements OnInit {
       this.api.addHouse(data).subscribe((response: any) => {
           console.log(response)
       });
-    
+
+      location.reload();
   }
 
   handleInteriorImage(event: any) {

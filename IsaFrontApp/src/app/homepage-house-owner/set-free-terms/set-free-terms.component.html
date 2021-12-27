@@ -50,16 +50,16 @@
   </form>
 </div>
 
-  <div style="height: max-content; width: max-content; position: relative; justify-content: center; margin-left: 30%; margin-bottom: 35%;">
+  <div style="background-color: #CAD2C5; height: max-content; width: max-content; position: relative; justify-content: center; margin-left: 30%; margin-bottom: 35%;">
     <div class="row text-center">
       <div class="col-md-4">
         <div class="btn-group">
             <div style="width: 60px; position: relative; right: 40%;" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate">
-              <mat-icon style="font-size: 34px;">keyboard_arrow_left</mat-icon>
+              <mat-icon style="font-size: 34px; color: #52796F">keyboard_arrow_left</mat-icon>
             </div>
     
             <div style="width: 60px; position: relative; left: 445%;" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate">
-              <mat-icon style="font-size: 34px;">keyboard_arrow_right</mat-icon>
+              <mat-icon style="font-size: 34px; color: #52796F;">keyboard_arrow_right</mat-icon>
             </div>
         </div>
     </div>
@@ -67,8 +67,8 @@
     </div>
     
     <div  [ngSwitch]="view" style="width: 700px; height: 50px;">
-      <h1 style="font-size: 34px; margin-left: 39%;">{{monthNames[viewDate.getMonth()]}}</h1> 
-      <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="events">
+      <h1 style="color: #52796F; font-size: 34px; margin-left: 39%;">{{monthNames[viewDate.getMonth()]}}</h1> 
+      <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events] = "events">
       </mwl-calendar-month-view>
     
       <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events">

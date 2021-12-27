@@ -85,7 +85,7 @@ export class EdithouseHouseOwnerComponent implements OnInit {
       }
 
     this.api.editHouse(this.id, data).subscribe((response:any) => {
-      //this.home = response;
+      this.router.navigate(['/home-house-owner']);
   });
   }
 }
