@@ -23,7 +23,8 @@ export class BoatsClientComponent implements OnInit {
       this.boats = response;
     });
     this.api.current().subscribe((response:any) => {
-      this.user = response;      
+      this.user = response;   
+      console.log(response);   
   });
   }
 

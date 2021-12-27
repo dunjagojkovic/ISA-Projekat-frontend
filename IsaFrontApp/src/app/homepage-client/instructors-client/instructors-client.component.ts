@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./instructors-client.component.css']
 })
 export class InstructorsClientComponent implements OnInit {
-
  
   constructor(
     private router: Router,
@@ -19,11 +18,15 @@ export class InstructorsClientComponent implements OnInit {
   sortingValue = new FormControl();
   sortingList: string[] = ['Name', 'Location', 'Rate'];
   user: any = {} as any;
+  instructors = [] as any
 
 
   ngOnInit(): void {
     this.api.current().subscribe((response:any) => {
       this.user = response;      
+  });
+  this.api.loadIstructorsForClients().subscribe((response:any) => {
+    this.instructors = response;
   });
   }
 

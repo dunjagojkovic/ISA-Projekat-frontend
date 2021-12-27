@@ -17,6 +17,7 @@ import { HomepageClientComponent } from './homepage-client/homepage-client.compo
 import { HomepageHouseOwnerComponent } from './homepage-house-owner/homepage-house-owner.component';
 import { ProfileSettingsComponent } from './homepage-client/profile-settings/profile-settings.component';
 import { SettingsHouseOwnerComponent } from './homepage-house-owner/settings-house-owner/settings-house-owner.component';
+import { SearchFreeCottagesClientComponent } from './homepage-client/search-free-cottages-client/search-free-cottages-client.component';
 
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -37,6 +38,7 @@ import { EdithouseHouseOwnerComponent } from './homepage-house-owner/edithouse-h
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +56,8 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     SettingsHouseOwnerComponent,
     InstructorProfilesClientComponent,
     SetFreeTermsComponent,
-    EdithouseHouseOwnerComponent
+    EdithouseHouseOwnerComponent,
+    SearchFreeCottagesClientComponent
   ],
   imports: [
     BrowserModule,
@@ -74,11 +77,11 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     HttpClientModule,
     MatFormFieldModule,
     MatDatepickerModule,
-    MatNativeDateModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,
     })
+    MatNativeDateModule
    ],
   providers: [],
   bootstrap: [AppComponent],

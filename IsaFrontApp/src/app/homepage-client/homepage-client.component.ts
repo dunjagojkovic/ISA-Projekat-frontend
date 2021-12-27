@@ -19,7 +19,13 @@ constructor(
   ngOnInit(): void {
     this.api.current().subscribe((response:any) => {
       this.user = response;      
+      console.log(response);
   });
+  }
+
+  logout(): void{
+    localStorage.clear();
+
   }
 
 }

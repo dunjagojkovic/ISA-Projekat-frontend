@@ -1,33 +1,26 @@
 <div class="row d-flex align-items-center w-100">
-  <div class="col-md-2">
-  </div>
-  <div class="col-md-8 website_name_label" [routerLink]="['/home-client']">
-   BOOKING AGENCY
-  </div>
-  <div class="col-md-2">
-  </div>
-  <img src="assets/user.png" class="profile" [routerLink]="['/settings-client']">
+  <div class="col-md-2"></div>
+  <div class="col-md-8 website_name_label" [routerLink]="['/home-client']" >BOOKING AGENCY</div>
+  <div class="col-md-2"></div>
+  <button class="logout-btn" (click)="logout()" >Log out</button>
 </div>
-  
-  <div class="row d-flex align-items-center w-100">
-    <div class="col-md-4">
-    </div>
-    <div class="col-md-4">
-      <nav class="navMenu">
-        <a href="cottages-client" style="float:none">Cottages</a>
-        <a href="boats-client" style="float:none">Boats</a>
-        <a href="instructors-client" style="float:none">Instructors</a>
-        <a href="/#" style="float:none">Reservations</a>
-        <a href="/#" style="float:none">Sales</a>
-        <a href="/#" style="float:none">Complaints</a>
-        <a href="/#" style="float:none">Penalty</a>
-      </nav>
-    </div>
-    <div class="col-md-4">
-    </div>
-  </div> 
-   
- 
+
+<div class="row d-flex align-items-center w-100">
+  <div class="col-md-4">
+  </div>
+  <div class="col-md-4">
+    <nav class="navMenu">
+      <a [routerLink]="['/cottages-client']" style="float:none">Cottages</a>
+      <a [routerLink]="['/boats-client']" style="float:none">Boats</a>
+      <a [routerLink]="['/instructors-client']" style="float:none">Instructors</a>
+      <a [routerLink]="['/settings-client']" style="float:none">Reservations</a>
+      <a [routerLink]="['/settings-client']" style="float:none">Profile</a>
+    </nav>
+  </div>
+  <div class="col-md-4">
+  </div>
+</div>  
+    
   <div class="row d-flex align-items-center frontpage_gray_banner">
     <div class="col-md-2">
     </div>
@@ -44,7 +37,7 @@
       <div class="double-input">
         <mat-form-field class="input-box" appearance="outline">
             <mat-label>Email</mat-label>
-            <input matInput placeholder="" value="{{user.email}}">
+            <input disabled matInput placeholder="" value="{{user.email}}">
         </mat-form-field>
         <mat-form-field class="input-box" appearance="outline">
             <mat-label>Country</mat-label>
@@ -55,31 +48,31 @@
       <div class="double-input">
         <mat-form-field class="input-box" appearance="outline">
             <mat-label>Name</mat-label>
-            <input matInput placeholder="" value="{{user.name}}">
+            <input matInput placeholder="" value="{{user.name}}" formControlName="name">
         </mat-form-field>
         <mat-form-field class="input-box" appearance="outline">
             <mat-label>City</mat-label>
-            <input matInput placeholder="" value="{{user.city}}">
+            <input matInput placeholder="" value="{{user.city}}" formControlName="city">
         </mat-form-field>
       </div>  
       <div class="double-input">
         <mat-form-field class="input-box" appearance="outline">
             <mat-label>Surname</mat-label>
-            <input matInput placeholder="" value="{{user.surname}}">
+            <input matInput placeholder="" value="{{user.surname}}" formControlName="surname">
         </mat-form-field>
         <mat-form-field class="input-box" appearance="outline">
             <mat-label>Street</mat-label>
-            <input matInput placeholder="" value="{{user.address}}">
+            <input matInput placeholder="" value="{{user.address}}" formControlName="address">
         </mat-form-field>
       </div> 
       <div class="double-input">
         <mat-form-field class="input-box" appearance="outline">
             <mat-label>Password</mat-label>
-            <input matInput placeholder="" value="">
+            <input matInput placeholder="" value="{{user.password}}" formControlName="password">
         </mat-form-field>
         <mat-form-field class="input-box" appearance="outline">
             <mat-label>Telephone</mat-label>
-            <input matInput placeholder=""value="{{user.phoneNumber}}">
+            <input matInput placeholder=""value="{{user.phoneNumber}}" formControlName="phoneNumber">
         </mat-form-field>
       </div><br />
       <button class="btn"(click)="savePersonalInfo()">Save changes</button>

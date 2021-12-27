@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl} from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 
@@ -23,7 +22,8 @@ export class CottagesClientComponent implements OnInit {
       this.houses = response;
     });
     this.api.current().subscribe((response:any) => {
-      this.user = response;      
+      this.user = response;     
+      console.log(response); 
   });
   }
 }

@@ -19,7 +19,7 @@ export class ApiService {
     return{
       headers: headers
     };
-  }
+  }  
 
   login(data: any) {
     return this.http.post(this.baseURL + "/api/users/login", data);
@@ -57,16 +57,32 @@ export class ApiService {
     return this.http.get(this.baseURL + "/api/homes/home-profiles", this.getAuthoHeader());
   }
 
-  loadHousesForAllUsers(){
-    return this.http.get(this.baseURL + "/api/homes/home-profiles", this.getAuthoHeader());
-  }
-
   loadBoatsForClients(){
     return this.http.get(this.baseURL + "/api/boats/boat-profiles", this.getAuthoHeader())
   }
 
+  loadIstructorsForClients(){
+    return this.http.get(this.baseURL + "/api/adventures/adventure-profiles", this.getAuthoHeader());
+  }
+
+  loadHousesForAllUsers(){
+    return this.http.get(this.baseURL + "/api/homes/home-profiles");
+  }
+
+  loadBoatsForAllUsers(){
+    return this.http.get(this.baseURL + "/api/boats/boat-profiles");
+  }
+
+  loadInstructorsForAllUsers(){
+    return this.http.get(this.baseURL + "/api/adventures/adventure-profiles");
+  }
+
   editInfo(id: number, data: any) {
-    return this.http.put(this.baseURL + "/api/users/id", this.getAuthoHeader());
+    return this.http.put(this.baseURL + "/api/users/", data, this.getAuthoHeader());
+  }
+
+  searchFreeHouses(data: any){
+    return this.http.post(this.baseURL + "/api/homeReservations/searchFree", data, this.getAuthoHeader());
   }
 
   deleteMyHouse(id: number) {

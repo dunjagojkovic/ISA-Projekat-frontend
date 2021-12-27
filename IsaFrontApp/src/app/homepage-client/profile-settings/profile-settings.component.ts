@@ -25,17 +25,16 @@ export class ProfileSettingsComponent implements OnInit {
 
       this.form = this.formBuilder.group({
 
-        name: ['', Validators.required],
-        surname: ['', Validators.required],
+        name: ['', Validators.pattern('[a-zčćžšđA-ZČĆŽŠĐ]*')],
+        surname: ['', Validators.pattern('[a-zčćžšđA-ZČĆŽŠĐ]*')],
         email: ['', Validators.required],
-        address: ['', Validators.required],
-        city: ['', Validators.required],
-        country: ['', Validators.required],
-        phoneNumber: ['', Validators.required],
-        description: ['', Validators.required],
-        password: ['', Validators.required],
+        address: ['', Validators.minLength(3)],
+        city: ['', Validators.pattern('[a-zčćžšđA-ZČĆŽŠĐ]*')],
+        country: ['', Validators.pattern('[a-zčćžšđA-ZČĆŽŠĐ]*')],
+        phoneNumber: ['', Validators.minLength(10)],
+        password: [''],
         type: ['', Validators.required],
-        id: ['', Validators.required],
+        id: ['', Validators.required]
 
       })
 
@@ -45,7 +44,6 @@ export class ProfileSettingsComponent implements OnInit {
   ngOnInit(): void {
     this.api.current().subscribe((response:any) => {
       this.user = response;     
-      console.log(response); 
   });
   }
 
@@ -80,6 +78,11 @@ export class ProfileSettingsComponent implements OnInit {
     this.api.editInfo(id, data).subscribe((response: any) => {
       console.log(response);
     });
+  }
+
+  logout() {
+    this.user = null;
+    this.router.navigate(['/']);
   }
 
 }
