@@ -77,11 +77,11 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     HttpClientModule,
     MatFormFieldModule,
     MatDatepickerModule,
+    MatNativeDateModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,
     })
-    MatNativeDateModule
    ],
   providers: [],
   bootstrap: [AppComponent],
