@@ -74,7 +74,7 @@
         <p>Extra service: {{h.extraService}}</p>
         <p>Description: {{h.promoDescription}}</p>
         <div>
-          <button class="reserve-btn">Reserve</button>
+          <button [routerLink]="['/reserve-cottages-standard-client']" class="reserve-btn" [queryParams]="{id: h.id}">Book</button>
         </div>
       </mat-card-content>
         </mat-card>  

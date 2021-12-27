@@ -18,6 +18,7 @@ import { HomepageHouseOwnerComponent } from './homepage-house-owner/homepage-hou
 import { ProfileSettingsComponent } from './homepage-client/profile-settings/profile-settings.component';
 import { SettingsHouseOwnerComponent } from './homepage-house-owner/settings-house-owner/settings-house-owner.component';
 import { SearchFreeCottagesClientComponent } from './homepage-client/search-free-cottages-client/search-free-cottages-client.component';
+import { ReserveCottagesStandardComponent } from './homepage-client/reserve-cottages-standard/reserve-cottages-standard.component';
 
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -37,6 +38,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { EdithouseHouseOwnerComponent } from './homepage-house-owner/edithouse-house-owner/edithouse-house-owner.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -57,7 +59,8 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     InstructorProfilesClientComponent,
     SetFreeTermsComponent,
     EdithouseHouseOwnerComponent,
-    SearchFreeCottagesClientComponent
+    SearchFreeCottagesClientComponent,
+    ReserveCottagesStandardComponent
   ],
   imports: [
     BrowserModule,
@@ -78,6 +81,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatRadioModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,

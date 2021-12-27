@@ -208,7 +208,8 @@
     border: 3px solid #84A98C ;
     color:white;
     background-color: #84A98C;
-    font-weight: bold;  
+    font-weight: bold;
+  
     width: 120px;
     height: 44px;
     cursor: pointer;
@@ -274,4 +275,48 @@
 
  ::ng-deep .mat-calendar-body-today{
     color: #354F52!important;
+}
+
+
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 15px;
+}
+
+.mat-radio-button {
+    margin-left: 2.5%;
+    font-weight: bolder;
+
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+    background-color: rgb(19, 103, 168) !important;
+  }
+  
+  ::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background-color: rgb(19, 103, 168)!important;   
+  }
+  
+  ::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+   border-color:rgb(19, 103, 168)!important; 
+  }
+
+.answers{
+    margin-right: auto;
+    margin-left: 10%;
+}
+
+.book-btn{
+    border-radius: 20px;
+    border: 3px solid #84A98C ;
+    color:white;
+    background-color: #84A98C;
+    font-weight: bold;    
+    width: 120px;
+    height: 44px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 7%;
+    margin-left: 40%;
+    margin-bottom: 3%;
 }

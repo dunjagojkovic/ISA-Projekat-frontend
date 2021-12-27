@@ -14,6 +14,7 @@ export class SearchFreeCottagesClientComponent implements OnInit {
   houses = [] as any;
   user: any = {} as any;
   todayDate:Date = new Date();
+
  
   constructor(
     private router: Router,

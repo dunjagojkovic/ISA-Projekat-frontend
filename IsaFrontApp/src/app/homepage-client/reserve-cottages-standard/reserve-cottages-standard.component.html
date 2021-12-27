@@ -1,0 +1,111 @@
+<div class="row d-flex align-items-center w-100">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 website_name_label" [routerLink]="['/home-client']">BOOKING AGENCY</div>
+    <div class="col-md-2"></div>
+    <button class="logout-btn"  routerLink="/">Log out</button>
+  </div>
+    
+  <div class="row d-flex align-items-center w-100">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <nav class="navMenu">
+        <a [routerLink]="['/cottages-client']" style="float:none">Cottages</a>
+        <a [routerLink]="['/boats-client']" style="float:none">Boats</a>
+        <a [routerLink]="['/instructors-client']" style="float:none">Instructors</a>
+        <a [routerLink]="['/settings-client']" style="float:none">Reservations</a>
+        <a [routerLink]="['/settings-client']" style="float:none">Profile</a>
+      </nav>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>  
+    
+    <div class="row d-flex align-items-center frontpage_gray_banner">
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-6">
+        <div class="row d-flex align-items-center frontpage_gray_banner_label">Welcome,</div>
+        <div class="row d-flex align-items-center frontpage_gray_banner_label">{{user.name}}  {{user.surname}} </div> 
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+
+    <h1 class="heading" style="margin-top: 25px; margin-left:44%;">Book</h1>
+    
+    <div style="margin-bottom: 10%;">
+      <mat-card style="width: 750px;  margin-left: 27%; margin-right: 27%;">
+        <mat-card-title  style="font-size: 26px; margin-top: 4%; font-weight: bold;">{{house.name}}</mat-card-title>
+        <mat-card-subtitle style="font-weight: bold; font-size: 16px; margin-top: 2%; text-transform: uppercase;">datum od datum do</mat-card-subtitle>
+        <hr>
+        <br>
+        <mat-card-title style="font-weight: bold; text-transform: uppercase; font-size: 16px; margin-top: 2%;">Booking summary</mat-card-title>
+        <hr>
+        <br>
+        <mat-card-content>
+          <div>
+            <p style="text-transform: uppercase;">Property name</p>
+            <p>{{house.name}}</p>
+          </div>
+          <br>
+          <div>
+            <p style="text-transform: uppercase;">Date of arrival</p>
+            <p ></p>
+          </div>
+          <br>
+          <div>
+            <p style="text-transform: uppercase;">Date of departure</p>
+            <p>enddate</p>
+          </div>
+          <br>
+          <div>
+            <p style="text-transform: uppercase;">Total cost of accomodation</p>
+            <p>{{house.pricelist}}</p>
+          </div>
+          <br>
+          <br> 
+          <mat-card-title style="font-weight: bold; text-transform: uppercase; font-size: 16px; margin-top: 2%;">Extra chargeabels</mat-card-title>
+        <hr>        
+        <mat-radio-group style=" display: flex; flex-direction: column;  margin: 15px 0;">
+          <mat-radio-button style="margin-left: 25px; margin-bottom: 20px; margin-top: 5%;" [value]='2'>Extra servis</mat-radio-button>
+          <mat-radio-button style="margin-left: 25px;" [value]='3'>Bez servisa</mat-radio-button>        
+       </mat-radio-group>
+       <div>
+        <button class="book-btn">Book</button>
+      </div>
+        </mat-card-content>       
+      </mat-card>
+    </div>
+
+ 
+  <div class="row d-flex align-items-center footer">
+    <div class="col-md-3">
+      <h2 class="link_title">Product</h2>
+      <h4 class="link_subtitle">Our plan</h4>
+      <h4 class="link_subtitle">Free trial</h4>
+    </div>
+    <div class="col-md-3">
+      <h2 class="link_title">About us</h2>
+      <h4 class="link_subtitle">Request demo</h4>
+      <h4 class="link_subtitle">FAQs</h4>
+    </div>
+    <div class="col-md-3">
+      <h2 class="link_title">Support</h2>
+      <h4 class="link_subtitle">Services</h4>
+      <h4 class="link_subtitle">Contact us</h4>
+    </div>
+    <div class="col-md-3">
+      <h2 class="link_title">Covid-19 FAQs</h2>
+      <h4 class="link_subtitle">Reviews</h4>
+      <h4 class="link_subtitle">Safety</h4>
+    </div>
+  </div>
+  
+  
+    
+  
+    
+  
+  
+    
+  
