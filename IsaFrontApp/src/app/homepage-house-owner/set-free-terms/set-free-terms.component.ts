@@ -2,7 +2,7 @@ import { Component, OnInit, Type } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
-import { CalendarView } from 'angular-calendar';
+import { CalendarEvent, CalendarView } from 'angular-calendar';
 
 @Component({
   selector: 'app-set-free-terms',
@@ -16,6 +16,8 @@ export class SetFreeTermsComponent implements OnInit {
   viewDate: Date = new Date();
   view: CalendarView = CalendarView.Month;
   CalendarView = CalendarView;
+  terms = [] as any;
+  events: CalendarEvent[] = [];
 
   constructor(
     private formBuilder : FormBuilder,
@@ -39,6 +41,19 @@ export class SetFreeTermsComponent implements OnInit {
   ngOnInit(): void {
     this.api.current().subscribe((response:any) => {
       this.user = response;
+  });
+    this.api.loadHouseFreeTerms(this.id).subscribe((response:any) => {
+      this.terms = response;
+
+      console.log(response)
+
+      for(let event of response) {
+        this.events.push({
+          start: new Date(event.startDate),
+          end: new Date(event.endDate),
+          title: event.homeProfile.name,
+        })
+      }
   });
   }
 

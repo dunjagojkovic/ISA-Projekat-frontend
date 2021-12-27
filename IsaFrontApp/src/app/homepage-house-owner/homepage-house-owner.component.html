@@ -110,7 +110,7 @@
         <div style="display: flex; flex-direction: row; justify-content: space-between;">
           <mat-card-title style="font-size: 28px; margin-top: 4%; font-weight: bold;">{{home.name}}</mat-card-title>
           <div>
-            <button style="margin-right: 5px;" class="delete-btn" routerLink="/edit-house-info"><mat-icon>edit</mat-icon></button>
+            <button style="margin-right: 5px;" class="delete-btn" routerLink="/edit-house-info" [queryParams]="{id: home.id}"><mat-icon>edit</mat-icon></button>
             <button style="margin-right: 5px;" class="delete-btn" routerLink="/set-house-terms" [queryParams]="{id: home.id}"><mat-icon>calendar_today</mat-icon></button>
             <button class="delete-btn" (click)="onDelete(home.id)"><mat-icon>delete</mat-icon></button>
           </div>

@@ -34,44 +34,44 @@
       <div class="double-input">
         <mat-form-field class="input-box" appearance="outline">
             <mat-label>Name</mat-label>
-            <input matInput placeholder="" value="" >
+            <input matInput placeholder="" formControlName="name">
         </mat-form-field>
         <mat-form-field class="input-box" appearance="outline">
             <mat-label>Address</mat-label>
-            <input matInput placeholder="" value="" >
+            <input matInput placeholder="" formControlName="address" >
         </mat-form-field>
       </div>  
       <div class="double-input">
         <mat-form-field class="input-box" appearance="outline">
             <mat-label>Number of rooms</mat-label>
-            <input matInput placeholder="" value="" >
+            <input matInput placeholder="" formControlName="numberOfRooms" >
         </mat-form-field>
         <mat-form-field class="input-box" appearance="outline">
             <mat-label>Number of beds</mat-label>
-            <input matInput placeholder="" value="" >
+            <input matInput placeholder="" formControlName="numberOfBeds" >
         </mat-form-field>
       </div>  
       <div class="double-input">
         <mat-form-field class="input-box" appearance="outline">
             <mat-label>Description</mat-label>
-            <input matInput placeholder="" value="" >
+            <input matInput placeholder="" formControlName="promoDescription">
         </mat-form-field>
         <mat-form-field class="input-box" appearance="outline">
             <mat-label>Price</mat-label>
-            <input matInput placeholder="" value="" >
+            <input matInput placeholder="" formControlName="pricelist">
         </mat-form-field>
       </div> 
       <div class="double-input">
         <mat-form-field class="input-box" appearance="outline">
             <mat-label>Rules</mat-label>
-            <input matInput placeholder="" value="" >
+            <input matInput placeholder="" formControlName="behaviourRules">
         </mat-form-field>
         <mat-form-field class="input-box" appearance="outline">
             <mat-label>Extra service</mat-label>
-            <input matInput placeholder="" value="" >
+            <input matInput placeholder="" formControlName="extraService">
         </mat-form-field>
       </div>
-      <button class="btn">Save house</button>
+      <button class="btn" (click)="onSave()">Save house</button>
     </form>
   </div>
 
