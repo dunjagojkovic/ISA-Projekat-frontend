@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { id } from 'date-fns/locale';
 
 @Injectable({
   providedIn: 'root'
@@ -84,4 +85,23 @@ export class ApiService {
     return this.http.post(this.baseURL + "/api/homeReservations/searchFree", data, this.getAuthoHeader());
   }
 
+  deleteMyHouse(id: number) {
+    return this.http.delete(this.baseURL + "/api/homes/" + id, this.getAuthoHeader())
+  }
+
+  addHouseFreeTerms(data: any){
+    return this.http.post(this.baseURL + "/api/hometerms", data, this.getAuthoHeader());
+  }
+
+  loadHouseFreeTerms(id: any){
+    return this.http.get(this.baseURL + "/api/hometerms/" + id, this.getAuthoHeader());
+  }
+
+  loadOneHouse(id: any) {
+    return this.http.get(this.baseURL + "/api/homes/" +id, this.getAuthoHeader());
+  }
+
+  editHouse(id: number, data: any) {
+    return this.http.put(this.baseURL + "/api/homes/" +id, data, this.getAuthoHeader());
+  }
 }

@@ -13,6 +13,8 @@ import { FormGroup } from '@angular/forms';
 export class HomepageHouseOwnerComponent implements OnInit {
   form: FormGroup;
   homes: any;
+  addHouseBox : boolean = false;
+  user: any = {} as any;
 
   constructor(
     private formBuilder : FormBuilder,
@@ -41,6 +43,16 @@ export class HomepageHouseOwnerComponent implements OnInit {
     this.api.loadHouse().subscribe((response:any) => {
         this.homes = response;
     });
+
+    this.api.current().subscribe((response:any) => {
+      this.user = response;
+  });
+  }
+
+  onDelete(id: number) {
+    this.api.deleteMyHouse(id).subscribe((response:any) => {
+      this.homes = this.homes.filter((e:any) => e.id != id);
+  });
   }
 
   onSubmit() {

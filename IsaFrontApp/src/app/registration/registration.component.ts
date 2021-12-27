@@ -28,7 +28,7 @@ export class RegistrationComponent implements OnInit {
       city: ['', Validators.pattern('[a-zčćžšđA-ZČĆŽŠĐ]*')],
       country: ['', Validators.pattern('[a-zčćžšđA-ZČĆŽŠĐ]*')],
       phoneNumber: ['', Validators.minLength(10)],
-      description: ['', Validators.required],
+      description: [''],
       type: ['', Validators.required]
 
     })

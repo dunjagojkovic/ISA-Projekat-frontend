@@ -31,8 +31,12 @@ import { MatInputModule } from '@angular/material/input';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { SetFreeTermsComponent } from './homepage-house-owner/set-free-terms/set-free-terms.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { EdithouseHouseOwnerComponent } from './homepage-house-owner/edithouse-house-owner/edithouse-house-owner.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 
 @NgModule({
@@ -51,6 +55,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     HomepageHouseOwnerComponent,
     SettingsHouseOwnerComponent,
     InstructorProfilesClientComponent,
+    SetFreeTermsComponent,
+    EdithouseHouseOwnerComponent,
     SearchFreeCottagesClientComponent
   ],
   imports: [
@@ -71,6 +77,10 @@ import { MatNativeDateModule } from '@angular/material/core';
     HttpClientModule,
     MatFormFieldModule,
     MatDatepickerModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    })
     MatNativeDateModule
    ],
   providers: [],
