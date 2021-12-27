@@ -13,6 +13,7 @@ export class SearchFreeCottagesClientComponent implements OnInit {
   form: FormGroup;
   houses = [] as any;
   user: any = {} as any;
+  todayDate:Date = new Date();
  
   constructor(
     private router: Router,
@@ -22,7 +23,7 @@ export class SearchFreeCottagesClientComponent implements OnInit {
     this.form = this.formBuilder.group({
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
-      location: ['']
+      location: ['',  Validators.required]
     })
   }
 

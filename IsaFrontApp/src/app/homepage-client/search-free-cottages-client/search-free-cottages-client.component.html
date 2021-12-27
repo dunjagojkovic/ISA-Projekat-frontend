@@ -34,30 +34,25 @@
     <div class="example-form">
       <form [formGroup]="form">
         <div>
-          <mat-form-field appearance="outline" class="date-picker" color="accent">
-            <mat-label>Choose a start date</mat-label>
-            <input formControlName="startDate" matInput [matDatepicker]="pickerStart">
-            <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
-            <mat-datepicker #pickerStart></mat-datepicker>
-          </mat-form-field>
-    
-          <mat-form-field appearance="outline" class="date-picker">
-            <mat-label>Choose a end date</mat-label>
-            <input  formControlName="endDate" matInput [matDatepicker]="pickerEnd">
-            <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
-            <mat-datepicker #pickerEnd></mat-datepicker>
-          </mat-form-field>    
-          
-          <div>
+          <mat-form-field appearance="outline" class="date-picker" >
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [min]="todayDate" [formGroup]="form" [rangePicker]="picker">
+              <input style="font-weight: bold;" matStartDate formControlName="startDate" placeholder="Start date">
+              <input  style="font-weight: bold;" matEndDate formControlName="endDate" placeholder="End date">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>          
+            <mat-error *ngIf="form.controls.startDate.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+            <mat-error *ngIf="form.controls.endDate.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+          </mat-form-field>            
             <mat-form-field class="input-box-small" appearance="outline" >
-              <mat-label>Location</mat-label>
+              <mat-label style="font-weight: bolder;">Location</mat-label>
               <input formControlName="location" matInput placeholder="" value="" >
             </mat-form-field>
             <mat-form-field class="input-box-small" appearance="outline" >
-              <mat-label>Number of days</mat-label>
+              <mat-label>Number of people</mat-label>
               <input matInput placeholder="" value="" >
             </mat-form-field>
-          </div>
         </div>  
         <button style="bottom: 25%;" class="search-btn" (click)="onSearch()">Search</button>
       </form>
@@ -78,6 +73,9 @@
         <p>Rules: {{h.behaviourRules}}</p>
         <p>Extra service: {{h.extraService}}</p>
         <p>Description: {{h.promoDescription}}</p>
+        <div>
+          <button class="reserve-btn">Reserve</button>
+        </div>
       </mat-card-content>
         </mat-card>  
         <mat-card >
