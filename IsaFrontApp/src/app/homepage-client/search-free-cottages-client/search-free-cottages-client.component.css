@@ -198,5 +198,64 @@
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
+    left: 45%;
+    top:110%;
 }
 
+.example-form {
+    position: relative;
+    margin-left: 22%;
+    margin-bottom: 80px;
+    height: max-content;
+    width: 1000px;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+.date-picker {
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-top: 20px;
+    color: #354F52!important;
+}
+
+.input-box-small {
+    width: 185px;
+    color: #354F52;
+    align-items: center;
+    height: 58px;
+    margin-bottom: 5px;
+    border-radius: 15px;
+    margin-inline: 5px;
+    font-weight: bold;
+  }
+
+  ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #354F52!important;
+    font-weight: bold;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #354F52!important;
+    font-weight: bold;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: #354F52!important;
+  font-weight: bold;
+}
+
+::ng-deep datepicker-value-example .mat-form-field-label{
+    color: #354F52!important;
+ }
+ 
+ ::ng-deep .mat-datepicker-toggle{
+    color: #354F52!important;
+ }
+ ::ng-deep .mat-form-field-underline{
+    color: #354F52!important;
+ }
+
+ ::ng-deep .mat-calendar-body-today{
+    color: #354F52!important;
+}
