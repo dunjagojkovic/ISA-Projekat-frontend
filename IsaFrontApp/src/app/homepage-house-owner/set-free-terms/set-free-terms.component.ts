@@ -18,6 +18,8 @@ export class SetFreeTermsComponent implements OnInit {
   CalendarView = CalendarView;
   terms = [] as any;
   events: CalendarEvent[] = [];
+  monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"];
 
   constructor(
     private formBuilder : FormBuilder,

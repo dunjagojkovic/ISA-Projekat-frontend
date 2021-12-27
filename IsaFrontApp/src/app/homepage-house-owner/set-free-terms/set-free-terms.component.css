@@ -177,3 +177,15 @@
     position: relative;
     margin-top: 12px;
   }
+
+  .btn {
+    color:#ebf0e9;
+    background-color: #84A98C;
+    border-radius: 20px;
+    height: 44px;
+    font-size: 18px;
+    width: 160px;
+    margin-bottom: 20px;
+    position: relative;
+    margin-top: 12px;
+  }
