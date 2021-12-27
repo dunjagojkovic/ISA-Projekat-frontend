@@ -21,18 +21,33 @@ export class SearchFreeCottagesClientComponent implements OnInit {
   ) { 
     this.form = this.formBuilder.group({
       startDate: ['', Validators.required],
-      endDate: ['', Validators.required]
+      endDate: ['', Validators.required],
+      location: ['']
     })
   }
 
   ngOnInit(): void {
-    this.api.loadHousesForClients().subscribe((response:any) => {
-      this.houses = response;
-    });
     this.api.current().subscribe((response:any) => {
       this.user = response;     
       console.log(response); 
   });
+  }
+
+  onSearch(){
+    const startDate = this.form.get('startDate')?.value;
+    const endDate = this.form.get('endDate')?.value;
+    const location = this.form.get('location')?.value;
+
+    let data = {
+      startDate: startDate,
+      endDate: endDate,
+      location: location
+    }
+
+    this.api.searchFreeHouses(data).subscribe((response: any) => {
+      console.log(response);
+      this.houses = response;
+    });
   }
 
 }

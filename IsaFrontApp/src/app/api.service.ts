@@ -80,4 +80,8 @@ export class ApiService {
     return this.http.put(this.baseURL + "/api/users/", data, this.getAuthoHeader());
   }
 
+  searchFreeHouses(data: any){
+    return this.http.post(this.baseURL + "/api/homeReservations/searchFree", data, this.getAuthoHeader());
+  }
+
 }
