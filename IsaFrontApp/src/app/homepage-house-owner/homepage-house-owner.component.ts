@@ -32,7 +32,8 @@ export class HomepageHouseOwnerComponent implements OnInit {
         promoDescription: ['', Validators.required],
         pricelist: ['', Validators.required],
         behaviourRules: ['', Validators.required],
-        extraService: ['', Validators.required]
+        extraService: ['', Validators.required],
+        extraPrice: ['', Validators.required]
       })
 
      }
@@ -67,6 +68,7 @@ export class HomepageHouseOwnerComponent implements OnInit {
       const pricelist = this.form.get('pricelist')?.value;
       const behaviourRules = this.form.get('behaviourRules')?.value;
       const extraService = this.form.get('extraService')?.value;
+      const extraPrice = this.form.get('extraPrice')?.value;
 
       let data = {
         name: name,
@@ -77,6 +79,7 @@ export class HomepageHouseOwnerComponent implements OnInit {
         pricelist: pricelist,
         behaviourRules: behaviourRules,
         extraService: extraService,
+        extraPrice: extraPrice,
         interiorImage: this.images['interiorImage'],
         exteriorImage: this.images['exteriorImage']
       }
