@@ -54,14 +54,30 @@
               <input matInput placeholder="" value="" >
             </mat-form-field>
         </div>  
-        <button style="bottom: 25%;" class="search-btn" (click)="onSearch()">Search</button>
+        <button class="search-btn" (click)="onSearch()">Search</button>
       </form>
     </div> 
+
+
+    <mat-toolbar class="navMenu" style="cursor: pointer; align-items: left;">      
+      <div class="row d-flex align-items-center w-100">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+          <nav class="navMenu" style="font-size: 15px;">            
+            <a style="float:none">Sort by price</a>
+            <a style="float:none">Filter by rate</a>
+          </nav>
+        </div>
+        <div class="col-md-4">
+        </div>
+      </div>  
+      </mat-toolbar>
   
    
   <div>
     <div *ngFor="let h of houses; let i = index">
-      <div style="display: flex; flex-direction: row; margin-top: 5%; margin-left: 25%; margin-bottom: 5%; margin-right: 25%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+      <div style="display: flex; flex-direction: row; margin-top: 1%; margin-left: 25%; margin-bottom: 5%; margin-right: 25%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
         <mat-card style="width: 500px; border: none; font-weight: bold; color: #52796F;">
           <mat-card-title style="font-size: 26px; margin-top: 4%; font-weight: bold;">{{h.name}}</mat-card-title>
       <mat-card-subtitle style="font-weight: bold; font-size: 16px; margin-top: 2%;">{{h.address}}</mat-card-subtitle>
@@ -74,7 +90,7 @@
         <p>Extra service: {{h.extraService}}</p>
         <p>Description: {{h.promoDescription}}</p>
         <div>
-          <button [routerLink]="['/reserve-cottages-standard-client']" class="reserve-btn" [queryParams]="{id: h.id}">Book</button>
+          <button [routerLink]="['/reserve-cottages-standard-client']" class="reserve-btn" [queryParams]="{id: h.id, startDate: startDate, endDate: endDate}">Book</button>
         </div>
       </mat-card-content>
         </mat-card>  

@@ -104,4 +104,12 @@ export class ApiService {
   editHouse(id: number, data: any) {
     return this.http.put(this.baseURL + "/api/homes/" +id, data, this.getAuthoHeader());
   }
+
+  bookHouse(data: any){
+    return this.http.post(this.baseURL + "/api/homeReservations/", data, this.getAuthoHeader());
+  }
+
+  filterHouses(data:any){
+    return this.http.post(this.baseURL + "/api/homes/filterHomes", data, this.getAuthoHeader());
+  }
 }
