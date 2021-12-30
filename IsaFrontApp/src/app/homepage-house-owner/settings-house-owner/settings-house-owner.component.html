@@ -28,17 +28,26 @@
     <div class="col-md-2"></div>
   </div>
 
-  
-  <h1 class="heading" style="margin-top: 25px; margin-left:42%;">Personal informations</h1>
+  <mat-toolbar class="navMenu" style="cursor: pointer; margin-top: 2%; align-items: left;">      
+    <div class="row d-flex align-items-center w-100">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <nav class="navMenu" style="font-size: 15px;">            
+          <a style="float:none" (click)="deleteAccountBox = true">Delete account</a>
+          <a style="float:none" (click)="changePasswordBox = true">Change password</a>
+        </nav>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div>  
+    </mat-toolbar>
+
   <div class="example-form">
       <div class="double-input">
-        <mat-form-field class="input-box" appearance="outline">
+        <mat-form-field class="input-box1" appearance="outline">
             <mat-label>Email</mat-label>
             <input disabled matInput placeholder="" value="{{user.email}}">
-        </mat-form-field>
-        <mat-form-field class="input-box" appearance="outline">
-            <mat-label>Country</mat-label>
-            <input matInput placeholder="" value="{{user.country}}">
         </mat-form-field>
       </div>  
       <form [formGroup]="form" (ngSubmit)="savePersonalInfo()">
@@ -48,25 +57,25 @@
             <input matInput placeholder="" value="{{user.name}}" formControlName="name">
         </mat-form-field>
         <mat-form-field class="input-box" appearance="outline">
-            <mat-label>City</mat-label>
-            <input matInput placeholder="" value="{{user.city}}" formControlName="city">
+            <mat-label>Surname</mat-label>
+            <input matInput placeholder="" value="{{user.surname}}" formControlName="surname">
         </mat-form-field>
       </div>  
       <div class="double-input">
         <mat-form-field class="input-box" appearance="outline">
-            <mat-label>Surname</mat-label>
-            <input matInput placeholder="" value="{{user.surname}}" formControlName="surname">
-        </mat-form-field>
+          <mat-label>City</mat-label>
+          <input matInput placeholder="" value="{{user.city}}" formControlName="city">
+      </mat-form-field>
         <mat-form-field class="input-box" appearance="outline">
-            <mat-label>Street</mat-label>
-            <input matInput placeholder="" value="{{user.address}}" formControlName="address">
+            <mat-label>Country</mat-label>
+            <input matInput placeholder="" value="{{user.country}}" formControlName="country">
         </mat-form-field>
       </div> 
       <div class="double-input">
         <mat-form-field class="input-box" appearance="outline">
-            <mat-label>Password</mat-label>
-            <input matInput placeholder="" value="{{user.password}}" formControlName="password">
-        </mat-form-field>
+          <mat-label>Street</mat-label>
+          <input matInput placeholder="" value="{{user.address}}" formControlName="address">
+      </mat-form-field>
         <mat-form-field class="input-box" appearance="outline">
             <mat-label>Telephone</mat-label>
             <input matInput placeholder=""value="{{user.phoneNumber}}" formControlName="phoneNumber">
@@ -74,13 +83,28 @@
       </div><br />
       <button class="btn"(click)="savePersonalInfo()">Save changes</button>
     </form>
-      <button class="btn" (click)="deleteAccountBox = true">Delete account</button>
       <div class="delete-box" *ngIf="deleteAccountBox">
         <mat-form-field class="reason-area" appearance="outline">
             <mat-label>Reason for deleting account</mat-label>
             <textarea matInput></textarea>
           </mat-form-field><br />
           <button class="reason-btn">Send request</button>
+      </div>
+      <div class="password-box" *ngIf="changePasswordBox">
+        <mat-form-field class="input-password" appearance="outline">
+          <mat-label>Old password</mat-label>
+          <input matInput placeholder="">
+      </mat-form-field>
+      <mat-form-field class="input-password" appearance="outline">
+        <mat-label>New password</mat-label>
+        <input matInput placeholder="">
+      </mat-form-field>
+      <mat-form-field class="input-password" appearance="outline">
+        <mat-label>Confirm password</mat-label>
+        <input matInput placeholder="">
+      </mat-form-field>
+      <br />
+          <button class="reason-btn">Save</button>
       </div>
   </div>
 

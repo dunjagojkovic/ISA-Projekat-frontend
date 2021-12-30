@@ -21,6 +21,17 @@ export class SetFreeTermsComponent implements OnInit {
   monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"];
 
+  colors: any = {
+    blue: {
+      primary: '#1e90ff',
+      secondary: '#D1E8FF',
+    },
+    green: {
+      primary: '#84A98C',
+      secondary: '#ebf0e9',
+    },
+  };
+
   constructor(
     private formBuilder : FormBuilder,
     private router: Router,
@@ -53,7 +64,8 @@ export class SetFreeTermsComponent implements OnInit {
         this.events.push({
           start: new Date(event.startDate),
           end: new Date(event.endDate),
-          title: event.homeProfile.name,
+          title: "Free term",
+          color: this.colors.green
         })
       }
   });

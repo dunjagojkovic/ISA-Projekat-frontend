@@ -34,8 +34,7 @@
       </div>
       <div class="col-md-4">
         <nav class="navMenu" style="font-size: 15px;">            
-          <a (click)="addHouseBox = true" style="float:none">New house</a>
-          <a style="float:none">Free terms</a>
+          <a (click)="addHouseBox = true" style="float:none">Add New house</a>
         </nav>
       </div>
       <div class="col-md-4">
@@ -84,6 +83,10 @@
               <mat-label>Extra service</mat-label>
               <input matInput placeholder="" value=""  formControlName="extraService">
           </mat-form-field>
+          <mat-form-field class="input-box" appearance="outline">
+            <mat-label>Extra price</mat-label>
+            <input matInput placeholder="" value=""  formControlName="extraPrice">
+        </mat-form-field>
         </div>
         <div style="display: flex; flex-direction: row;">
             <div class="form-group" style="margin-top: 10px; margin-left: 8%;">
@@ -123,6 +126,7 @@
         <p>Number of beds: {{home.numberOfBeds}}</p>
         <p>Rules: {{home.behaviourRules}}</p>
         <p>Extra service: {{home.extraService}}</p>
+        <p>Price for extra service: {{home.extraPrice}}</p>
         <p>Description: {{home.promoDescription}}</p>
     </mat-card-content>
       </mat-card>  

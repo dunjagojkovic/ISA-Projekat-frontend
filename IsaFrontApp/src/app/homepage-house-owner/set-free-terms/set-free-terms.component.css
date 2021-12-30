@@ -168,6 +168,7 @@
 
 .btnn {
     color:#ebf0e9;
+    border: 3px solid #84A98C;
     background-color: #84A98C;
     border-radius: 20px;
     height: 44px;
@@ -189,3 +190,32 @@
     position: relative;
     margin-top: 12px;
   }
+
+ ::ng-deep .cal-month-view .cal-day-badge {
+    margin-top: 10px;
+    margin-left: 10px;
+    display: inline-block;
+    min-width: 10px;
+    padding: 9px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-radius: 20px;
+    background-color: #52796F;
+}
+
+::ng-deep .cal-month-view .cal-header .cal-cell {
+    padding: 10px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    white-space: nowrap;
+    background-color: #CAD2C5;
+    height: 30px;
+    color: #84A98C;
+}

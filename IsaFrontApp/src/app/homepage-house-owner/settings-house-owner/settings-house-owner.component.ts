@@ -12,6 +12,7 @@ import { Validators } from '@angular/forms';
 })
 export class SettingsHouseOwnerComponent implements OnInit {
   deleteAccountBox : boolean = false;
+  changePasswordBox : boolean = false;
   hide = true;
   user: any = {} as any;
   form: FormGroup;
@@ -76,6 +77,7 @@ export class SettingsHouseOwnerComponent implements OnInit {
 
     this.api.editInfo(id, data).subscribe((response: any) => {
       console.log(response);
+      this.router.navigate(['/home-house-owner']);
     });
   }
 }

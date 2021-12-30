@@ -42,34 +42,54 @@
         </mat-form-field>
       </div>  
       <div class="double-input">
-        <mat-form-field class="input-box" appearance="outline">
+        <mat-form-field style="width: 210px;" class="input-box" appearance="outline">
             <mat-label>Number of rooms</mat-label>
             <input matInput placeholder="" formControlName="numberOfRooms" >
         </mat-form-field>
-        <mat-form-field class="input-box" appearance="outline">
+        <mat-form-field style="width: 210px;" class="input-box" appearance="outline">
             <mat-label>Number of beds</mat-label>
             <input matInput placeholder="" formControlName="numberOfBeds" >
         </mat-form-field>
+        <mat-form-field style="width: 210px;" class="input-box" appearance="outline">
+          <mat-label>Price</mat-label>
+          <input matInput placeholder="" formControlName="pricelist">
+        </mat-form-field>
       </div>  
       <div class="double-input">
-        <mat-form-field class="input-box" appearance="outline">
-            <mat-label>Description</mat-label>
-            <input matInput placeholder="" formControlName="promoDescription">
+        <mat-form-field class="text-area" appearance="outline">
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="promoDescription"></textarea>
         </mat-form-field>
-        <mat-form-field class="input-box" appearance="outline">
-            <mat-label>Price</mat-label>
-            <input matInput placeholder="" formControlName="pricelist">
+      </div>
+      <div class="double-input">
+        <mat-form-field class="text-area" appearance="outline">
+          <mat-label>Rules</mat-label>
+          <textarea matInput formControlName="behaviourRules"></textarea>
         </mat-form-field>
       </div> 
       <div class="double-input">
-        <mat-form-field class="input-box" appearance="outline">
-            <mat-label>Rules</mat-label>
-            <input matInput placeholder="" formControlName="behaviourRules">
-        </mat-form-field>
-        <mat-form-field class="input-box" appearance="outline">
+        <mat-form-field style="width: 430px;" class="input-box" appearance="outline">
             <mat-label>Extra service</mat-label>
             <input matInput placeholder="" formControlName="extraService">
         </mat-form-field>
+        <mat-form-field style="width: 210px;" class="input-box" appearance="outline">
+          <mat-label>Price for extra service</mat-label>
+          <input matInput placeholder="" formControlName="extraPrice">
+      </mat-form-field>
+      </div>
+      <div style="display: flex; flex-direction: row;">
+        <div class="form-group" style="margin-top: 10px; margin-left: 8%;">
+          <label for="file">Exterior image </label>
+          <input type="file"
+                 id="file"
+                 (change)="handleExteriorImage($event)">
+        </div>
+        <div class="form-group" style="margin-top: 10px; margin-left: 3%;">
+          <label for="file">Interior image </label>
+          <input type="file"
+                 id="file"
+                 (change)="handleInteriorImage($event)">
+        </div>
       </div>
       <button class="btn" (click)="onSave()">Save house</button>
     </form>
