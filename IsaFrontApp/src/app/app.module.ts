@@ -38,6 +38,7 @@ import { EdithouseHouseOwnerComponent } from './homepage-house-owner/edithouse-h
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { HomepageBoatOwnerComponent } from './homepage-boat-owner/homepage-boat-owner.component';
+import { SettingsBoatOwnerComponent } from './homepage-boat-owner/settings-boat-owner/settings-boat-owner.component';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { HomepageBoatOwnerComponent } from './homepage-boat-owner/homepage-boat-
     SetFreeTermsComponent,
     EdithouseHouseOwnerComponent,
     SearchFreeCottagesClientComponent,
-    HomepageBoatOwnerComponent
+    HomepageBoatOwnerComponent,
+    SettingsBoatOwnerComponent
   ],
   imports: [
     BrowserModule,
