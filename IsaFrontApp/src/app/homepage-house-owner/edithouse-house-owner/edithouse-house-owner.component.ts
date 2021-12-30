@@ -16,7 +16,7 @@ export class EdithouseHouseOwnerComponent implements OnInit {
   user: any = {} as any;
   home: any;
   id: any;
-
+  
   constructor(
     private formBuilder : FormBuilder,
     private router: Router,
@@ -42,6 +42,8 @@ export class EdithouseHouseOwnerComponent implements OnInit {
       extraPrice: ['']
     });
   }
+
+  images: any;
 
   ngOnInit(): void {
     this.api.current().subscribe((response:any) => {
@@ -85,11 +87,50 @@ export class EdithouseHouseOwnerComponent implements OnInit {
         pricelist: pricelist,
         behaviourRules: behaviourRules,
         extraService: extraService,
-        extraPrice: extraPrice
+        extraPrice: extraPrice,
+        exteriorImage: this.images['exteriorImage'],
+        interiorImage: this.images['interiorImage']
       }
 
     this.api.editHouse(this.id, data).subscribe((response:any) => {
       this.router.navigate(['/home-house-owner']);
   });
   }
+ 
+  
+  handleInteriorImage(event: any) {
+
+    if(!event || !event.target || !event.target.files) {
+      return;
+    }
+
+    this.getBase64(event, 'interiorImage');
+  }
+
+  handleExteriorImage(event: any) {
+
+    if(!event || !event.target || !event.target.files) {
+      return;
+    }
+
+    this.getBase64(event, 'exteriorImage');
+  }
+
+  getBase64(event:any, name: any) {
+    let me = this;
+    let file = event.target.files[0];
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    var self = this;
+
+    if(!this.images) {
+      this.images = {};
+    }
+
+    reader.onload = function () {
+      self.images[name] = reader.result;
+    }
+    reader.onerror = function (error) {
+    };
+ }
 }
