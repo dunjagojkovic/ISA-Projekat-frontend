@@ -37,6 +37,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { EdithouseHouseOwnerComponent } from './homepage-house-owner/edithouse-house-owner/edithouse-house-owner.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { HomepageBoatOwnerComponent } from './homepage-boat-owner/homepage-boat-owner.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     InstructorProfilesClientComponent,
     SetFreeTermsComponent,
     EdithouseHouseOwnerComponent,
-    SearchFreeCottagesClientComponent
+    SearchFreeCottagesClientComponent,
+    HomepageBoatOwnerComponent
   ],
   imports: [
     BrowserModule,
