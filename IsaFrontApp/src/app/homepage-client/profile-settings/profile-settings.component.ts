@@ -85,4 +85,9 @@ export class ProfileSettingsComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+  onDeleteRequest(id: number) {
+    this.api.sendDeleteRequest(id).subscribe((response: any) => {
+      console.log(response);});
+  }
+
 }

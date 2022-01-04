@@ -112,4 +112,8 @@ export class ApiService {
   filterHouses(data:any){
     return this.http.post(this.baseURL + "/api/homes/filterHomes", data);
   }
+
+  sendDeleteRequest(id: number){
+    return this.http.delete(this.baseURL + "/api/users/" + id, this.getAuthoHeader());
+  }
 }

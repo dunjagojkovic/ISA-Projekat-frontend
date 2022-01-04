@@ -36,7 +36,7 @@ export class ReserveCottagesStandardComponent implements OnInit {
     });
     
     this.form = this.formBuilder.group({
-        extraService: ['']
+        extraServices: ['']
     })
   }
 
@@ -51,19 +51,16 @@ export class ReserveCottagesStandardComponent implements OnInit {
   }
 
   onSubmit() {
-
-    console.log('test')
-
    
-    const extraService = this.form.get('extraService')?.value;
+    const extraServices = this.form.get('extraService')?.value;
 
     let data = {
       name: this.name,
-      pricelist: this.pricelist,
-      extraService: extraService,
+      extraServices: extraServices,
       startDate: this.startDate,
       endDate: this.endDate,
-      houseId: this.id
+      houseId: this.id,
+      pricelist: this.pricelist
     }
 
     this.api.bookHouse(data).subscribe((response: any) => {

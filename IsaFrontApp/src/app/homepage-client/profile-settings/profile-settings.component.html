@@ -83,7 +83,7 @@
             <mat-label>Reason for deleting account</mat-label>
             <textarea matInput></textarea>
           </mat-form-field><br />
-          <button class="reason-btn">Send request</button>
+          <button class="reason-btn" (click)="onDeleteRequest(user.id)" >Send request</button>
       </div>
   </div>
 
