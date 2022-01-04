@@ -13,7 +13,7 @@ import { FormGroup } from '@angular/forms';
 export class HomepageBoatOwnerComponent implements OnInit {
   form: FormGroup;
   boats: any;
-  addHouseBox : boolean = false;
+  addBoatBox : boolean = false;
   user: any = {} as any;
   images: any;
 
@@ -59,5 +59,89 @@ export class HomepageBoatOwnerComponent implements OnInit {
       this.boats = this.boats.filter((e:any) => e.id != id);
   });
   }
+
+  onSubmit() {
+
+    const name = this.form.get('name')?.value;
+    const address = this.form.get('address')?.value;
+    const promoDescription = this.form.get('promoDescription')?.value;
+    const pricelist = this.form.get('pricelist')?.value;
+    const behaviourRules = this.form.get('behaviourRules')?.value;
+    const extraService = this.form.get('extraService')?.value;
+    const extraPrice = this.form.get('extraPrice')?.value;
+    const type = this.form.get('type')?.value;
+    const maxSpeed = this.form.get('maxSpeed')?.value;
+    const enginePower = this.form.get('enginePower')?.value;
+    const engineNumber = this.form.get('engineNumber')?.value;
+    const capacity = this.form.get('capacity')?.value;
+    const length = this.form.get('length')?.value;
+    const cancelConditions = this.form.get('cancelConditions')?.value;
+    const navEquipment = this.form.get('navEquipment')?.value;
+    const fishingEquipment = this.form.get('fishingEquipment')?.value;
+
+    let data = {
+      name: name,
+      address: address,
+      promoDescription: promoDescription,
+      pricelist: pricelist,
+      behaviourRules: behaviourRules,
+      extraService: extraService,
+      extraPrice: extraPrice,
+      type: type,
+      maxSpeed: maxSpeed,
+      enginePower: enginePower,
+      engineNumber: engineNumber,
+      capacity: capacity,
+      length: length,
+      cancelConditions: cancelConditions,
+      navEquipment: navEquipment,
+      fishingEquipment: fishingEquipment,
+      interiorImage: this.images['interiorImage'],
+      exteriorImage: this.images['exteriorImage']
+    }
+
+    this.api.addBoat(data).subscribe((response: any) => {
+        console.log(response)
+    });
+
+    location.reload();
+}
+
+handleInteriorImage(event: any) {
+
+  if(!event || !event.target || !event.target.files) {
+    return;
+  }
+
+  this.getBase64(event, 'interiorImage');
+}
+
+handleExteriorImage(event: any) {
+
+  if(!event || !event.target || !event.target.files) {
+    return;
+  }
+
+  this.getBase64(event, 'exteriorImage');
+}
+
+getBase64(event:any, name: any) {
+  let me = this;
+  let file = event.target.files[0];
+  let reader = new FileReader();
+  reader.readAsDataURL(file);
+  var self = this;
+
+  if(!this.images) {
+    this.images = {};
+  }
+
+  reader.onload = function () {
+    self.images[name] = reader.result;
+  }
+  reader.onerror = function (error) {
+  };
+}
+
 
 }

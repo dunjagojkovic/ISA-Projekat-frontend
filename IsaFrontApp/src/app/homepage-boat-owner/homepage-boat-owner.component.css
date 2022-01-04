@@ -255,3 +255,15 @@
     padding-top: 80px;
     padding-bottom: 60px;
 }
+
+.text-area {
+    width: 650px;
+    color: #354F52;
+    align-items: center;
+    height: 80px;
+    border-bottom: 5px;
+    border-radius: 10px;
+    font-weight: bold;
+    position: relative;
+    left: 5px;
+  }
