@@ -51,7 +51,7 @@ export class FrontPageComponent implements OnInit {
             this.router.navigate(['/home-house-owner']);
           }
           else if(user.type == "Boat owner"){
-            this.router.navigate(['/']);
+            this.router.navigate(['/home-boat-owner']);
           }
         });
       })
