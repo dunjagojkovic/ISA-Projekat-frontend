@@ -89,6 +89,10 @@ export class ApiService {
     return this.http.delete(this.baseURL + "/api/homes/" + id, this.getAuthoHeader())
   }
 
+  deleteMyBoat(id: number) {
+    return this.http.delete(this.baseURL + "/api/boats/" + id, this.getAuthoHeader())
+  }
+
   addHouseFreeTerms(data: any){
     return this.http.post(this.baseURL + "/api/hometerms", data, this.getAuthoHeader());
   }
@@ -103,5 +107,9 @@ export class ApiService {
 
   editHouse(id: number, data: any) {
     return this.http.put(this.baseURL + "/api/homes/" +id, data, this.getAuthoHeader());
+  }
+
+  loadBoat() {
+    return this.http.get(this.baseURL + "/api/boats/my", this.getAuthoHeader());
   }
 }

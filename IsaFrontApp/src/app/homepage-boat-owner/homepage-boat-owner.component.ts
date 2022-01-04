@@ -12,7 +12,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class HomepageBoatOwnerComponent implements OnInit {
   form: FormGroup;
-  homes: any;
+  boats: any;
   addHouseBox : boolean = false;
   user: any = {} as any;
   images: any;
@@ -23,16 +23,40 @@ export class HomepageBoatOwnerComponent implements OnInit {
     private api: ApiService   
     ) {
       
-      this.homes = [];
+      this.boats = [];
 
       this.form = this.formBuilder.group({
-        
+        name: ['', Validators.required],
+        address: ['', Validators.required],
+        promoDescription: ['', Validators.required],
+        pricelist: ['', Validators.required],
+        behaviourRules: ['', Validators.required],
+        extraService: ['', Validators.required],
+        extraPrice: ['', Validators.required],
+        type: ['', Validators.required],
+        length: ['', Validators.required],
+        engineNumber: ['', Validators.required],
+        enginePower: ['', Validators.required],
+        maxSpeed: ['', Validators.required],
+        navEquipment: ['', Validators.required],
+        capacity: ['', Validators.required],
+        cancelConditions: ['', Validators.required],
+        fishingEquipment: ['', Validators.required]
       })
      }
 
   ngOnInit(): void {
+    this.api.loadBoat().subscribe((response:any) => {
+      this.boats = response;
+  });
     this.api.current().subscribe((response:any) => {
       this.user = response;
+  });
+  }
+
+  onDelete(id: number) {
+    this.api.deleteMyBoat(id).subscribe((response:any) => {
+      this.boats = this.boats.filter((e:any) => e.id != id);
   });
   }
 
