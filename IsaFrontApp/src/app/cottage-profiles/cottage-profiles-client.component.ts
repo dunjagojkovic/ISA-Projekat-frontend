@@ -20,6 +20,9 @@ export class CottageProfilesClientComponent implements OnInit {
   ) {
     this.form = this.formBuilder.group({
       name: [''],
+      address:[''],
+      extraService:[''],
+      numberOfBeds:[''],
      
     })
    }
@@ -32,9 +35,17 @@ export class CottageProfilesClientComponent implements OnInit {
 
   onSearch(){
     const name = this.form.get('name')?.value;
+    const address = this.form.get('address')?.value;
+    const extraService = this.form.get('extraService')?.value;
+    const numberOfBeds = this.form.get('numberOfBeds')?.value;
+
    
     let data = {
-      name: name
+      name: name,
+      address: address,
+      extraService: extraService,
+      numberOfBeds: numberOfBeds
+
      
     }
 

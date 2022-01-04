@@ -110,6 +110,6 @@ export class ApiService {
   }
 
   filterHouses(data:any){
-    return this.http.post(this.baseURL + "/api/homes/filterHomes", data, this.getAuthoHeader());
+    return this.http.post(this.baseURL + "/api/homes/filterHomes", data);
   }
 }
