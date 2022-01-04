@@ -30,6 +30,13 @@ import { MatInputModule } from '@angular/material/input';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { HomepageAdminComponent } from './homepage-admin/homepage-admin.component';
+import { RegistrationRequestsComponent } from './homepage-admin/registration-requests/registration-requests.component';
+import { RegisterAdminComponent } from './homepage-admin/register-admin/register-admin.component';
+import { SettingsAdminComponent } from './homepage-admin/settings-admin/settings-admin.component';
+import { EntitiesListComponent } from './homepage-admin/entities-list/entities-list.component';
+import { HomepageInstructorComponent } from './homepage-instructor/homepage-instructor.component';
+import { AdventureProfileComponent } from './homepage-instructor/adventure-profile/adventure-profile.component';
 
 
 @NgModule({
@@ -46,7 +53,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     InstructorsClientComponent,
     HomepageClientComponent,
     HomepageHouseOwnerComponent,
-    SettingsHouseOwnerComponent
+    SettingsHouseOwnerComponent,
+    HomepageAdminComponent,
+    RegistrationRequestsComponent,
+    RegisterAdminComponent,
+    SettingsAdminComponent,
+    EntitiesListComponent,
+    HomepageInstructorComponent,
+    AdventureProfileComponent
+   
   ],
   imports: [
     BrowserModule,

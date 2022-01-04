@@ -1,24 +1,25 @@
 import { Component, OnInit, Type } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import { Router } from '@angular/router';
-import { ApiService } from '../api.service';
+import { ApiService } from 'src/app/api.service';
+
 
 @Component({
-  selector: 'app-registration',
-  templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.css']
+  selector: 'app-register-admin',
+  templateUrl: './register-admin.component.html',
+  styleUrls: ['./register-admin.component.css']
 })
-export class RegistrationComponent implements OnInit {
-  form: FormGroup;  
-  hide = true;
+export class RegisterAdminComponent implements OnInit {
 
+form: FormGroup;
+hide = true;
 
   constructor(
     private formBuilder : FormBuilder,
-    private router: Router,
-    private api: ApiService   
-    ) {
-
+    private router : Router,
+    private api : ApiService
+  ) {
+       
     this.form = this.formBuilder.group({
       name: ['', Validators.pattern('[a-zA-Z]*')],
       surname: ['', Validators.pattern('[a-zA-Z]*')],
@@ -32,9 +33,9 @@ export class RegistrationComponent implements OnInit {
       description: ['', Validators.required],
       type: ['', Validators.required]
 
-    })
-   } 
 
+   })
+  }
   ngOnInit(): void {
   }
 
@@ -72,41 +73,23 @@ export class RegistrationComponent implements OnInit {
         type: type
       }
 
-      if(type == "Client") {
-        this.api.registerClient(data).subscribe( (any: any) => {
+      if(type == "Admin") {
+        this.api.registerAdmin(data).subscribe( (any: any) => {
 
           this.router.navigate(['/'])
         }, error => {
           alert('Email already exists')
         });
       }
-      else if (type == "House owner"){
-        this.api.registerHouseOwner(data).subscribe( (any: any) => {
-
-          this.router.navigate(['/'])
-        },  error => {
-          alert('Email already exists')
-        });
+    
       }
-      else if (type == "Boat owner"){
-        this.api.registerBoatOwner(data).subscribe( (any: any) => {
-          this.router.navigate(['/'])
-        },  error => {
-          alert('Email already exists')
-        });
-       }
+     
+       
+       
+      }
+      
+      
+    
+    
 
-       else if (type == "Fishing instructor"){
-        this.api.registerFishingInstructor(data).subscribe( (response: any) => {
-          this.router.navigate(['/'])
-        },  (error: any) => {
-          alert('Email already exists')
-        });
-       }
-    
-    
-  }
-   
 }
-}
- 

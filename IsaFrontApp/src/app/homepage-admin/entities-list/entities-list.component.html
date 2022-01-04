@@ -1,0 +1,108 @@
+<div class="row d-flex align-items-center w-100">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8 website_name_label">
+     BOOKING AGENCY
+    </div>
+    <div class="col-md-2">
+    </div>
+    <img src="assets/user.png" class="profile" [routerLink]="['/settings-admin']">
+  </div>
+    
+    <div class="row d-flex align-items-center w-100">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <nav class="navMenu">
+          <a href="registration-requests" style="float:none">Registration requests</a>
+          <a href="register-admin" style="float:none">Register new admins</a>
+          <a href="entities-list" style="float:none">Users/Boats/Cottages</a>
+       </nav>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div> 
+  
+    <div class="row d-flex align-items-center frontpage_gray_banner">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8">
+          <div class="row d-flex align-items-center frontpage_gray_banner_label">Welcome,</div>
+          <div class="row d-flex align-items-center frontpage_gray_banner_label">Masa Rikert</div>
+        </div>
+        <div class="col-md-2">
+        </div>
+      </div>
+  
+      <table>
+          <p><b>User's table</b></p>
+        <tr > 
+          <th>  Name </th>
+          <th>  Surname  </th>
+          <th>  Registration type  </th>
+          <th>  Email  </th>
+        </tr>
+        <tr *ngFor="let user of users">
+          <td>{{user.name}}</td>
+          <td>{{user.surname}}</td>
+          <td>{{user.type}}</td>
+          <td>{{user.email}}</td>
+          
+          <td><button (click)="setDeleted(user.id)">Delete</button></td>
+        </tr>
+      </table>
+
+      <table>
+        <p><b>Cottages's table</b></p>
+        <tr> 
+          <th>  Name  </th>
+          <th>  Address  </th>
+        </tr>
+        <tr *ngFor="let cottage of cottages">
+          <td>{{cottage.name}}</td>
+          <td>{{cottage.address}}</td>
+          
+          <td><button >Delete</button></td>
+        </tr>
+      </table>
+
+      <table>
+        <p><b>Boat's table</b></p>
+        <tr> 
+          <th>  Name  </th>
+          <th>  Type </th>
+          <th> Adress</th>
+        </tr>
+        <tr *ngFor="let boat of boats">
+          <td>{{boat.name}}</td>
+          <td>{{boat.type}}</td>
+          <td>{{boat.address}}</td>
+          
+          <td><button >Delete</button></td>
+        </tr>
+      </table>
+   
+  
+  
+    <div class="row d-flex align-items-center footer">
+      <div class="col-md-3">
+        <h2 class="link_title">Product</h2>
+        <h4 class="link_subtitle">Our plan</h4>
+        <h4 class="link_subtitle">Free trial</h4>
+      </div>
+      <div class="col-md-3">
+        <h2 class="link_title">About us</h2>
+        <h4 class="link_subtitle">Request demo</h4>
+        <h4 class="link_subtitle">FAQs</h4>
+      </div>
+      <div class="col-md-3">
+        <h2 class="link_title">Support</h2>
+        <h4 class="link_subtitle">Services</h4>
+        <h4 class="link_subtitle">Contact us</h4>
+      </div>
+      <div class="col-md-3">
+        <h2 class="link_title">Covid-19 FAQs</h2>
+        <h4 class="link_subtitle">Reviews</h4>
+        <h4 class="link_subtitle">Safety</h4>
+      </div>
+    </div>

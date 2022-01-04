@@ -1,3 +1,4 @@
+import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y/input-modality/input-modality-detector';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -6,7 +7,7 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
 
-  baseURL = "http://localhost:8080";
+  baseURL = "http://localhost:8081";
 
   constructor(private http: HttpClient) { }
 
@@ -40,8 +41,47 @@ export class ApiService {
     return this.http.post(this.baseURL + "/api/users/boat-owner/register", data);
   }
 
+  registerAdmin(data: any) {
+    return this.http.post(this.baseURL + "/api/users/admin/register", data);
+  }
+
+  registerFishingInstructor(data: any) {
+    return this.http.post(this.baseURL + "/api/users/fishing-instructor/register", data);
+  }
+
   loginUser(data: any) {
     return this.http.post(this.baseURL + "/api/users/login", data);
 
   }
+
+  getUsers() {
+    return this.http.get(this.baseURL + '/api/users/userStatus', this.getAuthoHeader());
+  }
+
+  approveUser(id: any) {
+    return this.http.post(this.baseURL + "/api/users/approve/" + id, {}, this.getAuthoHeader());
+  }
+
+  declineUser(id: any) {
+    return this.http.post(this.baseURL + "/api/users/decline/" + id, {}, this.getAuthoHeader());
+  }
+
+  deleteUser(id: any){
+    return this.http.delete(this.baseURL + "/api/users/deleteUser/" + id, this.getAuthoHeader());
+  }
+
+  getAllUsers(){
+    return this.http.get(this.baseURL + '/api/users/allUsers', this.getAuthoHeader());
+  }
+
+  getAllCottages(){
+    return this.http.get(this.baseURL + 'api/homes/home-profiles', this.getAuthoHeader());
+  }
+
+  getAllBoats(){
+    return this.http.get(this.baseURL + 'api/boats/boat-profiles', this.getAuthoHeader());
+  }
+
+  
+
 }

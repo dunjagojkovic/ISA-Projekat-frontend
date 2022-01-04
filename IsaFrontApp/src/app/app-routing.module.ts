@@ -15,6 +15,13 @@ import { HomepageHouseOwnerComponent } from './homepage-house-owner/homepage-hou
 import { SettingsHouseOwnerComponent } from './homepage-house-owner/settings-house-owner/settings-house-owner.component';
 import { HistoryHouseOwnerComponent } from './homepage-house-owner/history-house-owner/history-house-owner.component';
 
+import { HomepageAdminComponent } from './homepage-admin/homepage-admin.component';
+import { RegistrationRequestsComponent } from './homepage-admin/registration-requests/registration-requests.component';
+import { RegisterAdminComponent } from './homepage-admin/register-admin/register-admin.component';
+import { SettingsAdminComponent } from './homepage-admin/settings-admin/settings-admin.component';
+import { EntitiesListComponent } from './homepage-admin/entities-list/entities-list.component';
+import { HomepageInstructorComponent } from './homepage-instructor/homepage-instructor.component';
+import { AdventureProfileComponent } from './homepage-instructor/adventure-profile/adventure-profile.component';
 
 const routes: Routes = [
   { path: '', component: FrontPageComponent},
@@ -29,7 +36,15 @@ const routes: Routes = [
   { path: "instructors-client", component: InstructorsClientComponent},
   { path: "home-house-owner", component: HomepageHouseOwnerComponent},
   { path: "settings-house-owner", component: SettingsHouseOwnerComponent},
-  { path: "history-house-owner", component: HistoryHouseOwnerComponent}
+  { path: "history-house-owner", component: HistoryHouseOwnerComponent},
+  { path: "homepage-admin", component: HomepageAdminComponent},
+  { path: "registration-requests", component: RegistrationRequestsComponent},
+  { path: "register-admin", component: RegisterAdminComponent},
+  { path: "settings-admin", component: SettingsAdminComponent},
+  { path: "entities-list", component: EntitiesListComponent},
+  { path: "homepage-instructor", component: HomepageInstructorComponent},
+  { path: "adventure-profile", component: AdventureProfileComponent}
+  
 
 ];
 

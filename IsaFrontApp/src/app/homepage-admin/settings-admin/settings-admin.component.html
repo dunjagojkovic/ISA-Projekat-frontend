@@ -1,0 +1,116 @@
+<div class="row d-flex align-items-center w-100">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8 website_name_label">
+     BOOKING AGENCY
+    </div>
+    <div class="col-md-2">
+    </div>
+    <img src="assets/user.png" class="profile" [routerLink]="['/settings-client']">
+  </div>
+    
+    <div class="row d-flex align-items-center w-100">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <nav class="navMenu">
+          <a href="registration-requests" style="float:none">Registration requests</a>
+          <a href="register-admin" style="float:none">Register new admins</a>
+    
+        </nav>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div> 
+  
+  
+    <div class="row d-flex align-items-center frontpage_gray_banner">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8">
+          <div class="row d-flex align-items-center frontpage_gray_banner_label">Welcome,</div>
+          <div class="row d-flex align-items-center frontpage_gray_banner_label">Masa Rikert</div>
+        </div>
+        <div class="col-md-2">
+        </div>
+      </div>
+    
+      <h1 class="heading" style="margin-top: 25px; margin-left:44%;">Personal informations</h1>
+      <div class="example-form">
+          <div class="double-input">
+            <mat-form-field class="input-box" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="" value="">
+            </mat-form-field>
+            <mat-form-field class="input-box" appearance="outline">
+                <mat-label>Country</mat-label>
+                <input matInput placeholder="" value="">
+            </mat-form-field>
+          </div>  
+          <div class="double-input">
+            <mat-form-field class="input-box" appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="" value="">
+            </mat-form-field>
+            <mat-form-field class="input-box" appearance="outline">
+                <mat-label>City</mat-label>
+                <input matInput placeholder="" value="">
+            </mat-form-field>
+          </div>  
+          <div class="double-input">
+            <mat-form-field class="input-box" appearance="outline">
+                <mat-label>Surname</mat-label>
+                <input matInput placeholder="" value="">
+            </mat-form-field>
+            <mat-form-field class="input-box" appearance="outline">
+                <mat-label>Street</mat-label>
+                <input matInput placeholder="" value="">
+            </mat-form-field>
+          </div> 
+          <div class="double-input">
+            <mat-form-field class="input-box" appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="" value="">
+            </mat-form-field>
+            <mat-form-field class="input-box" appearance="outline">
+                <mat-label>Telephone</mat-label>
+                <input matInput placeholder="" value="">
+            </mat-form-field>
+          </div><br />
+          <button class="btn">Save changes</button>
+          <button class="btn" (click)="deleteAccountBox = true">Delete account</button>
+          <div class="delete-box" *ngIf="deleteAccountBox">
+            <mat-form-field class="reason-area" appearance="outline">
+                <mat-label>Reason for deleting account</mat-label>
+                <textarea matInput></textarea>
+              </mat-form-field><br />
+              <button class="reason-btn">Send request</button>
+          </div>
+      </div>
+
+
+   
+  
+  
+    <div class="row d-flex align-items-center footer">
+      <div class="col-md-3">
+        <h2 class="link_title">Product</h2>
+        <h4 class="link_subtitle">Our plan</h4>
+        <h4 class="link_subtitle">Free trial</h4>
+      </div>
+      <div class="col-md-3">
+        <h2 class="link_title">About us</h2>
+        <h4 class="link_subtitle">Request demo</h4>
+        <h4 class="link_subtitle">FAQs</h4>
+      </div>
+      <div class="col-md-3">
+        <h2 class="link_title">Support</h2>
+        <h4 class="link_subtitle">Services</h4>
+        <h4 class="link_subtitle">Contact us</h4>
+      </div>
+      <div class="col-md-3">
+        <h2 class="link_title">Covid-19 FAQs</h2>
+        <h4 class="link_subtitle">Reviews</h4>
+        <h4 class="link_subtitle">Safety</h4>
+      </div>
+    </div>

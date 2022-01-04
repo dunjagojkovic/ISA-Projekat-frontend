@@ -53,6 +53,12 @@ export class FrontPageComponent implements OnInit {
           else if(user.type == "Boat owner"){
             this.router.navigate(['/']);
           }
+          else if(user.type == "Fishing instructor"){
+            this.router.navigate(['/homepage-instructor']);
+          }
+          else if(user.type == "Admin"){
+            this.router.navigate(['/homepage-admin']);
+          }
         });
       })
     }
