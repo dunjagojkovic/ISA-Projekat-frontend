@@ -19,6 +19,7 @@ import { ProfileSettingsComponent } from './homepage-client/profile-settings/pro
 import { SettingsHouseOwnerComponent } from './homepage-house-owner/settings-house-owner/settings-house-owner.component';
 import { SearchFreeCottagesClientComponent } from './homepage-client/search-free-cottages-client/search-free-cottages-client.component';
 import { ReserveCottagesStandardComponent } from './homepage-client/reserve-cottages-standard/reserve-cottages-standard.component';
+import { CottageReservationsComponent } from './homepage-client/cottage-reservations/cottage-reservations.component';
 
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -60,7 +61,8 @@ import {MatRadioModule} from '@angular/material/radio';
     SetFreeTermsComponent,
     EdithouseHouseOwnerComponent,
     SearchFreeCottagesClientComponent,
-    ReserveCottagesStandardComponent
+    ReserveCottagesStandardComponent,
+    CottageReservationsComponent
   ],
   imports: [
     BrowserModule,

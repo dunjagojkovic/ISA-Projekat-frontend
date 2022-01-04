@@ -44,9 +44,7 @@ export class CottageProfilesClientComponent implements OnInit {
       name: name,
       address: address,
       extraService: extraService,
-      numberOfBeds: numberOfBeds
-
-     
+      numberOfBeds: numberOfBeds     
     }
 
     this.api.filterHouses(data).subscribe((response: any) => {

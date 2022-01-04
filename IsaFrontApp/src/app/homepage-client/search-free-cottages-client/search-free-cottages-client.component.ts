@@ -15,7 +15,8 @@ export class SearchFreeCottagesClientComponent implements OnInit {
   user: any = {} as any;
   todayDate:Date = new Date();
   startDate: any;
-  endDate: any
+  endDate: any;
+  address: any;
  
   constructor(
     private router: Router,
@@ -25,26 +26,25 @@ export class SearchFreeCottagesClientComponent implements OnInit {
     this.form = this.formBuilder.group({
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
-      location: ['',  Validators.required]
+      address: ['']
     })
   }
 
   ngOnInit(): void {
     this.api.current().subscribe((response:any) => {
       this.user = response;     
-      console.log(response); 
   });
   }
 
   onSearch(){
     this.startDate = this.form.get('startDate')?.value;
     this.endDate = this.form.get('endDate')?.value;
-    const location = this.form.get('location')?.value;
+    this.address = this.form.get('address')?.value;
 
     let data = {
       startDate: this.startDate,
       endDate: this.endDate,
-      location: location
+      address: this.address
     }
 
     this.api.searchFreeHouses(data).subscribe((response: any) => {

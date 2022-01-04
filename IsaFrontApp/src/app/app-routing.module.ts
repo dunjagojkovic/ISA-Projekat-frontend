@@ -18,6 +18,7 @@ import { SetFreeTermsComponent } from './homepage-house-owner/set-free-terms/set
 import { EdithouseHouseOwnerComponent } from './homepage-house-owner/edithouse-house-owner/edithouse-house-owner.component';
 import { SearchFreeCottagesClientComponent } from './homepage-client/search-free-cottages-client/search-free-cottages-client.component';
 import { ReserveCottagesStandardComponent } from './homepage-client/reserve-cottages-standard/reserve-cottages-standard.component';
+import { CottageReservationsComponent } from './homepage-client/cottage-reservations/cottage-reservations.component';
 
 
 const routes: Routes = [
@@ -36,8 +37,9 @@ const routes: Routes = [
   { path: "history-house-owner", component: HistoryHouseOwnerComponent},
   { path: "set-house-terms", component: SetFreeTermsComponent},
   { path: "edit-house-info", component: EdithouseHouseOwnerComponent},
-  {path: "filter-free-cottages", component: SearchFreeCottagesClientComponent},
-  {path: "reserve-cottages-standard-client", component: ReserveCottagesStandardComponent}
+  { path: "filter-free-cottages", component: SearchFreeCottagesClientComponent},
+  { path: "reserve-cottages-standard-client", component: ReserveCottagesStandardComponent},
+  { path: "reservations-client", component: CottageReservationsComponent}
 
 
 ];
