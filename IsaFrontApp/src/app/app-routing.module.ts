@@ -19,6 +19,7 @@ import { EdithouseHouseOwnerComponent } from './homepage-house-owner/edithouse-h
 import { SearchFreeCottagesClientComponent } from './homepage-client/search-free-cottages-client/search-free-cottages-client.component';
 import { HomepageBoatOwnerComponent } from './homepage-boat-owner/homepage-boat-owner.component';
 import { SettingsBoatOwnerComponent } from './homepage-boat-owner/settings-boat-owner/settings-boat-owner.component';
+import { ReserveCottagesStandardComponent } from './homepage-client/reserve-cottages-standard/reserve-cottages-standard.component';
 
 const routes: Routes = [
   { path: '', component: FrontPageComponent},
@@ -38,8 +39,9 @@ const routes: Routes = [
   { path: "edit-house-info", component: EdithouseHouseOwnerComponent},
   { path: "filter-free-cottages", component: SearchFreeCottagesClientComponent},
   { path: "home-boat-owner", component: HomepageBoatOwnerComponent},
-  { path: "settings-boat-owner", component: SettingsBoatOwnerComponent}
-
+  { path: "settings-boat-owner", component: SettingsBoatOwnerComponent},
+  {path: "filter-free-cottages", component: SearchFreeCottagesClientComponent},
+  {path: "reserve-cottages-standard-client", component: ReserveCottagesStandardComponent}
 
 ];
 

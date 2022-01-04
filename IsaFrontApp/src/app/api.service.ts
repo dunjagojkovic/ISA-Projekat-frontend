@@ -113,7 +113,16 @@ export class ApiService {
     return this.http.put(this.baseURL + "/api/homes/" +id, data, this.getAuthoHeader());
   }
 
+
   loadBoat() {
     return this.http.get(this.baseURL + "/api/boats/my", this.getAuthoHeader());
+  }
+  
+  bookHouse(data: any){
+    return this.http.post(this.baseURL + "/api/homeReservations/", data, this.getAuthoHeader());
+  }
+
+  filterHouses(data:any){
+    return this.http.post(this.baseURL + "/api/homes/filterHomes", data);
   }
 }

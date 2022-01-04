@@ -18,6 +18,7 @@ import { HomepageHouseOwnerComponent } from './homepage-house-owner/homepage-hou
 import { ProfileSettingsComponent } from './homepage-client/profile-settings/profile-settings.component';
 import { SettingsHouseOwnerComponent } from './homepage-house-owner/settings-house-owner/settings-house-owner.component';
 import { SearchFreeCottagesClientComponent } from './homepage-client/search-free-cottages-client/search-free-cottages-client.component';
+import { ReserveCottagesStandardComponent } from './homepage-client/reserve-cottages-standard/reserve-cottages-standard.component';
 
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -39,6 +40,7 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { HomepageBoatOwnerComponent } from './homepage-boat-owner/homepage-boat-owner.component';
 import { SettingsBoatOwnerComponent } from './homepage-boat-owner/settings-boat-owner/settings-boat-owner.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -61,7 +63,8 @@ import { SettingsBoatOwnerComponent } from './homepage-boat-owner/settings-boat-
     EdithouseHouseOwnerComponent,
     SearchFreeCottagesClientComponent,
     HomepageBoatOwnerComponent,
-    SettingsBoatOwnerComponent
+    SettingsBoatOwnerComponent,
+    ReserveCottagesStandardComponent
   ],
   imports: [
     BrowserModule,
@@ -82,6 +85,7 @@ import { SettingsBoatOwnerComponent } from './homepage-boat-owner/settings-boat-
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatRadioModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,
