@@ -13,6 +13,9 @@ export class SearchFreeCottagesClientComponent implements OnInit {
   form: FormGroup;
   houses = [] as any;
   user: any = {} as any;
+  todayDate:Date = new Date();
+  startDate: any;
+  endDate: any
  
   constructor(
     private router: Router,
@@ -22,7 +25,7 @@ export class SearchFreeCottagesClientComponent implements OnInit {
     this.form = this.formBuilder.group({
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
-      location: ['']
+      location: ['',  Validators.required]
     })
   }
 
@@ -34,13 +37,13 @@ export class SearchFreeCottagesClientComponent implements OnInit {
   }
 
   onSearch(){
-    const startDate = this.form.get('startDate')?.value;
-    const endDate = this.form.get('endDate')?.value;
+    this.startDate = this.form.get('startDate')?.value;
+    this.endDate = this.form.get('endDate')?.value;
     const location = this.form.get('location')?.value;
 
     let data = {
-      startDate: startDate,
-      endDate: endDate,
+      startDate: this.startDate,
+      endDate: this.endDate,
       location: location
     }
 
