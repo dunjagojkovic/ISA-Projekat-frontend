@@ -91,6 +91,15 @@
     vertical-align: center;
 }
 
+
+.frontpage_gray_banner_label_small {
+    padding-bottom: 50px;
+    text-align: center;
+    font-size: 32px;
+    display: inline-block;
+    vertical-align: center;
+}
+
 .footer {
     align-content: right;
     padding-left:20px !important;
