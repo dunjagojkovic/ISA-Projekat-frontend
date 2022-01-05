@@ -38,14 +38,13 @@
   </div>
 
   <form [formGroup]="form">
-    <div>
+    <div style="display:inline;">
       <mat-form-field class="input-box-small" appearance="outline" >
         <mat-label style="font-weight: bolder;">Search</mat-label>
         <input formControlName="searchTerm" matInput placeholder="" value="" >
       </mat-form-field>
     </div>
-    <button class="search-btn" (click)="onSearch()">Search</button>
-
+    <mat-icon class="search-icon" (click)="onSearch()">search</mat-icon>
   </form>
 
 
