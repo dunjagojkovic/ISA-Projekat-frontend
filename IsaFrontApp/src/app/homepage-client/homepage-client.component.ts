@@ -27,6 +27,4 @@ constructor(
     localStorage.clear();
   }
 
-
-
 }
