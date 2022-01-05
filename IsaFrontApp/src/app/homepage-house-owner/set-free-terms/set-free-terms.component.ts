@@ -92,6 +92,7 @@ export class SetFreeTermsComponent implements OnInit {
       console.log(response)
     });
 
+    location.reload();
   }
 
   setView(view: CalendarView) {
