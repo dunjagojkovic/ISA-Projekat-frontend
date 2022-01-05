@@ -53,4 +53,8 @@ export class SearchFreeCottagesClientComponent implements OnInit {
     });
   }
 
+  sortCottages(): any[] {
+    return this.houses.sort((a: any, b: any) => (a.pricelist) - (b.pricelist));
+  }
+
 }
