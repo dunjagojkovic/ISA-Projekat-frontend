@@ -2,7 +2,7 @@ import { Component, OnInit, Type } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
-
+import { MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-reserve-cottages-standard',
@@ -25,7 +25,8 @@ export class ReserveCottagesStandardComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private api: ApiService,
-    private formBuilder : FormBuilder
+    private formBuilder : FormBuilder,
+    private _snackBar: MatSnackBar
   ) { 
 
     this.route.queryParams
@@ -68,6 +69,9 @@ export class ReserveCottagesStandardComponent implements OnInit {
         if(response != null){
           this.house = response;
         }
+        if(response == null){
+          this._snackBar.open('Sorry the house is booked in the meantime', 'Close', {duration: 5000})
+        } 
        
     });
   

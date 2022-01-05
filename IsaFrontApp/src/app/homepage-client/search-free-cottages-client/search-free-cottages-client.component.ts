@@ -54,7 +54,7 @@ export class SearchFreeCottagesClientComponent implements OnInit {
       console.log(response);
       this.houses = response;  
       if(response.length == 0){
-        this._snackBar.open('There are no available properties for dates you entered. Please choose another dates', 'Close', {duration: 5000})
+        this._snackBar.open('There are no available places to stay for your dates on our site. If you are flexible, check out some alternative dates.', 'Close', {duration: 5000})
       }    
     });
    

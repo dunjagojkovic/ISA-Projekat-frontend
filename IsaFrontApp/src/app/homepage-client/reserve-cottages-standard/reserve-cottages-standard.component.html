@@ -68,11 +68,14 @@
           <mat-card-title style="font-weight: bold; text-transform: uppercase; font-size: 16px; margin-top: 2%;">Extra chargeabels</mat-card-title>
         <hr>        
         <mat-radio-group formControlName="extraServices" style=" display: flex; flex-direction: column;  margin: 15px 0;">
-          <mat-radio-button style="margin-left: 25px; margin-bottom: 20px; margin-top: 5%;" value="{{house.extraService}}">{{house.extraService}}</mat-radio-button>
+          <mat-radio-button style="margin-left: 25px; margin-bottom: 20px; margin-top: 5%;" value=" ">{{house.extraService}}</mat-radio-button>
           <mat-radio-button style="margin-left: 25px;" [value]='3'>Bez servisa</mat-radio-button>        
        </mat-radio-group>
        <div>
-        <button (click)="onSubmit()" class="book-btn">Book</button>
+         <div style="display: flex; flex-direction: row;">
+          <button (click)="onSubmit()" class="book-btn">Book</button>
+          <button class="back-btn" [routerLink]="['/filter-free-cottages']">Go back</button>
+         </div>
       </div>
         </mat-card-content>       
       </mat-card>
