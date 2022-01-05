@@ -125,4 +125,9 @@ export class ApiService {
   filterHouses(data:any){
     return this.http.post(this.baseURL + "/api/homes/filterHomes", data);
   }
+
+  changePassword(data: any){
+    return this.http.post(this.baseURL + "/api/users/password", data, this.getAuthoHeader());
+  }
+
 }

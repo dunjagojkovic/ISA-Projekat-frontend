@@ -16,6 +16,7 @@ export class SettingsHouseOwnerComponent implements OnInit {
   hide = true;
   user: any = {} as any;
   form: FormGroup;
+  formPassword: FormGroup;
   
   constructor(
     private formBuilder : FormBuilder,
@@ -35,6 +36,14 @@ export class SettingsHouseOwnerComponent implements OnInit {
         password: [''],
         type: ['', Validators.required],
         id: ['', Validators.required]
+
+      })
+
+      this.formPassword = this.formBuilder.group({
+
+        oldPassword: [''],
+        newPassword: [''],
+        passwordRepeat: ['']
 
       })
 
@@ -80,4 +89,27 @@ export class SettingsHouseOwnerComponent implements OnInit {
       this.router.navigate(['/home-house-owner']);
     });
   }
+
+  saveNewPassword() {
+
+    const newPassword = this.formPassword.get('newPassword')?.value;
+    const oldPassword = this.formPassword.get('oldPassword')?.value;
+    const passwordRepeat = this.formPassword.get('passwordRepeat')?.value;
+
+    if(passwordRepeat != newPassword) {
+      alert('Passwords do not match')
+      return;
+    }
+
+    let data = {
+      newPassword: newPassword,
+      oldPassword: oldPassword
+    }
+
+    this.api.changePassword(data).subscribe((response: any) => {
+      console.log(response);
+      this.router.navigate(['/home-house-owner']);
+    });
+  }
+
 }
