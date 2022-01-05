@@ -219,3 +219,22 @@
     height: 30px;
     color: #84A98C;
 }
+
+.input-box {
+    width: 270px;
+    color: #354F52;
+    align-items: center;
+    height: 58px;
+    margin-bottom: 5px;
+    border-radius: 15px;
+    margin-inline: 5px;
+    font-weight: bold;
+  }
+
+  .example-section {
+    margin: 12px 0;
+  }
+  
+  .example-margin {
+    margin: 0 12px;
+  }

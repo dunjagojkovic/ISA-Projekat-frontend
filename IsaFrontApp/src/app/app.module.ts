@@ -41,6 +41,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { HomepageBoatOwnerComponent } from './homepage-boat-owner/homepage-boat-owner.component';
 import { SettingsBoatOwnerComponent } from './homepage-boat-owner/settings-boat-owner/settings-boat-owner.component';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -85,6 +86,7 @@ import {MatRadioModule} from '@angular/material/radio';
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatCheckboxModule,
     MatRadioModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
