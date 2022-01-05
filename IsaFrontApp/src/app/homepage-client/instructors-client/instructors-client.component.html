@@ -37,8 +37,15 @@
       </div>
       <div class="col-md-4">
         <nav class="navMenu" style="font-size: 15px;">            
-          <a style="float:none">Sort by</a>
-          <a style="float:none">Dates and price</a>
+          <a style="float:none">Sort by
+           <mat-select style="max-width: 20px;" multiple>
+            <mat-option (click)="sortInstructorsByLocation()" > Location</mat-option>
+            <mat-option>Rate</mat-option>
+            <mat-option (click)="sortInstructorsByName()">Name</mat-option>
+            <mat-option (click)="sortInstructorsByPrice()">Price</mat-option>
+             </mat-select> 
+          </a>
+          <a [routerLink]="['/filter-free-cottages']" style="float:none">Dates and price</a>
           <a style="float:none">Sales</a>
           <a style="float:none">View on map</a>
         </nav>
