@@ -1,7 +1,9 @@
 import { Component, OnInit, Type } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
+import { MatSnackBar} from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-search-free-cottages-client',
@@ -22,6 +24,7 @@ export class SearchFreeCottagesClientComponent implements OnInit {
     private router: Router,
     private api: ApiService,
     private formBuilder : FormBuilder, 
+    private _snackBar: MatSnackBar
   ) { 
     this.form = this.formBuilder.group({
       startDate: ['', Validators.required],
@@ -49,8 +52,12 @@ export class SearchFreeCottagesClientComponent implements OnInit {
 
     this.api.searchFreeHouses(data).subscribe((response: any) => {
       console.log(response);
-      this.houses = response;
+      this.houses = response;  
+      if(response.length == 0){
+        this._snackBar.open('There are no available properties for dates you entered. Please choose another dates', 'Close', {duration: 5000})
+      }    
     });
+   
   }
 
   sortCottages(): any[] {

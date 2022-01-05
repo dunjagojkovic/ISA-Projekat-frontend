@@ -26,7 +26,7 @@
       </div>
       <div class="col-md-6">
         <div class="row d-flex align-items-center frontpage_gray_banner_label">Find your next stay</div>
-        <div class="row d-flex align-items-center frontpage_gray_banner_label_small">Search deals on cottages, homes and much more... </div> 
+        <div class="row d-flex align-items-center frontpage_gray_banner_label_small">Search deals on cottages, apartments and much more... </div> 
       </div>
       <div class="col-md-4"></div>
     </div>
@@ -34,7 +34,7 @@
     <div class="example-form">
       <form [formGroup]="form">
         <div>
-          <mat-form-field appearance="outline" class="date-picker" >
+          <mat-form-field appearance="outline" class="date-picker" color="#354F52" >
             <mat-label style="font-weight: bold;">Check in - Check out</mat-label>
             <mat-date-range-input [min]="todayDate" [formGroup]="form" [rangePicker]="picker">
               <input style="font-weight: bold;" matStartDate formControlName="startDate" placeholder="Start date">
@@ -65,7 +65,7 @@
         </div>
         <div class="col-md-4">
           <nav class="navMenu" style="font-size: 15px;">            
-            <a (click)="sortCottages()" style="float:none">Sort by price</a>
+            <a (click)="sortCottages()" style="float:none">Filter by price</a>
             <a style="float:none">Filter by rate</a>
           </nav>
         </div>

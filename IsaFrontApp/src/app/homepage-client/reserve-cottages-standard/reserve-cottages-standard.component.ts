@@ -68,6 +68,7 @@ export class ReserveCottagesStandardComponent implements OnInit {
         if(response != null){
           this.house = response;
         }
+       
     });
   
 }
