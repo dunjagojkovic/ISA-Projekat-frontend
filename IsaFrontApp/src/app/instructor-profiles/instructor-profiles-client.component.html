@@ -37,6 +37,16 @@
     </div>
   </div>
 
+  <form [formGroup]="form">
+    <div>
+      <mat-form-field class="input-box-small" appearance="outline" >
+        <mat-label style="font-weight: bolder;">Search</mat-label>
+        <input formControlName="searchTerm" matInput placeholder="" value="" >
+      </mat-form-field>
+    </div>
+    <button class="search-btn" (click)="onSearch()">Search</button>
+  </form>
+
   <div *ngFor="let i of instructors; let ind=index">
     <div style="display: flex; flex-direction: row; margin-top: 1%; margin-left: 25%; margin-bottom: 5%; margin-right: 25%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
       <mat-card style="width: 500px; border: none; font-weight: bold; color: #52796F;">

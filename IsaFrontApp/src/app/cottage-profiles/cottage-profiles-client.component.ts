@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
-import { FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
+import { FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-cottage-profiles-client',
@@ -16,7 +16,7 @@ export class CottageProfilesClientComponent implements OnInit {
   constructor(
     private router: Router,
     private api: ApiService,
-    private formBuilder : FormBuilder,  
+    private formBuilder : FormBuilder
   ) {
     this.form = this.formBuilder.group({
       searchTerm: ['']

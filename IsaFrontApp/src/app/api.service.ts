@@ -116,4 +116,12 @@ export class ApiService {
   sendDeleteRequest(id: number){
     return this.http.delete(this.baseURL + "/api/users/" + id, this.getAuthoHeader());
   }
+
+  filterBoats(data: any){
+    return this.http.post(this.baseURL + "/api/boats/filterBoats",  data);
+  }
+
+  filterInstructors(data: any){
+    return this.http.post(this.baseURL + "/api/adventures/filterAdventures", data);
+  }
 }
