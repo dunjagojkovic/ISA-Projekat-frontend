@@ -18,8 +18,8 @@ export class ReserveCottagesStandardComponent implements OnInit {
   form: FormGroup;
   startDate:any;
   endDate:any;
-  pricelist: any;
   name:any;
+  pricelist: any;
 
   constructor(
     private router: Router,
@@ -68,9 +68,12 @@ export class ReserveCottagesStandardComponent implements OnInit {
         console.log(response);
         if(response != null){
           this.house = response;
+          this.router.navigate(['/reservations-client']);
+          this._snackBar.open('Thank you for your reservation', 'Close');
+
         }
         if(response == null){
-          this._snackBar.open('Sorry the house is booked in the meantime', 'Close', {duration: 5000})
+          this._snackBar.open('Sorry the house is booked in the meantime.  If you are flexible, check out some alternative dates.', 'Close', {duration: 5000})
         } 
        
     });

@@ -21,7 +21,8 @@ import { SettingsHouseOwnerComponent } from './homepage-house-owner/settings-hou
 import { SearchFreeCottagesClientComponent } from './homepage-client/search-free-cottages-client/search-free-cottages-client.component';
 import { ReserveCottagesStandardComponent } from './homepage-client/reserve-cottages-standard/reserve-cottages-standard.component';
 import { CottageReservationsComponent } from './homepage-client/cottage-reservations/cottage-reservations.component';
-
+import { SearchFreeBoatsClientComponent } from './homepage-client/search-free-boats-client/search-free-boats-client.component';
+import { SearchFreeInstructorsClientComponent } from './homepage-client/search-free-instructors-client/search-free-instructors-client.component';
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -42,6 +43,9 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { ReserveBoatsStandardComponent } from './homepage-client/reserve-boats-standard/reserve-boats-standard.component';
+import { ReserveInstructorsStandardComponent } from './homepage-client/reserve-instructors-standard/reserve-instructors-standard.component';
+
 
 
 @NgModule({
@@ -64,7 +68,11 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     EdithouseHouseOwnerComponent,
     SearchFreeCottagesClientComponent,
     ReserveCottagesStandardComponent,
-    CottageReservationsComponent
+    CottageReservationsComponent,
+    SearchFreeBoatsClientComponent,
+    SearchFreeInstructorsClientComponent,
+    ReserveBoatsStandardComponent,
+    ReserveInstructorsStandardComponent
   ],
   imports: [
     BrowserModule,

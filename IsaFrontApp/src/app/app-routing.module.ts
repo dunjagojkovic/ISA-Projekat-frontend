@@ -19,6 +19,10 @@ import { EdithouseHouseOwnerComponent } from './homepage-house-owner/edithouse-h
 import { SearchFreeCottagesClientComponent } from './homepage-client/search-free-cottages-client/search-free-cottages-client.component';
 import { ReserveCottagesStandardComponent } from './homepage-client/reserve-cottages-standard/reserve-cottages-standard.component';
 import { CottageReservationsComponent } from './homepage-client/cottage-reservations/cottage-reservations.component';
+import { SearchFreeBoatsClientComponent } from './homepage-client/search-free-boats-client/search-free-boats-client.component';
+import { SearchFreeInstructorsClientComponent } from './homepage-client/search-free-instructors-client/search-free-instructors-client.component';
+import { ReserveBoatsStandardComponent } from './homepage-client/reserve-boats-standard/reserve-boats-standard.component';
+import { ReserveInstructorsStandardComponent } from './homepage-client/reserve-instructors-standard/reserve-instructors-standard.component';
 
 
 const routes: Routes = [
@@ -39,7 +43,13 @@ const routes: Routes = [
   { path: "edit-house-info", component: EdithouseHouseOwnerComponent},
   { path: "filter-free-cottages", component: SearchFreeCottagesClientComponent},
   { path: "reserve-cottages-standard-client", component: ReserveCottagesStandardComponent},
-  { path: "reservations-client", component: CottageReservationsComponent}
+  { path: "reservations-client", component: CottageReservationsComponent},
+  { path: "filter-free-boats", component: SearchFreeBoatsClientComponent},
+  { path: "filter-free-instructors", component: SearchFreeInstructorsClientComponent},
+  { path: "reserve-boats-standard-client", component: ReserveBoatsStandardComponent},
+  { path: "reserve-instructors-standard-client", component: ReserveInstructorsStandardComponent}
+
+
 
 
 ];

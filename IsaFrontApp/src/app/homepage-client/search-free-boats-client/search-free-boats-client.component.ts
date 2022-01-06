@@ -3,40 +3,36 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { MatSnackBar} from '@angular/material/snack-bar';
-import { hoursToSeconds } from 'date-fns';
-
 
 @Component({
-  selector: 'app-search-free-cottages-client',
-  templateUrl: './search-free-cottages-client.component.html',
-  styleUrls: ['./search-free-cottages-client.component.css']
+  selector: 'app-search-free-boats-client',
+  templateUrl: './search-free-boats-client.component.html',
+  styleUrls: ['./search-free-boats-client.component.css']
 })
-export class SearchFreeCottagesClientComponent implements OnInit {
+export class SearchFreeBoatsClientComponent implements OnInit {
 
   form: FormGroup;
-  houses = [] as any;
+  boats = [] as any;
   user: any = {} as any;
   todayDate:Date = new Date();
   startDate: any;
   endDate: any;
   address: any;
-  result: any;
-  house: any;
- 
+
   constructor(
     private router: Router,
     private api: ApiService,
     private formBuilder : FormBuilder, 
     private _snackBar: MatSnackBar
-  ) { 
+  ) {
     this.form = this.formBuilder.group({
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
       address: ['']
     })
-  }
+   }
 
-  ngOnInit(): void {
+   ngOnInit(): void {
     this.api.current().subscribe((response:any) => {
       this.user = response;     
   });
@@ -53,19 +49,18 @@ export class SearchFreeCottagesClientComponent implements OnInit {
       address: this.address
     }
 
-    this.api.searchFreeHouses(data).subscribe((response: any) => {
+    this.api.searchFreeBoats(data).subscribe((response: any) => {
       console.log(response);
-      this.houses = response;  
-      this.result = this.houses.length;
+      this.boats = response;  
       if(response.length == 0){
-        this._snackBar.open('There are no available places to stay for your dates on our site. If you are flexible, check out some alternative dates.', 'Close', {duration: 5000})
+        this._snackBar.open('There are no available boats for your dates on our site. If you are flexible, check out some alternative dates.', 'Close', {duration: 5000})
       }    
     });
-   
+  
   }
 
-  sortCottages(): any[] {
-    return this.houses.sort((a: any, b: any) => (a.pricelist) - (b.pricelist));
+  sortBoats(): any[] {
+    return this.boats.sort((a: any, b: any) => (a.pricelist) - (b.pricelist));
   }
 
 }
