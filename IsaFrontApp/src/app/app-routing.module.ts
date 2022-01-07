@@ -17,13 +17,14 @@ import { HistoryHouseOwnerComponent } from './homepage-house-owner/history-house
 import { SetFreeTermsComponent } from './homepage-house-owner/set-free-terms/set-free-terms.component';
 import { EdithouseHouseOwnerComponent } from './homepage-house-owner/edithouse-house-owner/edithouse-house-owner.component';
 import { SearchFreeCottagesClientComponent } from './homepage-client/search-free-cottages-client/search-free-cottages-client.component';
+import { HomepageBoatOwnerComponent } from './homepage-boat-owner/homepage-boat-owner.component';
+import { SettingsBoatOwnerComponent } from './homepage-boat-owner/settings-boat-owner/settings-boat-owner.component';
 import { ReserveCottagesStandardComponent } from './homepage-client/reserve-cottages-standard/reserve-cottages-standard.component';
 import { CottageReservationsComponent } from './homepage-client/cottage-reservations/cottage-reservations.component';
 import { SearchFreeBoatsClientComponent } from './homepage-client/search-free-boats-client/search-free-boats-client.component';
 import { SearchFreeInstructorsClientComponent } from './homepage-client/search-free-instructors-client/search-free-instructors-client.component';
 import { ReserveBoatsStandardComponent } from './homepage-client/reserve-boats-standard/reserve-boats-standard.component';
 import { ReserveInstructorsStandardComponent } from './homepage-client/reserve-instructors-standard/reserve-instructors-standard.component';
-
 
 const routes: Routes = [
   { path: '', component: FrontPageComponent},
@@ -41,16 +42,15 @@ const routes: Routes = [
   { path: "history-house-owner", component: HistoryHouseOwnerComponent},
   { path: "set-house-terms", component: SetFreeTermsComponent},
   { path: "edit-house-info", component: EdithouseHouseOwnerComponent},
-  { path: "filter-free-cottages", component: SearchFreeCottagesClientComponent},
-  { path: "reserve-cottages-standard-client", component: ReserveCottagesStandardComponent},
   { path: "reservations-client", component: CottageReservationsComponent},
+  { path: "filter-free-cottages", component: SearchFreeCottagesClientComponent},
   { path: "filter-free-boats", component: SearchFreeBoatsClientComponent},
   { path: "filter-free-instructors", component: SearchFreeInstructorsClientComponent},
   { path: "reserve-boats-standard-client", component: ReserveBoatsStandardComponent},
-  { path: "reserve-instructors-standard-client", component: ReserveInstructorsStandardComponent}
-
-
-
+  { path: "reserve-instructors-standard-client", component: ReserveInstructorsStandardComponent},
+  { path: "reserve-cottages-standard-client", component: ReserveCottagesStandardComponent},
+  { path: "home-boat-owner", component: HomepageBoatOwnerComponent},
+  { path: "settings-boat-owner", component: SettingsBoatOwnerComponent}
 
 ];
 
