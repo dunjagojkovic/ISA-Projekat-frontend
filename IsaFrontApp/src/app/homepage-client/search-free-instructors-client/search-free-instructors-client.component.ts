@@ -19,7 +19,7 @@ export class SearchFreeInstructorsClientComponent implements OnInit {
   endDate: any;
   address: any;
   result: any;
-  house: any;
+  instructor: any;
  
   constructor(
     private router: Router,

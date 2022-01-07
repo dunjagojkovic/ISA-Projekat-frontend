@@ -77,10 +77,6 @@ export class ApiService {
     return this.http.put(this.baseURL + "/api/users/", data, this.getAuthoHeader());
   }
 
-  searchFreeHouses(data: any){
-    return this.http.post(this.baseURL + "/api/homeReservations/searchFree", data, this.getAuthoHeader());
-  }
-
   deleteMyHouse(id: number) {
     return this.http.delete(this.baseURL + "/api/homes/" + id, this.getAuthoHeader())
   }
@@ -91,10 +87,6 @@ export class ApiService {
 
   loadHouseFreeTerms(id: any){
     return this.http.get(this.baseURL + "/api/hometerms/" + id, this.getAuthoHeader());
-  }
-
-  loadOneHouse(id: any) {
-    return this.http.get(this.baseURL + "/api/homes/" +id, this.getAuthoHeader());
   }
 
   editHouse(id: number, data: any) {
@@ -109,12 +101,17 @@ export class ApiService {
     return this.http.post(this.baseURL + "/api/boatReservations/book", data, this.getAuthoHeader());
   }
 
-  filterHouses(data:any){
-    return this.http.post(this.baseURL + "/api/homes/filterHomes", data);
+  bookInstructor(data: any){
+    return this.http.post(this.baseURL + "/api/adventuresReservation/", data, this.getAuthoHeader());
   }
 
   sendDeleteRequest(id: number){
     return this.http.delete(this.baseURL + "/api/users/" + id, this.getAuthoHeader());
+  }
+
+  
+  filterHouses(data:any){
+    return this.http.post(this.baseURL + "/api/homes/filterHomes", data);
   }
 
   filterBoats(data: any){
@@ -123,6 +120,10 @@ export class ApiService {
 
   filterInstructors(data: any){
     return this.http.post(this.baseURL + "/api/adventures/filterAdventures", data);
+  }
+  
+  searchFreeHouses(data: any){
+    return this.http.post(this.baseURL + "/api/homeReservations/searchFree", data, this.getAuthoHeader());
   }
 
   searchFreeBoats(data: any){
@@ -133,9 +134,19 @@ export class ApiService {
     return this.http.post(this.baseURL + "/api/adventuresReservation/searchFree", data, this.getAuthoHeader());
   }
 
+  loadOneHouse(id: any) {
+    return this.http.get(this.baseURL + "/api/homes/" +id, this.getAuthoHeader());
+  }
+
   loadOneBoat(id: any) {
     return this.http.get(this.baseURL + "/api/boats/" +id, this.getAuthoHeader());
   }
+
+  loadOneInstructor(id: any) {
+    return this.http.get(this.baseURL + "/api/adventures/" +id, this.getAuthoHeader());
+  }
+
+
 
   
 }

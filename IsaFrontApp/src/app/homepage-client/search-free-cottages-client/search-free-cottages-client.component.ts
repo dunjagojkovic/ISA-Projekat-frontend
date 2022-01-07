@@ -31,7 +31,7 @@ export class SearchFreeCottagesClientComponent implements OnInit {
     this.form = this.formBuilder.group({
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
-      address: ['']
+      address: ['', Validators.required]
     })
   }
 
