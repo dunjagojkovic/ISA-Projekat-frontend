@@ -36,7 +36,7 @@
     <form [formGroup]="form">
     <div style="margin-bottom: 10%;">
       <mat-card style="width: 750px;  margin-left: 27%; margin-right: 27%;">
-        <mat-card-title  style="font-size: 26px; margin-top: 4%; font-weight: bold;">{{house.name}}</mat-card-title>
+        <mat-card-title  style="font-size: 26px; margin-top: 4%; font-weight: bold;">{{instructor.name}}</mat-card-title>
         <mat-card-subtitle style="font-weight: bold; font-size: 16px; margin-top: 2%; text-transform: uppercase;">datum od datum do</mat-card-subtitle>
         <hr>
         <br>
@@ -46,7 +46,7 @@
         <mat-card-content>
           <div>
             <p style="text-transform: uppercase;">Property name</p>
-            <p>{{house.name}}</p>
+            <p>{{instructor.name}}</p>
           </div>
           <br>
           <div>
@@ -61,20 +61,20 @@
           <br>
           <div>
             <p style="text-transform: uppercase;">Total cost of accomodation</p>
-            <p>{{house.pricelist}}</p>
+            <p>{{instructor.pricelist}}</p>
           </div>
           <br>
           <br> 
           <mat-card-title style="font-weight: bold; text-transform: uppercase; font-size: 16px; margin-top: 2%;">Extra chargeabels</mat-card-title>
         <hr>        
         <mat-radio-group formControlName="extraServices" style=" display: flex; flex-direction: column;  margin: 15px 0;">
-          <mat-radio-button style="margin-left: 25px; margin-bottom: 20px; margin-top: 5%;" value=" ">{{house.extraService}}  {{house.extraPrice}}</mat-radio-button>
+          <mat-radio-button style="margin-left: 25px; margin-bottom: 20px; margin-top: 5%;" value=" ">{{instructor.extraService}}  {{instructor.extraPrice}}</mat-radio-button>
           <mat-radio-button style="margin-left: 25px;" [value]='3'>No extra services</mat-radio-button>        
        </mat-radio-group>
        <div>
          <div style="display: flex; flex-direction: row;">
           <button (click)="onSubmit()" class="book-btn">Book</button>
-          <button class="back-btn" [routerLink]="['/filter-free-cottages']">Go back</button>
+          <button class="back-btn" [routerLink]="['/filter-free-instructors']">Go back</button>
          </div>
       </div>
         </mat-card-content>       

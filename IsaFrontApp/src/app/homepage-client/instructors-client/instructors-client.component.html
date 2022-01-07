@@ -13,7 +13,7 @@
       <a [routerLink]="['/cottages-client']" style="float:none">Cottages</a>
       <a [routerLink]="['/boats-client']" style="float:none">Boats</a>
       <a [routerLink]="['/instructors-client']" style="float:none">Instructors</a>
-      <a [routerLink]="['/settings-client']" style="float:none">Reservations</a>
+      <a [routerLink]="['/reservations-client']" style="float:none">Reservations</a>
       <a [routerLink]="['/settings-client']" style="float:none">Profile</a>
     </nav>
   </div>
@@ -37,8 +37,16 @@
       </div>
       <div class="col-md-4">
         <nav class="navMenu" style="font-size: 15px;">            
-          <a style="float:none">Sort by</a>
-          <a style="float:none">Dates and price</a>
+          <a style="float:none">Sort by
+           <mat-select style="max-width: 20px;" multiple>
+            <mat-option (click)="sortInstructorsByLocation()" > Location</mat-option>
+            <mat-option>Rate</mat-option>
+            <mat-option (click)="sortInstructorsByName()">Name</mat-option>
+            <mat-option (click)="sortInstructorsByPrice()">Price</mat-option>
+             </mat-select> 
+          </a>
+          <a [routerLink]="['/filter-free-instructors']" style="float:none">Dates and price</a>
+          <a style="float:none">Sales</a>
           <a style="float:none">View on map</a>
         </nav>
       </div>
@@ -57,10 +65,10 @@
         <p>Cena:{{i.priceList}}</p>
         <p>kapacitet {{i.maxNumberOfPeople}}</p>
         <p>pecaroska oprema {{i.fishingEquipment}} </p>
-        <p>dodatne usluge:{{i.extraService}}} </p>
+        <p>dodatne usluge:{{i.extraService}} </p>
         <p>pravila ponasanja {{i.behaviourRules}}</p>
         <p>uslovi otkazivanja {{i.cancelConditions}} </p>
-        <p>Biographz {{i.instructorBiography}} </p>
+        <p>Biography {{i.instructorBiography}} </p>
         <p>promotivni opis {{i.promoDescription}} </p>
       </mat-card-content>
         </mat-card>  

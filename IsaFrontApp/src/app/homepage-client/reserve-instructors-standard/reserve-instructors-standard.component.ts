@@ -1,20 +1,20 @@
-import { Component, OnInit, Type } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
-  selector: 'app-reserve-cottages-standard',
-  templateUrl: './reserve-cottages-standard.component.html',
-  styleUrls: ['./reserve-cottages-standard.component.css']
+  selector: 'app-reserve-instructors-standard',
+  templateUrl: './reserve-instructors-standard.component.html',
+  styleUrls: ['./reserve-instructors-standard.component.css']
 })
-export class ReserveCottagesStandardComponent implements OnInit {
+export class ReserveInstructorsStandardComponent implements OnInit {
 
   user: any = {} as any;
   todayDate:Date = new Date();
   id: any;
-  house:any = {} as any;
+  instructor:any = {} as any;
   form: FormGroup;
   startDate:any;
   endDate:any;
@@ -27,8 +27,7 @@ export class ReserveCottagesStandardComponent implements OnInit {
     private api: ApiService,
     private formBuilder : FormBuilder,
     private _snackBar: MatSnackBar
-  ) { 
-
+  ) {
     this.route.queryParams
     .subscribe(params => {
       this.id = params.id;
@@ -39,35 +38,36 @@ export class ReserveCottagesStandardComponent implements OnInit {
     this.form = this.formBuilder.group({
         extraServices: ['']
     })
-  }
+   }
 
-  ngOnInit(): void {
+   ngOnInit(): void {
     this.api.current().subscribe((response:any) => {
       this.user = response;     
   });
   
-  this.api.loadOneHouse(this.id).subscribe((response:any) => {
-    this.house = response;
+  this.api.loadOneInstructor(this.id).subscribe((response:any) => {
+    this.instructor = response;
+    console.log(response);
   });
   }
 
   onSubmit() {
    
-    const extraServices = this.form.get('extraService')?.value;
+    const extraService = this.form.get('extraService')?.value;
 
     let data = {
       name: this.name,
-      extraServices: extraServices,
+      extraService: extraService,
       startDate: this.startDate,
       endDate: this.endDate,
-      houseId: this.id,
+      adventureId: this.id,
       pricelist: this.pricelist
     }
 
-    this.api.bookHouse(data).subscribe((response: any) => {
+    this.api.bookInstructor(data).subscribe((response: any) => {
         console.log(response);
         if(response != null){
-          this.house = response;
+          this.instructor = response;
           this.router.navigate(['/reservations-client']);
           this._snackBar.open('Thank you for your reservation', 'Close');
 
@@ -79,6 +79,5 @@ export class ReserveCottagesStandardComponent implements OnInit {
     });
   
 }
- 
 
 }

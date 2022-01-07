@@ -28,4 +28,16 @@ export class BoatsClientComponent implements OnInit {
   });
   }
 
+  sortBoatsByLocation(): any[] {
+    return this.boats.sort((a: any, b: any) => a.address.localeCompare(b.address));    
+  }
+
+  sortBoatsByName(): any[] {
+    return this.boats.sort((a: any, b: any) => a.name.localeCompare(b.name));    
+  }
+
+  sortBoatsByPrice(): any[] {
+    return this.boats.sort((a: any, b: any) => (a.pricelist) - (b.pricelist));
+  }
+
 }

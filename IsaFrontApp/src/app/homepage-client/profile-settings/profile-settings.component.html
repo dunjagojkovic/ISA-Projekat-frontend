@@ -13,7 +13,7 @@
       <a [routerLink]="['/cottages-client']" style="float:none">Cottages</a>
       <a [routerLink]="['/boats-client']" style="float:none">Boats</a>
       <a [routerLink]="['/instructors-client']" style="float:none">Instructors</a>
-      <a [routerLink]="['/settings-client']" style="float:none">Reservations</a>
+      <a [routerLink]="['/reservations-client']" style="float:none">Reservations</a>
       <a [routerLink]="['/settings-client']" style="float:none">Profile</a>
     </nav>
   </div>
@@ -83,7 +83,7 @@
             <mat-label>Reason for deleting account</mat-label>
             <textarea matInput></textarea>
           </mat-form-field><br />
-          <button class="reason-btn">Send request</button>
+          <button class="reason-btn" (click)="onDeleteRequest(user.id)" >Send request</button>
       </div>
   </div>
 

@@ -30,4 +30,16 @@ export class InstructorsClientComponent implements OnInit {
   });
   }
 
+  sortInstructorsByLocation(): any[] {
+    return this.instructors.sort((a: any, b: any) => a.address.localeCompare(b.address));    
+  }
+
+  sortInstructorsByName(): any[] {
+    return this.instructors.sort((a: any, b: any) => a.name.localeCompare(b.name));    
+  }
+
+  sortInstructorsByPrice(): any[] {
+    return this.instructors.sort((a: any, b: any) => (a.priceList) - (b.priceList));
+  }
+
 }

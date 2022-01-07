@@ -1,20 +1,20 @@
-import { Component, OnInit, Type } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
-  selector: 'app-reserve-cottages-standard',
-  templateUrl: './reserve-cottages-standard.component.html',
-  styleUrls: ['./reserve-cottages-standard.component.css']
+  selector: 'app-reserve-boats-standard',
+  templateUrl: './reserve-boats-standard.component.html',
+  styleUrls: ['./reserve-boats-standard.component.css']
 })
-export class ReserveCottagesStandardComponent implements OnInit {
+export class ReserveBoatsStandardComponent implements OnInit {
 
   user: any = {} as any;
   todayDate:Date = new Date();
   id: any;
-  house:any = {} as any;
+  boat:any = {} as any;
   form: FormGroup;
   startDate:any;
   endDate:any;
@@ -28,7 +28,6 @@ export class ReserveCottagesStandardComponent implements OnInit {
     private formBuilder : FormBuilder,
     private _snackBar: MatSnackBar
   ) { 
-
     this.route.queryParams
     .subscribe(params => {
       this.id = params.id;
@@ -46,9 +45,11 @@ export class ReserveCottagesStandardComponent implements OnInit {
       this.user = response;     
   });
   
-  this.api.loadOneHouse(this.id).subscribe((response:any) => {
-    this.house = response;
-  });
+  this.api.loadOneBoat(this.id).subscribe((response:any) => {
+    this.boat = response;
+    console.log(response);
+    });
+
   }
 
   onSubmit() {
@@ -60,25 +61,23 @@ export class ReserveCottagesStandardComponent implements OnInit {
       extraServices: extraServices,
       startDate: this.startDate,
       endDate: this.endDate,
-      houseId: this.id,
+      boatId: this.id,
       pricelist: this.pricelist
     }
 
-    this.api.bookHouse(data).subscribe((response: any) => {
+    this.api.bookBoat(data).subscribe((response: any) => {
         console.log(response);
         if(response != null){
-          this.house = response;
+          this.boat = response;
           this.router.navigate(['/reservations-client']);
           this._snackBar.open('Thank you for your reservation', 'Close');
 
         }
         if(response == null){
-          this._snackBar.open('Sorry the house is booked in the meantime.  If you are flexible, check out some alternative dates.', 'Close', {duration: 5000})
+          this._snackBar.open('Sorry the boat is booked in the meantime. If you are flexible, check out some alternative dates.', 'Close', {duration: 5000})
         } 
        
-    });
-  
-}
- 
+      });
+  }
 
-}
+} 
