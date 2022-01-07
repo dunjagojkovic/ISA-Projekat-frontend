@@ -105,6 +105,10 @@ export class ApiService {
     return this.http.post(this.baseURL + "/api/homeReservations/", data, this.getAuthoHeader());
   }
 
+  bookBoat(data: any){
+    return this.http.post(this.baseURL + "/api/boatReservations/book", data, this.getAuthoHeader());
+  }
+
   filterHouses(data:any){
     return this.http.post(this.baseURL + "/api/homes/filterHomes", data);
   }
@@ -128,4 +132,10 @@ export class ApiService {
   searchFreeInstructors(data: any){
     return this.http.post(this.baseURL + "/api/adventuresReservation/searchFree", data, this.getAuthoHeader());
   }
+
+  loadOneBoat(id: any) {
+    return this.http.get(this.baseURL + "/api/boats/" +id, this.getAuthoHeader());
+  }
+
+  
 }
