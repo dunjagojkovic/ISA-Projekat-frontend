@@ -159,7 +159,9 @@ export class ApiService {
     return this.http.get(this.baseURL + "/api/adventures/" +id, this.getAuthoHeader());
   }
 
-
+getMyHouseReservations(){
+  return this.http.get(this.baseURL + "/api/homeReservations/myReservations", this.getAuthoHeader());
+}
 
   
 }
