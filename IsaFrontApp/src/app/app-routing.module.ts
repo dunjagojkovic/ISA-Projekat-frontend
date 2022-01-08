@@ -25,6 +25,8 @@ import { SearchFreeBoatsClientComponent } from './homepage-client/search-free-bo
 import { SearchFreeInstructorsClientComponent } from './homepage-client/search-free-instructors-client/search-free-instructors-client.component';
 import { ReserveBoatsStandardComponent } from './homepage-client/reserve-boats-standard/reserve-boats-standard.component';
 import { ReserveInstructorsStandardComponent } from './homepage-client/reserve-instructors-standard/reserve-instructors-standard.component';
+import { ReservationsClientComponent } from './homepage-client/reservations-client/reservations-client.component';
+import { CottageActionsComponent } from './homepage-client/cottage-actions/cottage-actions.component';
 
 const routes: Routes = [
   { path: '', component: FrontPageComponent},
@@ -42,7 +44,6 @@ const routes: Routes = [
   { path: "history-house-owner", component: HistoryHouseOwnerComponent},
   { path: "set-house-terms", component: SetFreeTermsComponent},
   { path: "edit-house-info", component: EdithouseHouseOwnerComponent},
-  { path: "reservations-client", component: CottageReservationsComponent},
   { path: "filter-free-cottages", component: SearchFreeCottagesClientComponent},
   { path: "filter-free-boats", component: SearchFreeBoatsClientComponent},
   { path: "filter-free-instructors", component: SearchFreeInstructorsClientComponent},
@@ -50,7 +51,12 @@ const routes: Routes = [
   { path: "reserve-instructors-standard-client", component: ReserveInstructorsStandardComponent},
   { path: "reserve-cottages-standard-client", component: ReserveCottagesStandardComponent},
   { path: "home-boat-owner", component: HomepageBoatOwnerComponent},
-  { path: "settings-boat-owner", component: SettingsBoatOwnerComponent}
+  { path: "settings-boat-owner", component: SettingsBoatOwnerComponent},
+  { path: "cottage-reservations-client", component: CottageReservationsComponent},
+  { path: "reservations-client", component: ReservationsClientComponent},
+  { path: "cottage-actions-client", component: CottageActionsComponent}
+
+
 
 ];
 

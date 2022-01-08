@@ -163,5 +163,17 @@ getMyHouseReservations(){
   return this.http.get(this.baseURL + "/api/homeReservations/myReservations", this.getAuthoHeader());
 }
 
+getMyBoatReservations(){
+  return this.http.get(this.baseURL + "/api/boatReservations/myReservations", this.getAuthoHeader());
+}
+
+getMyInstructorReservations(){
+  return this.http.get(this.baseURL + "/api/adventuresReservation/myReservations", this.getAuthoHeader());
+}
+
+getAllHouseActions(){
+  return this.http.get(this.baseURL + "/api/hometerms/getActions", this.getAuthoHeader());
+}
+
   
 }

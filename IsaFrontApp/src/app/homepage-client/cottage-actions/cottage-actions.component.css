@@ -91,7 +91,6 @@
     vertical-align: center;
 }
 
-
 .frontpage_gray_banner_label_small {
     padding-bottom: 50px;
     text-align: center;
@@ -99,6 +98,7 @@
     display: inline-block;
     vertical-align: center;
 }
+
 
 .footer {
     align-content: right;
@@ -217,8 +217,7 @@
     border: 3px solid #84A98C ;
     color:white;
     background-color: #84A98C;
-    font-weight: bold;
-  
+    font-weight: bold;  
     width: 120px;
     height: 44px;
     cursor: pointer;
@@ -284,103 +283,4 @@
 
  ::ng-deep .mat-calendar-body-today{
     color: #354F52!important;
-}
-
-
-.mat-radio-button ~ .mat-radio-button {
-    margin-left: 15px;
-}
-
-.mat-radio-button {
-    margin-left: 2.5%;
-    font-weight: bolder;
-
-}
-
-::ng-deep .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
-    background-color: rgb(19, 103, 168) !important;
-  }
-  
-  ::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
-    background-color: #84A98C!important;   
-  }
-  
-  ::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
-   border-color: #84A98C!important; 
-  }
-
-.answers{
-    margin-right: auto;
-    margin-left: 10%;
-}
-
-.book-btn{
-    border-radius: 20px;
-    border: 3px solid #84A98C ;
-    color:white;
-    background-color: #84A98C;
-    font-weight: bold;    
-    width: 120px;
-    height: 44px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 7%;
-    margin-left: 38%;
-    margin-bottom: 3%;
-}
-
-
-.back-btn{
-    border-radius: 20px;
-    border: 3px solid #84A98C ;
-    color:white;
-    background-color: #84A98C;
-    font-weight: bold;    
-    width: 120px;
-    height: 44px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 7%;
-    margin-left: 8%;
-    margin-bottom: 3%;
-}
-
-
-.navMenu-dates {
-    align-content: right;
-    padding-left:2px !important;
-    padding-right:20px !important;
-    padding-top:15px !important;
-    padding-bottom:10px !important;
-    width: 100%;
-    background-color: white;
-    margin-left: 10px;
-    margin-top: 5px;
-}
-
-.navMenu-dates a {
-    color: black;
-    text-decoration: none;
-    font-size: 1.2em;
-    text-transform: uppercase;
-    font-weight: bolder;
-    display: inline;
-    justify-content: center;
-    margin-left: 5px;
-    -webkit-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
-}
-
-.navMenu-dates a:hover {
-    color: #CAD2C5;
-}
-
-.navMenu-dates a:nth-child(1):hover ~ .dot {
-    -webkit-transform: translateX(30px);
-    transform: translateX(30px);
-    -webkit-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
-    opacity: 1;
 }

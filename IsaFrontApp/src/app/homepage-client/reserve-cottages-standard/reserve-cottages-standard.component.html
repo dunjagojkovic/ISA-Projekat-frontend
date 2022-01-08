@@ -37,7 +37,7 @@
     <div style="margin-bottom: 10%;">
       <mat-card style="width: 750px;  margin-left: 27%; margin-right: 27%;">
         <mat-card-title  style="font-size: 26px; margin-top: 4%; font-weight: bold;">{{house.name}}</mat-card-title>
-        <mat-card-subtitle style="font-weight: bold; font-size: 16px; margin-top: 2%; text-transform: uppercase;">datum od datum do</mat-card-subtitle>
+        <mat-card-subtitle style="font-weight: bold; font-size: 16px; margin-top: 2%; text-transform: uppercase;">{{startDate | date:'dd/MM/yyyy'}} - {{endDate | date:'dd/MM/yyyy'}}</mat-card-subtitle>
         <hr>
         <br>
         <mat-card-title style="font-weight: bold; text-transform: uppercase; font-size: 16px; margin-top: 2%;">Booking summary</mat-card-title>
@@ -45,36 +45,44 @@
         <br>
         <mat-card-content>
           <div>
-            <p style="text-transform: uppercase;">Property name</p>
-            <p>{{house.name}}</p>
+            <p style="text-transform: uppercase; font-weight: bold;">Property name</p>
+            <p style="font-weight: bolder;">{{house.name}}</p>
           </div>
           <br>
           <div>
-            <p style="text-transform: uppercase;">Date of arrival</p>
-            <p>{{startDate | date:'dd/MM/yyyy'}}</p>
+            <p style="text-transform: uppercase; font-weight: bold;">Date of arrival</p>
+            <p style="font-weight: bolder;">{{startDate | date:'dd/MM/yyyy'}}</p>
           </div>
           <br>
           <div>
-            <p style="text-transform: uppercase;">Date of departure</p>
-            <p>{{endDate | date:'dd/MM/yyyy'}}</p>
+            <p style="text-transform: uppercase; font-weight: bold;">Date of departure</p>
+            <p style="font-weight: bolder;">{{endDate | date:'dd/MM/yyyy'}}</p>
           </div>
           <br>
           <div>
-            <p style="text-transform: uppercase;">Total cost of accomodation</p>
-            <p>{{house.pricelist}}</p>
+            <p style="text-transform: uppercase; font-weight: bold;">Total cost of accomodation</p>
+            <p style="font-weight: bolder;">{{house.pricelist}} e</p>
           </div>
           <br>
           <br> 
           <mat-card-title style="font-weight: bold; text-transform: uppercase; font-size: 16px; margin-top: 2%;">Extra chargeabels</mat-card-title>
         <hr>        
-        <mat-radio-group formControlName="extraServices" style=" display: flex; flex-direction: column;  margin: 15px 0;">
-          <mat-radio-button style="margin-left: 25px; margin-bottom: 20px; margin-top: 5%;" value=" ">{{house.extraService}}  {{house.extraPrice}}</mat-radio-button>
-          <mat-radio-button style="margin-left: 25px;" [value]='3'>No extra services</mat-radio-button>        
-       </mat-radio-group>
+        <div style="display: inline-flex; flex-direction: row;">
+          <div>
+            <mat-radio-group formControlName="extraServices" style=" display: flex; flex-direction: column;  margin: 15px 0;">
+              <mat-radio-button style="margin-left: 25px; margin-bottom: 20px; margin-top: 5%;" value=" ">{{house.extraService}}</mat-radio-button>
+              <mat-radio-button style="margin-left: 25px;" [value]='3'>No extra services</mat-radio-button>        
+           </mat-radio-group>
+          </div>         
+            <p style="font-weight: bold; margin-left: 90px; margin-top: 33px;">{{house.extraPrice}} e</p>
+        </div>
+       <div class="navMenu-dates">
+        <a [routerLink]="['/filter-free-cottages']" style="float:none">Change dates</a>
+       </div>
+
        <div>
          <div style="display: flex; flex-direction: row;">
           <button (click)="onSubmit()" class="book-btn">Book</button>
-          <button class="back-btn" [routerLink]="['/filter-free-cottages']">Go back</button>
          </div>
       </div>
         </mat-card-content>       

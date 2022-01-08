@@ -1,0 +1,106 @@
+<div class="row d-flex align-items-center w-100">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 website_name_label" [routerLink]="['/home-client']">BOOKING AGENCY</div>
+    <div class="col-md-2"></div>
+    <button class="logout-btn"  routerLink="/">Log out</button>
+  </div>
+    
+  <div class="row d-flex align-items-center w-100">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <nav class="navMenu">
+        <a [routerLink]="['/cottages-client']" style="float:none">Cottages</a>
+        <a [routerLink]="['/boats-client']" style="float:none">Boats</a>
+        <a [routerLink]="['/instructors-client']" style="float:none">Instructors</a>
+        <a [routerLink]="['/reservations-client']" style="float:none">Reservations</a>
+        <a [routerLink]="['/settings-client']" style="float:none">Profile</a>
+      </nav>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>  
+
+  <div class="row d-flex align-items-center frontpage_gray_banner">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-6">
+      <div class="row d-flex align-items-center frontpage_gray_banner_label">Welcome,</div>
+      <div class="row d-flex align-items-center frontpage_gray_banner_label">{{user.name}}  {{user.surname}} </div> 
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+
+  <mat-toolbar class="navMenu" style="cursor: pointer; align-items: left;">      
+    <div class="row d-flex align-items-center w-100">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <nav class="navMenu" style="font-size: 15px;">            
+          <a style="float:none">Cottage reservations</a>
+          <a style="float:none">Boat reservations</a>
+          <a style="float:none">Instructor reservations</a>
+        </nav>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div>  
+    </mat-toolbar> 
+
+    
+   <div style="margin-left: 25%; margin-top: 2%;">
+    <table class="table table-striped rooms-table">
+      <thead>
+        <tr>
+          <th scope="col">House</th>
+          <th scope="col">Start date</th>
+          <th scope="col">End date</th>
+          <th scope="col">oceni</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let hr of houseReservations">
+          <td>kuca</td>
+          <td>{{hr.startDate | date:'dd/MM/yyyy'}}</td>
+          <td>{{hr.endDate | date:'dd/MM/yyyy'}}</td>
+          <button >Log out</button>
+        </tr>
+        <tr *ngFor = "let br of boatReservations">
+          <td>brod</td>
+          <td>{{br.startDate | date:'dd/MM/yyyy'}}</td>
+          <td>{{br.endDate | date:'dd/MM/yyyy'}}</td>
+          <button >Log out</button>
+        </tr>
+        <tr *ngFor = "let i of instructorReservations">
+          <td>instrukor</td>
+          <td>{{i.startDate | date:'dd/MM/yyyy'}}</td>
+          <td>{{i.endDate | date:'dd/MM/yyyy'}}</td>
+          <button >Log out</button>
+        </tr>
+      </tbody>
+    </table>
+   </div>  
+   
+
+  <div class="row d-flex align-items-center footer">
+    <div class="col-md-3">
+      <h2 class="link_title">Product</h2>
+      <h4 class="link_subtitle">Our plan</h4>
+      <h4 class="link_subtitle">Free trial</h4>
+    </div>
+    <div class="col-md-3">
+      <h2 class="link_title">About us</h2>
+      <h4 class="link_subtitle">Request demo</h4>
+      <h4 class="link_subtitle">FAQs</h4>
+    </div>
+    <div class="col-md-3">
+      <h2 class="link_title">Support</h2>
+      <h4 class="link_subtitle">Services</h4>
+      <h4 class="link_subtitle">Contact us</h4>
+    </div>
+    <div class="col-md-3">
+      <h2 class="link_title">Covid-19 FAQs</h2>
+      <h4 class="link_subtitle">Reviews</h4>
+      <h4 class="link_subtitle">Safety</h4>
+    </div>
+  </div>
