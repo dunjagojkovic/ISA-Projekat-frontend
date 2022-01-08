@@ -13,9 +13,11 @@ import { Validators } from '@angular/forms';
 export class ProfileSettingsComponent implements OnInit {
 
   deleteAccountBox : boolean = false;
+  changePasswordBox : boolean = false;
   hide = true;
   user: any = {} as any;
   form: FormGroup;
+  formPassword: FormGroup;
   
   constructor(
     private formBuilder : FormBuilder,
@@ -35,6 +37,13 @@ export class ProfileSettingsComponent implements OnInit {
         password: [''],
         type: ['', Validators.required],
         id: ['', Validators.required]
+      })
+
+      this.formPassword = this.formBuilder.group({
+
+        oldPassword: [''],
+        newPassword: [''],
+        passwordRepeat: ['']
 
       })
 
@@ -88,6 +97,28 @@ export class ProfileSettingsComponent implements OnInit {
   onDeleteRequest(id: number) {
     this.api.sendDeleteRequest(id).subscribe((response: any) => {
       console.log(response);});
+  }
+
+  saveNewPassword() {
+
+    const newPassword = this.formPassword.get('newPassword')?.value;
+    const oldPassword = this.formPassword.get('oldPassword')?.value;
+    const passwordRepeat = this.formPassword.get('passwordRepeat')?.value;
+
+    if(passwordRepeat != newPassword) {
+      alert('Passwords do not match')
+      return;
+    }
+
+    let data = {
+      newPassword: newPassword,
+      oldPassword: oldPassword
+    }
+
+    this.api.changePassword(data).subscribe((response: any) => {
+      console.log(response);
+      this.router.navigate(['/home-client']);
+    });
   }
 
 }

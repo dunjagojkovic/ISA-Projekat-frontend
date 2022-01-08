@@ -9,7 +9,10 @@ import { ApiService } from 'src/app/api.service';
 })
 export class CottageActionsComponent implements OnInit {
 
+  houses = [] as any;
   actions = [] as any;
+  startDate: any;
+  endDate: any;
 
   constructor(
     private api: ApiService
@@ -17,9 +20,14 @@ export class CottageActionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.api.getAllHouseActions().subscribe((response: any) => {
-      this.actions = response;
+      this.houses = response;
       console.log(response);
       });
+
+      this.api.getHouseActionDates().subscribe((response: any) => {
+        this.actions = response;
+        console.log(response);
+        });
 
   }
 

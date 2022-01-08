@@ -175,5 +175,13 @@ getAllHouseActions(){
   return this.http.get(this.baseURL + "/api/hometerms/getActions", this.getAuthoHeader());
 }
 
+getHouseActionDates(){
+  return this.http.get(this.baseURL + "/api/hometerms/getActionDates", this.getAuthoHeader())
+}
+
+changePassword(data: any){
+  return this.http.post(this.baseURL + "/api/users/password", data, this.getAuthoHeader());
+}
+
   
 }
