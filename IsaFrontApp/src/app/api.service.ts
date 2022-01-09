@@ -172,11 +172,11 @@ getMyInstructorReservations(){
 }
 
 getAllHouseActions(){
-  return this.http.get(this.baseURL + "/api/hometerms/getActions", this.getAuthoHeader());
+  return this.http.get(this.baseURL + "/api/homeReservations/getActions", this.getAuthoHeader());
 }
 
 getHouseActionDates(){
-  return this.http.get(this.baseURL + "/api/hometerms/getActionDates", this.getAuthoHeader())
+  return this.http.get(this.baseURL + "/api/homeReservations/getActionDates", this.getAuthoHeader())
 }
 
 changePassword(data: any){
