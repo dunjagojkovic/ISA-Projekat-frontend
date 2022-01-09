@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
+import {MatSnackBarModule, MatSnackBar} from '@angular/material/snack-bar';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class ReservationsClientComponent implements OnInit {
   endDate: any;
 
   constructor(
-    private api: ApiService
+    private api: ApiService,
+    private _snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -46,7 +48,14 @@ export class ReservationsClientComponent implements OnInit {
       if(reservation.endDate > this.today){
         this.houseReservations.push(reservation);
       }
-    }  
-  
+    }
+    
+  cancel(id: number){
+    this.api.cancelHouseReservation(id).subscribe((response:any) => {
+      this.houseReservations = this.houseReservations.filter((e:any) => e.id != id);
+      this._snackBar.open('You have successfully canceled your reservation. ', 'Close', {duration: 3000})
+
+    });
+  }
 
 }
