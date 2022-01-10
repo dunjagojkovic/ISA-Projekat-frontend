@@ -13,7 +13,7 @@
         <a [routerLink]="['/cottages-client']" style="float:none">Cottages</a>
         <a [routerLink]="['/boats-client']" style="float:none">Boats</a>
         <a [routerLink]="['/instructors-client']" style="float:none">Instructors</a>
-        <a [routerLink]="['/settings-client']" style="float:none">Reservations</a>
+        <a [routerLink]="['/reservations-client']" style="float:none">Reservations</a>
         <a [routerLink]="['/settings-client']" style="float:none">Profile</a>
       </nav>
     </div>
@@ -25,8 +25,8 @@
       <div class="col-md-2">
       </div>
       <div class="col-md-6">
-        <div class="row d-flex align-items-center frontpage_gray_banner_label">Welcome,</div>
-        <div class="row d-flex align-items-center frontpage_gray_banner_label">{{user.name}}  {{user.surname}} </div> 
+        <div class="row d-flex align-items-center frontpage_gray_banner_label">Find your next stay</div>
+        <div class="row d-flex align-items-center frontpage_gray_banner_label_small">Search deals on cottages, cabins and much more... </div> 
       </div>
       <div class="col-md-4"></div>
     </div>
@@ -34,8 +34,8 @@
     <div class="example-form">
       <form [formGroup]="form">
         <div>
-          <mat-form-field appearance="outline" class="date-picker" >
-            <mat-label>Enter a date range</mat-label>
+          <mat-form-field appearance="outline" class="date-picker" color="#354F52" >
+            <mat-label style="font-weight: bold;">Check in - Check out</mat-label>
             <mat-date-range-input [min]="todayDate" [formGroup]="form" [rangePicker]="picker">
               <input style="font-weight: bold;" matStartDate formControlName="startDate" placeholder="Start date">
               <input  style="font-weight: bold;" matEndDate formControlName="endDate" placeholder="End date">
@@ -46,8 +46,8 @@
             <mat-error *ngIf="form.controls.endDate.hasError('matEndDateInvalid')">Invalid end date</mat-error>
           </mat-form-field>            
             <mat-form-field class="input-box-small" appearance="outline" >
-              <mat-label style="font-weight: bolder;">Location</mat-label>
-              <input formControlName="location" matInput placeholder="" value="" >
+              <mat-label style="font-weight: bolder;">Where are you going?</mat-label>
+              <input formControlName="address" matInput placeholder="" value="" >
             </mat-form-field>
             <mat-form-field class="input-box-small" appearance="outline" >
               <mat-label>Number of people</mat-label>
@@ -65,18 +65,22 @@
         </div>
         <div class="col-md-4">
           <nav class="navMenu" style="font-size: 15px;">            
-            <a style="float:none">Sort by price</a>
+            <a (click)="sortCottages()" style="float:none">Filter by price</a>
             <a style="float:none">Filter by rate</a>
           </nav>
         </div>
         <div class="col-md-4">
         </div>
       </div>  
-      </mat-toolbar>
+      </mat-toolbar> 
   
-   
-  <div>
-    <div *ngFor="let h of houses; let i = index">
+      
+  <div>   
+    <div *ngFor="let h of houses; let i = index">    
+     
+        <div style="margin-left: 25%; font-weight: bold;">
+          <h1>{{h.address}} : {{result}} properties found</h1>
+        </div>
       <div style="display: flex; flex-direction: row; margin-top: 1%; margin-left: 25%; margin-bottom: 5%; margin-right: 25%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
         <mat-card style="width: 500px; border: none; font-weight: bold; color: #52796F;">
           <mat-card-title style="font-size: 26px; margin-top: 4%; font-weight: bold;">{{h.name}}</mat-card-title>

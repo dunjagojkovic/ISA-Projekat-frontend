@@ -25,7 +25,6 @@ constructor(
 
   logout(): void{
     localStorage.clear();
-
   }
 
 }

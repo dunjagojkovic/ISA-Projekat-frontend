@@ -26,4 +26,17 @@ export class CottagesClientComponent implements OnInit {
       console.log(response); 
   });
   }
+
+  sortCottagesByLocation(): any[] {
+    return this.houses.sort((a: any, b: any) => a.address.localeCompare(b.address));    
+  }
+
+  sortCottagesByName(): any[] {
+    return this.houses.sort((a: any, b: any) => a.name.localeCompare(b.name));    
+  }
+
+  sortCottagesByPrice(): any[] {
+    return this.houses.sort((a: any, b: any) => (a.pricelist) - (b.pricelist));
+  }
+
 }

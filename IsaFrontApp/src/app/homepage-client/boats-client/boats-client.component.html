@@ -13,7 +13,7 @@
       <a [routerLink]="['/cottages-client']" style="float:none">Cottages</a>
       <a [routerLink]="['/boats-client']" style="float:none">Boats</a>
       <a [routerLink]="['/instructors-client']" style="float:none">Instructors</a>
-      <a [routerLink]="['/settings-client']" style="float:none">Reservations</a>
+      <a [routerLink]="['/reservations-client']" style="float:none">Reservations</a>
       <a [routerLink]="['/settings-client']" style="float:none">Profile</a>
     </nav>
   </div>
@@ -38,8 +38,16 @@
       </div>
       <div class="col-md-4">
         <nav class="navMenu" style="font-size: 15px;">            
-          <a style="float:none">Sort by</a>
-          <a style="float:none">Dates and price</a>
+          <a style="float:none">Sort by
+           <mat-select style="max-width: 20px;" multiple>
+            <mat-option (click)="sortBoatsByLocation()" > Location</mat-option>
+            <mat-option>Rate</mat-option>
+            <mat-option (click)="sortBoatsByName()">Name</mat-option>
+            <mat-option (click)="sortBoatsByPrice()">Price</mat-option>
+             </mat-select> 
+          </a>
+          <a [routerLink]="['/filter-free-boats']" style="float:none">Dates and price</a>
+          <a [routerLink]="['/boat-actions-client']" style="float:none">Our top picks</a>
           <a style="float:none">View on map</a>
         </nav>
       </div>
@@ -57,10 +65,10 @@
       <mat-card-subtitle style="font-weight: bold; font-size: 16px; margin-top: 2%;">{{b.address}}</mat-card-subtitle>
       <br>
       <mat-card-content style="width: 400px; font-weight: bold; font-size: 16px;">
-        <p>Cena:{{b.pricelist}}</p>
+        <p>Cena: {{b.pricelist}}</p>
         <p>kapacitet {{b.capacity}}</p>
-        <p>Navigaciona oprema</p>
-        <p>pecaroska oprema</p>
+        <p>Navigaciona oprema {{b.navEquipment}}</p>
+        <p>pecaroska oprema  {{b.fishingEquipment}}</p>
         <p>tip:{{b.type}}, duzina{{b.length}}, broj motora {{b.engineNumber}}, snaga motora {{b.enginePower}}, maks brzina {{b.maxSpeed}} </p>
         <p>pravila ponasanja {{b.behaviourRules}}</p>
         <p>uslovi otkazivanja {{b.cancelConditions}} </p>

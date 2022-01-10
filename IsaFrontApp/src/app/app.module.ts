@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 
+
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { FrontPageComponent } from './front-page/front-page.component';
@@ -19,7 +20,9 @@ import { ProfileSettingsComponent } from './homepage-client/profile-settings/pro
 import { SettingsHouseOwnerComponent } from './homepage-house-owner/settings-house-owner/settings-house-owner.component';
 import { SearchFreeCottagesClientComponent } from './homepage-client/search-free-cottages-client/search-free-cottages-client.component';
 import { ReserveCottagesStandardComponent } from './homepage-client/reserve-cottages-standard/reserve-cottages-standard.component';
-
+import { CottageReservationsComponent } from './homepage-client/cottage-reservations/cottage-reservations.component';
+import { SearchFreeBoatsClientComponent } from './homepage-client/search-free-boats-client/search-free-boats-client.component';
+import { SearchFreeInstructorsClientComponent } from './homepage-client/search-free-instructors-client/search-free-instructors-client.component';
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -42,6 +45,13 @@ import { HomepageBoatOwnerComponent } from './homepage-boat-owner/homepage-boat-
 import { SettingsBoatOwnerComponent } from './homepage-boat-owner/settings-boat-owner/settings-boat-owner.component';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { ReserveBoatsStandardComponent } from './homepage-client/reserve-boats-standard/reserve-boats-standard.component';
+import { ReserveInstructorsStandardComponent } from './homepage-client/reserve-instructors-standard/reserve-instructors-standard.component';
+import { ReservationsClientComponent } from './homepage-client/reservations-client/reservations-client.component';
+import { CottageActionsComponent } from './homepage-client/cottage-actions/cottage-actions.component';
+import { BoatActionsComponent } from './homepage-client/boat-actions/boat-actions.component';
+import { InstructorActionsComponent } from './homepage-client/instructor-actions/instructor-actions.component';
 
 
 @NgModule({
@@ -63,9 +73,18 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     SetFreeTermsComponent,
     EdithouseHouseOwnerComponent,
     SearchFreeCottagesClientComponent,
+    ReserveCottagesStandardComponent,
+    CottageReservationsComponent,
+    SearchFreeBoatsClientComponent,
+    SearchFreeInstructorsClientComponent,
+    ReserveBoatsStandardComponent,
+    ReserveInstructorsStandardComponent,
     HomepageBoatOwnerComponent,
     SettingsBoatOwnerComponent,
-    ReserveCottagesStandardComponent
+    ReservationsClientComponent,
+    CottageActionsComponent,
+    BoatActionsComponent,
+    InstructorActionsComponent
   ],
   imports: [
     BrowserModule,
@@ -91,7 +110,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,
-    })
+    }),
+    MatSnackBarModule
    ],
   providers: [],
   bootstrap: [AppComponent],

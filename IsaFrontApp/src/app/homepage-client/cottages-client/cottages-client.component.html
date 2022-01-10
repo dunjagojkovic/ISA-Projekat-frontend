@@ -13,7 +13,7 @@
       <a [routerLink]="['/cottages-client']" style="float:none">Cottages</a>
       <a [routerLink]="['/boats-client']" style="float:none">Boats</a>
       <a [routerLink]="['/instructors-client']" style="float:none">Instructors</a>
-      <a [routerLink]="['/settings-client']" style="float:none">Reservations</a>
+      <a [routerLink]="['/reservations-client']" style="float:none">Reservations</a>
       <a [routerLink]="['/settings-client']" style="float:none">Profile</a>
     </nav>
   </div>
@@ -39,12 +39,14 @@
         <nav class="navMenu" style="font-size: 15px;">            
           <a style="float:none">Sort by
            <mat-select style="max-width: 20px;" multiple>
-            <mat-option>Location</mat-option>
-            <mat-option>Rate</mat-option>
-            <mat-option>Name</mat-option>
+            <mat-option (click)="sortCottagesByLocation()"> Location</mat-option>
+            <mat-option>Best reviewed</mat-option>
+            <mat-option (click)="sortCottagesByName()">Name</mat-option>
+            <mat-option (click)="sortCottagesByPrice()">Price(lowest first)</mat-option>
              </mat-select> 
           </a>
           <a [routerLink]="['/filter-free-cottages']" style="float:none">Dates and price</a>
+          <a [routerLink]="['/cottage-actions-client']" style="float:none">Our top picks</a>
           <a style="float:none">View on map</a>
         </nav>
       </div>
