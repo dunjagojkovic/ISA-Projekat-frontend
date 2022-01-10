@@ -27,6 +27,9 @@ import { ReserveBoatsStandardComponent } from './homepage-client/reserve-boats-s
 import { ReserveInstructorsStandardComponent } from './homepage-client/reserve-instructors-standard/reserve-instructors-standard.component';
 import { ReservationsClientComponent } from './homepage-client/reservations-client/reservations-client.component';
 import { CottageActionsComponent } from './homepage-client/cottage-actions/cottage-actions.component';
+import { BoatActionsComponent } from './homepage-client/boat-actions/boat-actions.component';
+import { InstructorActionsComponent } from './homepage-client/instructor-actions/instructor-actions.component';
+
 
 const routes: Routes = [
   { path: '', component: FrontPageComponent},
@@ -54,9 +57,9 @@ const routes: Routes = [
   { path: "settings-boat-owner", component: SettingsBoatOwnerComponent},
   { path: "cottage-reservations-client", component: CottageReservationsComponent},
   { path: "reservations-client", component: ReservationsClientComponent},
-  { path: "cottage-actions-client", component: CottageActionsComponent}
-
-
+  { path: "cottage-actions-client", component: CottageActionsComponent},
+  { path: "boat-actions-client", component: BoatActionsComponent},
+  { path: "instructor-actions-client", component: InstructorActionsComponent}
 
 ];
 

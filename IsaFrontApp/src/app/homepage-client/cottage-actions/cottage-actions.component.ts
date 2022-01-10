@@ -1,9 +1,7 @@
-import { Component, OnInit, Type } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { MatSnackBar} from '@angular/material/snack-bar';
-
 
 
 @Component({
@@ -13,24 +11,14 @@ import { MatSnackBar} from '@angular/material/snack-bar';
 })
 export class CottageActionsComponent implements OnInit {
 
-  houses = [] as any;
-  actions = [] as any;
-  startDate: any;
-  endDate: any;
-  user: any = {} as any;
+  actions = [] as any; 
   todayDate:Date = new Date();
-  id: any;
-  house:any = {} as any;
-  extraServices: any;
+  house:any = {} as any; 
 
-  name:any;
-  pricelist: any;
   constructor(
     private router: Router,
-    private api: ApiService,
-    private formBuilder : FormBuilder,
-    private _snackBar: MatSnackBar,
-    private route: ActivatedRoute
+    private api: ApiService,   
+    private _snackBar: MatSnackBar
   ) {  }
 
   ngOnInit(): void {
@@ -57,9 +45,7 @@ export class CottageActionsComponent implements OnInit {
       endDate: action.endDate,
       houseId:  action.homeProfile.id,
       pricelist: action.actionPrice
-    }
-
-  
+    }  
 
     this.api.bookHouse(data).subscribe((response: any) => {
         console.log(response);
