@@ -199,5 +199,12 @@ cancelInstructorReservation(id: number){
    return this.http.delete(this.baseURL + "/api/adventuresReservation/" +id, this.getAuthoHeader());
 }
 
+sendComplaintsForHouseReservation(data: any){
+  return this.http.post(this.baseURL + "/api/homeComplaints/", data, this.getAuthoHeader());
+}
+
+loadOneHouseReservation(id: any) {
+  return this.http.get(this.baseURL + "/api/homeReservations/" +id, this.getAuthoHeader());
+}
   
 }

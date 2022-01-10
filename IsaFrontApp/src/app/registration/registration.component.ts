@@ -62,7 +62,6 @@ export class RegistrationComponent implements OnInit {
         return;
       }
 
-
       let data = {
         name: name,
         surname: surname,

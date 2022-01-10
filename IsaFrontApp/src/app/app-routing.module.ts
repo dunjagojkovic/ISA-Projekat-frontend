@@ -29,6 +29,7 @@ import { ReservationsClientComponent } from './homepage-client/reservations-clie
 import { CottageActionsComponent } from './homepage-client/cottage-actions/cottage-actions.component';
 import { BoatActionsComponent } from './homepage-client/boat-actions/boat-actions.component';
 import { InstructorActionsComponent } from './homepage-client/instructor-actions/instructor-actions.component';
+import { CottageComplaintsComponent } from './homepage-client/cottage-complaints/cottage-complaints.component';
 
 
 const routes: Routes = [
@@ -59,7 +60,8 @@ const routes: Routes = [
   { path: "reservations-client", component: ReservationsClientComponent},
   { path: "cottage-actions-client", component: CottageActionsComponent},
   { path: "boat-actions-client", component: BoatActionsComponent},
-  { path: "instructor-actions-client", component: InstructorActionsComponent}
+  { path: "instructor-actions-client", component: InstructorActionsComponent},
+  { path: "cottage-complaints-client", component: CottageComplaintsComponent}
 
 ];
 
