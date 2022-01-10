@@ -187,10 +187,6 @@ getAllInstructorsOnActions(){
   return this.http.get(this.baseURL + "/api/adventuresReservation/getAdventuresOnAction", this.getAuthoHeader())
 }
 
-changePassword(data: any){
-  return this.http.post(this.baseURL + "/api/users/password", data, this.getAuthoHeader());
-}
-
 cancelHouseReservation(id: number){
 return this.http.delete(this.baseURL + "/api/homeReservations/" +id, this.getAuthoHeader());
 }
