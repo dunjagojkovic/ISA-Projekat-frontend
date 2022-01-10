@@ -12,6 +12,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class HomepageBoatOwnerComponent implements OnInit {
   form: FormGroup;
+  form1: FormGroup;
   boats: any;
   addBoatBox : boolean = false;
   user: any = {} as any;
@@ -42,6 +43,10 @@ export class HomepageBoatOwnerComponent implements OnInit {
         capacity: ['', Validators.required],
         cancelConditions: ['', Validators.required],
         fishingEquipment: ['', Validators.required]
+      })
+
+      this.form1 = this.formBuilder.group({
+        searchTerm: ['']       
       })
      }
 
@@ -143,5 +148,17 @@ getBase64(event:any, name: any) {
   };
 }
 
+onSearch(){
+  const searchTerm = this.form1.get('searchTerm')?.value;
+
+  let data = {
+    searchTerm: searchTerm   
+  }
+
+  this.api.filterBoats(data).subscribe((response: any) => {
+    console.log(response);
+    this.boats = response;
+  });
+}
 
 }

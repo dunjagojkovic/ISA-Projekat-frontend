@@ -12,6 +12,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class HomepageHouseOwnerComponent implements OnInit {
   form: FormGroup;
+  form1: FormGroup;
   homes: any;
   addHouseBox : boolean = false;
   user: any = {} as any;
@@ -36,7 +37,10 @@ export class HomepageHouseOwnerComponent implements OnInit {
         extraPrice: ['', Validators.required]
       })
 
-     }
+      this.form1 = this.formBuilder.group({
+        searchTerm: ['']       
+      })
+    }
 
   images: any;
 
@@ -126,5 +130,18 @@ export class HomepageHouseOwnerComponent implements OnInit {
     reader.onerror = function (error) {
     };
  }
+
+ onSearch(){
+  const searchTerm = this.form1.get('searchTerm')?.value;
+
+  let data = {
+    searchTerm: searchTerm   
+  }
+
+  this.api.filterHouses(data).subscribe((response: any) => {
+    console.log(response);
+    this.homes = response;
+  });
+}
 
 }
