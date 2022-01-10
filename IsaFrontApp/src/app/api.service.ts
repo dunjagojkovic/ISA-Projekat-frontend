@@ -127,6 +127,10 @@ export class ApiService {
     return this.http.post(this.baseURL + "/api/homes/filterHomes", data);
   }
 
+  changePassword(data: any){
+    return this.http.post(this.baseURL + "/api/users/password", data, this.getAuthoHeader());
+  }
+
   filterBoats(data: any){
     return this.http.post(this.baseURL + "/api/boats/filterBoats",  data);
   }
@@ -199,5 +203,4 @@ cancelInstructorReservation(id: number){
    return this.http.delete(this.baseURL + "/api/adventuresReservation/" +id, this.getAuthoHeader());
 }
 
-  
 }

@@ -47,7 +47,9 @@ export class SetFreeTermsComponent implements OnInit {
 
     this.form = this.formBuilder.group({
       startDate: ['', Validators.required],
-      endDate: ['', Validators.required]
+      endDate: ['', Validators.required],
+      actionPrice: [''],
+      isAction: ['']
     })
   }
 
@@ -64,8 +66,8 @@ export class SetFreeTermsComponent implements OnInit {
         this.events.push({
           start: new Date(event.startDate),
           end: new Date(event.endDate),
-          title: "Free term",
-          color: this.colors.green
+          title: event.action ? "Free term - action" : "Free term",
+          color: event.action ? this.colors.blue : this.colors.green
         })
       }
   });
@@ -75,10 +77,14 @@ export class SetFreeTermsComponent implements OnInit {
 
     const startDate = this.form.get('startDate')?.value;
     const endDate = this.form.get('endDate')?.value;
+    const actionPrice = this.form.get('actionPrice')?.value;
+    const isAction = this.form.get('isAction')?.value;
 
     let data = {
       startDate : startDate,
       endDate : endDate,
+      actionPrice: actionPrice,
+      isAction: isAction,
       houseId: this.id
     }
 
@@ -86,6 +92,7 @@ export class SetFreeTermsComponent implements OnInit {
       console.log(response)
     });
 
+    location.reload();
   }
 
   setView(view: CalendarView) {

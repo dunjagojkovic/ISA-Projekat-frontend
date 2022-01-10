@@ -45,6 +45,15 @@
         <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
         <mat-datepicker #pickerEnd></mat-datepicker>
       </mat-form-field>
+
+      <section class="example-section">
+        <mat-checkbox class="example-margin" formControlName="isAction">Set action</mat-checkbox>
+      </section>
+
+      <mat-form-field class="input-box"  appearance="outline">
+        <mat-label>Action price</mat-label>
+        <input matInput placeholder=""  formControlName="actionPrice">
+      </mat-form-field>
     </div>
     <button class="btnn" (click)="onSave()">Add term</button>
   </form>
