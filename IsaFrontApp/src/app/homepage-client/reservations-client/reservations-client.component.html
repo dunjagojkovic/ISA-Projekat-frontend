@@ -63,19 +63,19 @@
           <td>kuca</td>
           <td>{{hr.startDate | date:'dd/MM/yyyy'}}</td>
           <td>{{hr.endDate | date:'dd/MM/yyyy'}}</td>
-          <button (click)="cancel(hr.id)" >Cancel</button>
+          <button (click)="cancelHouse(hr.id)" >Cancel</button>
         </tr>
         <tr *ngFor = "let br of boatReservations">
           <td>brod</td>
           <td>{{br.startDate | date:'dd/MM/yyyy'}}</td>
           <td>{{br.endDate | date:'dd/MM/yyyy'}}</td>
-          <button >Cancel</button>
+          <button (click)="cancelBoat(br.id)" >Cancel</button>
         </tr>
         <tr *ngFor = "let i of instructorReservations">
           <td>instrukor</td>
           <td>{{i.startDate | date:'dd/MM/yyyy'}}</td>
           <td>{{i.endDate | date:'dd/MM/yyyy'}}</td>
-          <button >Cancel</button>
+          <button (click)="cancelInstructor(i.id)" >Cancel</button>
         </tr>
       </tbody>
     </table>
