@@ -12,16 +12,13 @@ import { MatSnackBar} from '@angular/material/snack-bar';
 export class CottageComplaintsComponent implements OnInit {
 
   user: any = {} as any;
-  todayDate:Date = new Date();
   id: any;
   reservation:any = {} as any;
   form: FormGroup;
   startDate:any;
   endDate:any;
-  name:any;
-  pricelist: any;
   complaint: any;
-
+  
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -70,8 +67,11 @@ export class CottageComplaintsComponent implements OnInit {
 
       this.api.sendComplaintsForHouseReservation(data).subscribe((response: any) => {
         console.log(response);
-        this.complaint = response;
-    
+        if(response != null){
+          this.complaint = response;  
+          this.router.navigate(['/reservations-client']);
+          this._snackBar.open('Thank you for your complaint. We appreciate your opinion', 'Close');
+        }
        
     });
   
