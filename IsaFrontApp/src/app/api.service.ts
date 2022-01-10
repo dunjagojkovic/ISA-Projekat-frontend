@@ -159,7 +159,45 @@ export class ApiService {
     return this.http.get(this.baseURL + "/api/adventures/" +id, this.getAuthoHeader());
   }
 
+getMyHouseReservations(){
+  return this.http.get(this.baseURL + "/api/homeReservations/myReservations", this.getAuthoHeader());
+}
 
+getMyBoatReservations(){
+  return this.http.get(this.baseURL + "/api/boatReservations/myReservations", this.getAuthoHeader());
+}
+
+getMyInstructorReservations(){
+  return this.http.get(this.baseURL + "/api/adventuresReservation/myReservations", this.getAuthoHeader());
+}
+
+getAllHousesOnActions(){
+  return this.http.get(this.baseURL + "/api/homeReservations/getHousesOnAction", this.getAuthoHeader())
+}
+
+getAllBoatsOnActions(){
+  return this.http.get(this.baseURL + "/api/boatReservations/getBoatsOnAction", this.getAuthoHeader())
+}
+
+getAllInstructorsOnActions(){
+  return this.http.get(this.baseURL + "/api/adventuresReservation/getAdventuresOnAction", this.getAuthoHeader())
+}
+
+changePassword(data: any){
+  return this.http.post(this.baseURL + "/api/users/password", data, this.getAuthoHeader());
+}
+
+cancelHouseReservation(id: number){
+return this.http.delete(this.baseURL + "/api/homeReservations/" +id, this.getAuthoHeader());
+}
+
+cancelBoatReservation(id: number){
+  return this.http.delete(this.baseURL + "/api/boatReservations/" +id, this.getAuthoHeader());
+}
+
+cancelInstructorReservation(id: number){
+   return this.http.delete(this.baseURL + "/api/adventuresReservation/" +id, this.getAuthoHeader());
+}
 
   
 }

@@ -47,6 +47,10 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { ReserveBoatsStandardComponent } from './homepage-client/reserve-boats-standard/reserve-boats-standard.component';
 import { ReserveInstructorsStandardComponent } from './homepage-client/reserve-instructors-standard/reserve-instructors-standard.component';
+import { ReservationsClientComponent } from './homepage-client/reservations-client/reservations-client.component';
+import { CottageActionsComponent } from './homepage-client/cottage-actions/cottage-actions.component';
+import { BoatActionsComponent } from './homepage-client/boat-actions/boat-actions.component';
+import { InstructorActionsComponent } from './homepage-client/instructor-actions/instructor-actions.component';
 
 
 
@@ -76,7 +80,11 @@ import { ReserveInstructorsStandardComponent } from './homepage-client/reserve-i
     ReserveBoatsStandardComponent,
     ReserveInstructorsStandardComponent,
     HomepageBoatOwnerComponent,
-    SettingsBoatOwnerComponent
+    SettingsBoatOwnerComponent,
+    ReservationsClientComponent,
+    CottageActionsComponent,
+    BoatActionsComponent,
+    InstructorActionsComponent
   ],
   imports: [
     BrowserModule,
