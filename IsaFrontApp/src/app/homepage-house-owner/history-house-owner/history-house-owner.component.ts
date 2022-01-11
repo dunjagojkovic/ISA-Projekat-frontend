@@ -15,6 +15,9 @@ export class HistoryHouseOwnerComponent implements OnInit {
   startDate: any;
   endDate: any;
   address: any;
+  historyBox: boolean = false;
+  todayBox: boolean = false;
+  upcommingBox: boolean = true;
 
 constructor(
   private router: Router,
