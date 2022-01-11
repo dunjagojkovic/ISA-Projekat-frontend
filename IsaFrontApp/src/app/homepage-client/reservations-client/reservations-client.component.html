@@ -55,14 +55,14 @@
           <th scope="col">House</th>
           <th scope="col">Start date</th>
           <th scope="col">End date</th>
-          <th scope="col">oceni</th>
+          <th style="color: #52796F;" scope="col">.</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor = "let hr of houseReservations ">
-          <td>kuca</td>
-          <td>{{hr.startDate | date:'dd/MM/yyyy'}}</td>
-          <td>{{hr.endDate | date:'dd/MM/yyyy'}}</td>
+          <td style="width: 240px;">kuca</td>
+          <td style="width: 300px;">{{hr.startDate | date:'dd/MM/yyyy'}}</td>
+          <td style="width: 280px;">{{hr.endDate | date:'dd/MM/yyyy'}}</td>
           <button (click)="cancelHouse(hr.id)" >Cancel</button>
           <button [routerLink]="['/cottage-evaluations-client']" [queryParams]="{id: hr.id, startDate: hr.startDate, endDate: hr.endDate}" >Evaluate</button>
           <button [routerLink]="['/cottage-complaints-client']" [queryParams]="{id: hr.id, startDate: hr.startDate, endDate: hr.endDate}" >Complaints</button>

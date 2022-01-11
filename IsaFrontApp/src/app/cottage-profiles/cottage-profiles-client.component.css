@@ -185,3 +185,54 @@
   font-weight: bold;
 }
 
+/* SEARCH */
+
+.search-box-rooms {
+    position: absolute;
+    top: 75%;
+    right: 1%;
+    color: white;
+    background: #52796F;
+    height: 40px;
+    border-radius: 40px;
+    padding: 8px;
+  }
+  
+  .search-box-rooms:hover > .search-txt-rooms {
+    width: 220px;
+    padding: 0 6px;
+  }
+  
+  .search-box-rooms:hover > .search-btn-rooms {
+    background: white;
+    color: #52796F;
+  }
+  
+  .search-btn-rooms {
+    color: white;
+    float: right;
+    width: 25px;
+    height: 25px;
+    text-decoration: none;
+    border-radius: 50%;
+    background: #52796F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+  }
+  
+  .search-txt-rooms {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    transition: 0.4s;
+    width: 0px;
+    line-height: 25px;
+  }
+/* END SEARCH */
+
