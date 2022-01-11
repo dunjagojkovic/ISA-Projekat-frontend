@@ -48,9 +48,13 @@
             <p>Sleeps: Up to {{a.homeProfile.numberOfBeds}} people</p>
             <p>Rules: {{a.homeProfile.behaviourRules}}</p>
             <p>Extra service: {{a.homeProfile.extraService}}</p>
-            <div>
-              <button (click)="onSubmit(a.id)" class="reserve-btn">Book</button>
+            <div style="display: flex; flex-direction: row;">
+              <div>
+                <button (click)="onSubmit(a.id)" class="reserve-btn">Book</button>
+              </div>
+             
             </div>
+           
           </mat-card-content>
             </mat-card>  
             <mat-card >

@@ -11,6 +11,8 @@ export class CottagesClientComponent implements OnInit {
 
   houses = [] as any;
   user: any = {} as any;
+  subscriptions = [] as any;
+
  
   constructor(
     private router: Router,
@@ -38,5 +40,31 @@ export class CottagesClientComponent implements OnInit {
   sortCottagesByPrice(): any[] {
     return this.houses.sort((a: any, b: any) => (a.pricelist) - (b.pricelist));
   }
+
+  
+SubscribeMe(id:any){
+  let house: any;
+
+  for(let h of this.houses) {
+      if(h.id === id) {
+        house = h;
+      }
+  }
+
+  let data = {
+    name:  house.name,
+    extraServices: house.extraServices,
+    houseId:  house.id,
+    pricelist: house.pricellist,
+    clientId: this.user.id
+  }
+  
+  this.api.subscribeUserOnAction(id, data).subscribe((response: any) => {
+    this.subscriptions = response;
+
+    console.log(response);
+
+});
+}
 
 }

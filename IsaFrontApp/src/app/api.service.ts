@@ -229,5 +229,10 @@ loadOneBoatReservation(id: any) {
 sendEvaluationsForHouseReservation(data: any){
   return this.http.post(this.baseURL + "/api/homeEvaluations/", data, this.getAuthoHeader());
 }
+
+subscribeUserOnAction(id: number, data: any){
+  return this.http.put(this.baseURL + "/api/subscriptions/" +id, data, this.getAuthoHeader());
+}
+
   
 }
