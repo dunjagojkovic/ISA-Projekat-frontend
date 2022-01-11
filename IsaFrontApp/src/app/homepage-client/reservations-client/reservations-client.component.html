@@ -72,6 +72,7 @@
           <td>{{br.startDate | date:'dd/MM/yyyy'}}</td>
           <td>{{br.endDate | date:'dd/MM/yyyy'}}</td>
           <button (click)="cancelBoat(br.id)" >Cancel</button>
+          <button [routerLink]="['/boat-complaints-client']" [queryParams]="{id: br.id, startDate: br.startDate, endDate: br.endDate}" >Complaints</button>
         </tr>
         <tr *ngFor = "let i of instructorReservations">
           <td>instrukor</td>

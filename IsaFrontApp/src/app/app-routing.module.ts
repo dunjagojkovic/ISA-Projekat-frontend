@@ -30,6 +30,8 @@ import { CottageActionsComponent } from './homepage-client/cottage-actions/cotta
 import { BoatActionsComponent } from './homepage-client/boat-actions/boat-actions.component';
 import { InstructorActionsComponent } from './homepage-client/instructor-actions/instructor-actions.component';
 import { CottageComplaintsComponent } from './homepage-client/cottage-complaints/cottage-complaints.component';
+import { BoatComplaintsComponent } from './homepage-client/boat-complaints/boat-complaints.component';
+import { InstructorComplaintsComponent } from './homepage-client/instructor-complaints/instructor-complaints.component';
 import { CottageEvaluationsComponent } from './homepage-client/cottage-evaluations/cottage-evaluations.component';
 
 
@@ -63,7 +65,10 @@ const routes: Routes = [
   { path: "boat-actions-client", component: BoatActionsComponent},
   { path: "instructor-actions-client", component: InstructorActionsComponent},
   { path: "cottage-complaints-client", component: CottageComplaintsComponent},
-  { path: "cottage-evaluations-client", component: CottageEvaluationsComponent}
+  { path: "boat-complaints-client", component: BoatComplaintsComponent},
+  { path: "instructor-complaints-client", component: InstructorComplaintsComponent},
+  { path: "cottage-evaluations-client", component: CottageEvaluationsComponent},
+
 
 
 ];
