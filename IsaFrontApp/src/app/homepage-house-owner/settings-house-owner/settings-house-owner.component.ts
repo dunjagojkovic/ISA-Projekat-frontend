@@ -117,4 +117,7 @@ export class SettingsHouseOwnerComponent implements OnInit {
       console.log(response);});
   }
   
+  logout(): void{
+    localStorage.clear();
+  }
 }

@@ -106,5 +106,7 @@ export class SetFreeTermsComponent implements OnInit {
     this.view = view;
   }
 
+  logout(): void{
+    localStorage.clear();
+  }
 }
-3

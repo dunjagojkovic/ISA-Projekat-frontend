@@ -163,4 +163,8 @@ export class EditboatBoatOwnerComponent implements OnInit {
     reader.onerror = function (error) {
     };
  }
+
+ logout(): void{
+  localStorage.clear();
+}
 }

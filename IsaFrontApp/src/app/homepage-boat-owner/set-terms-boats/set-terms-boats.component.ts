@@ -100,4 +100,7 @@ export class SetTermsBoatsComponent implements OnInit {
     this.view = view;
   }
 
+  logout(): void{
+    localStorage.clear();
+  }
 }

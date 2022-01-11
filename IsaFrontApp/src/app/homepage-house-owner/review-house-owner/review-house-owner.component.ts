@@ -81,4 +81,8 @@ export class ReviewHouseOwnerComponent implements OnInit {
   
 }
 
+logout(): void{
+  localStorage.clear();
+}
+
 }

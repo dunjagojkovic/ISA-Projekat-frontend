@@ -161,4 +161,7 @@ onSearch(){
   });
 }
 
+logout(): void{
+  localStorage.clear();
+}
 }

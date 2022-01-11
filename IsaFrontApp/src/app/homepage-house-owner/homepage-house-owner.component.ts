@@ -154,4 +154,7 @@ export class HomepageHouseOwnerComponent implements OnInit {
   });
 }
 
+logout(): void{
+  localStorage.clear();
+}
 }

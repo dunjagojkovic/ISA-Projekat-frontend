@@ -139,4 +139,8 @@ export class EdithouseHouseOwnerComponent implements OnInit {
     reader.onerror = function (error) {
     };
  }
+
+ logout(): void{
+  localStorage.clear();
+}
 }
