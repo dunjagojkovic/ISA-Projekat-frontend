@@ -31,6 +31,10 @@ import { BoatActionsComponent } from './homepage-client/boat-actions/boat-action
 import { InstructorActionsComponent } from './homepage-client/instructor-actions/instructor-actions.component';
 import { EditboatBoatOwnerComponent } from './homepage-boat-owner/editboat-boat-owner/editboat-boat-owner.component';
 import { SetTermsBoatsComponent } from './homepage-boat-owner/set-terms-boats/set-terms-boats.component';
+import { CottageComplaintsComponent } from './homepage-client/cottage-complaints/cottage-complaints.component';
+import { BoatComplaintsComponent } from './homepage-client/boat-complaints/boat-complaints.component';
+import { InstructorComplaintsComponent } from './homepage-client/instructor-complaints/instructor-complaints.component';
+import { CottageEvaluationsComponent } from './homepage-client/cottage-evaluations/cottage-evaluations.component';
 
 const routes: Routes = [
   { path: '', component: FrontPageComponent},
@@ -62,7 +66,11 @@ const routes: Routes = [
   { path: "boat-actions-client", component: BoatActionsComponent},
   { path: "instructor-actions-client", component: InstructorActionsComponent},
   { path: "edit-boat-info", component: EditboatBoatOwnerComponent},
-  { path: "set-boat-terms", component: SetTermsBoatsComponent}
+  { path: "set-boat-terms", component: SetTermsBoatsComponent},
+  { path: "cottage-complaints-client", component: CottageComplaintsComponent},
+  { path: "boat-complaints-client", component: BoatComplaintsComponent},
+  { path: "instructor-complaints-client", component: InstructorComplaintsComponent},
+  { path: "cottage-evaluations-client", component: CottageEvaluationsComponent}
 
 ];
 

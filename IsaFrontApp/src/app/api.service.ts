@@ -210,4 +210,24 @@ editBoat(id: number, data: any) {
   return this.http.put(this.baseURL + "/api/boats/" +id, data, this.getAuthoHeader());
 }
 
+sendComplaintsForHouseReservation(data: any){
+  return this.http.post(this.baseURL + "/api/homeComplaints/", data, this.getAuthoHeader());
+}
+
+sendComplaintsForBoatReservation(data: any){
+  return this.http.post(this.baseURL + "/api/boatComplaints/", data, this.getAuthoHeader());
+}
+
+loadOneHouseReservation(id: any) {
+  return this.http.get(this.baseURL + "/api/homeReservations/" +id, this.getAuthoHeader());
+}
+
+loadOneBoatReservation(id: any) {
+  return this.http.get(this.baseURL + "/api/boatReservations/" +id, this.getAuthoHeader());
+}
+
+sendEvaluationsForHouseReservation(data: any){
+  return this.http.post(this.baseURL + "/api/homeEvaluations/", data, this.getAuthoHeader());
+}
+  
 }
