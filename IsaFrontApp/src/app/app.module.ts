@@ -53,6 +53,7 @@ import { CottageActionsComponent } from './homepage-client/cottage-actions/cotta
 import { BoatActionsComponent } from './homepage-client/boat-actions/boat-actions.component';
 import { InstructorActionsComponent } from './homepage-client/instructor-actions/instructor-actions.component';
 import { EditboatBoatOwnerComponent } from './homepage-boat-owner/editboat-boat-owner/editboat-boat-owner.component';
+import { SetTermsBoatsComponent } from './homepage-boat-owner/set-terms-boats/set-terms-boats.component';
 
 
 @NgModule({
@@ -86,7 +87,8 @@ import { EditboatBoatOwnerComponent } from './homepage-boat-owner/editboat-boat-
     CottageActionsComponent,
     BoatActionsComponent,
     InstructorActionsComponent,
-    EditboatBoatOwnerComponent
+    EditboatBoatOwnerComponent,
+    SetTermsBoatsComponent
   ],
   imports: [
     BrowserModule,

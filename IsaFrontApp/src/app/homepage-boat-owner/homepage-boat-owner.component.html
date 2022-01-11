@@ -169,7 +169,7 @@
             <mat-card-title style="font-size: 28px; margin-top: 4%; font-weight: bold;">{{boat.name}}</mat-card-title>
             <div>
               <button style="margin-right: 5px;" class="delete-btn"  routerLink="/edit-boat-info" [queryParams]="{id: boat.id}" ><mat-icon>edit</mat-icon></button>
-              <button style="margin-right: 5px;" class="delete-btn" ><mat-icon>calendar_today</mat-icon></button>
+              <button style="margin-right: 5px;" class="delete-btn" routerLink="/set-boat-terms" [queryParams]="{id: boat.id}" ><mat-icon>calendar_today</mat-icon></button>
               <button class="delete-btn" (click)="onDelete(boat.id)"><mat-icon>delete</mat-icon></button>
             </div>
           </div>
