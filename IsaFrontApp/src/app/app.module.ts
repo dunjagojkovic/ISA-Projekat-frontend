@@ -44,6 +44,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { HomepageBoatOwnerComponent } from './homepage-boat-owner/homepage-boat-owner.component';
 import { SettingsBoatOwnerComponent } from './homepage-boat-owner/settings-boat-owner/settings-boat-owner.component';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { ReserveBoatsStandardComponent } from './homepage-client/reserve-boats-standard/reserve-boats-standard.component';
 import { ReserveInstructorsStandardComponent } from './homepage-client/reserve-instructors-standard/reserve-instructors-standard.component';
@@ -55,7 +56,6 @@ import { CottageComplaintsComponent } from './homepage-client/cottage-complaints
 import { BoatComplaintsComponent } from './homepage-client/boat-complaints/boat-complaints.component';
 import { InstructorComplaintsComponent } from './homepage-client/instructor-complaints/instructor-complaints.component';
 import { CottageEvaluationsComponent } from './homepage-client/cottage-evaluations/cottage-evaluations.component';
-
 
 
 @NgModule({
@@ -113,6 +113,7 @@ import { CottageEvaluationsComponent } from './homepage-client/cottage-evaluatio
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatCheckboxModule,
     MatRadioModule,
     CalendarModule.forRoot({
       provide: DateAdapter,

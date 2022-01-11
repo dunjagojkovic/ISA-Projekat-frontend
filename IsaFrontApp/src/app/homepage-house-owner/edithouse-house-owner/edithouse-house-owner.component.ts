@@ -16,7 +16,8 @@ export class EdithouseHouseOwnerComponent implements OnInit {
   user: any = {} as any;
   home: any;
   id: any;
-  
+  images: any;
+
   constructor(
     private formBuilder : FormBuilder,
     private router: Router,
@@ -41,9 +42,9 @@ export class EdithouseHouseOwnerComponent implements OnInit {
       extraService: [''],
       extraPrice: ['']
     });
-  }
 
-  images: any;
+    this.images = {}
+  }
 
   ngOnInit(): void {
     this.api.current().subscribe((response:any) => {

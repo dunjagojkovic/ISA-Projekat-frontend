@@ -127,6 +127,10 @@ export class ApiService {
     return this.http.post(this.baseURL + "/api/homes/filterHomes", data);
   }
 
+  changePassword(data: any){
+    return this.http.post(this.baseURL + "/api/users/password", data, this.getAuthoHeader());
+  }
+
   filterBoats(data: any){
     return this.http.post(this.baseURL + "/api/boats/filterBoats",  data);
   }
@@ -183,10 +187,6 @@ getAllInstructorsOnActions(){
   return this.http.get(this.baseURL + "/api/adventuresReservation/getAdventuresOnAction", this.getAuthoHeader())
 }
 
-changePassword(data: any){
-  return this.http.post(this.baseURL + "/api/users/password", data, this.getAuthoHeader());
-}
-
 cancelHouseReservation(id: number){
 return this.http.delete(this.baseURL + "/api/homeReservations/" +id, this.getAuthoHeader());
 }
@@ -198,6 +198,7 @@ cancelBoatReservation(id: number){
 cancelInstructorReservation(id: number){
    return this.http.delete(this.baseURL + "/api/adventuresReservation/" +id, this.getAuthoHeader());
 }
+
 
 sendComplaintsForHouseReservation(data: any){
   return this.http.post(this.baseURL + "/api/homeComplaints/", data, this.getAuthoHeader());

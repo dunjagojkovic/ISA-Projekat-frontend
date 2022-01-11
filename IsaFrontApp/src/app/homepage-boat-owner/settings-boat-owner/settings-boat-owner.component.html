@@ -91,20 +91,22 @@
           <button class="reason-btn">Send request</button>
       </div>
       <div class="password-box" *ngIf="changePasswordBox">
+        <form [formGroup]="formPassword" (ngSubmit)="saveNewPassword()">
+          <mat-form-field class="input-password" appearance="outline">
+            <mat-label>Old password</mat-label>
+            <input matInput placeholder="" formControlName="oldPassword">
+        </mat-form-field>
         <mat-form-field class="input-password" appearance="outline">
-          <mat-label>Old password</mat-label>
-          <input matInput placeholder="">
-      </mat-form-field>
-      <mat-form-field class="input-password" appearance="outline">
-        <mat-label>New password</mat-label>
-        <input matInput placeholder="">
-      </mat-form-field>
-      <mat-form-field class="input-password" appearance="outline">
-        <mat-label>Confirm password</mat-label>
-        <input matInput placeholder="">
-      </mat-form-field>
-      <br />
-          <button class="reason-btn">Save</button>
+          <mat-label>New password</mat-label>
+          <input matInput placeholder="" formControlName="newPassword">
+        </mat-form-field>
+        <mat-form-field class="input-password" appearance="outline">
+          <mat-label>Confirm password</mat-label>
+          <input matInput placeholder=""  formControlName="passwordRepeat">
+        </mat-form-field>
+        <br />
+            <button class="reason-btn" (click)="saveNewPassword()">Save</button>
+        </form>
       </div>
   </div>
 
