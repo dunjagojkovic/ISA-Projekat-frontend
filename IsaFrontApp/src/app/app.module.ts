@@ -52,6 +52,10 @@ import { ReservationsClientComponent } from './homepage-client/reservations-clie
 import { CottageActionsComponent } from './homepage-client/cottage-actions/cottage-actions.component';
 import { BoatActionsComponent } from './homepage-client/boat-actions/boat-actions.component';
 import { InstructorActionsComponent } from './homepage-client/instructor-actions/instructor-actions.component';
+import { CottageComplaintsComponent } from './homepage-client/cottage-complaints/cottage-complaints.component';
+import { BoatComplaintsComponent } from './homepage-client/boat-complaints/boat-complaints.component';
+import { InstructorComplaintsComponent } from './homepage-client/instructor-complaints/instructor-complaints.component';
+import { CottageEvaluationsComponent } from './homepage-client/cottage-evaluations/cottage-evaluations.component';
 
 
 @NgModule({
@@ -84,7 +88,11 @@ import { InstructorActionsComponent } from './homepage-client/instructor-actions
     ReservationsClientComponent,
     CottageActionsComponent,
     BoatActionsComponent,
-    InstructorActionsComponent
+    InstructorActionsComponent,
+    CottageComplaintsComponent,
+    BoatComplaintsComponent,
+    InstructorComplaintsComponent,
+    CottageEvaluationsComponent
   ],
   imports: [
     BrowserModule,
