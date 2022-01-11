@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { CalendarEvent, CalendarView } from 'angular-calendar';
+import { MatSnackBar} from '@angular/material/snack-bar';
+import { TemplateParseResult } from '@angular/compiler';
 
 @Component({
   selector: 'app-set-free-terms',
@@ -17,6 +19,7 @@ export class SetFreeTermsComponent implements OnInit {
   view: CalendarView = CalendarView.Month;
   CalendarView = CalendarView;
   terms = [] as any;
+  today = new Date();
   events: CalendarEvent[] = [];
   monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"];
@@ -36,6 +39,7 @@ export class SetFreeTermsComponent implements OnInit {
     private formBuilder : FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
+    private _snackBar: MatSnackBar,
     private api: ApiService   
   ) { 
 
@@ -59,8 +63,7 @@ export class SetFreeTermsComponent implements OnInit {
   });
     this.api.loadHouseFreeTerms(this.id).subscribe((response:any) => {
       this.terms = response;
-
-      console.log(response)
+      console.log(response);
 
       for(let event of response) {
         this.events.push({
@@ -89,7 +92,11 @@ export class SetFreeTermsComponent implements OnInit {
     }
 
     this.api.addHouseFreeTerms(data).subscribe((response:any) => {
-      console.log(response)
+      console.log(response);
+      if(response == null){
+        this._snackBar.open('You can not add this term. ', 'Close', {duration: 3000});   
+
+      }
     });
 
     location.reload();
@@ -100,3 +107,4 @@ export class SetFreeTermsComponent implements OnInit {
   }
 
 }
+3

@@ -4,6 +4,8 @@ import { FormBuilder } from '@angular/forms';
 import { ApiService } from '../api.service';
 import { Validators } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
+import {MatSnackBarModule, MatSnackBar} from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-homepage-house-owner',
@@ -20,7 +22,8 @@ export class HomepageHouseOwnerComponent implements OnInit {
   constructor(
     private formBuilder : FormBuilder,
     private router: Router,
-    private api: ApiService   
+    private api: ApiService,
+    private _snackBar: MatSnackBar
     ) {
       
       this.homes = [];
@@ -56,7 +59,14 @@ export class HomepageHouseOwnerComponent implements OnInit {
 
   onDelete(id: number) {
     this.api.deleteMyHouse(id).subscribe((response:any) => {
-      this.homes = this.homes.filter((e:any) => e.id != id);
+     // this.homes = this.homes.filter((e:any) => e.id != id);
+     this.homes = response;
+     if(response == true){
+      // this.houseReservations = this.houseReservations.filter((e:any) => e.id != id);  
+      window.location.reload();
+    } else if( response === false){
+        alert("Can't delete")
+    }
   });
   }
 

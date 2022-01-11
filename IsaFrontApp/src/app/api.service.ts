@@ -230,4 +230,12 @@ sendEvaluationsForHouseReservation(data: any){
   return this.http.post(this.baseURL + "/api/homeEvaluations/", data, this.getAuthoHeader());
 }
   
+getReservationsForMyHouses(data: any){
+  return this.http.post(this.baseURL + "/api/homeReservations/myReservationsForMyHouses", data, this.getAuthoHeader());
+}
+
+getAllReservations(){
+  return this.http.get(this.baseURL + "/api/homeReservations/getAllReservations", this.getAuthoHeader());
+}
+
 }

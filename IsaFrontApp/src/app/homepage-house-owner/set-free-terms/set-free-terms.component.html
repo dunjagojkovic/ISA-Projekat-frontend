@@ -34,14 +34,14 @@
     <div>
       <mat-form-field appearance="outline" class="date-picker">
         <mat-label>Choose a start date</mat-label>
-        <input formControlName="startDate" matInput [matDatepicker]="pickerStart">
+        <input [min]="today"formControlName="startDate" matInput [matDatepicker]="pickerStart">
         <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
         <mat-datepicker #pickerStart></mat-datepicker>
       </mat-form-field>
 
       <mat-form-field appearance="outline" class="date-picker">
         <mat-label>Choose a end date</mat-label>
-        <input  formControlName="endDate" matInput [matDatepicker]="pickerEnd">
+        <input [min]="today" formControlName="endDate" matInput [matDatepicker]="pickerEnd">
         <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
         <mat-datepicker #pickerEnd></mat-datepicker>
       </mat-form-field>

@@ -23,6 +23,7 @@ import { ReserveCottagesStandardComponent } from './homepage-client/reserve-cott
 import { CottageReservationsComponent } from './homepage-client/cottage-reservations/cottage-reservations.component';
 import { SearchFreeBoatsClientComponent } from './homepage-client/search-free-boats-client/search-free-boats-client.component';
 import { SearchFreeInstructorsClientComponent } from './homepage-client/search-free-instructors-client/search-free-instructors-client.component';
+import { HistoryHouseOwnerComponent } from './homepage-house-owner/history-house-owner/history-house-owner.component';
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -95,7 +96,8 @@ import { CottageEvaluationsComponent } from './homepage-client/cottage-evaluatio
     CottageComplaintsComponent,
     BoatComplaintsComponent,
     InstructorComplaintsComponent,
-    CottageEvaluationsComponent
+    CottageEvaluationsComponent,
+    HistoryHouseOwnerComponent
   ],
   imports: [
     BrowserModule,
