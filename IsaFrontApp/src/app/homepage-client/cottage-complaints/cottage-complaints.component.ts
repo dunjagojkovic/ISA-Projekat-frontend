@@ -71,7 +71,9 @@ export class CottageComplaintsComponent implements OnInit {
           this.complaint = response;  
           this.router.navigate(['/reservations-client']);
           this._snackBar.open('Thank you for your complaint. We appreciate your opinion', 'Close');
-        }
+        }else if (response == null){
+          this._snackBar.open('Cannot send complaint. ', 'Close', {duration: 3000});       
+         }
        
     });    
     

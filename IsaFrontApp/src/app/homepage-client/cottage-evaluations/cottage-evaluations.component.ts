@@ -36,6 +36,7 @@ export class CottageEvaluationsComponent implements OnInit {
     
     this.form = this.formBuilder.group({
       content: ['', Validators.required],
+      rate: ['', Validators.required]
     })
   }
 
@@ -59,11 +60,14 @@ export class CottageEvaluationsComponent implements OnInit {
   onSubmit(){
 
     const content = this.form.get('content')?.value;
+    const rate = this.form.get('rate')?.value;
+
 
     let data = {
       content: content,
       clientId: this.user.id,
-      homeReservationId: this.reservation.id 
+      homeReservationId: this.reservation.id,
+      rate: rate
     }
 
     this.api.sendEvaluationsForHouseReservation(data).subscribe((response: any) => {
@@ -72,7 +76,9 @@ export class CottageEvaluationsComponent implements OnInit {
         this.evaluation = response;  
         this.router.navigate(['/reservations-client']);
         this._snackBar.open('Thank you for your evaluation. We appreciate your opinion', 'Close');
-      }
+      }else if (response == null){
+        this._snackBar.open('Cannot send evaluation. ', 'Close', {duration: 3000});       
+       }
      
   });    
   

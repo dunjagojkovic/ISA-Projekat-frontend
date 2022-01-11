@@ -69,12 +69,26 @@
           <mat-card-title style="font-weight: bold; text-transform: uppercase; font-size: 16px; margin-top: 2%;">Your comments</mat-card-title>
         <hr> 
         <form [formGroup]="form">
+
+          <div style="margin-bottom: 20px;">
+            <p style="font-weight: bold;">Your overal satisfaction with our service</p>
+            <mat-radio-group formControlName="rate">
+              <mat-radio-button [value]='1'>1</mat-radio-button>
+              <mat-radio-button [value]='2'>2</mat-radio-button>
+              <mat-radio-button [value]='3'>3</mat-radio-button>
+              <mat-radio-button [value]='4'>4</mat-radio-button>
+              <mat-radio-button [value]='5'>5</mat-radio-button>
+             </mat-radio-group> 
+          </div>
         <div>
+          <p style="font-weight: bold;">Write a comment</p>
             <mat-form-field class="text-area" appearance="outline">
                 <mat-label>Content</mat-label>
                 <textarea matInput formControlName="content"></textarea>
               </mat-form-field>
-        </div>       
+        </div>
+       
+            
        <div>
          <div style="display: flex; flex-direction: row;">
           <button (click)="onSubmit()" class="book-btn">Submit</button>
