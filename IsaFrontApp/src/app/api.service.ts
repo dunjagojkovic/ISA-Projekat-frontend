@@ -93,14 +93,21 @@ export class ApiService {
     return this.http.post(this.baseURL + "/api/hometerms", data, this.getAuthoHeader());
   }
 
+  addBoatFreeTerms(data: any){
+    return this.http.post(this.baseURL + "/api/boatterms", data, this.getAuthoHeader());
+  }
+
   loadHouseFreeTerms(id: any){
     return this.http.get(this.baseURL + "/api/hometerms/" + id, this.getAuthoHeader());
+  }
+
+  loadBoatFreeTerms(id: any){
+    return this.http.get(this.baseURL + "/api/boatterms/" + id, this.getAuthoHeader());
   }
 
   editHouse(id: number, data: any) {
     return this.http.put(this.baseURL + "/api/homes/" +id, data, this.getAuthoHeader());
   }
-
 
   loadBoat() {
     return this.http.get(this.baseURL + "/api/boats/my", this.getAuthoHeader());
@@ -199,6 +206,9 @@ cancelInstructorReservation(id: number){
    return this.http.delete(this.baseURL + "/api/adventuresReservation/" +id, this.getAuthoHeader());
 }
 
+editBoat(id: number, data: any) {
+  return this.http.put(this.baseURL + "/api/boats/" +id, data, this.getAuthoHeader());
+}
 
 sendComplaintsForHouseReservation(data: any){
   return this.http.post(this.baseURL + "/api/homeComplaints/", data, this.getAuthoHeader());

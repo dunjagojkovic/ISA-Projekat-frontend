@@ -42,6 +42,15 @@
     </div>  
     </mat-toolbar>
 
+    <form [formGroup]="form1">
+      <div class="search-box-rooms">
+        <input class="search-txt-rooms" type="text" formControlName="searchTerm" matInput value="" placeholder="Search for..." />
+        <a class="search-btn-rooms">
+          <mat-icon (click)="onSearch()">search</mat-icon>
+        </a>
+      </div>
+    </form>
+
     <div class="example-form" *ngIf="addHouseBox">
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="double-input">

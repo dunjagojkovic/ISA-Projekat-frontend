@@ -113,4 +113,9 @@ export class SettingsBoatOwnerComponent implements OnInit {
     });
   }
 
+  onDeleteRequest(id: number) {
+    this.api.sendDeleteRequest(id).subscribe((response: any) => {
+      console.log(response);});
+  }
+  
 }
