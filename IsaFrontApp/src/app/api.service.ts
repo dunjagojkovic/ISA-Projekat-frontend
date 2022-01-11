@@ -101,7 +101,6 @@ export class ApiService {
     return this.http.put(this.baseURL + "/api/homes/" +id, data, this.getAuthoHeader());
   }
 
-
   loadBoat() {
     return this.http.get(this.baseURL + "/api/boats/my", this.getAuthoHeader());
   }
@@ -197,6 +196,10 @@ cancelBoatReservation(id: number){
 
 cancelInstructorReservation(id: number){
    return this.http.delete(this.baseURL + "/api/adventuresReservation/" +id, this.getAuthoHeader());
+}
+
+editBoat(id: number, data: any) {
+  return this.http.put(this.baseURL + "/api/boats/" +id, data, this.getAuthoHeader());
 }
 
 }

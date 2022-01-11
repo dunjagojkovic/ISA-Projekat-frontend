@@ -29,7 +29,7 @@ import { ReservationsClientComponent } from './homepage-client/reservations-clie
 import { CottageActionsComponent } from './homepage-client/cottage-actions/cottage-actions.component';
 import { BoatActionsComponent } from './homepage-client/boat-actions/boat-actions.component';
 import { InstructorActionsComponent } from './homepage-client/instructor-actions/instructor-actions.component';
-
+import { EditboatBoatOwnerComponent } from './homepage-boat-owner/editboat-boat-owner/editboat-boat-owner.component';
 
 const routes: Routes = [
   { path: '', component: FrontPageComponent},
@@ -59,7 +59,8 @@ const routes: Routes = [
   { path: "reservations-client", component: ReservationsClientComponent},
   { path: "cottage-actions-client", component: CottageActionsComponent},
   { path: "boat-actions-client", component: BoatActionsComponent},
-  { path: "instructor-actions-client", component: InstructorActionsComponent}
+  { path: "instructor-actions-client", component: InstructorActionsComponent},
+  { path: "edit-boat-info", component: EditboatBoatOwnerComponent}
 
 ];
 
