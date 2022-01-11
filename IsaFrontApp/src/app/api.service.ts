@@ -206,5 +206,9 @@ sendComplaintsForHouseReservation(data: any){
 loadOneHouseReservation(id: any) {
   return this.http.get(this.baseURL + "/api/homeReservations/" +id, this.getAuthoHeader());
 }
+
+sendEvaluationsForHouseReservation(data: any){
+  return this.http.post(this.baseURL + "/api/homeEvaluations/", data, this.getAuthoHeader());
+}
   
 }

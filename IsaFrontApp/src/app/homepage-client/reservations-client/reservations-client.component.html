@@ -64,6 +64,7 @@
           <td>{{hr.startDate | date:'dd/MM/yyyy'}}</td>
           <td>{{hr.endDate | date:'dd/MM/yyyy'}}</td>
           <button (click)="cancelHouse(hr.id)" >Cancel</button>
+          <button [routerLink]="['/cottage-evaluations-client']" [queryParams]="{id: hr.id, startDate: hr.startDate, endDate: hr.endDate}" >Evaluate</button>
           <button [routerLink]="['/cottage-complaints-client']" [queryParams]="{id: hr.id, startDate: hr.startDate, endDate: hr.endDate}" >Complaints</button>
         </tr>
         <tr *ngFor = "let br of boatReservations">

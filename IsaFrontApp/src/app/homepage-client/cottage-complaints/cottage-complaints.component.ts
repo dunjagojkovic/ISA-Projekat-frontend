@@ -73,10 +73,7 @@ export class CottageComplaintsComponent implements OnInit {
           this._snackBar.open('Thank you for your complaint. We appreciate your opinion', 'Close');
         }
        
-    });
-  
-  
-    
+    });    
     
   }
 }
