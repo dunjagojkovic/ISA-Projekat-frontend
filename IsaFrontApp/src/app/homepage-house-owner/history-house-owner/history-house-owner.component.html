@@ -115,7 +115,7 @@
           <td>{{r.endDate | date:'dd/MM/yyyy'}}</td>
           <td>{{r.homeProfile.name}}</td>
           <td>
-            <button>Reservation</button>
+            <button [routerLink]="['/reserve-house-owner']">Reservation</button>
           </td>
         </tr>
       </tbody>
