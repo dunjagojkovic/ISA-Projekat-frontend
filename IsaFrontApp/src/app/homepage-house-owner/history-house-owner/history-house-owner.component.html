@@ -44,8 +44,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td></td>
+        <tr *ngFor = "let r of reservations ">
+          <td>{{r.homeProfile.name}}</td>
+          <td>{{r.startDate | date:'dd/MM/yyyy'}}</td>
+          <td>{{r.endDate | date:'dd/MM/yyyy'}}</td>
+          <td>{{r.homeProfile.name}}</td>
         </tr>
       </tbody>
     </table>

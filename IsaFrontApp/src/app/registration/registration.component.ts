@@ -2,6 +2,8 @@ import { Component, OnInit, Type } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
+import {MatSnackBarModule, MatSnackBar} from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-registration',
@@ -12,28 +14,30 @@ export class RegistrationComponent implements OnInit {
   form: FormGroup;  
   hide = true;
 
-
   constructor(
     private formBuilder : FormBuilder,
     private router: Router,
-    private api: ApiService   
+    private api: ApiService,
+    private _snackBar: MatSnackBar
     ) {
 
     this.form = this.formBuilder.group({
-      name: ['', Validators.pattern('[a-zA-Z]*')],
-      surname: ['', Validators.pattern('[a-zA-Z]*')],
+      name: ['', Validators.pattern('[a-zčćžšđA-ZČĆŽŠĐ]*')],
+      surname: ['', Validators.pattern('[a-zčćžšđA-ZČĆŽŠĐ]*')],
       email: ['', Validators.email],
       password: ['', Validators.required],
       passwordRepeat: ['', Validators.required],
       address: ['', Validators.required],
-      city: ['', Validators.pattern('[a-zA-Z ]*')],
-      country: ['', Validators.pattern('[a-zA-Z ]*')],
+      city: ['', Validators.pattern('[a-zčćžšđA-ZČĆŽŠĐ]*')],
+      country: ['', Validators.pattern('[a-zčćžšđA-ZČĆŽŠĐ]*')],
       phoneNumber: ['', Validators.minLength(10)],
-      description: ['', Validators.required],
+      description: [''],
       type: ['', Validators.required]
 
     })
    } 
+
+  
 
   ngOnInit(): void {
   }
@@ -58,7 +62,6 @@ export class RegistrationComponent implements OnInit {
         return;
       }
 
-
       let data = {
         name: name,
         surname: surname,
@@ -74,11 +77,11 @@ export class RegistrationComponent implements OnInit {
 
       if(type == "Client") {
         this.api.registerClient(data).subscribe( (any: any) => {
-
           this.router.navigate(['/'])
         }, error => {
-          alert('Email already exists')
+          this._snackBar.open('Email already exists', 'Close', {duration: 5000})
         });
+        this._snackBar.open('Registration request successfully submited! Check your email in order to activate your account.', 'Close', {duration: 5000})
       }
       else if (type == "House owner"){
         this.api.registerHouseOwner(data).subscribe( (any: any) => {

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ApiService } from 'src/app/api.service';
 
 
 
@@ -10,11 +12,39 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class BoatProfilesComponent implements OnInit {
 
-  constructor() {}
+  boats = [] as any;
+  form: FormGroup;
 
-  ngOnInit(): void {
+  constructor(
+    private router: Router,
+    private api: ApiService ,
+    private formBuilder : FormBuilder  
+  ) {
+    this.form = this.formBuilder.group({
+      searchTerm: ['']     
+    })
   }
 
-  
+  ngOnInit(): void {
+    this.api.loadBoatsForAllUsers().subscribe((response:any) => {
+      this.boats = response;
+    });
+  }
+ 
+  onSearch(){
+    const searchTerm = this.form.get('searchTerm')?.value;
+
+   
+    let data = {
+      searchTerm: searchTerm   
+    }
+
+    this.api.filterBoats(data).subscribe((response: any) => {
+      console.log(response);
+      this.boats = response;
+    });
+  }
 
 }
+  
+

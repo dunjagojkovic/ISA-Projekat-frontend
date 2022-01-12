@@ -17,6 +17,7 @@
     padding-top:15px !important;
     padding-bottom:10px !important;
     text-align: center;
+    background-color: white;
     width: 100%;
 }
 
@@ -86,11 +87,6 @@
     vertical-align: center;
 }
 
-
-.footer-down {
-    margin-top: 540px;
-}
-
 .footer {
     align-content: right;
     padding-left:20px !important;
@@ -134,9 +130,9 @@
 
 .logout-btn{
     border-radius: 20px;
-    border: 3px solid #84A98C ;
+    border: 3px solid #52796F ;
     color:white;
-    background-color: #84A98C;
+    background-color: #52796F;
     font-weight: bold;
     padding: 10px 0px 10px 0px !important;
     position: absolute;
@@ -150,16 +146,40 @@
 }
 
 .example-form {
-    position: absolute;
-    left: 29%;
-    height: max-content;
-    width: 1000px;
+    position: relative;
+    margin-left: 28%;
+    margin-bottom: 20px;
+    width: 780px;
     text-align: center;
-    margin-top: 12px;
+    margin-top: 20px;
   }
 
   .input-box {
+    width: 270px;
+    color: #354F52;
+    align-items: center;
+    height: 58px;
+    margin-bottom: 5px;
+    border-radius: 15px;
+    margin-inline: 5px;
+    font-weight: bold;
+  }
+
+  .input-password {
     width: 320px;
+    color: #354F52;
+    align-items: center;
+    height: 58px;
+    margin-bottom: 5px;
+    border-radius: 15px;
+    margin-inline: 5px;
+    font-weight: bold;
+    position: relative;
+    left: 74.5%;
+  }
+
+  .input-box1 {
+    width: 550px;
     color: #354F52;
     align-items: center;
     height: 58px;
@@ -180,10 +200,10 @@
   }
 
   .reason-area {
-    width: 660px;
+    width: 550px;
     color: #354F52;
     position: relative;
-    left: 19%;
+    left: 40%;
     height: 80px;
     border-radius: 10px;
     font-weight: bold;
@@ -212,33 +232,35 @@
     display: flex;
     flex-direction: row;
     position: relative;
-    left: 7.5%;
+    left: 16%;
   }
 
   .btn {
     color:#ebf0e9;
     background-color: #84A98C;
     border-radius: 20px;
-    height: 48px;
+    width: 160px;
+    height: 44px;
     font-size: 18px;
-    width: 200px;
     margin-bottom: 20px;
     position: relative;
-    margin-left: 30px;
-    top: 34%;
-    right: 10.8%;
+    left: 2%;
+    margin-left: 5px;
+    margin-right: 5px;
   }
 
   .reason-btn {
     color:#ebf0e9;
     background-color: #84A98C;
+    border: 3px solid #84A98C ;
     border-radius: 20px;
-    height: 48px;
     font-size: 18px;
-    width: 200px;
+    width: 160px;
+    height: 44px;
     margin-top: 10px;
+    margin-bottom: 20px;
     position: relative;
-    left: 50%;
+    left: 76%;
   }
 
   .heading {
@@ -247,6 +269,15 @@
   }
 
   .delete-box{
-    width: 400px;
-    height: 250px;
+    width: 320px;
+}
+
+.password-box{
+    width: 320px;
+}
+
+.frontpage_feedback_section {
+    background: #52796F;
+    padding-top: 80px;
+    padding-bottom: 60px;
 }

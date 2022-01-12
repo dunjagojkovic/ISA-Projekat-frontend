@@ -58,7 +58,7 @@
     </mat-form-field>  
     <mat-form-field class="text-area" appearance="outline">
       <mat-label>Reason</mat-label>
-      <textarea matInput formControlName="description"></textarea>
+      <textarea matInput formControlName="description" [attr.disabled]="form.value.type == 'Client'"></textarea>
     </mat-form-field>
     <mat-form-field class="input-box" appearance="outline">
         <mat-label>Password</mat-label>
@@ -75,9 +75,8 @@
         </button>
     </mat-form-field><br /><br />
     <button class="btn">Register</button>
-  </form>
+  </form> 
 </div>
-
 
 
 <div class="footer-down">
