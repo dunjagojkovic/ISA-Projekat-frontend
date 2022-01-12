@@ -36,7 +36,7 @@
         <nav class="navMenu" style="font-size: 15px;">            
           <a style="float:none" (click) = "todayBox = false; historyBox = false; upcommingBox = true;">Upcoming</a>
           <a style="float:none" (click) = "todayBox = true; historyBox = false; upcommingBox = false; todayReservation()">Today</a>
-          <a style="float:none" (click) = "historyBox = true; todayBox = false; upcommingBox = false; ">History</a>
+          <a style="float:none" (click) = "historyBox = true; todayBox = false; upcommingBox = false; historyReservation()">History</a>
         </nav>
       </div>
       <div class="col-md-4">
@@ -59,10 +59,10 @@
         </thead>
         <tbody>
           <tr *ngFor = "let r of reservations ">
-            <td>{{r.homeProfile.name}}</td>
-            <td>{{r.startDate | date:'dd/MM/yyyy'}}</td>
-            <td>{{r.endDate | date:'dd/MM/yyyy'}}</td>
-            <td></td>
+            <td style="width: 220px;">{{r.homeProfile.name}}</td>
+            <td style="width: 230px;">{{r.startDate | date:'dd/MM/yyyy'}}</td>
+            <td style="width: 50px;">{{r.endDate | date:'dd/MM/yyyy'}}</td>
+            <td style="width: 350px;">{{r.clientId}}</td>
           </tr>
         </tbody>
       </table>
@@ -75,20 +75,21 @@
       <table class="rooms-table">
         <thead>
           <tr>
-            <th>House</th>
-            <th>Start date</th>
-            <th>End date</th>
+            <th style="width: 200px;">House</th>
+            <th style="width: 180px;">Start </th>
+            <th style="width: 180px;">End </th>
             <th>Client</th>
+            <th style="width: 20px; height: 50px;"></th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor = "let r of reservations ">
-            <td>{{r.homeProfile.name}}</td>
-            <td>{{r.startDate | date:'dd/MM/yyyy'}}</td>
-            <td>{{r.endDate | date:'dd/MM/yyyy'}}</td>
-            <td>{{r.homeProfile.name}}</td>
+          <tr *ngFor = "let hr of historyReservations ">
+            <td style="width: 220px;">{{hr.homeProfile.name}}</td>
+            <td style="width: 230px;">{{hr.startDate | date:'dd/MM/yyyy'}}</td>
+            <td style="width: 50px;">{{hr.endDate | date:'dd/MM/yyyy'}}</td>
+            <td style="width: 350px;">{{hr.clientId}}</td>
             <td>
-              <button [routerLink]="['/review-house-owner']" [queryParams]="{id: r.id, startDate: r.startDate, endDate: r.endDate}" >Review</button>
+              <button [routerLink]="['/review-house-owner']" [queryParams]="{id: hr.id, startDate: hr.startDate, endDate: hr.endDate}" >Review</button>
             </td>
           </tr>
         </tbody>
@@ -102,18 +103,19 @@
     <table class="rooms-table">
       <thead>
         <tr>
-          <th>House</th>
-          <th>Start date</th>
-          <th>End date</th>
-          <th>Client</th>
+          <th style="width: 200px;">House</th>
+            <th style="width: 180px;">Start </th>
+            <th style="width: 180px;">End </th>
+            <th>Client</th>
+            <th style="width: 20px; height: 50px;"></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor = "let tr of todayReservations ">
-          <td>{{tr.homeProfile.name}}</td>
-          <td>{{tr.startDate | date:'dd/MM/yyyy'}}</td>
-          <td>{{tr.endDate | date:'dd/MM/yyyy'}}</td>
-          <td>{{tr.homeProfile.name}}</td>
+          <td style="width: 220px;">{{tr.homeProfile.name}}</td>
+          <td style="width: 230px;">{{tr.startDate | date:'dd/MM/yyyy'}}</td>
+          <td style="width: 50px;">{{tr.endDate | date:'dd/MM/yyyy'}}</td>
+          <td style="width: 350px;">{{tr.clientId}}</td>
           <td>
             <button [routerLink]="['/reserve-house-owner']" [queryParams]="{clientId: tr.clientId, houseId: tr.homeProfile.id}">Reservation</button>
           </td>

@@ -246,6 +246,10 @@ getTodayReservationsForMyHouses(data: any){
   return this.http.post(this.baseURL + "/api/homeReservations/myTodayReservationsForMyHouses", data, this.getAuthoHeader());
 }
 
+getHistoryReservationsForMyHouses(data: any){
+  return this.http.post(this.baseURL + "/api/homeReservations/myHistoryReservationsForMyHouses", data, this.getAuthoHeader());
+}
+
 getAllReservations(houseId: number, ownerId: number){
   return this.http.get(this.baseURL + "/api/homeReservations/getAllReservations/" +houseId + '/' + ownerId, this.getAuthoHeader());
 }

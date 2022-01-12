@@ -29,13 +29,17 @@ export class SetFreeTermsComponent implements OnInit {
 
   colors: any = {
     blue: {
-      primary: '#1e90ff',
-      secondary: '#D1E8FF',
+      primary: '#f0f194',
+      secondary: '#f0f194',
     },
     green: {
       primary: '#84A98C',
-      secondary: '#ebf0e9',
+      secondary: '#84A98C',
     },
+    red: {
+      primary: 'rgb(156, 78, 78)',
+      secondary: 'rgb(156, 78, 78)',
+    }
   };
 
   constructor(
@@ -73,7 +77,7 @@ export class SetFreeTermsComponent implements OnInit {
             start: new Date(event.startDate),
             end: new Date(event.endDate),
             title:  "Reservation",
-            color: this.colors.blue
+            color: this.colors.red
           })
         }
     });
@@ -113,7 +117,7 @@ export class SetFreeTermsComponent implements OnInit {
     this.api.addHouseFreeTerms(data).subscribe((response:any) => {
       console.log(response);
       if(response == null){
-        this._snackBar.open('You can not add this term. ', 'Close', {duration: 3000});   
+        this._snackBar.open('You can not add this term. ', 'Close', {duration: 6000});   
 
       }
     });
