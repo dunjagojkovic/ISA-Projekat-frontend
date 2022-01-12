@@ -35,8 +35,8 @@
       <div class="col-md-4">
         <nav class="navMenu" style="font-size: 15px;">            
           <a style="float:none" (click) = "todayBox = false; historyBox = false; upcommingBox = true;">Upcoming</a>
-          <a style="float:none" (click) = "todayBox = true; historyBox = false; upcommingBox = false;">Today</a>
-          <a style="float:none" (click) = "historyBox = true; todayBox = false; upcommingBox = false;">History</a>
+          <a style="float:none" (click) = "todayBox = true; historyBox = false; upcommingBox = false; todayReservation()">Today</a>
+          <a style="float:none" (click) = "historyBox = true; todayBox = false; upcommingBox = false; ">History</a>
         </nav>
       </div>
       <div class="col-md-4">
@@ -62,7 +62,7 @@
             <td>{{r.homeProfile.name}}</td>
             <td>{{r.startDate | date:'dd/MM/yyyy'}}</td>
             <td>{{r.endDate | date:'dd/MM/yyyy'}}</td>
-            <td>{{r.homeProfile.name}}</td>
+            <td></td>
           </tr>
         </tbody>
       </table>
@@ -109,11 +109,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor = "let r of reservations ">
-          <td>{{r.homeProfile.name}}</td>
-          <td>{{r.startDate | date:'dd/MM/yyyy'}}</td>
-          <td>{{r.endDate | date:'dd/MM/yyyy'}}</td>
-          <td>{{r.homeProfile.name}}</td>
+        <tr *ngFor = "let tr of todayReservations ">
+          <td>{{tr.homeProfile.name}}</td>
+          <td>{{tr.startDate | date:'dd/MM/yyyy'}}</td>
+          <td>{{tr.endDate | date:'dd/MM/yyyy'}}</td>
+          <td>{{tr.homeProfile.name}}</td>
           <td>
             <button [routerLink]="['/reserve-house-owner']">Reservation</button>
           </td>

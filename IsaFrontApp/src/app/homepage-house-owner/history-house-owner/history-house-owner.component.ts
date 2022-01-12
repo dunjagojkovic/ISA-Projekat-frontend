@@ -12,6 +12,7 @@ export class HistoryHouseOwnerComponent implements OnInit {
 
   user: any = {} as any;
   reservations = [] as any;
+  todayReservations = [] as any;
   startDate: any;
   endDate: any;
   address: any;
@@ -38,8 +39,23 @@ constructor(
     ownerId: this.user.id
   }
 
-  this.api.getAllReservations().subscribe((response:any) => {
+  this.api.getReservationsForMyHouses(data).subscribe((response:any) => {
     this.reservations = response;      
+    console.log(response);
+});
+
+  }
+
+  todayReservation(): void{
+    let data = {
+      startDate: this.startDate,
+      endDate: this.endDate,
+      address: this.address,
+      ownerId: this.user.id
+    }
+    
+  this.api.getTodayReservationsForMyHouses(data).subscribe((response:any) => {
+    this.todayReservations = response;      
     console.log(response);
 });
 
