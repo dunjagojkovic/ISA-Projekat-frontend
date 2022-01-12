@@ -14,11 +14,14 @@ import { TemplateParseResult } from '@angular/compiler';
 export class SetFreeTermsComponent implements OnInit {
   form: FormGroup;
   id: any;
+  houseId: any;
+  ownerId: any;
   user: any = {} as any;
   viewDate: Date = new Date();
   view: CalendarView = CalendarView.Month;
   CalendarView = CalendarView;
   terms = [] as any;
+  reservations = [] as any;
   today = new Date();
   events: CalendarEvent[] = [];
   monthNames = ["January", "February", "March", "April", "May", "June",
@@ -60,6 +63,20 @@ export class SetFreeTermsComponent implements OnInit {
   ngOnInit(): void {
     this.api.current().subscribe((response:any) => {
       this.user = response;
+
+      this.api.getAllReservations(this.id, this.user.id).subscribe((response:any) => {
+        this.reservations = response;
+        console.log(response);
+    
+        for(let event of this.reservations) {
+          this.events.push({
+            start: new Date(event.startDate),
+            end: new Date(event.endDate),
+            title:  "Reservation",
+            color: this.colors.blue
+          })
+        }
+    });
   });
     this.api.loadHouseFreeTerms(this.id).subscribe((response:any) => {
       this.terms = response;
@@ -74,6 +91,8 @@ export class SetFreeTermsComponent implements OnInit {
         })
       }
   });
+
+
   }
 
   onSave() {

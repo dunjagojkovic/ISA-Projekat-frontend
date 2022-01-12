@@ -117,6 +117,10 @@ export class ApiService {
     return this.http.post(this.baseURL + "/api/homeReservations/", data, this.getAuthoHeader());
   }
 
+  bookByOwnerHouse(data: any){
+    return this.http.post(this.baseURL + "/api/homeReservations/owner", data, this.getAuthoHeader());
+  }
+
   bookBoat(data: any){
     return this.http.post(this.baseURL + "/api/boatReservations/book", data, this.getAuthoHeader());
   }
@@ -242,8 +246,8 @@ getTodayReservationsForMyHouses(data: any){
   return this.http.post(this.baseURL + "/api/homeReservations/myTodayReservationsForMyHouses", data, this.getAuthoHeader());
 }
 
-getAllReservations(){
-  return this.http.get(this.baseURL + "/api/homeReservations/getAllReservations", this.getAuthoHeader());
+getAllReservations(houseId: number, ownerId: number){
+  return this.http.get(this.baseURL + "/api/homeReservations/getAllReservations/" +houseId + '/' + ownerId, this.getAuthoHeader());
 }
 
 }
