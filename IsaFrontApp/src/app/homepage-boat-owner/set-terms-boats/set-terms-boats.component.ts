@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { CalendarEvent, CalendarView } from 'angular-calendar';
-
+import { MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-set-terms-boats',
@@ -24,20 +24,26 @@ export class SetTermsBoatsComponent implements OnInit {
 
   colors: any = {
     blue: {
-      primary: '#1e90ff',
-      secondary: '#D1E8FF',
+      primary: '#f0f194',
+      secondary: '#f0f194',
     },
     green: {
       primary: '#84A98C',
-      secondary: '#ebf0e9',
+      secondary: '#84A98C',
     },
+    red: {
+      primary: 'rgb(156, 78, 78)',
+      secondary: 'rgb(156, 78, 78)',
+    }
   };
+
 
   constructor(
     private formBuilder : FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
-    private api: ApiService   
+    private api: ApiService,
+    private _snackBar: MatSnackBar
   ) { 
 
     this.route.queryParams
@@ -91,6 +97,10 @@ export class SetTermsBoatsComponent implements OnInit {
 
     this.api.addBoatFreeTerms(data).subscribe((response:any) => {
       console.log(response)
+      if(response == null){
+        this._snackBar.open('You can not add this term. ', 'Close', {duration: 6000});   
+
+      }
     });
 
     location.reload();

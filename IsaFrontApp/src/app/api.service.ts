@@ -254,4 +254,16 @@ getAllReservations(houseId: number, ownerId: number){
   return this.http.get(this.baseURL + "/api/homeReservations/getAllReservations/" +houseId + '/' + ownerId, this.getAuthoHeader());
 }
 
+getReservationsForMyBoats(data: any){
+  return this.http.post(this.baseURL + "/api/boatReservations/myReservationsForMyBoats", data, this.getAuthoHeader());
+}
+
+getTodayReservationsForMyBoats(data: any){
+  return this.http.post(this.baseURL + "/api/boatReservations/myTodayReservationsForMyBoats", data, this.getAuthoHeader());
+}
+
+getHistoryReservationsForMyBoats(data: any){
+  return this.http.post(this.baseURL + "/api/boatReservations/myHistoryReservationsForMyBoats", data, this.getAuthoHeader());
+}
+
 }

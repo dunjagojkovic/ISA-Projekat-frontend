@@ -61,6 +61,7 @@ import { InstructorComplaintsComponent } from './homepage-client/instructor-comp
 import { CottageEvaluationsComponent } from './homepage-client/cottage-evaluations/cottage-evaluations.component';
 import { ReviewHouseOwnerComponent } from './homepage-house-owner/review-house-owner/review-house-owner.component';
 import { ReserveHouseOwnerComponent } from './homepage-house-owner/reserve-house-owner/reserve-house-owner.component';
+import { HistoryBoatOwnerComponent } from './homepage-boat-owner/history-boat-owner/history-boat-owner.component';
 
 @NgModule({
   declarations: [
@@ -101,7 +102,8 @@ import { ReserveHouseOwnerComponent } from './homepage-house-owner/reserve-house
     CottageEvaluationsComponent,
     HistoryHouseOwnerComponent,
     ReviewHouseOwnerComponent,
-    ReserveHouseOwnerComponent
+    ReserveHouseOwnerComponent,
+    HistoryBoatOwnerComponent
   ],
   imports: [
     BrowserModule,

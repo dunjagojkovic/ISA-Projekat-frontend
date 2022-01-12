@@ -37,6 +37,7 @@ import { InstructorComplaintsComponent } from './homepage-client/instructor-comp
 import { CottageEvaluationsComponent } from './homepage-client/cottage-evaluations/cottage-evaluations.component';
 import { ReviewHouseOwnerComponent } from './homepage-house-owner/review-house-owner/review-house-owner.component';
 import { ReserveHouseOwnerComponent } from './homepage-house-owner/reserve-house-owner/reserve-house-owner.component';
+import { HistoryBoatOwnerComponent } from './homepage-boat-owner/history-boat-owner/history-boat-owner.component';
 
 const routes: Routes = [
   { path: '', component: FrontPageComponent},
@@ -74,7 +75,8 @@ const routes: Routes = [
   { path: "instructor-complaints-client", component: InstructorComplaintsComponent},
   { path: "cottage-evaluations-client", component: CottageEvaluationsComponent},
   { path: "review-house-owner", component: ReviewHouseOwnerComponent},
-  { path: "reserve-house-owner", component: ReserveHouseOwnerComponent}
+  { path: "reserve-house-owner", component: ReserveHouseOwnerComponent},
+  { path: "history-boat-owner", component: HistoryBoatOwnerComponent}
 
 ];
 
