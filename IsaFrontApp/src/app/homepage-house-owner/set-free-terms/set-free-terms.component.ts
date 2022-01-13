@@ -5,6 +5,7 @@ import { ApiService } from 'src/app/api.service';
 import { CalendarEvent, CalendarView } from 'angular-calendar';
 import { MatSnackBar} from '@angular/material/snack-bar';
 import { TemplateParseResult } from '@angular/compiler';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-set-free-terms',
@@ -20,6 +21,7 @@ export class SetFreeTermsComponent implements OnInit {
   viewDate: Date = new Date();
   view: CalendarView = CalendarView.Month;
   CalendarView = CalendarView;
+  refresh = new Subject<void>();
   terms = [] as any;
   reservations = [] as any;
   today = new Date();
@@ -68,34 +70,57 @@ export class SetFreeTermsComponent implements OnInit {
     this.api.current().subscribe((response:any) => {
       this.user = response;
 
-      this.api.getAllReservations(this.id, this.user.id).subscribe((response:any) => {
-        this.reservations = response;
-        console.log(response);
+      this.load();
+      
+  });
     
-        for(let event of this.reservations) {
+  }
+
+  load() {
+    this.api.getAllReservations(this.id, this.user.id).subscribe((response:any) => {
+      this.reservations = response;
+      console.log(response);
+  
+      for(let event of this.reservations) {
+        this.events.push({
+          start: new Date(event.startDate),
+          end: new Date(event.endDate),
+          title:  "Reservation",
+          color: this.colors.red
+        })
+      }
+
+      this.api.loadHouseFreeTerms(this.id).subscribe((response:any) => {
+        this.terms = response;
+
+        for(let event of response) {
+          
+          if(this.isReserved(event.startDate, event.endDate, this.reservations)) {
+            continue;
+          }
+          
           this.events.push({
             start: new Date(event.startDate),
             end: new Date(event.endDate),
-            title:  "Reservation",
-            color: this.colors.red
+            title: event.action ? "Free term - action" : "Free term",
+            color: event.action ? this.colors.blue : this.colors.green
           })
         }
     });
   });
-    this.api.loadHouseFreeTerms(this.id).subscribe((response:any) => {
-      this.terms = response;
-      console.log(response);
+  }
 
-      for(let event of response) {
-        this.events.push({
-          start: new Date(event.startDate),
-          end: new Date(event.endDate),
-          title: event.action ? "Free term - action" : "Free term",
-          color: event.action ? this.colors.blue : this.colors.green
-        })
+  isReserved(startDate: any, endDate: any, reservations: any) {
+
+    for(let reservation of reservations) {
+
+      if(reservation.startDate == startDate && reservations.endDate == endDate) {
+        return true;
       }
-  });
 
+    }
+
+    return false;
 
   }
 
@@ -120,9 +145,8 @@ export class SetFreeTermsComponent implements OnInit {
         this._snackBar.open('You can not add this term. ', 'Close', {duration: 6000});   
 
       }
+      this.load();
     });
-
-    location.reload();
   }
 
   setView(view: CalendarView) {
