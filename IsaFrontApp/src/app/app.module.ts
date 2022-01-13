@@ -58,6 +58,8 @@ import { CottageComplaintsComponent } from './homepage-client/cottage-complaints
 import { BoatComplaintsComponent } from './homepage-client/boat-complaints/boat-complaints.component';
 import { InstructorComplaintsComponent } from './homepage-client/instructor-complaints/instructor-complaints.component';
 import { CottageEvaluationsComponent } from './homepage-client/cottage-evaluations/cottage-evaluations.component';
+import { BoatEvaluationsComponent } from './homepage-client/boat-evaluations/boat-evaluations.component';
+import { InstructorEvaluationsComponent } from './homepage-client/instructor-evaluations/instructor-evaluations.component';
 
 @NgModule({
   declarations: [
@@ -95,7 +97,9 @@ import { CottageEvaluationsComponent } from './homepage-client/cottage-evaluatio
     CottageComplaintsComponent,
     BoatComplaintsComponent,
     InstructorComplaintsComponent,
-    CottageEvaluationsComponent
+    CottageEvaluationsComponent,
+    BoatEvaluationsComponent,
+    InstructorEvaluationsComponent
   ],
   imports: [
     BrowserModule,

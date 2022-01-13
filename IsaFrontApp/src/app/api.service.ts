@@ -128,22 +128,20 @@ export class ApiService {
   sendDeleteRequest(id: number){
     return this.http.delete(this.baseURL + "/api/users/" + id, this.getAuthoHeader());
   }
-
   
   filterHouses(data:any){
     return this.http.post(this.baseURL + "/api/homes/filterHomes", data);
   }
-
-  changePassword(data: any){
-    return this.http.post(this.baseURL + "/api/users/password", data, this.getAuthoHeader());
-  }
-
   filterBoats(data: any){
     return this.http.post(this.baseURL + "/api/boats/filterBoats",  data);
   }
 
   filterInstructors(data: any){
     return this.http.post(this.baseURL + "/api/adventures/filterAdventures", data);
+  }
+
+  changePassword(data: any){
+    return this.http.post(this.baseURL + "/api/users/password", data, this.getAuthoHeader());
   }
   
   searchFreeHouses(data: any){
@@ -218,6 +216,10 @@ sendComplaintsForBoatReservation(data: any){
   return this.http.post(this.baseURL + "/api/boatComplaints/", data, this.getAuthoHeader());
 }
 
+sendComplaintsForInstructorReservation(data: any){
+  return this.http.post(this.baseURL + "/api/adventureComplaints/", data, this.getAuthoHeader());
+}
+
 loadOneHouseReservation(id: any) {
   return this.http.get(this.baseURL + "/api/homeReservations/" +id, this.getAuthoHeader());
 }
@@ -226,8 +228,16 @@ loadOneBoatReservation(id: any) {
   return this.http.get(this.baseURL + "/api/boatReservations/" +id, this.getAuthoHeader());
 }
 
+loadOneInstructorReservation(id: any) {
+  return this.http.get(this.baseURL + "/api/adventuresReservation/" +id, this.getAuthoHeader());
+}
+
 sendEvaluationsForHouseReservation(data: any){
   return this.http.post(this.baseURL + "/api/homeEvaluations/", data, this.getAuthoHeader());
+}
+
+sendEvaluationsForBoatReservation(data: any){
+  return this.http.post(this.baseURL + "/api/boatEvaluations/", data, this.getAuthoHeader());
 }
 
 subscribeUserOnAction(id: number, data: any){

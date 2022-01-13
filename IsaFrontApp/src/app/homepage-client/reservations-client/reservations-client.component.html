@@ -72,6 +72,7 @@
           <td>{{br.startDate | date:'dd/MM/yyyy'}}</td>
           <td>{{br.endDate | date:'dd/MM/yyyy'}}</td>
           <button (click)="cancelBoat(br.id)" >Cancel</button>
+          <button [routerLink]="['/boat-evaluations-client']" [queryParams]="{id: br.id, startDate: br.startDate, endDate: br.endDate}" >Evaluate</button>
           <button [routerLink]="['/boat-complaints-client']" [queryParams]="{id: br.id, startDate: br.startDate, endDate: br.endDate}" >Complaints</button>
         </tr>
         <tr *ngFor = "let i of instructorReservations">
@@ -79,6 +80,9 @@
           <td>{{i.startDate | date:'dd/MM/yyyy'}}</td>
           <td>{{i.endDate | date:'dd/MM/yyyy'}}</td>
           <button (click)="cancelInstructor(i.id)" >Cancel</button>
+          <button [routerLink]="['/instructor-evaluations-client']" [queryParams]="{id: i.id, startDate: i.startDate, endDate: i.endDate}" >Evaluate</button>
+          <button [routerLink]="['/instructor-complaints-client']" [queryParams]="{id: i.id, startDate: i.startDate, endDate: i.endDate}" >Complaints</button>
+
         </tr>
       </tbody>
     </table>
