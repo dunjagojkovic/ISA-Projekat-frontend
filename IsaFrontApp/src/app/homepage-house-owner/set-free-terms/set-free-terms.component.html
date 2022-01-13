@@ -86,7 +86,7 @@
     
     <div  [ngSwitch]="view" style="width: 700px; height: 50px;">
       <h1 style="color: #52796F; font-size: 34px; margin-left: 39%;">{{monthNames[viewDate.getMonth()]}}</h1> 
-      <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [refresh]="refresh" [viewDate]="viewDate" [events] = "events">
+      <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events] = "events">
       </mwl-calendar-month-view>
     
       <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events">

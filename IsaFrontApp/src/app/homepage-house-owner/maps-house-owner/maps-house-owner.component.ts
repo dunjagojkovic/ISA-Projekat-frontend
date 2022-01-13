@@ -14,8 +14,8 @@ export class MapsHouseOwnerComponent implements OnInit {
   latitude: any;
   longitude: any;
   id: any;
-  lat = 43.93013714764127;
-  lon = 20.43748109089975;
+  lat = 44.62049751048226;
+  lon = 20.50303520932738;
 
   constructor(
     private router: Router,

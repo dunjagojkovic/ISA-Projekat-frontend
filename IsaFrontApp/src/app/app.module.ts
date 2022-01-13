@@ -63,12 +63,14 @@ import { ReserveHouseOwnerComponent } from './homepage-house-owner/reserve-house
 import { HistoryBoatOwnerComponent } from './homepage-boat-owner/history-boat-owner/history-boat-owner.component';
 import { AgmCoreModule } from '@agm/core';
 import { MapsHouseOwnerComponent } from './homepage-house-owner/maps-house-owner/maps-house-owner.component';
+import { GoogleFontsLoadingDisableDirective } from 'google-fonts-loading-disable.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationComponent,
     FrontPageComponent,
+    GoogleFontsLoadingDisableDirective,
     CottageProfilesClientComponent,
     BoatProfilesComponent,
     HomepageClientComponent,

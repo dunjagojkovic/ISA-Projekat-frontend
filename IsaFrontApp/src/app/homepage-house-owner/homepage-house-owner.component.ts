@@ -5,6 +5,7 @@ import { ApiService } from '../api.service';
 import { Validators } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import {MatSnackBarModule, MatSnackBar} from '@angular/material/snack-bar';
+import { LatLngLiteral } from '@agm/core';
 
 
 @Component({
@@ -18,6 +19,10 @@ export class HomepageHouseOwnerComponent implements OnInit {
   homes: any;
   addHouseBox : boolean = false;
   user: any = {} as any;
+  latitude: any;
+  longitude: any;
+  lat = 44.62049751048226;
+  lon = 20.50303520932738;
 
   constructor(
     private formBuilder : FormBuilder,
@@ -95,7 +100,9 @@ export class HomepageHouseOwnerComponent implements OnInit {
         extraService: extraService,
         extraPrice: extraPrice,
         interiorImage: this.images['interiorImage'],
-        exteriorImage: this.images['exteriorImage']
+        exteriorImage: this.images['exteriorImage'],
+        latitude: this.latitude,
+        longitude: this.longitude
       }
 
       this.api.addHouse(data).subscribe((response: any) => {
@@ -157,4 +164,10 @@ export class HomepageHouseOwnerComponent implements OnInit {
 logout(): void{
   localStorage.clear();
 }
+
+changePickupMarkerLocation($event: { coords:LatLngLiteral}) {
+  this.latitude=$event.coords.lat;
+  this.longitude=$event.coords.lng;
+}
+
 }

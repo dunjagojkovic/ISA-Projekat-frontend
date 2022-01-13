@@ -113,6 +113,11 @@
                      (change)="handleExteriorImage($event)">
             </div>
         </div>
+        <div style="margin-left: 10%; margin-bottom: 20px;">
+          <agm-map appGoogleFontsLoadingDisable [latitude]="lat" [longitude]="lon" (mapClick)="changePickupMarkerLocation($event)">
+              <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+          </agm-map>
+        </div>
         <button class="btn">Add house</button>
       </form>
       <button class="btn" (click)="addHouseBox = false">Cancel</button>
