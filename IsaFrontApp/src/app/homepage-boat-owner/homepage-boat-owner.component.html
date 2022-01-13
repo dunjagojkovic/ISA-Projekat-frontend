@@ -157,6 +157,11 @@
                      (change)="handleExteriorImage($event)">
             </div>
         </div>
+        <div style="margin-left: 10%; margin-bottom: 20px;">
+          <agm-map appGoogleFontsLoadingDisable [latitude]="lat" [longitude]="lon" (mapClick)="changePickupMarkerLocation($event)">
+              <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+          </agm-map>
+        </div>
         <button class="btn">Add boat</button>
       </form>
       <button class="btn" (click)="addBoatBox = false">Cancel</button>
@@ -168,6 +173,7 @@
           <div style="display: flex; flex-direction: row; justify-content: space-between;">
             <mat-card-title style="font-size: 28px; margin-top: 4%; font-weight: bold;">{{boat.name}}</mat-card-title>
             <div>
+              <button style="margin-right: 5px;" class="delete-btn" routerLink="/maps-boat-owner" [queryParams]="{id: boat.id, latitude: boat.latitude, longitude: boat.longitude}"><mat-icon>place</mat-icon></button>
               <button style="margin-right: 5px;" class="delete-btn"  routerLink="/edit-boat-info" [queryParams]="{id: boat.id}" ><mat-icon>edit</mat-icon></button>
               <button style="margin-right: 5px;" class="delete-btn" routerLink="/set-boat-terms" [queryParams]="{id: boat.id}" ><mat-icon>calendar_today</mat-icon></button>
               <button class="delete-btn" (click)="onDelete(boat.id)"><mat-icon>delete</mat-icon></button>
