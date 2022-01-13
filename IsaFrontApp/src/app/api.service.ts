@@ -240,6 +240,10 @@ sendEvaluationsForBoatReservation(data: any){
   return this.http.post(this.baseURL + "/api/boatEvaluations/", data, this.getAuthoHeader());
 }
 
+sendEvaluationsForInstructorReservation(data: any){
+  return this.http.post(this.baseURL + "/api/adventureEvaluations/", data, this.getAuthoHeader());
+}
+
 subscribeUserOnAction(id: number, data: any){
   return this.http.put(this.baseURL + "/api/subscriptions/" +id, data, this.getAuthoHeader());
 }
