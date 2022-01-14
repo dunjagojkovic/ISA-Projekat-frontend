@@ -35,7 +35,7 @@
       <div class="col-md-4">
         <nav class="navMenu" style="font-size: 15px;">            
           <a style="float:none" (click) = "todayBox = false; historyBox = false; upcommingBox = true;">Upcoming</a>
-          <a style="float:none" (click) = "todayBox = true; historyBox = false; upcommingBox = false; todayReservation()">Today</a>
+          <a style="float:none" (click) = "todayBox = true; historyBox = false; upcommingBox = false; todayReservation()">Current</a>
           <a style="float:none" (click) = "historyBox = true; todayBox = false; upcommingBox = false; historyReservation()">History</a>
         </nav>
       </div>
@@ -84,11 +84,12 @@
         </thead>
         <tbody>
           <tr *ngFor = "let hr of historyReservations ">
-            <td style="width: 220px;">{{hr.boatProfile.name}}</td>
-            <td style="width: 230px;">{{hr.startDate | date:'dd/MM/yyyy'}}</td>
+            <td style="width: 210px;">{{hr.boatProfile.name}}</td>
+            <td style="width: 240px;">{{hr.startDate | date:'dd/MM/yyyy'}}</td>
             <td style="width: 50px;">{{hr.endDate | date:'dd/MM/yyyy'}}</td>
             <td style="width: 350px;">{{hr.clientId}}</td>
             <td>
+              <button class="btn-review" [routerLink]="['/review-boat-owner']" [queryParams]="{id: hr.id, startDate: hr.startDate, endDate: hr.endDate}" >Review</button>
             </td>
           </tr>
         </tbody>
@@ -96,7 +97,7 @@
   </div>
 
   <div *ngIf = "todayBox">
-    <h2 style="margin-left: 44%; margin-top: 25px;">Today reservations</h2>
+    <h2 style="margin-left: 44%; margin-top: 25px;">Current reservations</h2>
   </div>
   <div class="panel-middle" *ngIf = "todayBox">
     <table class="rooms-table">

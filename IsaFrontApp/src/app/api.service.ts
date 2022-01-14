@@ -226,6 +226,10 @@ sendReviewsForHouseReservation(data: any){
   return this.http.post(this.baseURL + "/api/homeReviews/", data, this.getAuthoHeader());
 }
 
+sendReviewsForBoatReservation(data: any){
+  return this.http.post(this.baseURL + "/api/boatReviews/", data, this.getAuthoHeader());
+}
+
 loadOneHouseReservation(id: any) {
   return this.http.get(this.baseURL + "/api/homeReservations/" +id, this.getAuthoHeader());
 }

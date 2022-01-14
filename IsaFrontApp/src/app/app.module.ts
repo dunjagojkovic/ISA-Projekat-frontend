@@ -65,6 +65,7 @@ import { AgmCoreModule } from '@agm/core';
 import { MapsHouseOwnerComponent } from './homepage-house-owner/maps-house-owner/maps-house-owner.component';
 import { GoogleFontsLoadingDisableDirective } from 'google-fonts-loading-disable.directive';
 import { MapsBoatOwnerComponent } from './homepage-boat-owner/maps-boat-owner/maps-boat-owner.component';
+import { ReviewBoatOwnerComponent } from './homepage-boat-owner/review-boat-owner/review-boat-owner.component';
 
 @NgModule({
   declarations: [
@@ -109,7 +110,8 @@ import { MapsBoatOwnerComponent } from './homepage-boat-owner/maps-boat-owner/ma
     ReserveHouseOwnerComponent,
     HistoryBoatOwnerComponent,
     MapsHouseOwnerComponent,
-    MapsBoatOwnerComponent
+    MapsBoatOwnerComponent,
+    ReviewBoatOwnerComponent
   ],
   imports: [
     BrowserModule,
