@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ApiService } from 'src/app/api.service';
 
 @Component({
   selector: 'app-adventure-profile',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdventureProfileComponent implements OnInit {
 
-  constructor() { }
+  adventures = [] as any;
+  
+
+  constructor( private router: Router,
+    private api: ApiService ,
+    private formBuilder : FormBuilder  ) { }
 
   ngOnInit(): void {
+
+    this.api.getAllAdventures().subscribe((response:any) => {
+      this.adventures = response;
+    });
   }
 
 }

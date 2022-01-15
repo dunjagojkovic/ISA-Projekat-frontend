@@ -6,11 +6,12 @@ import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-settings-admin',
-  templateUrl: './settings-admin.component.html',
-  styleUrls: ['./settings-admin.component.css']
+  selector: 'app-settings-instructor-profile',
+  templateUrl: './settings-instructor-profile.component.html',
+  styleUrls: ['./settings-instructor-profile.component.css']
 })
-export class SettingsAdminComponent implements OnInit {
+export class SettingsInstructorProfileComponent implements OnInit {
+  deleteAccountBox : boolean = false;
   changePasswordBox : boolean = false;
   hide = true;
   user: any = {} as any;
@@ -85,7 +86,7 @@ export class SettingsAdminComponent implements OnInit {
 
     this.api.editInfo(id, data).subscribe((response: any) => {
       console.log(response);
-      this.router.navigate(['/homepage-admin']);
+      this.router.navigate(['/homepage-instructor']);
     });
   }
 
@@ -107,10 +108,13 @@ export class SettingsAdminComponent implements OnInit {
 
     this.api.changePassword(data).subscribe((response: any) => {
       console.log(response);
-      this.router.navigate(['/homepage-admin']);
+      this.router.navigate(['/homepage-instructor']);
     });
   }
 
- 
+  onDeleteRequest(id: number) {
+    this.api.sendDeleteRequest(id).subscribe((response: any) => {
+      console.log(response);});
+  }
   
 }

@@ -1,32 +1,3 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
- }
-
- /* GENERAL STYLES */
-
-.photo_stretch {
-    width: 100%;
-    height: 75%;
-    display: block;
-    margin: auto;
-    margin-bottom: 3%;
-}
-
-.gradient-custom {
-    /* fallback for old browsers */
-    background: #4facfe;
-  
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(to right, rgba(79, 172, 254, 1), #08d);
-  
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, rgba(79, 172, 254, 1), #08d)
-  }
-
-  /* HEADER */
-
 .website_name_label {
     text-align: center;
     font-size: 40px;
@@ -36,21 +7,18 @@
     padding-bottom: 40px;
     border-bottom: 2px solid rgba(119, 119, 119, 0.884);
     display: inline-block;
-    cursor: pointer;
     vertical-align: top;
-    ;
 }
 
-/* NAVIGATION MENU */
-
 .navMenu {
-    align-content: right;
+    align-content: center;
     padding-left:20px !important;
     padding-right:20px !important;
     padding-top:15px !important;
     padding-bottom:10px !important;
     text-align: center;
     width: 100%;
+    background-color: white;
 }
 
 .navMenu a {
@@ -59,9 +27,8 @@
     font-size: 1.2em;
     text-transform: uppercase;
     font-weight: bolder;
-    display: inline;
-    justify-content: center;
-    margin-left: 15px;
+    display: inline-block;
+    margin-left: 13px;
     margin-right: 15px;
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
@@ -102,26 +69,31 @@
     transition: all 0.2s ease-in-out;
     opacity: 1;
 }
-.navMenu a:nth-child(5):hover ~ .dot {
-    -webkit-transform: translateX(285px);
-    transform: translateX(285px);
-    -webkit-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
-    opacity: 1;
-}.navMenu a:nth-child(6):hover ~ .dot {
-    -webkit-transform: translateX(285px);
-    transform: translateX(285px);
-    -webkit-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
-    opacity: 1;
-}
 
 .frontpage_gray_banner {
     background: #CAD2C5;    
     color: #354F52;
     height: 280px;
+    width:inherit;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-top: 2%;
+}
+
+.login-btn{
+    border-radius: 20px;
+    border: 3px solid #84A98C ;
+    color:white;
+    background-color: #84A98C;
+    font-weight: bold;
+    padding: 10px 0px 10px 0px !important;
+    position: absolute;
+    top: 2%;
+    right: 1%;
+    width: 120px;
+    height: 44px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .frontpage_gray_banner_label {
@@ -130,20 +102,6 @@
     font-size: 52px;
     display: inline-block;
     vertical-align: center;
-}
-
-.profile {
-    position: absolute;
-    top: 2%;
-    right: 1%;
-    width: 37px;
-    height: 37px;
-    cursor: pointer;
-}
-
-
-.footer-down {
-    margin-top: 540px;
 }
 
 .footer {
@@ -155,7 +113,6 @@
     text-align: center;
     background: #ebf0e9;
 }
-
 
 .footer-row{
     display: flex;
@@ -186,4 +143,187 @@
     align-items: flex-end;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+
+.logout-btn{
+    border-radius: 20px;
+    border: 3px solid #52796F ;
+    color:white;
+    background-color: #52796F;
+    font-weight: bold;
+    padding: 10px 0px 10px 0px !important;
+    position: absolute;
+    top: 2%;
+    right: 1%;
+    width: 120px;
+    height: 44px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.btn-menu{
+    border-radius: 20px;
+    border: 3px solid #84A98C ;
+    color:white;
+    background-color: #84A98C;
+    font-weight: bold;
+    padding: 10px 0px 10px 0px !important;
+    width: 120px;
+    height: 44px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    left: 22%;
+    top: 10%;
+}
+
+.cottages-panel {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background: whitesmoke;
+    background: -webkit-linear-gradient(to border-bottom, rgb(245, 245, 245), rgb(255, 255, 255));
+    background: linear-gradient(to border-bottom, rgb(245, 245, 245), rgb(255, 255, 255))
+}
+
+.cottages-left-col-left-col h1{
+    margin-left: 30%;
+    font-weight: bolder;
+}
+
+.example-form {
+    position: relative;
+    margin-left: 28%;
+    margin-bottom: 20px;
+    height: max-content;
+    width: 1000px;
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  .input-box {
+    width: 320px;
+    color: #354F52;
+    align-items: center;
+    height: 58px;
+    margin-bottom: 5px;
+    border-radius: 15px;
+    margin-inline: 5px;
+    font-weight: bold;
+  }
+
+  .double-input {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    left: 7.5%;
+  }
+  
+  .text-area {
+    width: 650px;
+    color: #354F52;
+    align-items: center;
+    height: 80px;
+    border-bottom: 5px;
+    border-radius: 10px;
+    font-weight: bold;
+    position: relative;
+    left: 5px;
+  }
+
+  .btn {
+    color:#ebf0e9;
+    background-color: #84A98C;
+    border-radius: 20px;
+    height: 44px;
+    font-size: 18px;
+    width: 160px;
+    margin-bottom: 20px;
+    position: relative;
+    margin-left: 30px;
+    margin-top: 12px;
+    top: 34%;
+    right: 10.8%;
+  }
+
+  .delete-btn{
+    border-radius: 30px;
+    border: 3px solid #52796F;
+    color:white;
+    background-color: #52796F;
+    font-weight: bold;
+    padding: 6px 0px 10px 0px !important;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 1px;
+    font-weight: bold;
+
+}
+
+.frontpage_feedback_section {
+    background: #52796F;
+    padding-top: 80px;
+    padding-bottom: 60px;
+}
+
+/* SEARCH */
+
+.search-box-rooms {
+    position: absolute;
+    top: 60%;
+    right: 1%;
+    color: white;
+    background: #52796F;
+    height: 40px;
+    border-radius: 40px;
+    padding: 8px;
+  }
+  
+  .search-box-rooms:hover > .search-txt-rooms {
+    width: 220px;
+    padding: 0 6px;
+  }
+  
+  .search-box-rooms:hover > .search-btn-rooms {
+    background: white;
+    color: #52796F;
+  }
+  
+  .search-btn-rooms {
+    color: white;
+    float: right;
+    width: 25px;
+    height: 25px;
+    text-decoration: none;
+    border-radius: 50%;
+    background: #52796F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+  }
+  
+  .search-txt-rooms {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    transition: 0.4s;
+    width: 0px;
+    line-height: 25px;
+  }
+/* END SEARCH */
+
+.profile {
+    position: absolute;
+    top: 2%;
+    right: 1%;
+    width: 37px;
+    height: 37px;
+    cursor: pointer;
 }

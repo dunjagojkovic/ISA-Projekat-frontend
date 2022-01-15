@@ -1,6 +1,7 @@
 import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y/input-modality/input-modality-detector';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { isThursday } from 'date-fns';
 import { id } from 'date-fns/locale';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { id } from 'date-fns/locale';
 })
 export class ApiService {
 
-  baseURL = "http://localhost:8081";
+  baseURL = "http://localhost:8082";
 
   constructor(private http: HttpClient) { }
 
@@ -44,7 +45,7 @@ export class ApiService {
 
 
   registerAdmin(data: any) {
-    return this.http.post(this.baseURL + "/api/users/admin/register", data);
+    return this.http.post(this.baseURL + "/api/users/admin/register", data, this.getAuthoHeader());
   }
 
   registerFishingInstructor(data: any) {
@@ -128,9 +129,17 @@ export class ApiService {
     return this.http.get(this.baseURL + 'api/boats/boat-profiles', this.getAuthoHeader());
   }
 
+  getAllAdventures(){
+    return this.http.get(this.baseURL + "/api/adventures/adventure-profiles", this.getAuthoHeader());
+  }
+
   
   deleteMyBoat(id: number) {
     return this.http.delete(this.baseURL + "/api/boats/" + id, this.getAuthoHeader())
+  }
+
+  deleteMyAdventure(id: number) {
+    return this.http.delete(this.baseURL + "/api/adventures/" + id, this.getAuthoHeader());
   }
 
   addHouseFreeTerms(data: any){
@@ -141,9 +150,19 @@ export class ApiService {
     return this.http.post(this.baseURL + "/api/boatterms", data, this.getAuthoHeader());
   }
 
+  addAdventureFreeTerms(data: any)
+  {
+    return this.http.post(this.baseURL + "api/adventureFreeTerms", data, this.getAuthoHeader());
+  }
+
   loadHouseFreeTerms(id: any){
     return this.http.get(this.baseURL + "/api/hometerms/" + id, this.getAuthoHeader());
   }
+
+  loadAdventureFreeTerms(id: any) {
+    return this.http.get(this.baseURL + "api/adventureFreeTerms/" + id, this.getAuthoHeader());
+  }
+
 
   loadBoatFreeTerms(id: any){
     return this.http.get(this.baseURL + "/api/boatterms/" + id, this.getAuthoHeader());
@@ -152,6 +171,8 @@ export class ApiService {
   editHouse(id: number, data: any) {
     return this.http.put(this.baseURL + "/api/homes/" +id, data, this.getAuthoHeader());
   }
+
+
 
   loadBoat() {
     return this.http.get(this.baseURL + "/api/boats/my", this.getAuthoHeader());
@@ -210,6 +231,10 @@ export class ApiService {
     return this.http.get(this.baseURL + "/api/boats/" +id, this.getAuthoHeader());
   }
 
+  loadOneAdventure(id: any) {
+    return this.http.get(this.baseURL + "/api/adventures/" + id, this.getAuthoHeader());
+  }
+
   loadOneInstructor(id: any) {
     return this.http.get(this.baseURL + "/api/adventures/" +id, this.getAuthoHeader());
   }
@@ -238,6 +263,10 @@ getAllInstructorsOnActions(){
   return this.http.get(this.baseURL + "/api/adventuresReservation/getAdventuresOnAction", this.getAuthoHeader())
 }
 
+addNewAdventure(data: any){
+  return this.http.post(this.baseURL + "/api/adventures/addAdventure", data, this.getAuthoHeader());
+}
+
 cancelHouseReservation(id: number){
 return this.http.delete(this.baseURL + "/api/homeReservations/" +id, this.getAuthoHeader());
 }
@@ -252,6 +281,10 @@ cancelInstructorReservation(id: number){
 
 editBoat(id: number, data: any) {
   return this.http.put(this.baseURL + "/api/boats/" +id, data, this.getAuthoHeader());
+}
+
+editAdventure(id: number, data: any) {
+  return this.http.put(this.baseURL + "/api/adventures/" + id, data, this.getAuthoHeader());
 }
 
 sendComplaintsForHouseReservation(data: any){

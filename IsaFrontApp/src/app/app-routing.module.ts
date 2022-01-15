@@ -45,6 +45,10 @@ import { CottageComplaintsComponent } from './homepage-client/cottage-complaints
 import { BoatComplaintsComponent } from './homepage-client/boat-complaints/boat-complaints.component';
 import { InstructorComplaintsComponent } from './homepage-client/instructor-complaints/instructor-complaints.component';
 import { CottageEvaluationsComponent } from './homepage-client/cottage-evaluations/cottage-evaluations.component';
+import { FreeTermsAdventureComponent } from './homepage-instructor/free-terms-adventure/free-terms-adventure.component';
+import { EditAdventureComponent } from './homepage-instructor/edit-adventure/edit-adventure.component';
+import { SettingsInstructorProfileComponent } from './homepage-instructor/settings-instructor-profile/settings-instructor-profile.component';
+
 
 
 const routes: Routes = [
@@ -91,7 +95,11 @@ const routes: Routes = [
   { path: "cottage-complaints-client", component: CottageComplaintsComponent},
   { path: "boat-complaints-client", component: BoatComplaintsComponent},
   { path: "instructor-complaints-client", component: InstructorComplaintsComponent},
-  { path: "cottage-evaluations-client", component: CottageEvaluationsComponent}
+  { path: "cottage-evaluations-client", component: CottageEvaluationsComponent},
+  {path: "free-terms-adventure", component: FreeTermsAdventureComponent},
+  {path: "edit-adventure", component: EditAdventureComponent},
+  {path: "settings-instructor-profile", component: SettingsInstructorProfileComponent}
+
 
 
 ];

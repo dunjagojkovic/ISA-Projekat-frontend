@@ -1,0 +1,131 @@
+<div class="row d-flex align-items-center w-100">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8 website_name_label">
+     BOOKING AGENCY
+    </div>
+    <div class="col-md-2">
+    </div>
+    <img src="assets/user.png" class="profile" >
+  </div>
+    
+    <div class="row d-flex align-items-center w-100">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <nav class="navMenu">
+          
+          <a href="adventure-profile" style="float:none">Adventure profile</a>
+          <a href="/#" style="float:none">Reservations</a>
+          <a href="/#" style="float:none">Sales</a>
+          <a href="/#" style="float:none">Complaints</a>
+          <a href="/#" style="float:none">Penalty</a>
+        </nav>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div> 
+  
+  
+    <div class="row d-flex align-items-center frontpage_gray_banner">
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-8">
+        <div class="row d-flex align-items-center frontpage_gray_banner_label">Welcome,</div>
+        <div class="row d-flex align-items-center frontpage_gray_banner_label">Jovana Ostojic</div>
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+
+    <div class="example-form">
+        <h1>Edit adventure informations</h1>
+          <form [formGroup]="form">
+            <div class="double-input">
+              <mat-form-field class="input-box" appearance="outline">
+                  <mat-label>Name</mat-label>
+                  <input matInput placeholder="" formControlName="name">
+              </mat-form-field>
+              <mat-form-field class="input-box" appearance="outline">
+                  <mat-label>Address</mat-label>
+                  <input matInput placeholder="" formControlName="address" >
+              </mat-form-field>
+            </div>  
+            <div class="double-input">
+              <mat-form-field style="width: 210px;" class="input-box" appearance="outline">
+                  <mat-label>Promo description</mat-label>
+                  <input matInput placeholder="" formControlName="promoDescription" >
+              </mat-form-field>
+              <mat-form-field style="width: 210px;" class="input-box" appearance="outline">
+                  <mat-label>InstructorBiography</mat-label>
+                  <input matInput placeholder="" formControlName="instructorBiography" >
+              </mat-form-field>
+              <mat-form-field style="width: 210px;" class="input-box" appearance="outline">
+                <mat-label>Max number of people</mat-label>
+                <input matInput placeholder="" formControlName="maxNumberOfPeople">
+              </mat-form-field>
+            </div>  
+            <div class="double-input">
+              <mat-form-field class="text-area" appearance="outline">
+                <mat-label>Behaviour rules</mat-label>
+                <textarea matInput formControlName="behaviourRules"></textarea>
+              </mat-form-field>
+            </div>
+            <div class="double-input">
+              <mat-form-field class="text-area" appearance="outline">
+                <mat-label>Fishing equipment</mat-label>
+                <textarea matInput formControlName="fishingEquipment"></textarea>
+              </mat-form-field>
+            </div> 
+            <div class="double-input">
+              <mat-form-field style="width: 430px;" class="input-box" appearance="outline">
+                  <mat-label>Price</mat-label>
+                  <input matInput placeholder="" formControlName="pricelist">
+              </mat-form-field>
+              <mat-form-field style="width: 210px;" class="input-box" appearance="outline">
+                <mat-label>Extra service</mat-label>
+                <input matInput placeholder="" formControlName="extraService">
+            </mat-form-field>
+            </div>
+            <mat-form-field style="width: 210px;" class="input-box" appearance="outline">
+                <mat-label>Cancel conditions</mat-label>
+                <input matInput placeholder="" formControlName="cancelCodnitions">
+            </mat-form-field>
+            <div style="display: flex; flex-direction: row;">
+              <div class="form-group" style="margin-top: 10px; margin-left: 8%;">
+                <label for="file">Ambient image </label>
+                <input type="file"
+                       id="file"
+                       (change)="handleAmbientImage($event)">
+              </div>
+              
+            </div>
+            <button class="btn" (click)="onSave()">Save Adventure</button>
+          </form>
+        </div>
+   
+
+  
+  
+    <div class="row d-flex align-items-center footer">
+      <div class="col-md-3">
+        <h2 class="link_title">Product</h2>
+        <h4 class="link_subtitle">Our plan</h4>
+        <h4 class="link_subtitle">Free trial</h4>
+      </div>
+      <div class="col-md-3">
+        <h2 class="link_title">About us</h2>
+        <h4 class="link_subtitle">Request demo</h4>
+        <h4 class="link_subtitle">FAQs</h4>
+      </div>
+      <div class="col-md-3">
+        <h2 class="link_title">Support</h2>
+        <h4 class="link_subtitle">Services</h4>
+        <h4 class="link_subtitle">Contact us</h4>
+      </div>
+      <div class="col-md-3">
+        <h2 class="link_title">Covid-19 FAQs</h2>
+        <h4 class="link_subtitle">Reviews</h4>
+        <h4 class="link_subtitle">Safety</h4>
+      </div>
+    </div>

@@ -7,11 +7,11 @@ import { MatSnackBar} from '@angular/material/snack-bar';
 import { TemplateParseResult } from '@angular/compiler';
 
 @Component({
-  selector: 'app-set-free-terms',
-  templateUrl: './set-free-terms.component.html',
-  styleUrls: ['./set-free-terms.component.css']
+  selector: 'app-free-terms-adventure',
+  templateUrl: './free-terms-adventure.component.html',
+  styleUrls: ['./free-terms-adventure.component.css']
 })
-export class SetFreeTermsComponent implements OnInit {
+export class FreeTermsAdventureComponent implements OnInit {
   form: FormGroup;
   id: any;
   user: any = {} as any;
@@ -61,7 +61,7 @@ export class SetFreeTermsComponent implements OnInit {
     this.api.current().subscribe((response:any) => {
       this.user = response;
   });
-    this.api.loadHouseFreeTerms(this.id).subscribe((response:any) => {
+    this.api.loadAdventureFreeTerms(this.id).subscribe((response:any) => {
       this.terms = response;
       console.log(response);
 
@@ -88,10 +88,10 @@ export class SetFreeTermsComponent implements OnInit {
       endDate : endDate,
       actionPrice: actionPrice,
       isAction: isAction,
-      houseId: this.id
+      adventureId: this.id
     }
 
-    this.api.addHouseFreeTerms(data).subscribe((response:any) => {
+    this.api.addAdventureFreeTerms(data).subscribe((response:any) => {
       console.log(response);
       if(response == null){
         this._snackBar.open('You can not add this term. ', 'Close', {duration: 3000});   

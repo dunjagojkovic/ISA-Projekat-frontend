@@ -1,0 +1,126 @@
+<div class="row d-flex align-items-center w-100">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8 website_name_label">
+     BOOKING AGENCY
+    </div>
+    <div class="col-md-2">
+    </div>
+    <img src="assets/user.png" class="profile" >
+  </div>
+    
+    <div class="row d-flex align-items-center w-100">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <nav class="navMenu">
+          
+          <a href="adventure-profile" style="float:none">Adventure profile</a>
+          <a href="/#" style="float:none">Reservations</a>
+          <a href="/#" style="float:none">Sales</a>
+          <a href="/#" style="float:none">Complaints</a>
+          <a href="/#" style="float:none">Penalty</a>
+        </nav>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div> 
+  
+  
+    <div class="row d-flex align-items-center frontpage_gray_banner">
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-8">
+        <div class="row d-flex align-items-center frontpage_gray_banner_label">Welcome,</div>
+        <div class="row d-flex align-items-center frontpage_gray_banner_label">Jovana Ostojic</div>
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+
+
+    <div class="example-form">
+        <h1>Set free terms for adventure</h1>
+        <form [formGroup]="form">
+          <div>
+            <mat-form-field appearance="outline" class="date-picker">
+              <mat-label>Choose a start date</mat-label>
+              <input [min]="today"formControlName="startDate" matInput [matDatepicker]="pickerStart">
+              <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
+              <mat-datepicker #pickerStart></mat-datepicker>
+            </mat-form-field>
+      
+            <mat-form-field appearance="outline" class="date-picker">
+              <mat-label>Choose a end date</mat-label>
+              <input [min]="today" formControlName="endDate" matInput [matDatepicker]="pickerEnd">
+              <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+              <mat-datepicker #pickerEnd></mat-datepicker>
+            </mat-form-field>
+      
+            <section class="example-section">
+              <mat-checkbox class="example-margin" formControlName="isAction">Set action</mat-checkbox>
+            </section>
+      
+            <mat-form-field class="input-box"  appearance="outline">
+              <mat-label>Action price</mat-label>
+              <input matInput placeholder=""  formControlName="actionPrice">
+            </mat-form-field>
+          </div>
+          <button class="btnn" (click)="onSave()">Add term</button>
+        </form>
+      </div>
+      
+        <div style="background-color: #CAD2C5; height: max-content; width: max-content; position: relative; justify-content: center; margin-left: 30%; margin-bottom: 35%;">
+          <div class="row text-center">
+            <div class="col-md-4">
+              <div class="btn-group">
+                  <div style="width: 60px; position: relative; right: 40%;" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate">
+                    <mat-icon style="font-size: 34px; color: #52796F">keyboard_arrow_left</mat-icon>
+                  </div>
+          
+                  <div style="width: 60px; position: relative; left: 445%;" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate">
+                    <mat-icon style="font-size: 34px; color: #52796F;">keyboard_arrow_right</mat-icon>
+                  </div>
+              </div>
+          </div>
+          
+          </div>
+          
+          <div  [ngSwitch]="view" style="width: 700px; height: 50px;">
+            <h1 style="color: #52796F; font-size: 34px; margin-left: 39%;">{{monthNames[viewDate.getMonth()]}}</h1> 
+            <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events] = "events">
+            </mwl-calendar-month-view>
+          
+            <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events">
+            </mwl-calendar-week-view>
+          
+            <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="events">
+            </mwl-calendar-day-view>
+          
+          </div>
+          </div>
+
+  
+  
+    <div class="row d-flex align-items-center footer">
+      <div class="col-md-3">
+        <h2 class="link_title">Product</h2>
+        <h4 class="link_subtitle">Our plan</h4>
+        <h4 class="link_subtitle">Free trial</h4>
+      </div>
+      <div class="col-md-3">
+        <h2 class="link_title">About us</h2>
+        <h4 class="link_subtitle">Request demo</h4>
+        <h4 class="link_subtitle">FAQs</h4>
+      </div>
+      <div class="col-md-3">
+        <h2 class="link_title">Support</h2>
+        <h4 class="link_subtitle">Services</h4>
+        <h4 class="link_subtitle">Contact us</h4>
+      </div>
+      <div class="col-md-3">
+        <h2 class="link_title">Covid-19 FAQs</h2>
+        <h4 class="link_subtitle">Reviews</h4>
+        <h4 class="link_subtitle">Safety</h4>
+      </div>
+    </div>

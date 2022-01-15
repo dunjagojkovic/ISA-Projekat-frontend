@@ -17,7 +17,6 @@
     padding-top:15px !important;
     padding-bottom:10px !important;
     text-align: center;
-    background-color: white;
     width: 100%;
 }
 
@@ -87,6 +86,23 @@
     vertical-align: center;
 }
 
+.logout-btn{
+    border-radius: 20px;
+    border: 3px solid #52796F;
+    color:white;
+    background-color: #52796F;
+    font-weight: bold;
+    padding: 10px 0px 10px 0px !important;
+    position: absolute;
+    top: 2%;
+    right: 1%;
+    width: 120px;
+    height: 44px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
 .footer {
     align-content: right;
     padding-left:20px !important;
@@ -128,33 +144,83 @@
     flex-wrap: wrap;
 }
 
-.logout-btn{
-    border-radius: 20px;
-    border: 3px solid #52796F ;
-    color:white;
-    background-color: #52796F;
-    font-weight: bold;
-    padding: 10px 0px 10px 0px !important;
-    position: absolute;
-    top: 2%;
-    right: 1%;
-    width: 120px;
-    height: 44px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
+.frontpage_feedback_section {
+    background: #52796F;
+    padding-top: 80px;
+    padding-bottom: 60px;
 }
 
 .example-form {
     position: relative;
-    margin-left: 28%;
+    margin-left: 22%;
     margin-bottom: 20px;
-    width: 780px;
+    height: max-content;
+    width: 1000px;
     text-align: center;
     margin-top: 20px;
   }
 
-  .input-box {
+.date-picker {
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.btnn {
+    color:#ebf0e9;
+    border: 3px solid #84A98C;
+    background-color: #84A98C;
+    border-radius: 20px;
+    height: 44px;
+    font-size: 18px;
+    width: 160px;
+    margin-bottom: 20px;
+    position: relative;
+    margin-top: 12px;
+  }
+
+  .btn {
+    color:#ebf0e9;
+    background-color: #84A98C;
+    border-radius: 20px;
+    height: 44px;
+    font-size: 18px;
+    width: 160px;
+    margin-bottom: 20px;
+    position: relative;
+    margin-top: 12px;
+  }
+
+ ::ng-deep .cal-month-view .cal-day-badge {
+    margin-top: 10px;
+    margin-left: 10px;
+    display: inline-block;
+    min-width: 10px;
+    padding: 9px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-radius: 20px;
+    background-color: #52796F;
+}
+
+::ng-deep .cal-month-view .cal-header .cal-cell {
+    padding: 10px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    white-space: nowrap;
+    background-color: #CAD2C5;
+    height: 30px;
+    color: #84A98C;
+}
+
+.input-box {
     width: 270px;
     color: #354F52;
     align-items: center;
@@ -165,124 +231,15 @@
     font-weight: bold;
   }
 
-  .input-password {
-    width: 320px;
-    color: #354F52;
-    align-items: center;
-    height: 58px;
-    margin-bottom: 5px;
-    border-radius: 15px;
-    margin-inline: 5px;
-    font-weight: bold;
-    position: relative;
-    left: 74.5%;
-  }
-
-  .input-box1 {
-    width: 550px;
-    color: #354F52;
-    align-items: center;
-    height: 58px;
-    margin-bottom: 5px;
-    border-radius: 15px;
-    margin-inline: 5px;
-    font-weight: bold;
-  }
-
-  .text-area {
-    width: 380px;
-    color: #354F52;
-    align-items: center;
-    height: 80px;
-    border-bottom: 5px;
-    border-radius: 10px;
-    font-weight: bold;
-  }
-
-  .reason-area {
-    width: 550px;
-    color: #354F52;
-    position: relative;
-    left: 40%;
-    height: 80px;
-    border-radius: 10px;
-    font-weight: bold;
-  }
-
-  ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
-    color: #354F52!important;
-    font-weight: bold;
-}
-
-::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
-    color: #354F52!important;
-    font-weight: bold;
-}
-
-::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
-  color: #354F52!important;
-  font-weight: bold;
-}
-
-  .example-right-align {
-    text-align: right;
+  .example-section {
+    margin: 12px 0;
   }
   
-  .double-input {
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    left: 16%;
+  .example-margin {
+    margin: 0 12px;
   }
 
-  .btn {
-    color:#ebf0e9;
-    background-color: #84A98C;
-    border-radius: 20px;
-    width: 160px;
-    height: 44px;
-    font-size: 18px;
-    margin-bottom: 20px;
-    position: relative;
-    left: 2%;
-    margin-left: 5px;
-    margin-right: 5px;
-  }
-
-  .reason-btn {
-    color:#ebf0e9;
-    background-color: #84A98C;
-    border: 3px solid #84A98C ;
-    border-radius: 20px;
-    font-size: 18px;
-    width: 160px;
-    height: 44px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    position: relative;
-    left: 76%;
-  }
-
-  .heading {
-      position: relative;
-      margin-top: 25px;
-  }
-
- 
-
-
-.password-box{
-    width: 320px;
-}
-
-.frontpage_feedback_section {
-    background: #52796F;
-    padding-top: 80px;
-    padding-bottom: 60px;
-}
-
-
-.profile {
+  .profile {
     position: absolute;
     top: 2%;
     right: 1%;

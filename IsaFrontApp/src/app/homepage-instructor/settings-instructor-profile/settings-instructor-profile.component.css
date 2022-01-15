@@ -268,8 +268,9 @@
       margin-top: 25px;
   }
 
- 
-
+  .delete-box{
+    width: 320px;
+}
 
 .password-box{
     width: 320px;
@@ -279,14 +280,4 @@
     background: #52796F;
     padding-top: 80px;
     padding-bottom: 60px;
-}
-
-
-.profile {
-    position: absolute;
-    top: 2%;
-    right: 1%;
-    width: 37px;
-    height: 37px;
-    cursor: pointer;
 }

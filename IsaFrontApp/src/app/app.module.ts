@@ -68,6 +68,10 @@ import { CottageComplaintsComponent } from './homepage-client/cottage-complaints
 import { BoatComplaintsComponent } from './homepage-client/boat-complaints/boat-complaints.component';
 import { InstructorComplaintsComponent } from './homepage-client/instructor-complaints/instructor-complaints.component';
 import { CottageEvaluationsComponent } from './homepage-client/cottage-evaluations/cottage-evaluations.component';
+import { FreeTermsAdventureComponent } from './homepage-instructor/free-terms-adventure/free-terms-adventure.component';
+import { EditAdventureComponent } from './homepage-instructor/edit-adventure/edit-adventure.component';
+import { SettingsInstructorProfileComponent } from './homepage-instructor/settings-instructor-profile/settings-instructor-profile.component';
+
 
 
 @NgModule({
@@ -115,7 +119,11 @@ import { CottageEvaluationsComponent } from './homepage-client/cottage-evaluatio
     BoatComplaintsComponent,
     InstructorComplaintsComponent,
     CottageEvaluationsComponent,
-    HistoryHouseOwnerComponent
+    HistoryHouseOwnerComponent,
+    FreeTermsAdventureComponent,
+    EditAdventureComponent,
+    SettingsInstructorProfileComponent
+    
 
   ],
   imports: [

@@ -34,7 +34,7 @@
         <td>{{user.type}}</td>
         <td>{{user.status}}</td>
         <td><button (click)="setActive(user.id)">Approve</button></td>
-        <td><button (click)="setDeclined(user.id)">Decline</button></td>
+        <td><button (click)="setDeclined(user.id)">Decline</button> <label>Reason for refusal: </label><input type="text" id="cancelReason" value="{{user.cancelReason}}" /> </td>
       </tr>
     </table>
  
