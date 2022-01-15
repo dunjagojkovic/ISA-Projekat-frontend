@@ -118,4 +118,7 @@ export class SettingsBoatOwnerComponent implements OnInit {
       console.log(response);});
   }
   
+  logout(): void{
+    localStorage.clear();
+  }
 }

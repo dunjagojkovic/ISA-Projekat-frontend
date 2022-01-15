@@ -4,7 +4,6 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 
-
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { FrontPageComponent } from './front-page/front-page.component';
@@ -59,12 +58,21 @@ import { CottageComplaintsComponent } from './homepage-client/cottage-complaints
 import { BoatComplaintsComponent } from './homepage-client/boat-complaints/boat-complaints.component';
 import { InstructorComplaintsComponent } from './homepage-client/instructor-complaints/instructor-complaints.component';
 import { CottageEvaluationsComponent } from './homepage-client/cottage-evaluations/cottage-evaluations.component';
+import { ReviewHouseOwnerComponent } from './homepage-house-owner/review-house-owner/review-house-owner.component';
+import { ReserveHouseOwnerComponent } from './homepage-house-owner/reserve-house-owner/reserve-house-owner.component';
+import { HistoryBoatOwnerComponent } from './homepage-boat-owner/history-boat-owner/history-boat-owner.component';
+import { AgmCoreModule } from '@agm/core';
+import { MapsHouseOwnerComponent } from './homepage-house-owner/maps-house-owner/maps-house-owner.component';
+import { GoogleFontsLoadingDisableDirective } from 'google-fonts-loading-disable.directive';
+import { MapsBoatOwnerComponent } from './homepage-boat-owner/maps-boat-owner/maps-boat-owner.component';
+import { ReviewBoatOwnerComponent } from './homepage-boat-owner/review-boat-owner/review-boat-owner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationComponent,
     FrontPageComponent,
+    GoogleFontsLoadingDisableDirective,
     CottageProfilesClientComponent,
     BoatProfilesComponent,
     HomepageClientComponent,
@@ -97,7 +105,13 @@ import { CottageEvaluationsComponent } from './homepage-client/cottage-evaluatio
     BoatComplaintsComponent,
     InstructorComplaintsComponent,
     CottageEvaluationsComponent,
-    HistoryHouseOwnerComponent
+    HistoryHouseOwnerComponent,
+    ReviewHouseOwnerComponent,
+    ReserveHouseOwnerComponent,
+    HistoryBoatOwnerComponent,
+    MapsHouseOwnerComponent,
+    MapsBoatOwnerComponent,
+    ReviewBoatOwnerComponent
   ],
   imports: [
     BrowserModule,
@@ -124,7 +138,10 @@ import { CottageEvaluationsComponent } from './homepage-client/cottage-evaluatio
       provide: DateAdapter,
       useFactory: adapterFactory,
     }),
-    MatSnackBarModule
+    MatSnackBarModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCkTOjUv92qCadQ4j9fN3Ez7mZHSXuyKco'
+    })
    ],
   providers: [],
   bootstrap: [AppComponent],
