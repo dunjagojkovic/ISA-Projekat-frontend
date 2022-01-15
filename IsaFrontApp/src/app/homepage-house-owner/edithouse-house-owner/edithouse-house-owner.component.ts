@@ -98,7 +98,7 @@ export class EdithouseHouseOwnerComponent implements OnInit {
       if( response != null){
         this.router.navigate(['/home-house-owner']);
       } else if(response == null){
-        alert(" Can't edit")
+        alert(" Can't edit, the house is reserved.")
       }
   });
   }

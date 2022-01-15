@@ -70,7 +70,7 @@ export class HomepageHouseOwnerComponent implements OnInit {
       // this.houseReservations = this.houseReservations.filter((e:any) => e.id != id);  
       window.location.reload();
     } else if( response === false){
-        alert("Can't delete")
+        alert("Can't delete, the house is reserved.")
     }
   });
   }

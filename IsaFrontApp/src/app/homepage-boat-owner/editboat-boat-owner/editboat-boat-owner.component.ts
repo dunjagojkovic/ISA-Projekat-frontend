@@ -124,7 +124,11 @@ export class EditboatBoatOwnerComponent implements OnInit {
       }
 
     this.api.editBoat(this.id, data).subscribe((response:any) => {
-      this.router.navigate(['/home-boat-owner']);
+      if(response != null){
+        this.router.navigate(['/home-boat-owner']);
+      } else if(response == null){
+        alert("Can't edit, the boat is reserved.")
+      }
   });
   }
 

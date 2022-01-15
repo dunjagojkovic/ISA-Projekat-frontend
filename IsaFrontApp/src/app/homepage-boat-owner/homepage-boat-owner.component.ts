@@ -66,7 +66,13 @@ export class HomepageBoatOwnerComponent implements OnInit {
 
   onDelete(id: number) {
     this.api.deleteMyBoat(id).subscribe((response:any) => {
-      this.boats = this.boats.filter((e:any) => e.id != id);
+      //this.boats = this.boats.filter((e:any) => e.id != id);
+      this.boats = response;
+      if(response == true){
+        window.location.reload();
+      } else if(response == false){
+        alert("Can't delete, the boat is reserved.")
+      }
   });
   }
 
