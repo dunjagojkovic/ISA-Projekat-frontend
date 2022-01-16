@@ -85,6 +85,67 @@
   opacity: 1;
 }
 
+
+.toolbar {
+  align-content: right;
+  padding-left:20px !important;
+  padding-right:20px !important;
+  padding-top:15px !important;
+  padding-bottom:10px !important;
+  text-align: center;
+  width: 100%;
+  background-color: white;
+}
+
+.toolbar a {
+  color: black;
+  text-decoration: none;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  font-weight: bolder;
+  display: inline;
+  justify-content: center;
+  margin-right: 15px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.toolbar a:hover {
+  color: #CAD2C5;
+}
+
+.toolbar a:nth-child(1):hover ~ .dot {
+  -webkit-transform: translateX(30px);
+  transform: translateX(30px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.toolbar a:nth-child(2):hover ~ .dot {
+  -webkit-transform: translateX(110px);
+  transform: translateX(110px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.toolbar a:nth-child(3):hover ~ .dot {
+  -webkit-transform: translateX(200px);
+  transform: translateX(200px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.toolbar a:nth-child(4):hover ~ .dot {
+  -webkit-transform: translateX(285px);
+  transform: translateX(285px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
 .frontpage_gray_banner {
     background: #CAD2C5;    
     color: #354F52;
@@ -170,6 +231,17 @@
   }
 
   .input-box {
+    width: 270px;
+    color: #354F52;
+    align-items: center;
+    height: 58px;
+    margin-bottom: 5px;
+    border-radius: 15px;
+    margin-inline: 5px;
+    font-weight: bold;
+  }
+
+  .input-box2 {
     width: 270px;
     color: #354F52;
     align-items: center;
