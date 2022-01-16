@@ -40,7 +40,7 @@
           <a style="float:none">Sort by
            <mat-select style="max-width: 20px;" multiple>
             <mat-option (click)="sortInstructorsByLocation()" > Location</mat-option>
-            <mat-option>Rate</mat-option>
+            <mat-option (click)="sortInstructorsByRate()">Rate</mat-option>
             <mat-option (click)="sortInstructorsByName()">Name</mat-option>
             <mat-option (click)="sortInstructorsByPrice()">Price</mat-option>
              </mat-select> 
@@ -67,7 +67,7 @@
        <mat-card-subtitle style="font-weight: bold; font-size: 16px; margin-top: 2%;">{{i.address}}</mat-card-subtitle>
       <br>
       <mat-card-content style="width: 400px; font-weight: bold; font-size: 16px;">
-        <p>Cena:{{i.priceList}}</p>
+        <p>Cena:{{i.pricelist}}</p>
         <p>kapacitet {{i.maxNumberOfPeople}}</p>
         <p>pecaroska oprema {{i.fishingEquipment}} </p>
         <p>dodatne usluge:{{i.extraService}} </p>

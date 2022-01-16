@@ -41,6 +41,10 @@ export class CottagesClientComponent implements OnInit {
     return this.houses.sort((a: any, b: any) => (a.pricelist) - (b.pricelist));
   }
 
+  sortCottagesByRate(): any[] {
+    return this.houses.sort((a: any, b: any) => (b.avgRate) - (a.avgRate));
+  }
+
   
 SubscribeMe(id:any){
   let house: any;

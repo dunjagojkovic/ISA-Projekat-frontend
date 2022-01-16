@@ -40,6 +40,10 @@ export class BoatsClientComponent implements OnInit {
     return this.boats.sort((a: any, b: any) => (a.pricelist) - (b.pricelist));
   }
 
+  sortBoatsByRate(): any[] {
+    return this.boats.sort((a: any, b: any) => (b.avgRate) - (a.avgRate));
+  }
+
   logout() {
     this.user = localStorage.clear();
     this.router.navigate(['/']);
