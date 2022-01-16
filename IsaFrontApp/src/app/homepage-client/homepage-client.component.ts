@@ -23,8 +23,9 @@ constructor(
   });
   }
 
-  logout(): void{
-    localStorage.clear();
+  logout() {
+    this.user = localStorage.clear();
+    this.router.navigate(['/']);
   }
 
 }

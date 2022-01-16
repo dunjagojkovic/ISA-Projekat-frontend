@@ -42,4 +42,9 @@ export class InstructorsClientComponent implements OnInit {
     return this.instructors.sort((a: any, b: any) => (a.priceList) - (b.priceList));
   }
 
+  logout() {
+    this.user = localStorage.clear();
+    this.router.navigate(['/']);
+  }
+
 }

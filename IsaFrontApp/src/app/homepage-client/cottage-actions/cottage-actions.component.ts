@@ -67,4 +67,9 @@ export class CottageActionsComponent implements OnInit {
     });
 }
 
+logout() {
+  this.user = localStorage.clear();
+  this.router.navigate(['/']);
+}
+
 }

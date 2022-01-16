@@ -51,8 +51,9 @@ export class InstructorComplaintsComponent implements OnInit {
     });
     }
   
-    logout(): void{
-      localStorage.clear();
+    logout() {
+      this.user = localStorage.clear();
+      this.router.navigate(['/']);
     }
 
     onSubmit(){

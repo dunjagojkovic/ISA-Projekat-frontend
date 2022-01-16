@@ -67,4 +67,9 @@ export class SearchFreeCottagesClientComponent implements OnInit {
     return this.houses.sort((a: any, b: any) => (a.pricelist) - (b.pricelist));
   }
 
+  logout() {
+    this.user = localStorage.clear();
+    this.router.navigate(['/']);
+  }
+
 }

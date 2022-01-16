@@ -80,4 +80,9 @@ export class ReserveBoatsStandardComponent implements OnInit {
       });
   }
 
+  logout() {
+    this.user = localStorage.clear();
+    this.router.navigate(['/']);
+  }
+
 } 

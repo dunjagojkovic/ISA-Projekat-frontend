@@ -67,4 +67,9 @@ SubscribeMe(id:any){
 });
 }
 
+logout() {
+  this.user = localStorage.clear();
+  this.router.navigate(['/']);
+}
+
 }

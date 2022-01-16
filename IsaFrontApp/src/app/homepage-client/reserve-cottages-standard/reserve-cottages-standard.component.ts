@@ -79,6 +79,11 @@ export class ReserveCottagesStandardComponent implements OnInit {
     });
   
 }
+
+logout() {
+  this.user = localStorage.clear();
+  this.router.navigate(['/']);
+}
  
 
 }

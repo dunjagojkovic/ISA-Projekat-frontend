@@ -65,4 +65,9 @@ export class SearchFreeInstructorsClientComponent implements OnInit {
     return this.instructors.sort((a: any, b: any) => (a.pricelist) - (b.pricelist));
   }
 
+  logout() {
+    this.user = localStorage.clear();
+    this.router.navigate(['/']);
+  }
+
 }

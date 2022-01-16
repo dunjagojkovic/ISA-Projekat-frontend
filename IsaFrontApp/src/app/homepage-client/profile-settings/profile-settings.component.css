@@ -9,65 +9,80 @@
     display: inline-block;
     vertical-align: top;
 }
+.website_name_label {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bolder;
+  margin-top: 75px;
+  margin-bottom: 10px;
+  padding-bottom: 40px;
+  border-bottom: 2px solid rgba(119, 119, 119, 0.884);
+  display: inline-block;
+  vertical-align: top;
+  cursor: pointer;
+}
+
+/* NAVIGATION MENU */
 
 .navMenu {
-    align-content: right;
-    padding-left:20px !important;
-    padding-right:20px !important;
-    padding-top:15px !important;
-    padding-bottom:10px !important;
-    text-align: center;
-    background-color: white;
-    width: 100%;
+  align-content: right;
+  padding-left:20px !important;
+  padding-right:20px !important;
+  padding-top:15px !important;
+  padding-bottom:10px !important;
+  text-align: center;
+  width: 100%;
+  background-color: white;
 }
 
 .navMenu a {
-    color: black;
-    text-decoration: none;
-    font-size: 1.2em;
-    text-transform: uppercase;
-    font-weight: bolder;
-    display: inline-block;
-    margin-left: 13px;
-    margin-right: 15px;
-    -webkit-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
+  color: black;
+  text-decoration: none;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  font-weight: bolder;
+  display: inline;
+  justify-content: center;
+  margin-left: 15px;
+  margin-right: 15px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .navMenu a:hover {
-    color: #CAD2C5;
+  color: #CAD2C5;
 }
 
 .navMenu a:nth-child(1):hover ~ .dot {
-    -webkit-transform: translateX(30px);
-    transform: translateX(30px);
-    -webkit-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
-    opacity: 1;
+  -webkit-transform: translateX(30px);
+  transform: translateX(30px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
 }
 
 .navMenu a:nth-child(2):hover ~ .dot {
-    -webkit-transform: translateX(110px);
-    transform: translateX(110px);
-    -webkit-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
-    opacity: 1;
+  -webkit-transform: translateX(110px);
+  transform: translateX(110px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
 }
 
 .navMenu a:nth-child(3):hover ~ .dot {
-    -webkit-transform: translateX(200px);
-    transform: translateX(200px);
-    -webkit-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
-    opacity: 1;
+  -webkit-transform: translateX(200px);
+  transform: translateX(200px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
 }
 
 .navMenu a:nth-child(4):hover ~ .dot {
-    -webkit-transform: translateX(285px);
-    transform: translateX(285px);
-    -webkit-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
-    opacity: 1;
+  -webkit-transform: translateX(285px);
+  transform: translateX(285px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
 }
 
 .frontpage_gray_banner {
@@ -130,9 +145,9 @@
 
 .logout-btn{
     border-radius: 20px;
-    border: 3px solid #52796F ;
+    border: 3px solid #84A98C;
     color:white;
-    background-color: #52796F;
+    background-color: #84A98C;
     font-weight: bold;
     padding: 10px 0px 10px 0px !important;
     position: absolute;

@@ -63,4 +63,9 @@ export class SearchFreeBoatsClientComponent implements OnInit {
     return this.boats.sort((a: any, b: any) => (a.pricelist) - (b.pricelist));
   }
 
+  logout() {
+    this.user = localStorage.clear();
+    this.router.navigate(['/']);
+  }
+
 }

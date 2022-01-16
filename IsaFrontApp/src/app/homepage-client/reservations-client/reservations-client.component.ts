@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
-import {MatSnackBarModule, MatSnackBar} from '@angular/material/snack-bar';
+import { MatSnackBar} from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -19,7 +20,8 @@ export class ReservationsClientComponent implements OnInit {
 
   constructor(
     private api: ApiService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -103,6 +105,11 @@ export class ReservationsClientComponent implements OnInit {
 
     }
     });
+  }
+
+  logout() {
+    this.user = localStorage.clear();
+    this.router.navigate(['/']);
   }
 
 }
