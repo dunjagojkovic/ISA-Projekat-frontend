@@ -88,14 +88,23 @@
         <mat-card-subtitle style="font-weight: bold; font-size: 16px; margin-top: 2%;">{{b.address}}</mat-card-subtitle>
       <br>
       <mat-card-content style="width: 400px; font-weight: bold; font-size: 16px;">
-        <p>Cena: {{b.pricelist}}</p>
-        <p>kapacitet {{b.capacity}}</p>
-        <p>Navigaciona oprema {{b.navEquipment}}</p>
-        <p>pecaroska oprema  {{b.fishingEquipment}}</p>
-        <p>tip:{{b.type}}, duzina{{b.length}}, broj motora {{b.engineNumber}}, snaga motora {{b.enginePower}}, maks brzina {{b.maxSpeed}} </p>
-        <p>pravila ponasanja {{b.behaviourRules}}</p>
-        <p>uslovi otkazivanja {{b.cancelConditions}} </p>
-        <p>promotivni opis {{b.promoDescription}} </p>
+        <p>Price: {{b.pricelist}}e</p>
+        <p>Type: {{b.type}}&nbsp;&nbsp;&nbsp;
+           Length: {{b.length}}m &nbsp;&nbsp;&nbsp;
+           Capacity: {{b.capacity}}
+        </p>
+        <p>
+          Engine no: {{b.engineNumber}}&nbsp;&nbsp;&nbsp;
+          Engine pw: {{b.enginePower}}kW&nbsp;&nbsp;&nbsp;
+        </p>
+        <p> Max speed: {{b.maxSpeed}}km/h</p>
+        <p>Nav equipment: {{b.navEquipment}}</p>
+        <p>Fishing equipment: {{b.fishingEquipment}}</p>
+        <p>Rules: {{b.behaviourRules}}</p>
+        <p>Extra service: {{b.extraService}}</p>
+        <p>Price for extra service: {{b.extraPrice}}e</p>
+        <p>Cancel cond: {{b.cancelConditions}}</p>
+        <p>Description: {{b.promoDescription}}</p>
         <div>
           <button [routerLink]="['/reserve-boats-standard-client']" class="reserve-btn" [queryParams]="{id: b.id, startDate: startDate, endDate: endDate}">Book</button>
         </div>
@@ -109,10 +118,10 @@
             </ol>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img class="d-block w-100 left_frontpage_picture"  src="{{b.interiorImage}}" style="max-width: 500px; object-fit:cover; height: 400px;" alt="First slide">
+                <img class="d-block w-100 left_frontpage_picture"  src="{{b.interiorImage}}" style="max-width: 500px; object-fit:cover; height: 510px;" alt="First slide">
               </div>
               <div class="carousel-item">
-                <img class="d-block w-100" src="{{b.exteriorImage}}"  style="max-width: 500px; object-fit:cover; height: 400px;" alt="Second slide">
+                <img class="d-block w-100" src="{{b.exteriorImage}}"  style="max-width: 500px; object-fit:cover; height: 510px;" alt="Second slide">
               </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators{{i}}" role="button" data-slide="prev">
