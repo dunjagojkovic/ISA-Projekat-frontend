@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
+import { AuthGuard } from './auth.guard';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 
 import { AppComponent } from './app.component';
@@ -60,6 +62,7 @@ import { InstructorComplaintsComponent } from './homepage-client/instructor-comp
 import { CottageEvaluationsComponent } from './homepage-client/cottage-evaluations/cottage-evaluations.component';
 import { BoatEvaluationsComponent } from './homepage-client/boat-evaluations/boat-evaluations.component';
 import { InstructorEvaluationsComponent } from './homepage-client/instructor-evaluations/instructor-evaluations.component';
+import { ApiService } from './api.service';
 
 @NgModule({
   declarations: [
@@ -128,7 +131,12 @@ import { InstructorEvaluationsComponent } from './homepage-client/instructor-eva
     }),
     MatSnackBarModule
    ],
-  providers: [],
+   providers: [
+    ApiService,
+    AuthGuard,
+    {provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 

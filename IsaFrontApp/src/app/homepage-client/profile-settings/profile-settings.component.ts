@@ -90,7 +90,7 @@ export class ProfileSettingsComponent implements OnInit {
   }
 
   logout() {
-    this.user = null;
+    this.user = localStorage.clear();
     this.router.navigate(['/']);
   }
 

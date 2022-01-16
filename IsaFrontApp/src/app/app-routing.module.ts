@@ -1,4 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { AuthGuard } from './auth.guard';
+
 
 import { RouterModule, Routes } from '@angular/router';
 import { FrontPageComponent } from './front-page/front-page.component';
@@ -44,12 +46,12 @@ const routes: Routes = [
   { path: "cottages", component: CottageProfilesClientComponent},
   { path: "boats", component: BoatProfilesComponent},
   { path: "instructors", component: InstructorProfilesClientComponent},
-  { path: "home-client", component: HomepageClientComponent},
+  { path: "home-client", component: HomepageClientComponent, canActivate: [AuthGuard],  data: {role: 'Client'}},
   { path: "settings-client", component: ProfileSettingsComponent},
   { path: "cottages-client", component: CottagesClientComponent},
   { path: "boats-client", component: BoatsClientComponent},
   { path: "instructors-client", component: InstructorsClientComponent},
-  { path: "home-house-owner", component: HomepageHouseOwnerComponent},
+  { path: "home-house-owner", component: HomepageHouseOwnerComponent, canActivate: [AuthGuard],  data: {role: 'House owner'}},
   { path: "settings-house-owner", component: SettingsHouseOwnerComponent},
   { path: "history-house-owner", component: HistoryHouseOwnerComponent},
   { path: "set-house-terms", component: SetFreeTermsComponent},
