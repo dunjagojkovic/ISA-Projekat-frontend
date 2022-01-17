@@ -13,8 +13,6 @@ export class AuthGuard implements CanActivate {
 
   roleAs: any;
 
-
-    
   constructor(
     public auth: AuthService,
     public router: Router,
@@ -24,26 +22,28 @@ export class AuthGuard implements CanActivate {
 
     canActivate(route: ActivatedRouteSnapshot): boolean {
 
-      const expectedRole = route.data.expectedRole
-       const token = this.getToken()
-       const decodedToken = this.jwtHelper.decodeToken(token);
-      if (
-        !this.api.getAuthoHeader() || 
-        decodedToken.role !== expectedRole
-      ) {
+      if(route.data.role != this.getRole()) {
         this.router.navigate(['/']);
         return false;
-      } 
+      }
+
       return true;
     }
 
-    getToken():string{
-      const token = localStorage.getItem("token")
-      if(token){return token}
-      else{return ""}
+  getRole() {
+
+    let userStrng = localStorage.getItem('user');
+    this.roleAs = '';
+
+    if(userStrng) {
+      let user = JSON.parse(userStrng);
+      this.roleAs = user.role;
+      return user.role;
+    }
+
+    this.roleAs = ''
+    return this.roleAs;
   }
-
-
 
 }
 
