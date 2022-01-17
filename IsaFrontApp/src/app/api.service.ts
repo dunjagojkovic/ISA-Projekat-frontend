@@ -162,6 +162,14 @@ export class ApiService {
     return this.http.post(this.baseURL + "/api/adventuresReservation/searchFree", data, this.getAuthoHeader());
   }
 
+  loadOneUserInfo(id: any){
+    return this.http.get(this.baseURL + "/api/users/" + id,this.getAuthoHeader());
+  }
+
+  loadOneUser(clientId: any){
+    return this.http.get(this.baseURL + "/api/users/" + clientId,this.getAuthoHeader());
+  }
+
   loadOneHouse(id: any) {
     return this.http.get(this.baseURL + "/api/homes/" +id, this.getAuthoHeader());
   }
