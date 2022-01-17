@@ -53,16 +53,17 @@ export class ReserveCottagesStandardComponent implements OnInit {
 
   onSubmit() {
    
-    const extraServices = this.form.get('extraService')?.value;
+    const extraService = this.form.get('extraServices')?.value;
 
     let data = {
       name: this.name,
-      extraServices: extraServices,
+      extraServices: extraService,
       startDate: this.startDate,
       endDate: this.endDate,
       houseId: this.id,
       pricelist: this.pricelist
     }
+    console.log(data)
 
     this.api.bookHouse(data).subscribe((response: any) => {
         console.log(response);
