@@ -172,6 +172,10 @@ getMyHouseReservations(){
   return this.http.get(this.baseURL + "/api/homeReservations/myReservations", this.getAuthoHeader());
 }
 
+getMyHouseFinishedReservations(){
+  return this.http.get(this.baseURL + "/api/homeReservations/myFinishedReservations", this.getAuthoHeader());
+}
+
 getMyBoatReservations(){
   return this.http.get(this.baseURL + "/api/boatReservations/myReservations", this.getAuthoHeader());
 }
@@ -245,8 +249,15 @@ sendEvaluationsForInstructorReservation(data: any){
 }
 
 subscribeUserOnAction(id: number, data: any){
-  return this.http.put(this.baseURL + "/api/subscriptions/" +id, data, this.getAuthoHeader());
+  return this.http.put(this.baseURL + "/api/subscriptions/subscribe/" +id, data, this.getAuthoHeader());
 }
 
+unSubscribeUserOnAction(id:number,  data: any){
+  return this.http.put(this.baseURL + "/api/subscriptions/unsubscribe/" +id, data, this.getAuthoHeader());
+}
+
+getMyHouseSubscriptions(){
+  return this.http.get(this.baseURL + "/api/subscriptions/mySubscribedHomeProfiles", this.getAuthoHeader());
+}
   
 }

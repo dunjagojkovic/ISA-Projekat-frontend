@@ -40,6 +40,7 @@ import { CottageEvaluationsComponent } from './homepage-client/cottage-evaluatio
 import { BoatEvaluationsComponent } from './homepage-client/boat-evaluations/boat-evaluations.component';
 import { InstructorEvaluationsComponent } from './homepage-client/instructor-evaluations/instructor-evaluations.component';
 
+
 const routes: Routes = [
   { path: '', component: FrontPageComponent},
   { path: "registration", component: RegistrationComponent},

@@ -103,7 +103,7 @@ import { ApiService } from './api.service';
     CottageEvaluationsComponent,
     BoatEvaluationsComponent,
     InstructorEvaluationsComponent
-  ],
+   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

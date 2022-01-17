@@ -25,10 +25,9 @@ export class ReservationsClientComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.api.getMyHouseReservations().subscribe((response: any) => {
+    this.api.getMyHouseFinishedReservations().subscribe((response: any) => {
       this.houseReservations = response;
-      console.log(response);
-     
+      console.log(response);     
       });
 
     this.api.getMyBoatReservations().subscribe((response: any) => {
@@ -46,14 +45,6 @@ export class ReservationsClientComponent implements OnInit {
         });
 
   }
-
-  getFinishedHouseReservations(reservation: any): any[]{    
-      if(reservation.endDate > this.today){
-        this.houseReservations.push(reservation);
-      }
-      return this.houseReservations;
-    }
-
    
     
   cancelHouse(id: number){
@@ -61,12 +52,10 @@ export class ReservationsClientComponent implements OnInit {
       this.houseReservations = response;
       console.log(response);
       if(response == true){
-       // this.houseReservations = this.houseReservations.filter((e:any) => e.id != id);  
        this._snackBar.open('You have successfully canceled your reservation. ', 'Close', {duration: 5000});   
        window.location.reload();
          } else if (response == false){
           this._snackBar.open('Cannot cancel. ', 'Close', {duration: 3000});       
-          //alert('Cannot cancel.')   
          }
 
     }
@@ -78,12 +67,10 @@ export class ReservationsClientComponent implements OnInit {
       this.boatReservations = response;
       console.log(response);
       if(response == true){
-       // this.houseReservations = this.houseReservations.filter((e:any) => e.id != id);  
        this._snackBar.open('You have successfully canceled your reservation. ', 'Close', {duration: 5000});   
        window.location.reload();
          } else if (response == false){
           this._snackBar.open('Cannot cancel. ', 'Close', {duration: 3000});       
-          //alert('Cannot cancel.')   
          }
 
     }

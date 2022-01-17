@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
+import { MatSnackBar} from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-cottages-client',
@@ -16,7 +18,8 @@ export class CottagesClientComponent implements OnInit {
  
   constructor(
     private router: Router,
-    private api: ApiService   
+    private api: ApiService,
+    private _snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -65,11 +68,16 @@ SubscribeMe(id:any){
   
   this.api.subscribeUserOnAction(id, data).subscribe((response: any) => {
     this.subscriptions = response;
-
     console.log(response);
-
+    if(response == null){
+      this._snackBar.open('You are alredy subscribed. ', 'Close', {duration: 5000});   
+    }
+    else{
+      this._snackBar.open('Thank you for your subscription. You are going to recieve notifications about this property. ', 'Close', {duration: 5000});   
+    }
 });
 }
+
 
 logout() {
   this.user = localStorage.clear();
