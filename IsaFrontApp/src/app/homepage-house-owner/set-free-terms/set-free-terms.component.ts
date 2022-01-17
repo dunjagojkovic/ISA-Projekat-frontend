@@ -19,7 +19,7 @@ export class SetFreeTermsComponent implements OnInit {
   todayDate:Date = new Date();
   ownerId: any;
   user: any = {} as any;
-  viewDate: Date = new Date();
+  viewDate: any;
   view: CalendarView = CalendarView.Month;
   CalendarView = CalendarView;
   refresh = new Subject<void>();
@@ -104,6 +104,8 @@ export class SetFreeTermsComponent implements OnInit {
             color: event.action ? this.colors.blue : this.colors.green
           })
         }
+
+        this.viewDate =  new Date();
     });
   });
   }
