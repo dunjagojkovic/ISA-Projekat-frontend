@@ -121,6 +121,10 @@ export class ApiService {
     return this.http.post(this.baseURL + "/api/homeReservations/owner", data, this.getAuthoHeader());
   }
 
+  bookByOwnerBoat(data: any){
+    return this.http.post(this.baseURL + "/api/boatReservations/owner", data, this.getAuthoHeader());
+  }
+
   bookBoat(data: any){
     return this.http.post(this.baseURL + "/api/boatReservations/book", data, this.getAuthoHeader());
   }
@@ -264,6 +268,10 @@ getHistoryReservationsForMyHouses(data: any){
 
 getAllReservations(houseId: number, ownerId: number){
   return this.http.get(this.baseURL + "/api/homeReservations/getAllReservations/" +houseId + '/' + ownerId, this.getAuthoHeader());
+}
+
+getAllBoatReservations(boatId: number, ownerId: number){
+  return this.http.get(this.baseURL + "/api/boatReservations/getAllBoatReservations/" +boatId + '/' + ownerId, this.getAuthoHeader());
 }
 
 getReservationsForMyBoats(data: any){

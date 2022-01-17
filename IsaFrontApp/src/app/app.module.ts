@@ -66,6 +66,7 @@ import { MapsHouseOwnerComponent } from './homepage-house-owner/maps-house-owner
 import { GoogleFontsLoadingDisableDirective } from 'google-fonts-loading-disable.directive';
 import { MapsBoatOwnerComponent } from './homepage-boat-owner/maps-boat-owner/maps-boat-owner.component';
 import { ReviewBoatOwnerComponent } from './homepage-boat-owner/review-boat-owner/review-boat-owner.component';
+import { ReserveBoatOwnerComponent } from './homepage-boat-owner/reserve-boat-owner/reserve-boat-owner.component';
 
 @NgModule({
   declarations: [
@@ -111,7 +112,8 @@ import { ReviewBoatOwnerComponent } from './homepage-boat-owner/review-boat-owne
     HistoryBoatOwnerComponent,
     MapsHouseOwnerComponent,
     MapsBoatOwnerComponent,
-    ReviewBoatOwnerComponent
+    ReviewBoatOwnerComponent,
+    ReserveBoatOwnerComponent
   ],
   imports: [
     BrowserModule,
