@@ -117,6 +117,7 @@
           <td style="width: 50px;">{{tr.endDate | date:'dd/MM/yyyy'}}</td>
           <td style="width: 350px;">{{tr.clientId}}</td>
           <td>
+            <button class="btn-review" [routerLink]="['/reserve-boat-owner']" [queryParams]="{clientId: tr.clientId, boatId: tr.boatProfile.id}">Reserve</button>
           </td>
         </tr>
       </tbody>

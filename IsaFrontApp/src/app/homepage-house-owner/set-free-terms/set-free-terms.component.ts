@@ -16,6 +16,7 @@ export class SetFreeTermsComponent implements OnInit {
   form: FormGroup;
   id: any;
   houseId: any;
+  todayDate:Date = new Date();
   ownerId: any;
   user: any = {} as any;
   viewDate: Date = new Date();
@@ -69,12 +70,9 @@ export class SetFreeTermsComponent implements OnInit {
   ngOnInit(): void {
     this.api.current().subscribe((response:any) => {
       this.user = response;
-
       this.load();
-      
-  });
-    
-  }
+  }); 
+}
 
   load() {
     this.api.getAllReservations(this.id, this.user.id).subscribe((response:any) => {

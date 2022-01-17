@@ -19,6 +19,8 @@ export class HistoryBoatOwnerComponent implements OnInit {
   historyBox: boolean = false;
   todayBox: boolean = false;
   upcommingBox: boolean = true;
+  client: any;
+  clientId: any;
 
   constructor(
   private router: Router,
