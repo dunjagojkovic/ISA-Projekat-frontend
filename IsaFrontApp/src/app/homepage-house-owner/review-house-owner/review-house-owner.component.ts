@@ -18,6 +18,8 @@ export class ReviewHouseOwnerComponent implements OnInit {
   startDate:any;
   endDate:any;
   review: any;
+  client: any;
+  clientId: any;
 
   constructor(
     private router: Router,
@@ -30,6 +32,7 @@ export class ReviewHouseOwnerComponent implements OnInit {
     .subscribe(params => {
       this.id = params.id;
       this.startDate = new Date(params.startDate);
+      this.clientId = params.clientId;
       this.endDate = new Date(params.endDate);
     });
     
@@ -45,11 +48,11 @@ export class ReviewHouseOwnerComponent implements OnInit {
       this.user = response;      
       console.log(response);
   });
-
+  this.api.loadOneUserInfo(this.clientId).subscribe((response: any) => {
+    this.client = response;
+  });
   this.api.loadOneHouseReservation(this.id).subscribe((response:any) => {
     this.reservation = response;
-    console.log(response);
-
   });
   }
 
@@ -74,7 +77,7 @@ export class ReviewHouseOwnerComponent implements OnInit {
         this.router.navigate(['/history-house-owner']);
         this._snackBar.open('Your review has been sent successfully.', 'Close');
       }else if (response == null){
-        this._snackBar.open('Cannot send review. ', 'Close', {duration: 3000});       
+        this._snackBar.open('Can not send review. ', 'Close', {duration: 3000});       
        }
      
   });    

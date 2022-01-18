@@ -89,7 +89,7 @@
             <td style="width: 50px;">{{hr.endDate | date:'dd/MM/yyyy'}}</td>
             <td style="width: 350px;">{{hr.clientId}}</td>
             <td>
-              <button class="btn-review" [routerLink]="['/review-boat-owner']" [queryParams]="{id: hr.id, startDate: hr.startDate, endDate: hr.endDate}" >Review</button>
+              <button class="btn-review" [routerLink]="['/review-boat-owner']" [queryParams]="{clientId: hr.clientId, id: hr.id, startDate: hr.startDate, endDate: hr.endDate}" >Review</button>
             </td>
           </tr>
         </tbody>

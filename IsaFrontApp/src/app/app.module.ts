@@ -69,6 +69,7 @@ import { ReviewBoatOwnerComponent } from './homepage-boat-owner/review-boat-owne
 import { ReserveBoatOwnerComponent } from './homepage-boat-owner/reserve-boat-owner/reserve-boat-owner.component';
 import { ReportHouseOwnerComponent } from './homepage-house-owner/report-house-owner/report-house-owner.component';
 import { ChartModule } from 'angular2-chartjs';
+import { ReportBoatOwnerComponent } from './homepage-boat-owner/report-boat-owner/report-boat-owner.component';
 
 @NgModule({
   declarations: [
@@ -116,7 +117,8 @@ import { ChartModule } from 'angular2-chartjs';
     MapsBoatOwnerComponent,
     ReviewBoatOwnerComponent,
     ReserveBoatOwnerComponent,
-    ReportHouseOwnerComponent
+    ReportHouseOwnerComponent,
+    ReportBoatOwnerComponent
   ],
   imports: [
     ChartModule,

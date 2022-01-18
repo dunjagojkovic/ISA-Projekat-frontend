@@ -43,6 +43,7 @@ import { MapsBoatOwnerComponent } from './homepage-boat-owner/maps-boat-owner/ma
 import { ReviewBoatOwnerComponent } from './homepage-boat-owner/review-boat-owner/review-boat-owner.component';
 import { ReserveBoatOwnerComponent } from './homepage-boat-owner/reserve-boat-owner/reserve-boat-owner.component';
 import { ReportHouseOwnerComponent } from './homepage-house-owner/report-house-owner/report-house-owner.component';
+import { ReportBoatOwnerComponent } from './homepage-boat-owner/report-boat-owner/report-boat-owner.component';
 
 const routes: Routes = [
   { path: '', component: FrontPageComponent},
@@ -86,7 +87,8 @@ const routes: Routes = [
   { path: "maps-boat-owner", component: MapsBoatOwnerComponent},
   { path: "review-boat-owner", component: ReviewBoatOwnerComponent},
   { path: "reserve-boat-owner", component: ReserveBoatOwnerComponent},
-  { path: "report-house-owner", component: ReportHouseOwnerComponent}
+  { path: "report-house-owner", component: ReportHouseOwnerComponent},
+  { path: "report-boat-owner", component: ReportBoatOwnerComponent}
   
 ];
 
