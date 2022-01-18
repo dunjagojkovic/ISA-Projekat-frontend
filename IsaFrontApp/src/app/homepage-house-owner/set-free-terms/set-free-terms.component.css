@@ -173,7 +173,7 @@
     border-radius: 20px;
     height: 44px;
     font-size: 18px;
-    width: 160px;
+    width: 130px;
     margin-bottom: 40px;
     position: relative;
     margin-top: 12px;
@@ -221,7 +221,7 @@
 }
 
 .input-box {
-    width: 270px;
+    width: 185px;
     color: #354F52;
     align-items: center;
     height: 58px;
@@ -232,7 +232,7 @@
   }
 
   .example-section {
-    margin: 12px 0;
+    margin: 20px 0;
   }
   
   .example-margin {
@@ -249,3 +249,13 @@
       border-radius: 50%;
       margin-bottom: 15px;
   }
+
+  ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-ripple .mat-ripple-element {
+    opacity: 0.03 !important;
+    background-color: #84A98C!important;
+  }
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: #84A98C;
+  }
+

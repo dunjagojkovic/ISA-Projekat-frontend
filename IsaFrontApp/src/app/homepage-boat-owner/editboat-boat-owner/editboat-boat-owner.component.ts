@@ -129,8 +129,10 @@ export class EditboatBoatOwnerComponent implements OnInit {
       if(response != null){
         this.router.navigate(['/home-boat-owner']);
       } else if(response == null){
-        alert("Can't edit, the boat is reserved.")
+        alert("Can't edit, the boat is reserved.");
       }
+  }, (error: any) => {
+    alert("Can't edit, the boat is reserved."); 
   });
   }
 

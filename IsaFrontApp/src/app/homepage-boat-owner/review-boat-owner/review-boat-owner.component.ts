@@ -18,6 +18,8 @@ export class ReviewBoatOwnerComponent implements OnInit {
   startDate:any;
   endDate:any;
   review: any;
+  client: any;
+  clientId: any;
 
   constructor(
     private router: Router,
@@ -28,6 +30,7 @@ export class ReviewBoatOwnerComponent implements OnInit {
   ) { 
     this.route.queryParams
     .subscribe(params => {
+      this.clientId = params.clientId;
       this.id = params.id;
       this.startDate = new Date(params.startDate);
       this.endDate = new Date(params.endDate);
@@ -45,9 +48,11 @@ export class ReviewBoatOwnerComponent implements OnInit {
       this.user = response;      
       console.log(response);
     });
+    this.api.loadOneUserInfo(this.clientId).subscribe((response: any) => {
+      this.client = response;
+    });
     this.api.loadOneBoatReservation(this.id).subscribe((response:any) => {
-    this.reservation = response;
-    console.log(response);
+      this.reservation = response;
     });
   }
 
@@ -72,7 +77,7 @@ export class ReviewBoatOwnerComponent implements OnInit {
         this.router.navigate(['/history-boat-owner']);
         this._snackBar.open('Your review has been sent successfully.', 'Close');
       }else if (response == null){
-        this._snackBar.open('Cannot send review. ', 'Close', {duration: 3000});       
+        this._snackBar.open('Can not send review. ', 'Close', {duration: 3000});       
        }
   });      
 }

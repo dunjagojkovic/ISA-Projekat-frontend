@@ -67,6 +67,9 @@ import { GoogleFontsLoadingDisableDirective } from 'google-fonts-loading-disable
 import { MapsBoatOwnerComponent } from './homepage-boat-owner/maps-boat-owner/maps-boat-owner.component';
 import { ReviewBoatOwnerComponent } from './homepage-boat-owner/review-boat-owner/review-boat-owner.component';
 import { ReserveBoatOwnerComponent } from './homepage-boat-owner/reserve-boat-owner/reserve-boat-owner.component';
+import { ReportHouseOwnerComponent } from './homepage-house-owner/report-house-owner/report-house-owner.component';
+import { ChartModule } from 'angular2-chartjs';
+import { ReportBoatOwnerComponent } from './homepage-boat-owner/report-boat-owner/report-boat-owner.component';
 
 @NgModule({
   declarations: [
@@ -113,9 +116,12 @@ import { ReserveBoatOwnerComponent } from './homepage-boat-owner/reserve-boat-ow
     MapsHouseOwnerComponent,
     MapsBoatOwnerComponent,
     ReviewBoatOwnerComponent,
-    ReserveBoatOwnerComponent
+    ReserveBoatOwnerComponent,
+    ReportHouseOwnerComponent,
+    ReportBoatOwnerComponent
   ],
   imports: [
+    ChartModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
