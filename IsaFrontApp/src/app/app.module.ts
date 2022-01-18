@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './auth.guard';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
-
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { FrontPageComponent } from './front-page/front-page.component';
@@ -25,6 +24,7 @@ import { ReserveCottagesStandardComponent } from './homepage-client/reserve-cott
 import { CottageReservationsComponent } from './homepage-client/cottage-reservations/cottage-reservations.component';
 import { SearchFreeBoatsClientComponent } from './homepage-client/search-free-boats-client/search-free-boats-client.component';
 import { SearchFreeInstructorsClientComponent } from './homepage-client/search-free-instructors-client/search-free-instructors-client.component';
+import { HistoryHouseOwnerComponent } from './homepage-house-owner/history-house-owner/history-house-owner.component';
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -63,12 +63,25 @@ import { CottageEvaluationsComponent } from './homepage-client/cottage-evaluatio
 import { BoatEvaluationsComponent } from './homepage-client/boat-evaluations/boat-evaluations.component';
 import { InstructorEvaluationsComponent } from './homepage-client/instructor-evaluations/instructor-evaluations.component';
 import { ApiService } from './api.service';
+import { ReviewHouseOwnerComponent } from './homepage-house-owner/review-house-owner/review-house-owner.component';
+import { ReserveHouseOwnerComponent } from './homepage-house-owner/reserve-house-owner/reserve-house-owner.component';
+import { HistoryBoatOwnerComponent } from './homepage-boat-owner/history-boat-owner/history-boat-owner.component';
+import { AgmCoreModule } from '@agm/core';
+import { MapsHouseOwnerComponent } from './homepage-house-owner/maps-house-owner/maps-house-owner.component';
+import { GoogleFontsLoadingDisableDirective } from 'google-fonts-loading-disable.directive';
+import { MapsBoatOwnerComponent } from './homepage-boat-owner/maps-boat-owner/maps-boat-owner.component';
+import { ReviewBoatOwnerComponent } from './homepage-boat-owner/review-boat-owner/review-boat-owner.component';
+import { ReserveBoatOwnerComponent } from './homepage-boat-owner/reserve-boat-owner/reserve-boat-owner.component';
+import { ReportHouseOwnerComponent } from './homepage-house-owner/report-house-owner/report-house-owner.component';
+import { ChartModule } from 'angular2-chartjs';
+import { ReportBoatOwnerComponent } from './homepage-boat-owner/report-boat-owner/report-boat-owner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationComponent,
     FrontPageComponent,
+    GoogleFontsLoadingDisableDirective,
     CottageProfilesClientComponent,
     BoatProfilesComponent,
     HomepageClientComponent,
@@ -102,9 +115,21 @@ import { ApiService } from './api.service';
     InstructorComplaintsComponent,
     CottageEvaluationsComponent,
     BoatEvaluationsComponent,
-    InstructorEvaluationsComponent
-   ],
+    InstructorEvaluationsComponent,
+    HistoryHouseOwnerComponent,
+    ReviewHouseOwnerComponent,
+    ReserveHouseOwnerComponent,
+    HistoryBoatOwnerComponent,
+    MapsHouseOwnerComponent,
+    MapsBoatOwnerComponent,
+    ReviewBoatOwnerComponent,
+    ReserveBoatOwnerComponent,
+    ReportHouseOwnerComponent,
+    ReportBoatOwnerComponent
+  ],
+
   imports: [
+    ChartModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -129,7 +154,10 @@ import { ApiService } from './api.service';
       provide: DateAdapter,
       useFactory: adapterFactory,
     }),
-    MatSnackBarModule
+    MatSnackBarModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCkTOjUv92qCadQ4j9fN3Ez7mZHSXuyKco'
+    })
    ],
    providers: [
     ApiService,

@@ -2,7 +2,7 @@
     <div class="col-md-2"></div>
     <div class="col-md-8 website_name_label">BOOKING AGENCY</div>
     <div class="col-md-2"></div>
-    <button class="logout-btn" routerLink="/">Log out</button>
+    <button class="logout-btn" (click) = "logout()" routerLink="/">Log out</button>
   </div>
 
   <div class="row d-flex align-items-center w-100">
@@ -10,8 +10,8 @@
     <div class="col-md-4">
       <nav class="navMenu">
         <a href="home-house-owner" style="float:none">Houses</a>
-        <a href="" style="float:none">Calendar</a>
-        <a href="history-house-owner" style="float:none">Reservation history</a>
+        <a href="history-house-owner" style="float:none">Reservations</a>
+        <a href="report-house-owner" style="float:none">Business report</a>
         <a href="settings-house-owner" style="float:none">User settings</a>
       </nav>
     </div>
@@ -94,15 +94,24 @@
         <form [formGroup]="formPassword" (ngSubmit)="saveNewPassword()">
           <mat-form-field class="input-password" appearance="outline">
             <mat-label>Old password</mat-label>
-            <input matInput placeholder="" formControlName="oldPassword">
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="oldPassword">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
         </mat-form-field>
         <mat-form-field class="input-password" appearance="outline">
           <mat-label>New password</mat-label>
-          <input matInput placeholder="" formControlName="newPassword">
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="newPassword">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
         </mat-form-field>
         <mat-form-field class="input-password" appearance="outline">
           <mat-label>Confirm password</mat-label>
-          <input matInput placeholder=""  formControlName="passwordRepeat">
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="passwordRepeat">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
         </mat-form-field>
         <br />
             <button class="reason-btn" (click)="saveNewPassword()">Save</button>

@@ -2,7 +2,7 @@
     <div class="col-md-2"></div>
     <div class="col-md-8 website_name_label">BOOKING AGENCY</div>
     <div class="col-md-2"></div>
-    <button class="logout-btn" routerLink="/">Log out</button>
+    <button class="logout-btn" (click) = "logout()" routerLink="/">Log out</button>
   </div>
 
   <div class="row d-flex align-items-center w-100">
@@ -10,8 +10,8 @@
     <div class="col-md-4">
       <nav class="navMenu">
         <a href="home-house-owner" style="float:none">Houses</a>
-        <a href="" style="float:none">Calendar</a>
-        <a href="history-house-owner" style="float:none">Reservation history</a>
+        <a href="history-house-owner" style="float:none">Reservations</a>
+        <a href="report-house-owner" style="float:none">Business report</a>
         <a href="settings-house-owner" style="float:none">User settings</a>
       </nav>
     </div>
@@ -23,42 +23,105 @@
     </div>
     <div class="col-md-8">
       <div class="row d-flex align-items-center frontpage_gray_banner_label">Welcome,</div>
-      <div class="row d-flex align-items-center frontpage_gray_banner_label">...</div> 
+      <div class="row d-flex align-items-center frontpage_gray_banner_label">{{user.name}} {{user.surname}}</div> 
     </div>
     <div class="col-md-2"></div>
   </div>
 
-<div class="big-panel">
-  <div class="toolbar">
-    <h1 style="margin-left: 22%;">All reservations from history</h1>
-    <button class="btn-review">Write review</button>
+  <mat-toolbar class="navMenu" style="cursor: pointer; margin-top: 2%; align-items: left;">      
+    <div class="row d-flex align-items-center w-100">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <nav class="navMenu" style="font-size: 15px;">            
+          <a style="float:none" (click) = "todayBox = false; historyBox = false; upcommingBox = true;">Upcoming</a>
+          <a style="float:none" (click) = "todayBox = true; historyBox = false; upcommingBox = false; todayReservation()">Current</a>
+          <a style="float:none" (click) = "historyBox = true; todayBox = false; upcommingBox = false; historyReservation()">History</a>
+        </nav>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div>  
+    </mat-toolbar>
+
+    <div *ngIf = "upcommingBox">
+      <h2 style="margin-left: 43%; margin-top: 25px;">Upcomming reservations</h2>
+    </div>
+    <div class="panel-middle" *ngIf = "upcommingBox">
+      <table class="rooms-table">
+        <thead>
+          <tr>
+            <th>House</th>
+            <th>Start date</th>
+            <th>End date</th>
+            <th>Client</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let r of reservations ">
+            <td style="width: 220px;">{{r.homeProfile.name}}</td>
+            <td style="width: 230px;">{{r.startDate | date:'dd/MM/yyyy'}}</td>
+            <td style="width: 50px;">{{r.endDate | date:'dd/MM/yyyy'}}</td>
+            <td style="width: 350px;">{{r.clientId}}</td>
+          </tr>
+        </tbody>
+      </table>
   </div>
-  <div class="panel-middle">
+
+  <div *ngIf = "historyBox">
+    <h2 style="margin-left: 44%; margin-top: 25px;">History reservations</h2>
+  </div>
+    <div class="panel-middle" *ngIf = "historyBox">
+      <table class="rooms-table">
+        <thead>
+          <tr>
+            <th style="width: 200px;">House</th>
+            <th style="width: 180px;">Start </th>
+            <th style="width: 180px;">End </th>
+            <th>Client</th>
+            <th style="width: 20px; height: 50px;"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let hr of historyReservations ">
+            <td style="width: 210px;">{{hr.homeProfile.name}}</td>
+            <td style="width: 240px;">{{hr.startDate | date:'dd/MM/yyyy'}}</td>
+            <td style="width: 50px;">{{hr.endDate | date:'dd/MM/yyyy'}}</td>
+            <td style="width: 350px;">{{hr.clientId}}</td>
+            <td>
+              <button class="btn-review" [routerLink]="['/review-house-owner']" [queryParams]="{id: hr.id, startDate: hr.startDate, endDate: hr.endDate, clientId: hr.clientId}" >Review</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+
+  <div *ngIf = "todayBox">
+    <h2 style="margin-left: 44%; margin-top: 25px;">Current reservations</h2>
+  </div>
+  <div class="panel-middle" *ngIf = "todayBox">
     <table class="rooms-table">
       <thead>
         <tr>
-          <th>House</th>
-          <th>Start date</th>
-          <th>End date</th>
-          <th>Client</th>
+          <th style="width: 200px;">House</th>
+            <th style="width: 180px;">Start </th>
+            <th style="width: 180px;">End </th>
+            <th>Client</th>
+            <th style="width: 20px; height: 50px;"></th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td></td>
+        <tr *ngFor = "let tr of todayReservations ">
+          <td style="width: 220px;">{{tr.homeProfile.name}}</td>
+          <td style="width: 230px;">{{tr.startDate | date:'dd/MM/yyyy'}}</td>
+          <td style="width: 50px;">{{tr.endDate | date:'dd/MM/yyyy'}}</td>
+          <td style="width: 350px;"></td>
+          <td>
+            <button class="btn-review" [routerLink]="['/reserve-house-owner']" [queryParams]="{clientId: tr.clientId, houseId: tr.homeProfile.id}">Reserve</button>
+          </td>
         </tr>
       </tbody>
     </table>
-</div>
-</div>
-
-<div class="review-panel">
-  <div class="review-box">
-    <br>
-    <a class="label-review">Client: </a><br><br>
-    <a class="label-review">House: </a><br><br>
-    <a class="label-review">Date: </a><br><br>
-  </div>
 </div>
 
   <div class="row d-flex align-items-center footer">

@@ -1,0 +1,148 @@
+<div class="row d-flex align-items-center w-100">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 website_name_label">BOOKING AGENCY</div>
+    <div class="col-md-2"></div>
+    <button class="logout-btn"  (click) = "logout()" routerLink="/">Log out</button>
+  </div>
+
+  <div class="row d-flex align-items-center w-100">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <nav class="navMenu">
+        <a href="home-boat-owner" style="float:none">Boats</a>
+        <a href="" style="float:none">Calendar</a>
+        <a href="" style="float:none">Reservation history</a>
+        <a href="settings-boat-owner" style="float:none">User settings</a>
+      </nav>
+    </div>
+    <div class="col-md-4"></div>
+  </div> 
+
+  <div class="row d-flex align-items-center frontpage_gray_banner">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-6">
+      <div class="row d-flex align-items-center frontpage_gray_banner_label">Welcome,</div>
+      <div class="row d-flex align-items-center frontpage_gray_banner_label">{{user.name}} {{user.surname}}</div> 
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+
+  <mat-toolbar class="navMenu" style="cursor: pointer; margin-top: 2%; align-items: left;">      
+    <div class="row d-flex align-items-center w-100">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <nav class="navMenu" style="font-size: 15px;">            
+          <a style="float:none" (click) = "todayBox = false; historyBox = false; upcommingBox = true;">Upcoming</a>
+          <a style="float:none" (click) = "todayBox = true; historyBox = false; upcommingBox = false; todayReservation()">Current</a>
+          <a style="float:none" (click) = "historyBox = true; todayBox = false; upcommingBox = false; historyReservation()">History</a>
+        </nav>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div>  
+    </mat-toolbar>
+
+    <div *ngIf = "upcommingBox">
+      <h2 style="margin-left: 43%; margin-top: 25px;">Upcomming reservations</h2>
+    </div>
+    <div class="panel-middle" *ngIf = "upcommingBox">
+      <table class="rooms-table">
+        <thead>
+          <tr>
+            <th>Boat</th>
+            <th>Start date</th>
+            <th>End date</th>
+            <th>Client</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let r of reservations ">
+            <td style="width: 220px;">{{r.boatProfile.name}}</td>
+            <td style="width: 230px;">{{r.startDate | date:'dd/MM/yyyy'}}</td>
+            <td style="width: 50px;">{{r.endDate | date:'dd/MM/yyyy'}}</td>
+            <td style="width: 350px;">{{r.clientId}}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+
+  <div *ngIf = "historyBox">
+    <h2 style="margin-left: 44%; margin-top: 25px;">History reservations</h2>
+  </div>
+    <div class="panel-middle" *ngIf = "historyBox">
+      <table class="rooms-table">
+        <thead>
+          <tr>
+            <th style="width: 200px;">Boat</th>
+            <th style="width: 180px;">Start </th>
+            <th style="width: 180px;">End </th>
+            <th>Client</th>
+            <th style="width: 20px; height: 50px;"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let hr of historyReservations ">
+            <td style="width: 210px;">{{hr.boatProfile.name}}</td>
+            <td style="width: 240px;">{{hr.startDate | date:'dd/MM/yyyy'}}</td>
+            <td style="width: 50px;">{{hr.endDate | date:'dd/MM/yyyy'}}</td>
+            <td style="width: 350px;">{{hr.clientId}}</td>
+            <td>
+              <button class="btn-review" [routerLink]="['/review-boat-owner']" [queryParams]="{clientId: hr.clientId, id: hr.id, startDate: hr.startDate, endDate: hr.endDate}" >Review</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+
+  <div *ngIf = "todayBox">
+    <h2 style="margin-left: 44%; margin-top: 25px;">Current reservations</h2>
+  </div>
+  <div class="panel-middle" *ngIf = "todayBox">
+    <table class="rooms-table">
+      <thead>
+        <tr>
+          <th style="width: 200px;">Boat</th>
+            <th style="width: 180px;">Start </th>
+            <th style="width: 180px;">End </th>
+            <th>Client</th>
+            <th style="width: 20px; height: 50px;"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let tr of todayReservations ">
+          <td style="width: 220px;">{{tr.boatProfile.name}}</td>
+          <td style="width: 230px;">{{tr.startDate | date:'dd/MM/yyyy'}}</td>
+          <td style="width: 50px;">{{tr.endDate | date:'dd/MM/yyyy'}}</td>
+          <td style="width: 350px;">{{tr.clientId}}</td>
+          <td>
+            <button class="btn-review" [routerLink]="['/reserve-boat-owner']" [queryParams]="{clientId: tr.clientId, boatId: tr.boatProfile.id}">Reserve</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+  <div class="row d-flex align-items-center footer">
+    <div class="col-md-3">
+      <h2 class="link_title">Product</h2>
+      <h4 class="link_subtitle">Our plan</h4>
+      <h4 class="link_subtitle">Free trial</h4>
+    </div>
+    <div class="col-md-3">
+      <h2 class="link_title">About us</h2>
+      <h4 class="link_subtitle">Request demo</h4>
+      <h4 class="link_subtitle">FAQs</h4>
+    </div>
+    <div class="col-md-3">
+      <h2 class="link_title">Support</h2>
+      <h4 class="link_subtitle">Services</h4>
+      <h4 class="link_subtitle">Contact us</h4>
+    </div>
+    <div class="col-md-3">
+      <h2 class="link_title">Covid-19 FAQs</h2>
+      <h4 class="link_subtitle">Reviews</h4>
+      <h4 class="link_subtitle">Safety</h4>
+    </div>
+  </div>

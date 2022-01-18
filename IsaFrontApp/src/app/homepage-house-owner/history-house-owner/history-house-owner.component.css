@@ -18,6 +18,7 @@
     padding-bottom:10px !important;
     text-align: center;
     width: 100%;
+    background-color: white;
 }
 
 .navMenu a {
@@ -97,17 +98,17 @@
 
 .btn-review{
     border-radius: 20px;
-    border: 3px solid #52796F;
-    color:white;
-    background-color: #52796F;
+    border: 3px solid #84A98C;
+    color: white;
+    background-color: #84A98C;
     font-weight: bold;
-    padding: 10px 0px 10px 0px !important;
-    width: 120px;
-    height: 44px;
+    padding: 8px 0px 8px 0px !important;
+    width: 80px;
+    height: 40px;
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
-    margin-left: 34%;
+    margin-left: 30%;
 }
 
 .review-panel {
@@ -142,7 +143,7 @@
   }
 
 .panel-middle {
-    margin-top: 2%;
+    margin-top: 10px;
     margin-bottom: 4%;
     height: max-content;
     width: 1890px;
@@ -158,21 +159,22 @@
   .rooms-table th {
     display: inline-block;
     padding: 15px 101.5px;
-    text-align: left;
+    text-align: center;
     font-weight: bold;
     font-size: 15px;
     color: white;
     text-transform: uppercase;
-    background: #52796F;
+    background: #84A98C;
   }
   
   .rooms-table tbody {
     display: inline-block;
-    height: 300px;
+    height: 350px;
+    text-align: center;
     overflow-y: scroll;
-    background: #CAD2C5;
+    background: #ebf0e9;
     scrollbar-color: #84A98C;
-    width: 1060px;
+    width: 1065px;
   }
   
   .rooms-table thead {
@@ -234,9 +236,9 @@
 
 .logout-btn{
     border-radius: 20px;
-    border: 3px solid #84A98C ;
+    border: 3px solid #52796F ;
     color:white;
-    background-color: #84A98C;
+    background-color: #52796F;
     font-weight: bold;
     padding: 10px 0px 10px 0px !important;
     position: absolute;

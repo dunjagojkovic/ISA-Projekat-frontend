@@ -94,7 +94,12 @@ export class EdithouseHouseOwnerComponent implements OnInit {
       }
 
     this.api.editHouse(this.id, data).subscribe((response:any) => {
-      this.router.navigate(['/home-house-owner']);
+      this.home = response;
+      if( response != null){
+        this.router.navigate(['/home-house-owner']);
+      } else if(response == null){
+        alert(" Can't edit, the house is reserved.")
+      }
   });
   }
  
@@ -134,4 +139,8 @@ export class EdithouseHouseOwnerComponent implements OnInit {
     reader.onerror = function (error) {
     };
  }
+
+ logout(): void{
+  localStorage.clear();
+}
 }

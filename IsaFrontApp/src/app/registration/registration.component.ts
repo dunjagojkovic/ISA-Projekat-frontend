@@ -88,25 +88,21 @@ export class RegistrationComponent implements OnInit {
 
           this.router.navigate(['/'])
         },  error => {
-          alert('Email already exists')
+          this._snackBar.open('Email already exists', 'Close', {duration: 5000})
         });
+        this._snackBar.open('Registration request successfully submited! Wait for email confirmation.', 'Close', {duration: 5000})
       }
       else if (type == "Boat owner"){
         this.api.registerBoatOwner(data).subscribe( (any: any) => {
           this.router.navigate(['/'])
         },  error => {
-          alert('Email already exists')
+          this._snackBar.open('Email already exists', 'Close', {duration: 5000})
         });
+        this._snackBar.open('Registration request successfully submited! Wait for email confirmation.', 'Close', {duration: 5000})
       }
       
     }  
-    
     }
-
-
-
-
-    
   }
   
 

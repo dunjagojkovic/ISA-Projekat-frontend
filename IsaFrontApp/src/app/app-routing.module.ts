@@ -39,7 +39,15 @@ import { InstructorComplaintsComponent } from './homepage-client/instructor-comp
 import { CottageEvaluationsComponent } from './homepage-client/cottage-evaluations/cottage-evaluations.component';
 import { BoatEvaluationsComponent } from './homepage-client/boat-evaluations/boat-evaluations.component';
 import { InstructorEvaluationsComponent } from './homepage-client/instructor-evaluations/instructor-evaluations.component';
-
+import { ReviewHouseOwnerComponent } from './homepage-house-owner/review-house-owner/review-house-owner.component';
+import { ReserveHouseOwnerComponent } from './homepage-house-owner/reserve-house-owner/reserve-house-owner.component';
+import { HistoryBoatOwnerComponent } from './homepage-boat-owner/history-boat-owner/history-boat-owner.component';
+import { MapsHouseOwnerComponent } from './homepage-house-owner/maps-house-owner/maps-house-owner.component';
+import { MapsBoatOwnerComponent } from './homepage-boat-owner/maps-boat-owner/maps-boat-owner.component';
+import { ReviewBoatOwnerComponent } from './homepage-boat-owner/review-boat-owner/review-boat-owner.component';
+import { ReserveBoatOwnerComponent } from './homepage-boat-owner/reserve-boat-owner/reserve-boat-owner.component';
+import { ReportHouseOwnerComponent } from './homepage-house-owner/report-house-owner/report-house-owner.component';
+import { ReportBoatOwnerComponent } from './homepage-boat-owner/report-boat-owner/report-boat-owner.component';
 
 const routes: Routes = [
   { path: '', component: FrontPageComponent},
@@ -77,9 +85,17 @@ const routes: Routes = [
   { path: "instructor-complaints-client", component: InstructorComplaintsComponent},
   { path: "cottage-evaluations-client", component: CottageEvaluationsComponent},
   { path: "boat-evaluations-client", component: BoatEvaluationsComponent},
-  { path: "instructor-evaluations-client", component: InstructorEvaluationsComponent}
-
-
+  { path: "instructor-evaluations-client", component: InstructorEvaluationsComponent},
+  { path: "review-house-owner", component: ReviewHouseOwnerComponent},
+  { path: "reserve-house-owner", component: ReserveHouseOwnerComponent},
+  { path: "history-boat-owner", component: HistoryBoatOwnerComponent},
+  { path: "maps-house-owner", component: MapsHouseOwnerComponent},
+  { path: "maps-boat-owner", component: MapsBoatOwnerComponent},
+  { path: "review-boat-owner", component: ReviewBoatOwnerComponent},
+  { path: "reserve-boat-owner", component: ReserveBoatOwnerComponent},
+  { path: "report-house-owner", component: ReportHouseOwnerComponent},
+  { path: "report-boat-owner", component: ReportBoatOwnerComponent}
+  
 ];
 
 @NgModule({

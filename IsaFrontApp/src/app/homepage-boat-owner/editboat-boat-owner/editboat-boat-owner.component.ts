@@ -122,9 +122,17 @@ export class EditboatBoatOwnerComponent implements OnInit {
         exteriorImage: this.images['exteriorImage'],
         interiorImage: this.images['interiorImage']
       }
+      console.log(data);
 
     this.api.editBoat(this.id, data).subscribe((response:any) => {
-      this.router.navigate(['/home-boat-owner']);
+      this.boat = response;
+      if(response != null){
+        this.router.navigate(['/home-boat-owner']);
+      } else if(response == null){
+        alert("Can't edit, the boat is reserved.");
+      }
+  }, (error: any) => {
+    alert("Can't edit, the boat is reserved."); 
   });
   }
 
@@ -163,4 +171,8 @@ export class EditboatBoatOwnerComponent implements OnInit {
     reader.onerror = function (error) {
     };
  }
+
+ logout(): void{
+  localStorage.clear();
+}
 }

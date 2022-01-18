@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { CalendarEvent, CalendarView } from 'angular-calendar';
+import { MatSnackBar} from '@angular/material/snack-bar';
+import { TemplateParseResult } from '@angular/compiler';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-set-free-terms',
@@ -12,30 +15,41 @@ import { CalendarEvent, CalendarView } from 'angular-calendar';
 export class SetFreeTermsComponent implements OnInit {
   form: FormGroup;
   id: any;
+  houseId: any;
+  todayDate:Date = new Date();
+  ownerId: any;
   user: any = {} as any;
-  viewDate: Date = new Date();
+  viewDate: any;
   view: CalendarView = CalendarView.Month;
   CalendarView = CalendarView;
+  refresh = new Subject<void>();
   terms = [] as any;
+  reservations = [] as any;
+  today = new Date();
   events: CalendarEvent[] = [];
   monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"];
 
   colors: any = {
     blue: {
-      primary: '#1e90ff',
-      secondary: '#D1E8FF',
+      primary: '#f0f194',
+      secondary: '#f0f194',
     },
     green: {
       primary: '#84A98C',
-      secondary: '#ebf0e9',
+      secondary: '#84A98C',
     },
+    red: {
+      primary: 'rgb(156, 78, 78)',
+      secondary: 'rgb(156, 78, 78)',
+    }
   };
 
   constructor(
     private formBuilder : FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
+    private _snackBar: MatSnackBar,
     private api: ApiService   
   ) { 
 
@@ -56,22 +70,38 @@ export class SetFreeTermsComponent implements OnInit {
   ngOnInit(): void {
     this.api.current().subscribe((response:any) => {
       this.user = response;
-  });
-    this.api.loadHouseFreeTerms(this.id).subscribe((response:any) => {
-      this.terms = response;
+      this.load();
+  }); 
+}
 
-      console.log(response)
-
-      for(let event of response) {
+  load() {
+    this.api.getAllReservations(this.id, this.user.id).subscribe((response:any) => {
+      this.reservations = response;
+  
+      for(let event of this.reservations) {
         this.events.push({
           start: new Date(event.startDate),
           end: new Date(event.endDate),
-          title: event.action ? "Free term - action" : "Free term",
-          color: event.action ? this.colors.blue : this.colors.green
+          title:  "Reservation",
+          color: this.colors.red
         })
       }
+
+      this.api.loadHouseFreeTerms(this.id).subscribe((response:any) => {
+        this.terms = response;
+
+        for(let event of response) { 
+          this.events.push({
+            start: new Date(event.startDate),
+            end: new Date(event.endDate),
+            title: event.action ? "Free term - action" : "Free term",
+            color: event.action ? this.colors.blue : this.colors.green
+          })
+        }
+        this.viewDate =  new Date();
+    });
   });
-  }
+}
 
   onSave() {
 
@@ -89,14 +119,19 @@ export class SetFreeTermsComponent implements OnInit {
     }
 
     this.api.addHouseFreeTerms(data).subscribe((response:any) => {
-      console.log(response)
+      console.log(response);
+      if(response == null){
+        this._snackBar.open('You can not add this term, it already exists. ', 'Close', {duration: 6000});   
+      }
+      location.reload();
     });
-
-    location.reload();
   }
 
   setView(view: CalendarView) {
     this.view = view;
   }
 
+  logout(): void{
+    localStorage.clear();
+  }
 }
