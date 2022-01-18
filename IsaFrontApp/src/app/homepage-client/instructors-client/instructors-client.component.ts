@@ -10,6 +10,11 @@ import { Router } from '@angular/router';
 })
 export class InstructorsClientComponent implements OnInit {
  
+  latitude: any;
+  longitude: any;
+  lat = 44.62049751048226;
+  lon = 20.50303520932738;
+
   constructor(
     private router: Router,
     private api: ApiService   

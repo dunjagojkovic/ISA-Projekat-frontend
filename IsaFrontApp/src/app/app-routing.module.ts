@@ -46,6 +46,7 @@ import { ReviewBoatOwnerComponent } from './homepage-boat-owner/review-boat-owne
 import { ReserveBoatOwnerComponent } from './homepage-boat-owner/reserve-boat-owner/reserve-boat-owner.component';
 import { ReportHouseOwnerComponent } from './homepage-house-owner/report-house-owner/report-house-owner.component';
 import { ReportBoatOwnerComponent } from './homepage-boat-owner/report-boat-owner/report-boat-owner.component';
+import { MapsClientComponent } from './homepage-client/maps-client/maps-client.component';
 
 const routes: Routes = [
   { path: '', component: FrontPageComponent},
@@ -92,7 +93,8 @@ const routes: Routes = [
   { path: "review-boat-owner", component: ReviewBoatOwnerComponent, canActivate: [AuthGuard],  data: {role: 'Boat owner'}},
   { path: "reserve-boat-owner", component: ReserveBoatOwnerComponent, canActivate: [AuthGuard],  data: {role: 'Boat owner'}},
   { path: "report-house-owner", component: ReportHouseOwnerComponent, canActivate: [AuthGuard],  data: {role: 'House owner'}},
-  { path: "report-boat-owner", component: ReportBoatOwnerComponent, canActivate: [AuthGuard],  data: {role: 'Boat owner'}}
+  { path: "report-boat-owner", component: ReportBoatOwnerComponent, canActivate: [AuthGuard],  data: {role: 'Boat owner'}},
+  { path: "maps-client", component: MapsClientComponent, canActivate: [AuthGuard],  data: {role: 'Client'}}
   
 ];
 
