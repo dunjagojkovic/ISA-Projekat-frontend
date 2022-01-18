@@ -10,8 +10,8 @@
     <div class="col-md-4">
       <nav class="navMenu">
         <a href="home-house-owner" style="float:none">Houses</a>
-        <a href="" style="float:none">Calendar</a>
         <a href="history-house-owner" style="float:none">Reservations</a>
+        <a href="report-house-owner" style="float:none">Business report</a>
         <a href="settings-house-owner" style="float:none">User settings</a>
       </nav>
     </div>
@@ -32,7 +32,7 @@
   <h1>Set free terms for house</h1>
   <form [formGroup]="form">
     <div>
-      <mat-form-field appearance="outline" class="date-picker" color="#354F52" >
+      <mat-form-field appearance="outline" class="date-picker" color="#354F52" style="width: 300px;">
         <mat-label style="font-weight: bold;">Check in - Check out</mat-label>
         <mat-date-range-input [min]="todayDate" [rangePicker]="picker">
           <input style="font-weight: bold;" matStartDate formControlName="startDate" placeholder="Start date">
@@ -42,14 +42,15 @@
         <mat-date-range-picker #picker></mat-date-range-picker>          
       </mat-form-field> 
 
-      <section class="example-section">
-        <mat-checkbox class="example-margin" formControlName="isAction">Set action</mat-checkbox>
-      </section>
-
-      <mat-form-field class="input-box"  appearance="outline">
-        <mat-label>Action price</mat-label>
-        <input matInput placeholder=""  formControlName="actionPrice">
-      </mat-form-field>
+      <div style="display: flex; flex-direction: row; margin-left: 35%;">
+        <section class="example-section">
+          <mat-checkbox class="example-margin" formControlName="isAction">Set action</mat-checkbox>
+        </section>
+        <mat-form-field class="input-box"  appearance="outline">
+          <mat-label>Action price</mat-label>
+          <input matInput placeholder=""  formControlName="actionPrice">
+        </mat-form-field>
+      </div>
     </div>
     <button class="btnn" (click)="onSave()">Add term</button>
   </form>

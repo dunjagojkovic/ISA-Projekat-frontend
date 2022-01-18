@@ -15,7 +15,7 @@ export class SetTermsBoatsComponent implements OnInit {
   id: any;
   todayDate:Date = new Date();
   user: any = {} as any;
-  viewDate: Date = new Date();
+  viewDate: any;
   view: CalendarView = CalendarView.Month;
   CalendarView = CalendarView;
   terms = [] as any;
@@ -38,7 +38,6 @@ export class SetTermsBoatsComponent implements OnInit {
       secondary: 'rgb(156, 78, 78)',
     }
   };
-
 
   constructor(
     private formBuilder : FormBuilder,
@@ -86,33 +85,18 @@ export class SetTermsBoatsComponent implements OnInit {
         this.terms = response;
 
         for(let event of response) {
-          
-          if(this.isReserved(event.startDate, event.endDate, this.reservations)) {
-            continue;
-          }
-          
           this.events.push({
             start: new Date(event.startDate),
             end: new Date(event.endDate),
             title: event.action ? "Free term - action" : "Free term",
             color: event.action ? this.colors.blue : this.colors.green
           })
-        }
+        } 
+        this.viewDate =  new Date();
     });
   });
 }
 
-  isReserved(startDate: any, endDate: any, reservations: any) {
-
-    for(let reservation of reservations) {
-
-      if(reservation.startDate == startDate && reservations.endDate == endDate) {
-        return true;
-      }
-    }
-    return false;
-  }
-  
   onSave() {
 
     const startDate = this.form.get('startDate')?.value;
@@ -131,9 +115,9 @@ export class SetTermsBoatsComponent implements OnInit {
     this.api.addBoatFreeTerms(data).subscribe((response:any) => {
       console.log(response)
       if(response == null){
-        this._snackBar.open('You can not add this term. ', 'Close', {duration: 6000});   
+        this._snackBar.open('You can not add this term, it already exists. ', 'Close', {duration: 6000});   
       }
-      this.load();
+      location.reload();
     });
   }
 
