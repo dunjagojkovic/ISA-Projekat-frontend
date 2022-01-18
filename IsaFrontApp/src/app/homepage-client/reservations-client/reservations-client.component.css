@@ -175,7 +175,7 @@
   .rooms-table th {
     display: inline-block;
     padding: 15px 101.5px;
-    text-align: left;
+    text-align: center;
     font-weight: bold;
     font-size: 15px;
     color: white;
@@ -189,7 +189,7 @@
     overflow-y: scroll;
     background: #CAD2C5;
     scrollbar-color: #84A98C;
-    width: 1060px;
+    width: 1020px;
   }
   
   .rooms-table thead {

@@ -4,13 +4,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { MatSnackBar} from '@angular/material/snack-bar';
 
-
 @Component({
-  selector: 'app-cottage-evaluations',
-  templateUrl: './cottage-evaluations.component.html',
-  styleUrls: ['./cottage-evaluations.component.css']
+  selector: 'app-instructor-evaluations',
+  templateUrl: './instructor-evaluations.component.html',
+  styleUrls: ['./instructor-evaluations.component.css']
 })
-export class CottageEvaluationsComponent implements OnInit {
+export class InstructorEvaluationsComponent implements OnInit {
 
   user: any = {} as any;
   id: any;
@@ -46,7 +45,7 @@ export class CottageEvaluationsComponent implements OnInit {
       console.log(response);
   });
 
-  this.api.loadOneHouseReservation(this.id).subscribe((response:any) => {
+  this.api.loadOneInstructorReservation(this.id).subscribe((response:any) => {
     this.reservation = response;
     console.log(response);
 
@@ -57,7 +56,7 @@ export class CottageEvaluationsComponent implements OnInit {
     this.user = localStorage.clear();
     this.router.navigate(['/']);
   }
-  
+
   onSubmit(){
 
     const content = this.form.get('content')?.value;
@@ -67,11 +66,11 @@ export class CottageEvaluationsComponent implements OnInit {
     let data = {
       content: content,
       clientId: this.user.id,
-      homeReservationId: this.reservation.id,
+      adventureReservationId: this.reservation.id,
       rate: rate
     }
 
-    this.api.sendEvaluationsForHouseReservation(data).subscribe((response: any) => {
+    this.api.sendEvaluationsForInstructorReservation(data).subscribe((response: any) => {
       console.log(response);
       if(response != null){
         this.evaluation = response;  

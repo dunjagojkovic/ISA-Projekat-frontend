@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
+import { AuthGuard } from './auth.guard';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
@@ -58,6 +60,9 @@ import { CottageComplaintsComponent } from './homepage-client/cottage-complaints
 import { BoatComplaintsComponent } from './homepage-client/boat-complaints/boat-complaints.component';
 import { InstructorComplaintsComponent } from './homepage-client/instructor-complaints/instructor-complaints.component';
 import { CottageEvaluationsComponent } from './homepage-client/cottage-evaluations/cottage-evaluations.component';
+import { BoatEvaluationsComponent } from './homepage-client/boat-evaluations/boat-evaluations.component';
+import { InstructorEvaluationsComponent } from './homepage-client/instructor-evaluations/instructor-evaluations.component';
+import { ApiService } from './api.service';
 import { ReviewHouseOwnerComponent } from './homepage-house-owner/review-house-owner/review-house-owner.component';
 import { ReserveHouseOwnerComponent } from './homepage-house-owner/reserve-house-owner/reserve-house-owner.component';
 import { HistoryBoatOwnerComponent } from './homepage-boat-owner/history-boat-owner/history-boat-owner.component';
@@ -109,6 +114,8 @@ import { ReportBoatOwnerComponent } from './homepage-boat-owner/report-boat-owne
     BoatComplaintsComponent,
     InstructorComplaintsComponent,
     CottageEvaluationsComponent,
+    BoatEvaluationsComponent,
+    InstructorEvaluationsComponent,
     HistoryHouseOwnerComponent,
     ReviewHouseOwnerComponent,
     ReserveHouseOwnerComponent,
@@ -120,6 +127,7 @@ import { ReportBoatOwnerComponent } from './homepage-boat-owner/report-boat-owne
     ReportHouseOwnerComponent,
     ReportBoatOwnerComponent
   ],
+
   imports: [
     ChartModule,
     BrowserModule,
@@ -151,7 +159,12 @@ import { ReportBoatOwnerComponent } from './homepage-boat-owner/report-boat-owne
       apiKey: 'AIzaSyCkTOjUv92qCadQ4j9fN3Ez7mZHSXuyKco'
     })
    ],
-  providers: [],
+   providers: [
+    ApiService,
+    AuthGuard,
+    {provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 

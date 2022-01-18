@@ -14,6 +14,7 @@ export class ProfileSettingsComponent implements OnInit {
 
   deleteAccountBox : boolean = false;
   changePasswordBox : boolean = false;
+  cattegoryAndPenaltiesBox : boolean = false;
   hide = true;
   user: any = {} as any;
   form: FormGroup;
@@ -90,7 +91,7 @@ export class ProfileSettingsComponent implements OnInit {
   }
 
   logout() {
-    this.user = null;
+    this.user = localStorage.clear();
     this.router.navigate(['/']);
   }
 

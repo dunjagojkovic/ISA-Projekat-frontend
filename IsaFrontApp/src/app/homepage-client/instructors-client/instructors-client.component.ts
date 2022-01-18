@@ -27,6 +27,7 @@ export class InstructorsClientComponent implements OnInit {
   });
   this.api.loadIstructorsForClients().subscribe((response:any) => {
     this.instructors = response;
+    console.log(response);
   });
   }
 
@@ -39,7 +40,16 @@ export class InstructorsClientComponent implements OnInit {
   }
 
   sortInstructorsByPrice(): any[] {
-    return this.instructors.sort((a: any, b: any) => (a.priceList) - (b.priceList));
+    return this.instructors.sort((a: any, b: any) => (a.pricelist) - (b.pricelist));
+  }
+
+  sortInstructorsByRate(): any[] {
+    return this.instructors.sort((a: any, b: any) => (b.avgRate) - (a.avgRate));
+  }
+
+  logout() {
+    this.user = localStorage.clear();
+    this.router.navigate(['/']);
   }
 
 }

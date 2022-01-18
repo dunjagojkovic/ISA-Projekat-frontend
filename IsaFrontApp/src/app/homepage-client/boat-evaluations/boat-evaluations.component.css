@@ -91,6 +91,15 @@
     vertical-align: center;
 }
 
+.frontpage_gray_banner_label_small {
+    padding-bottom: 50px;
+    text-align: center;
+    font-size: 32px;
+    display: inline-block;
+    vertical-align: center;
+}
+
+
 .footer {
     align-content: right;
     padding-left:20px !important;
@@ -185,6 +194,24 @@
     font-weight: bold;
 }
 
+.search-btn{
+    border-radius: 20px;
+    border: 3px solid #84A98C ;
+    color:white;
+    background-color: #84A98C;
+    font-weight: bold;
+    padding: 10px 0px 10px 0px !important;
+    position: absolute;
+    width: 120px;
+    height: 44px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    left: 45%;
+    top:110%;
+}
+
+
 .reserve-btn{
     border-radius: 20px;
     border: 3px solid #84A98C ;
@@ -199,15 +226,125 @@
   
 }
 
-.rate{
-    color: white;
-    font-weight: bold;
-    padding: 6px 0px 10px 0px !important;
-    font-weight: bold;
-    font-size: 25px;
-    background-color: #84A98C;
-    width: 50px;
+.example-form {
+    position: relative;
+    margin-left: 22%;
+    margin-bottom: 80px;
+    height: max-content;
+    width: 1000px;
     text-align: center;
-    border-radius: 10px;
+    margin-top: 20px;
+  }
+
+.date-picker {
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-top: 20px;
+    color: #354F52!important;
+    width: 220px;
 }
 
+.input-box-small {
+    width: 220px;
+    color: #354F52;
+    align-items: center;
+    height: 58px;
+    margin-bottom: 5px;
+    border-radius: 15px;
+    margin-inline: 5px;
+    font-weight: bold;
+  }
+
+  ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #354F52!important;
+    font-weight: bold;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #354F52!important;
+    font-weight: bold;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: #354F52!important;
+  font-weight: bold;
+}
+
+::ng-deep datepicker-value-example .mat-form-field-label{
+    color: #354F52!important;
+ }
+ 
+ ::ng-deep .mat-datepicker-toggle{
+    color: #354F52!important;
+ }
+ ::ng-deep .mat-form-field-underline{
+    color: #354F52!important;
+ }
+
+ ::ng-deep .mat-calendar-body-today{
+    color: #354F52!important;
+}
+
+.text-area {
+    width: 380px;
+    color: #354F52;
+    align-items: center;
+    height: 80px;
+    border-bottom: 5px;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+
+  .btn-complaints {
+    color:#ebf0e9;
+    background-color: #84A98C;
+    border-radius: 10px;
+    height: 48px;
+    font-size: 18px;
+    width: 240px;
+    margin-bottom: 30px;
+  }
+
+  .book-btn{
+    border-radius: 20px;
+    border: 3px solid #84A98C ;
+    color:white;
+    background-color: #84A98C;
+    font-weight: bold;    
+    width: 120px;
+    height: 44px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 7%;
+    margin-left: 38%;
+    margin-bottom: 3%;
+}
+
+
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 15px;
+}
+
+.mat-radio-button {
+    margin-left: 2.5%;
+    font-weight: bolder;
+
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+    background-color:#84A98C !important;
+  }
+  
+  ::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background-color: #84A98C!important;   
+  }
+  
+  ::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+   border-color:#84A98C!important; 
+  }
+
+.answers{
+    margin-right: auto;
+    margin-left: 10%;
+}

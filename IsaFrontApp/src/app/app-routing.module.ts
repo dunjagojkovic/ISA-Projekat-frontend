@@ -1,4 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { AuthGuard } from './auth.guard';
+
 
 import { RouterModule, Routes } from '@angular/router';
 import { FrontPageComponent } from './front-page/front-page.component';
@@ -35,6 +37,8 @@ import { CottageComplaintsComponent } from './homepage-client/cottage-complaints
 import { BoatComplaintsComponent } from './homepage-client/boat-complaints/boat-complaints.component';
 import { InstructorComplaintsComponent } from './homepage-client/instructor-complaints/instructor-complaints.component';
 import { CottageEvaluationsComponent } from './homepage-client/cottage-evaluations/cottage-evaluations.component';
+import { BoatEvaluationsComponent } from './homepage-client/boat-evaluations/boat-evaluations.component';
+import { InstructorEvaluationsComponent } from './homepage-client/instructor-evaluations/instructor-evaluations.component';
 import { ReviewHouseOwnerComponent } from './homepage-house-owner/review-house-owner/review-house-owner.component';
 import { ReserveHouseOwnerComponent } from './homepage-house-owner/reserve-house-owner/reserve-house-owner.component';
 import { HistoryBoatOwnerComponent } from './homepage-boat-owner/history-boat-owner/history-boat-owner.component';
@@ -51,12 +55,12 @@ const routes: Routes = [
   { path: "cottages", component: CottageProfilesClientComponent},
   { path: "boats", component: BoatProfilesComponent},
   { path: "instructors", component: InstructorProfilesClientComponent},
-  { path: "home-client", component: HomepageClientComponent},
+  { path: "home-client", component: HomepageClientComponent, canActivate: [AuthGuard],  data: {role: 'Client'}},
   { path: "settings-client", component: ProfileSettingsComponent},
   { path: "cottages-client", component: CottagesClientComponent},
   { path: "boats-client", component: BoatsClientComponent},
   { path: "instructors-client", component: InstructorsClientComponent},
-  { path: "home-house-owner", component: HomepageHouseOwnerComponent},
+  { path: "home-house-owner", component: HomepageHouseOwnerComponent, canActivate: [AuthGuard],  data: {role: 'House owner'}},
   { path: "settings-house-owner", component: SettingsHouseOwnerComponent},
   { path: "history-house-owner", component: HistoryHouseOwnerComponent},
   { path: "set-house-terms", component: SetFreeTermsComponent},
@@ -80,6 +84,8 @@ const routes: Routes = [
   { path: "boat-complaints-client", component: BoatComplaintsComponent},
   { path: "instructor-complaints-client", component: InstructorComplaintsComponent},
   { path: "cottage-evaluations-client", component: CottageEvaluationsComponent},
+  { path: "boat-evaluations-client", component: BoatEvaluationsComponent},
+  { path: "instructor-evaluations-client", component: InstructorEvaluationsComponent},
   { path: "review-house-owner", component: ReviewHouseOwnerComponent},
   { path: "reserve-house-owner", component: ReserveHouseOwnerComponent},
   { path: "history-boat-owner", component: HistoryBoatOwnerComponent},

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { id } from 'date-fns/locale';
+
 
 @Injectable({
   providedIn: 'root'
@@ -136,22 +136,20 @@ export class ApiService {
   sendDeleteRequest(id: number){
     return this.http.delete(this.baseURL + "/api/users/" + id, this.getAuthoHeader());
   }
-
   
   filterHouses(data:any){
     return this.http.post(this.baseURL + "/api/homes/filterHomes", data);
   }
-
-  changePassword(data: any){
-    return this.http.post(this.baseURL + "/api/users/password", data, this.getAuthoHeader());
-  }
-
   filterBoats(data: any){
     return this.http.post(this.baseURL + "/api/boats/filterBoats",  data);
   }
 
   filterInstructors(data: any){
     return this.http.post(this.baseURL + "/api/adventures/filterAdventures", data);
+  }
+
+  changePassword(data: any){
+    return this.http.post(this.baseURL + "/api/users/password", data, this.getAuthoHeader());
   }
   
   searchFreeHouses(data: any){
@@ -188,6 +186,10 @@ export class ApiService {
 
 getMyHouseReservations(){
   return this.http.get(this.baseURL + "/api/homeReservations/myReservations", this.getAuthoHeader());
+}
+
+getMyHouseFinishedReservations(){
+  return this.http.get(this.baseURL + "/api/homeReservations/myFinishedReservations", this.getAuthoHeader());
 }
 
 getMyBoatReservations(){
@@ -234,6 +236,10 @@ sendComplaintsForBoatReservation(data: any){
   return this.http.post(this.baseURL + "/api/boatComplaints/", data, this.getAuthoHeader());
 }
 
+sendComplaintsForInstructorReservation(data: any){
+  return this.http.post(this.baseURL + "/api/adventureComplaints/", data, this.getAuthoHeader());
+}
+
 sendReviewsForHouseReservation(data: any){
   return this.http.post(this.baseURL + "/api/homeReviews/", data, this.getAuthoHeader());
 }
@@ -250,8 +256,32 @@ loadOneBoatReservation(id: any) {
   return this.http.get(this.baseURL + "/api/boatReservations/" +id, this.getAuthoHeader());
 }
 
+loadOneInstructorReservation(id: any) {
+  return this.http.get(this.baseURL + "/api/adventuresReservation/" +id, this.getAuthoHeader());
+}
+
 sendEvaluationsForHouseReservation(data: any){
   return this.http.post(this.baseURL + "/api/homeEvaluations/", data, this.getAuthoHeader());
+}
+
+sendEvaluationsForBoatReservation(data: any){
+  return this.http.post(this.baseURL + "/api/boatEvaluations/", data, this.getAuthoHeader());
+}
+
+sendEvaluationsForInstructorReservation(data: any){
+  return this.http.post(this.baseURL + "/api/adventureEvaluations/", data, this.getAuthoHeader());
+}
+
+subscribeUserOnAction(id: number, data: any){
+  return this.http.put(this.baseURL + "/api/subscriptions/subscribe/" +id, data, this.getAuthoHeader());
+}
+
+unSubscribeUserOnAction(id:number,  data: any){
+  return this.http.put(this.baseURL + "/api/subscriptions/unsubscribe/" +id, data, this.getAuthoHeader());
+}
+
+getMyHouseSubscriptions(){
+  return this.http.get(this.baseURL + "/api/subscriptions/mySubscribedHomeProfiles", this.getAuthoHeader());
 }
   
 getReservationsForMyHouses(data: any){

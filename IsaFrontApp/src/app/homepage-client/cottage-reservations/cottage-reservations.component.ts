@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,9 +10,12 @@ import { ApiService } from 'src/app/api.service';
 })
 export class CottageReservationsComponent implements OnInit {
 
+user: any; 
 houseReservations = [] as any;
+
   constructor(
-    private api: ApiService
+    private api: ApiService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -20,6 +24,10 @@ houseReservations = [] as any;
       console.log(response);
       });
 
+  }
+  logout() {
+    this.user = localStorage.clear();
+    this.router.navigate(['/']);
   }
 
 }

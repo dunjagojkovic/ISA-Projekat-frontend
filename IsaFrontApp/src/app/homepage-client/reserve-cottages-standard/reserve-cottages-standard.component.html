@@ -2,7 +2,7 @@
     <div class="col-md-2"></div>
     <div class="col-md-8 website_name_label" [routerLink]="['/home-client']">BOOKING AGENCY</div>
     <div class="col-md-2"></div>
-    <button class="logout-btn"  routerLink="/">Log out</button>
+    <button class="logout-btn" (click)="logout()">Log out</button>
   </div>
     
   <div class="row d-flex align-items-center w-100">
@@ -70,8 +70,8 @@
         <div style="display: inline-flex; flex-direction: row;">
           <div>
             <mat-radio-group formControlName="extraServices" style=" display: flex; flex-direction: column;  margin: 15px 0;">
-              <mat-radio-button style="margin-left: 25px; margin-bottom: 20px; margin-top: 5%;" value=" ">{{house.extraService}}</mat-radio-button>
-              <mat-radio-button style="margin-left: 25px;" [value]='3'>No extra services</mat-radio-button>        
+              <mat-radio-button style="margin-left: 25px; margin-bottom: 20px; margin-top: 5%;" [value]="house.extraService">{{house.extraService}}</mat-radio-button>
+              <mat-radio-button style="margin-left: 25px;" value="No extra service">No extra services</mat-radio-button>        
            </mat-radio-group>
           </div>         
             <p style="font-weight: bold; margin-left: 90px; margin-top: 33px;">{{house.extraPrice}} e</p>
