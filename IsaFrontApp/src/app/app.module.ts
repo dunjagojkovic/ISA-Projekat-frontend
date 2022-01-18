@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './auth.guard';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { ApiService } from './api.service';
 
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
@@ -62,7 +63,7 @@ import { InstructorComplaintsComponent } from './homepage-client/instructor-comp
 import { CottageEvaluationsComponent } from './homepage-client/cottage-evaluations/cottage-evaluations.component';
 import { BoatEvaluationsComponent } from './homepage-client/boat-evaluations/boat-evaluations.component';
 import { InstructorEvaluationsComponent } from './homepage-client/instructor-evaluations/instructor-evaluations.component';
-import { ApiService } from './api.service';
+
 import { ReviewHouseOwnerComponent } from './homepage-house-owner/review-house-owner/review-house-owner.component';
 import { ReserveHouseOwnerComponent } from './homepage-house-owner/reserve-house-owner/reserve-house-owner.component';
 import { HistoryBoatOwnerComponent } from './homepage-boat-owner/history-boat-owner/history-boat-owner.component';

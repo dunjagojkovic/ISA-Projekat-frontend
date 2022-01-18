@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
-import { FormBuilder, Validators, FormControl} from '@angular/forms';
-import {MatSnackBarModule, MatSnackBar} from '@angular/material/snack-bar';
+import { FormBuilder, Validators} from '@angular/forms';
+import { MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-front-page',
