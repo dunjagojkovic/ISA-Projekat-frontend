@@ -61,7 +61,7 @@ export class ReserveHouseOwnerComponent implements OnInit {
 
   onSubmit() {
 
-    const extraServices = this.form.get('extraService')?.value;
+    const extraService = this.form.get('extraService')?.value;
     const startDate = this.form.get('startDate')?.value;
     const endDate = this.form.get('endDate')?.value;
 
@@ -70,7 +70,7 @@ export class ReserveHouseOwnerComponent implements OnInit {
       startDate: startDate,
       houseId: this.houseId,
       endDate: endDate,
-      extraServices: extraServices,
+      extraServices: extraService,
       pricelist: this.pricelist,
       name: this.name,
       address: this.address
