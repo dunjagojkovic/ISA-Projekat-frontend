@@ -21,6 +21,7 @@ export class SearchFreeCottagesClientComponent implements OnInit {
   address: any;
   result: any;
   house: any;
+  boxVisible: boolean = false;
  
   constructor(
     private router: Router,
@@ -56,8 +57,13 @@ export class SearchFreeCottagesClientComponent implements OnInit {
       console.log(response);
       this.houses = response;  
       this.result = this.houses.length;
+      if(response.length != 0){
+        this.boxVisible = true;
+      }
+      
       if(response.length == 0){
         this._snackBar.open('There are no available places to stay for your dates on our site. If you are flexible, check out some alternative dates.', 'Close', {duration: 5000})
+        this.boxVisible = false;
       }    
     });
    

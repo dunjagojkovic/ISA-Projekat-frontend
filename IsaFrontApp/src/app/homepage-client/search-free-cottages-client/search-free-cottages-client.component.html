@@ -59,7 +59,7 @@
     </div> 
 
 
-    <mat-toolbar class="navMenu" style="cursor: pointer; align-items: left;">      
+    <mat-toolbar *ngIf="boxVisible" class="navMenu" style="cursor: pointer; align-items: left;">      
       <div class="row d-flex align-items-center w-100">
         <div class="col-md-4">
         </div>
@@ -76,7 +76,7 @@
   
       
   <div>  
-    <div style="margin-left: 25%; font-weight: bold;">
+    <div  *ngIf="boxVisible" style="margin-left: 25%; font-weight: bold;">
       <h1>{{result}} properties found</h1>
     </div> 
     <div *ngFor="let h of houses; let i = index">    
