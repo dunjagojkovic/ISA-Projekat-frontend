@@ -69,11 +69,12 @@
         <mat-card-subtitle style="font-weight: bold; font-size: 16px; margin-top: 2%;">{{h.address}}</mat-card-subtitle>
       <br>
       <mat-card-content style="width: 400px; font-weight: bold; font-size: 16px;">
-        <p>Price: {{h.pricelist}}e per week</p>
+        <p>Price: {{h.pricelist}}e per day</p>
         <p>Number of rooms: {{h.numberOfRooms}}</p>
         <p>Sleeps: Up to {{h.numberOfBeds}} people</p>
         <p>Rules: {{h.behaviourRules}}</p>
         <p>Extra service: {{h.extraService}}</p>
+        <p>Price for extra service: {{h.extraPrice}}e per day</p>
         <p>Description: {{h.promoDescription}}</p>
         <div>
           <button (click)="SubscribeMe(h.id)" class="reserve-btn">Subscribe</button>
