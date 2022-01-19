@@ -152,7 +152,7 @@ export class ApiService {
 
   addAdventureFreeTerms(data: any)
   {
-    return this.http.post(this.baseURL + "api/adventureFreeTerms", data, this.getAuthoHeader());
+    return this.http.post(this.baseURL + "/api/adventureFreeTerms", data, this.getAuthoHeader());
   }
 
   loadHouseFreeTerms(id: any){
@@ -160,7 +160,7 @@ export class ApiService {
   }
 
   loadAdventureFreeTerms(id: any) {
-    return this.http.get(this.baseURL + "api/adventureFreeTerms/" + id, this.getAuthoHeader());
+    return this.http.get(this.baseURL + "/api/adventureFreeTerms/" + id, this.getAuthoHeader());
   }
 
 
@@ -180,6 +180,10 @@ export class ApiService {
   
   bookHouse(data: any){
     return this.http.post(this.baseURL + "/api/homeReservations/", data, this.getAuthoHeader());
+  }
+
+  bookByOwnerHouse(data: any){
+    return this.http.post(this.baseURL + "/api/homeReservations/owner", data, this.getAuthoHeader());
   }
 
   bookBoat(data: any){
@@ -291,12 +295,32 @@ sendComplaintsForHouseReservation(data: any){
   return this.http.post(this.baseURL + "/api/homeComplaints/", data, this.getAuthoHeader());
 }
 
+sendComplaintsForAdventureReservation(data: any){
+  return this.http.post(this.baseURL + "/api/adventureComplaints/", data, this.getAuthoHeader());
+}
+
 sendComplaintsForBoatReservation(data: any){
   return this.http.post(this.baseURL + "/api/boatComplaints/", data, this.getAuthoHeader());
 }
 
+sendReviewsForHouseReservation(data: any){
+  return this.http.post(this.baseURL + "/api/homeReviews/", data, this.getAuthoHeader());
+}
+
+sendReviewsForAdventureReservation(data: any){
+  return this.http.post(this.baseURL + "/api/adventureReviews/", data, this.getAuthoHeader());
+}
+
+sendReviewsForBoatReservation(data: any){
+  return this.http.post(this.baseURL + "/api/boatReviews/", data, this.getAuthoHeader());
+}
+
 loadOneHouseReservation(id: any) {
   return this.http.get(this.baseURL + "/api/homeReservations/" +id, this.getAuthoHeader());
+}
+
+loadOneAdventureReservation(id: any){
+  return this.http.get(this.baseURL + "/api/adventuresReservation/" + id, this.getAuthoHeader());
 }
 
 loadOneBoatReservation(id: any) {
@@ -306,13 +330,54 @@ loadOneBoatReservation(id: any) {
 sendEvaluationsForHouseReservation(data: any){
   return this.http.post(this.baseURL + "/api/homeEvaluations/", data, this.getAuthoHeader());
 }
+
+sendEvaliationsForAdventureReservation(data: any){
+   return this.http.post(this.baseURL + "/api/adventureEvaluations/", data, this.getAuthoHeader());
+}
   
 getReservationsForMyHouses(data: any){
   return this.http.post(this.baseURL + "/api/homeReservations/myReservationsForMyHouses", data, this.getAuthoHeader());
 }
 
-getAllReservations(){
-  return this.http.get(this.baseURL + "/api/homeReservations/getAllReservations", this.getAuthoHeader());
+getTodayReservationsForMyHouses(data: any){
+  return this.http.post(this.baseURL + "/api/homeReservations/myTodayReservationsForMyHouses", data, this.getAuthoHeader());
+}
+
+getHistoryReservationsForMyHouses(data: any){
+  return this.http.post(this.baseURL + "/api/homeReservations/myHistoryReservationsForMyHouses", data, this.getAuthoHeader());
+}
+
+getReservationsForMyAdventures(data: any){
+  return this.http.post(this.baseURL + "/api/adventuresReservation/myReservationsForMyAdventures", data, this.getAuthoHeader());
+}
+
+getTodayReservationsForMyAdventures(data: any){
+  return this.http.post(this.baseURL + "/api/adventuresReservation/myTodayReservationsForMyAdventures", data, this.getAuthoHeader());
+}
+
+
+getHistoryReservationsForMyAdventures(data: any){
+  return this.http.post(this.baseURL + "/api/adventuresReservation/myHistoryReservationsForMyAdventures", data, this.getAuthoHeader());
+}
+
+getAllReservations(houseId: number, ownerId: number){
+  return this.http.get(this.baseURL + "/api/homeReservations/getAllReservations/" +houseId + '/' + ownerId, this.getAuthoHeader());
+}
+
+getAllAdventureReservations(adventureId: number, instructorId: number){
+  return this.http.get(this.baseURL + "/api/adventuresReservation/getAllAdventureReservations/" + adventureId + '/' + instructorId, this.getAuthoHeader());
+}
+
+getReservationsForMyBoats(data: any){
+  return this.http.post(this.baseURL + "/api/boatReservations/myReservationsForMyBoats", data, this.getAuthoHeader());
+}
+
+getTodayReservationsForMyBoats(data: any){
+  return this.http.post(this.baseURL + "/api/boatReservations/myTodayReservationsForMyBoats", data, this.getAuthoHeader());
+}
+
+getHistoryReservationsForMyBoats(data: any){
+  return this.http.post(this.baseURL + "/api/boatReservations/myHistoryReservationsForMyBoats", data, this.getAuthoHeader());
 }
 
 

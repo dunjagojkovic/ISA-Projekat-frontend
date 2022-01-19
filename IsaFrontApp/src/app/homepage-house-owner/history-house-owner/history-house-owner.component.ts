@@ -12,14 +12,20 @@ export class HistoryHouseOwnerComponent implements OnInit {
 
   user: any = {} as any;
   reservations = [] as any;
+  todayReservations = [] as any;
+  historyReservations = [] as any;
   startDate: any;
   endDate: any;
   address: any;
+  historyBox: boolean = false;
+  todayBox: boolean = false;
+  upcommingBox: boolean = true;
 
 constructor(
   private router: Router,
   private api: ApiService   
 ) { }
+
 
   ngOnInit(): void {
     this.api.current().subscribe((response:any) => {
@@ -27,19 +33,40 @@ constructor(
       console.log(response);
   });
 
-  
   let data = {
     startDate: this.startDate,
     endDate: this.endDate,
     address: this.address,
     ownerId: this.user.id
   }
-
-  this.api.getAllReservations().subscribe((response:any) => {
+  this.api.getReservationsForMyHouses(data).subscribe((response:any) => {
     this.reservations = response;      
     console.log(response);
-});
+  });
+}
 
+  todayReservation(): void{
+    let data = {
+      startDate: this.startDate,
+      endDate: this.endDate,
+      address: this.address,
+      ownerId: this.user.id
+    }
+    this.api.getTodayReservationsForMyHouses(data).subscribe((response:any) => {
+      this.todayReservations = response;      
+    });
+  }
+
+  historyReservation(): void{
+    let data = {
+      startDate: this.startDate,
+      endDate: this.endDate,
+      address: this.address,
+      ownerId: this.user.id
+    }
+    this.api.getHistoryReservationsForMyHouses(data).subscribe((response:any) => {
+      this.historyReservations = response;      
+    });
   }
 
   logout(): void{

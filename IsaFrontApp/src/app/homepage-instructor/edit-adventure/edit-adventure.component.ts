@@ -5,6 +5,7 @@ import { id } from 'date-fns/locale';
 import { ApiService } from 'src/app/api.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { isThursday } from 'date-fns';
 
 @Component({
   selector: 'app-edit-adventure',
@@ -65,7 +66,7 @@ export class EditAdventureComponent implements OnInit {
       fishingEquipment: this.adventure.fishingEquipment,
       pricelist: this.adventure.pricelist,
       extraService: this.adventure.extraService,
-      cancelConditions: this.adventure.cancelConditions,
+      cancelConditions: this.adventure.cancelConditions
     });
   });
   }
@@ -80,8 +81,7 @@ export class EditAdventureComponent implements OnInit {
       const fishingEquipment = this.form.get('fishingEquipment')?.value;
       const pricelist = this.form.get('pricelist')?.value;
       const extraService = this.form.get('extraService')?.value;
-      const cancelConditions = this.form.get('cancelConditions')?.value;
-      
+      const cancelConditions = this.form.get('cancelConditions')?.value;      
 
       let data = {
         name: name,
@@ -94,8 +94,8 @@ export class EditAdventureComponent implements OnInit {
         pricelist: pricelist,
         extraService: extraService,
         cancelConditions: cancelConditions,
-        ambientImage: this.images['ambientImage']
-      
+        ambientImage: this.images['ambientImage'],
+        id: parseInt(this.adventure.id)
       }
 
     this.api.editAdventure(this.id, data).subscribe((response:any) => {

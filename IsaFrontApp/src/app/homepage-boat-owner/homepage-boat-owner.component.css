@@ -318,3 +318,8 @@
     line-height: 25px;
   }
 /* END SEARCH */
+
+agm-map {
+    height: 500px;
+    width: 600px;
+  }

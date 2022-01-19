@@ -79,6 +79,8 @@
           <td>{{i.startDate | date:'dd/MM/yyyy'}}</td>
           <td>{{i.endDate | date:'dd/MM/yyyy'}}</td>
           <button (click)="cancelInstructor(i.id)" >Cancel</button>
+          <button [routerLink]="['/instructor-evaluations-client']" [queryParams]="{id: i.id, startDate: i.startDate, endDate: i.endDate}" >Evaluate</button>
+          <button [routerLink]="['/instructor-complaints-client']" [queryParams]="{id: i.id, startDate: i.startDate, endDate: i.endDate}" >Complaints</button>
         </tr>
       </tbody>
     </table>

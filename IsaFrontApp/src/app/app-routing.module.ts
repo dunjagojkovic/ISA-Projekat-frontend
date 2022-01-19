@@ -45,10 +45,22 @@ import { CottageComplaintsComponent } from './homepage-client/cottage-complaints
 import { BoatComplaintsComponent } from './homepage-client/boat-complaints/boat-complaints.component';
 import { InstructorComplaintsComponent } from './homepage-client/instructor-complaints/instructor-complaints.component';
 import { CottageEvaluationsComponent } from './homepage-client/cottage-evaluations/cottage-evaluations.component';
+
 import { FreeTermsAdventureComponent } from './homepage-instructor/free-terms-adventure/free-terms-adventure.component';
 import { EditAdventureComponent } from './homepage-instructor/edit-adventure/edit-adventure.component';
 import { SettingsInstructorProfileComponent } from './homepage-instructor/settings-instructor-profile/settings-instructor-profile.component';
 
+
+
+import { ReviewHouseOwnerComponent } from './homepage-house-owner/review-house-owner/review-house-owner.component';
+import { ReserveHouseOwnerComponent } from './homepage-house-owner/reserve-house-owner/reserve-house-owner.component';
+import { HistoryBoatOwnerComponent } from './homepage-boat-owner/history-boat-owner/history-boat-owner.component';
+import { MapsHouseOwnerComponent } from './homepage-house-owner/maps-house-owner/maps-house-owner.component';
+import { MapsBoatOwnerComponent } from './homepage-boat-owner/maps-boat-owner/maps-boat-owner.component';
+import { ReviewBoatOwnerComponent } from './homepage-boat-owner/review-boat-owner/review-boat-owner.component';
+import { ReviewInstructorComponent } from './homepage-instructor/review-instructor/review-instructor.component';
+import { HistoryAdventureReservationComponent } from './homepage-instructor/history-adventure-reservation/history-adventure-reservation.component';
+import { InstructorEvaluationsComponent } from './homepage-client/instructor-evaluations/instructor-evaluations.component';
 
 
 const routes: Routes = [
@@ -96,12 +108,24 @@ const routes: Routes = [
   { path: "boat-complaints-client", component: BoatComplaintsComponent},
   { path: "instructor-complaints-client", component: InstructorComplaintsComponent},
   { path: "cottage-evaluations-client", component: CottageEvaluationsComponent},
+  { path: "instructor-evaluations-client", component: InstructorEvaluationsComponent},
+
   {path: "free-terms-adventure", component: FreeTermsAdventureComponent},
   {path: "edit-adventure", component: EditAdventureComponent},
-  {path: "settings-instructor-profile", component: SettingsInstructorProfileComponent}
+  {path: "settings-instructor-profile", component: SettingsInstructorProfileComponent},
 
 
 
+
+  { path: "review-house-owner", component: ReviewHouseOwnerComponent},
+  { path: "reserve-house-owner", component: ReserveHouseOwnerComponent},
+  { path: "history-boat-owner", component: HistoryBoatOwnerComponent},
+  { path: "maps-house-owner", component: MapsHouseOwnerComponent},
+  { path: "maps-boat-owner", component: MapsBoatOwnerComponent},
+  { path: "review-boat-owner", component: ReviewBoatOwnerComponent},
+  {path: "review-instructor", component: ReviewInstructorComponent},
+  {path: "history-adventure-reservation", component: HistoryAdventureReservationComponent}
+  
 ];
 
 @NgModule({

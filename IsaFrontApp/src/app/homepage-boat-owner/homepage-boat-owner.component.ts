@@ -4,6 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import { ApiService } from '../api.service';
 import { Validators } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
+import { LatLngLiteral } from '@agm/core';
 
 @Component({
   selector: 'app-homepage-boat-owner',
@@ -17,6 +18,10 @@ export class HomepageBoatOwnerComponent implements OnInit {
   addBoatBox : boolean = false;
   user: any = {} as any;
   images: any;
+  latitude: any;
+  longitude: any;
+  lat = 44.62049751048226;
+  lon = 20.50303520932738;
 
   constructor(
     private formBuilder : FormBuilder,
@@ -61,7 +66,13 @@ export class HomepageBoatOwnerComponent implements OnInit {
 
   onDelete(id: number) {
     this.api.deleteMyBoat(id).subscribe((response:any) => {
-      this.boats = this.boats.filter((e:any) => e.id != id);
+      //this.boats = this.boats.filter((e:any) => e.id != id);
+      this.boats = response;
+      if(response == true){
+        window.location.reload();
+      } else if(response == false){
+        alert("Can't delete, the boat is reserved.")
+      }
   });
   }
 
@@ -102,7 +113,9 @@ export class HomepageBoatOwnerComponent implements OnInit {
       navEquipment: navEquipment,
       fishingEquipment: fishingEquipment,
       interiorImage: this.images['interiorImage'],
-      exteriorImage: this.images['exteriorImage']
+      exteriorImage: this.images['exteriorImage'],
+      latitude: this.latitude,
+      longitude: this.longitude
     }
 
     this.api.addBoat(data).subscribe((response: any) => {
@@ -159,6 +172,15 @@ onSearch(){
     console.log(response);
     this.boats = response;
   });
+}
+
+logout(): void{
+  localStorage.clear();
+}
+
+changePickupMarkerLocation($event: { coords:LatLngLiteral}) {
+  this.latitude=$event.coords.lat;
+  this.longitude=$event.coords.lng;
 }
 
 }
