@@ -22,6 +22,7 @@ export class SearchFreeCottagesClientComponent implements OnInit {
   result: any;
   house: any;
   boxVisible: boolean = false;
+  numberOfBeds: any;
  
   constructor(
     private router: Router,
@@ -32,7 +33,8 @@ export class SearchFreeCottagesClientComponent implements OnInit {
     this.form = this.formBuilder.group({
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
-      address: ['', Validators.required]
+      address: ['', Validators.required],
+      numberOfBeds: ['']
     })
   }
 
@@ -46,11 +48,14 @@ export class SearchFreeCottagesClientComponent implements OnInit {
     this.startDate = this.form.get('startDate')?.value;
     this.endDate = this.form.get('endDate')?.value;
     this.address = this.form.get('address')?.value;
+    this.numberOfBeds = this.form.get('numberOfBeds')?.value;
+
 
     let data = {
       startDate: this.startDate,
       endDate: this.endDate,
-      address: this.address
+      address: this.address,
+      numberOfBeds: this.numberOfBeds
     }
 
     this.api.searchFreeHouses(data).subscribe((response: any) => {

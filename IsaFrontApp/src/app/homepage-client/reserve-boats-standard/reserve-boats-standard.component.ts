@@ -54,7 +54,7 @@ export class ReserveBoatsStandardComponent implements OnInit {
 
   onSubmit() {
    
-    const extraServices = this.form.get('extraService')?.value;
+    const extraServices = this.form.get('extraServices')?.value;
 
     let data = {
       name: this.name,

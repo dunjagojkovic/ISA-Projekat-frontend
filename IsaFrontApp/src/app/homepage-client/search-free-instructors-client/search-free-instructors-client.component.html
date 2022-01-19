@@ -51,7 +51,7 @@
             </mat-form-field>
             <mat-form-field class="input-box-small" appearance="outline" >
               <mat-label>Number of people</mat-label>
-              <input matInput placeholder="" value="" >
+              <input formControlName="maxNumberOfPeople" matInput placeholder="" value="" >
             </mat-form-field>
         </div>  
         <button class="search-btn" (click)="onSearch()">Search</button>
@@ -80,10 +80,6 @@
       <h1>{{result}} properties found</h1>
     </div>  
     <div *ngFor="let i of instructors; let ind = index">    
-     
-        <div style="margin-left: 25%; font-weight: bold;">
-          <h1>{{i.address}} : {{result}} properties found</h1>
-        </div>
       <div style="display: flex; flex-direction: row; margin-top: 1%; margin-left: 25%; margin-bottom: 5%; margin-right: 25%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
         <mat-card style="width: 500px; border: none; font-weight: bold; color: #52796F;">
           <div style="display: flex; flex-direction: row; justify-content: space-between;">

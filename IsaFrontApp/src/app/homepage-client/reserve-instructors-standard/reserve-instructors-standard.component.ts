@@ -53,11 +53,11 @@ export class ReserveInstructorsStandardComponent implements OnInit {
 
   onSubmit() {
    
-    const extraService = this.form.get('extraService')?.value;
+    const extraServices = this.form.get('extraServices')?.value;
 
     let data = {
       name: this.name,
-      extraService: extraService,
+      extraServices: extraServices,
       startDate: this.startDate,
       endDate: this.endDate,
       adventureId: this.id,

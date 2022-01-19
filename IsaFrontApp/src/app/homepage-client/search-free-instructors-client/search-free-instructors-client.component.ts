@@ -21,6 +21,7 @@ export class SearchFreeInstructorsClientComponent implements OnInit {
   result: any;
   instructor: any;
   boxVisible: boolean = false;
+  maxNumberOfPeople: any;
 
  
   constructor(
@@ -32,7 +33,8 @@ export class SearchFreeInstructorsClientComponent implements OnInit {
     this.form = this.formBuilder.group({
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
-      address: ['']
+      address: [''],
+      maxNumberOfPeople: ['']
     })
    }
 
@@ -46,11 +48,13 @@ export class SearchFreeInstructorsClientComponent implements OnInit {
     this.startDate = this.form.get('startDate')?.value;
     this.endDate = this.form.get('endDate')?.value;
     this.address = this.form.get('address')?.value;
+    this.maxNumberOfPeople = this.form.get('maxNumberOfPeople')?.value;
 
     let data = {
       startDate: this.startDate,
       endDate: this.endDate,
-      address: this.address
+      address: this.address,
+      maxNumberOfPeople: this.maxNumberOfPeople
     }
 
     this.api.searchFreeInstructors(data).subscribe((response: any) => {
@@ -62,6 +66,7 @@ export class SearchFreeInstructorsClientComponent implements OnInit {
       }
       if(response.length == 0){
         this._snackBar.open('There are no available instructors for your dates on our site. If you are flexible, check out some alternative dates.', 'Close', {duration: 5000})
+        this.boxVisible = false;
       }    
     });
   }
