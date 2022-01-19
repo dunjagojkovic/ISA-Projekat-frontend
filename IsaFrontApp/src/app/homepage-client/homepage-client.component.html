@@ -53,7 +53,9 @@
       <p>Extra service: {{s.homeProfile.extraService}}</p>
       <p>Description: {{s.homeProfile.promoDescription}}</p>
       <div>
-        <button (click)="UnSubscribeMe(s.id)" class="reserve-btn">Unsubscribe me</button>
+        <section class="example-section">
+          <mat-checkbox class="example-margin"  (click)="UnSubscribeMe(s.id)">I don't want to recieve notifications anymore</mat-checkbox>
+        </section>
       </div>
     </mat-card-content>
       </mat-card>  
@@ -117,7 +119,9 @@
       <p>Cancel conditions: {{sb.boatProfile.cancelConditions}}</p>
       <p>Description: {{sb.boatProfile.promoDescription}}</p>
         <div>
-          <button (click)="UnSubscribeMeFromBoats(sb.id)" class="reserve-btn">Unsubscribe me</button>
+          <section class="example-section">
+            <mat-checkbox class="example-margin"  (click)="UnSubscribeMeFromBoats(sb.id)">I don't want to recieve notifications anymore</mat-checkbox>
+          </section>
         </div>
       </mat-card-content>
         </mat-card>  
@@ -170,7 +174,9 @@
       <p>Instructor biography: {{i.adventureProfile.instructorBiography}} </p>
       <p>Description: {{i.adventureProfile.promoDescription}} </p>
       <div>
-        <button (click)="UnSubscribeMeFromInstructors(i.id)" class="reserve-btn">Unsubscribe me</button>
+        <section class="example-section">
+          <mat-checkbox class="example-margin" (click)="UnSubscribeMeFromInstructors(i.id)">I don't want to recieve notifications anymore</mat-checkbox>
+        </section>
       </div>
       </mat-card-content>
         </mat-card>  
