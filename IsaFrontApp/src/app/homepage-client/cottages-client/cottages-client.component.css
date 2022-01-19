@@ -211,3 +211,40 @@
     border-radius: 10px;
 }
 
+
+::ng-deep .mat-option.mat-focused .mat-form-field-ripple {
+    background-color: #354F52;
+  }
+  
+  ::ng-deep .mat-option.mat-focused .mat-form-field-label {
+    color: #354F52;
+  }
+  
+  ::ng-deep .mat-option.mat-focused.mat-primary .mat-select-arrow{
+    color: #354F52;
+  }
+
+  ::ng-deep .mat-option.mat-accent .mat-option-ripple .mat-ripple-element {
+    background-color:#84A98C !important;
+  }
+  
+  ::ng-deep .mat-option.mat-accent .mat-radio-inner-circle {
+    background-color: #84A98C!important;   
+  }
+  
+  ::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+   border-color:#84A98C!important; 
+  }
+  
+  ::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled){
+    color: #354F52;
+  }
+
+  ::ng-deep .mat-select-checked.mat-accent .mat-select-ripple .mat-ripple-element {
+    opacity: 0.03 !important;
+    background-color: #005691!important;
+  }
+
+::ng-deep .mat-select-checked.mat-accent .mat-select-background,.mat-select-indeterminate.mat-accent .mat-select-background {
+    background-color: #005691;
+  }

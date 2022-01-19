@@ -133,8 +133,12 @@ export class ApiService {
     return this.http.post(this.baseURL + "/api/adventuresReservation/", data, this.getAuthoHeader());
   }
 
+  sendDeleteRequest1(id: number, data: any){
+    return this.http.delete(this.baseURL + "/api/users/" + id,  this.getAuthoHeader());
+  }
+
   sendDeleteRequest(id: number){
-    return this.http.delete(this.baseURL + "/api/users/" + id, this.getAuthoHeader());
+    return this.http.delete(this.baseURL + "/api/users/" + id,  this.getAuthoHeader());
   }
   
   filterHouses(data:any){

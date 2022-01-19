@@ -56,7 +56,7 @@ export class FrontPageComponent implements OnInit {
             this.router.navigate(['/home-boat-owner']);
           }
         }, error => {
-          this._snackBar.open('Incorrect credentials! Please try again.', 'Close', {duration: 5000})});
+          this._snackBar.open('Incorrect credentials! Please try again.', 'Close', {duration: 2000})});
       })
     }
   }

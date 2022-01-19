@@ -88,13 +88,15 @@
       </div><br />
       <button class="btn"(click)="savePersonalInfo()">Save changes</button>
     </form>
+    <form [formGroup]="deleteForm">
       <div class="delete-box" *ngIf="deleteAccountBox">
         <mat-form-field class="reason-area" appearance="outline">
             <mat-label>Reason for deleting account</mat-label>
-            <textarea matInput></textarea>
+            <textarea formControlName="reasonForDelete" matInput></textarea>
           </mat-form-field><br />
           <button class="reason-btn" (click)="onDeleteRequest(user.id)">Send request</button>
       </div>
+    </form>
       <div class="password-box" *ngIf="changePasswordBox">
         <form [formGroup]="formPassword" (ngSubmit)="saveNewPassword()">
           <mat-form-field class="input-password" appearance="outline">
@@ -116,11 +118,11 @@
       <div class="delete-box" *ngIf="cattegoryAndPenaltiesBox">
         <mat-form-field class="input-box2" appearance="outline">
           <mat-label>Cttegory of user</mat-label>
-          <input disabled  matInput placeholder="" value="{{user.name}}">
+          <input disabled  matInput placeholder="" value="{{user.category}}">
       </mat-form-field>
       <mat-form-field class="input-box" appearance="outline">
           <mat-label>Number of penalties</mat-label>
-          <input disabled matInput placeholder="" value="{{user.surname}}">
+          <input disabled matInput placeholder="" value="{{user.penalty}}">
       </mat-form-field>
       </div>
   </div>

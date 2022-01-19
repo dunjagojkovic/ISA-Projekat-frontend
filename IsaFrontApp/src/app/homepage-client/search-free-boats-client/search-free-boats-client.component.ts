@@ -18,6 +18,9 @@ export class SearchFreeBoatsClientComponent implements OnInit {
   startDate: any;
   endDate: any;
   address: any;
+  boxVisible: boolean = false;
+  result: any;
+
 
   constructor(
     private router: Router,
@@ -52,9 +55,14 @@ export class SearchFreeBoatsClientComponent implements OnInit {
     this.api.searchFreeBoats(data).subscribe((response: any) => {
       console.log(response);
       this.boats = response;  
+      this.result = this.boats.length;
+      if(response.length != 0){
+        this.boxVisible = true;
+      }      
       if(response.length == 0){
         this._snackBar.open('There are no available boats for your dates on our site. If you are flexible, check out some alternative dates.', 'Close', {duration: 5000})
-      }    
+        this.boxVisible = false;
+      }     
     });
   
   }

@@ -19,6 +19,7 @@ export class ProfileSettingsComponent implements OnInit {
   user: any = {} as any;
   form: FormGroup;
   formPassword: FormGroup;
+  deleteForm: FormGroup;
   
   constructor(
     private formBuilder : FormBuilder,
@@ -38,7 +39,7 @@ export class ProfileSettingsComponent implements OnInit {
         password: [''],
         type: ['', Validators.required],
         id: ['', Validators.required]
-      })
+      });
 
       this.formPassword = this.formBuilder.group({
 
@@ -46,8 +47,13 @@ export class ProfileSettingsComponent implements OnInit {
         newPassword: [''],
         passwordRepeat: ['']
 
-      })
+      });
 
+      this.deleteForm = this.formBuilder.group({
+
+        reasonForDelete: ['', Validators.required]      
+
+      })
     }
 
 
@@ -96,7 +102,13 @@ export class ProfileSettingsComponent implements OnInit {
   }
 
   onDeleteRequest(id: number) {
-    this.api.sendDeleteRequest(id).subscribe((response: any) => {
+    const reasonForDelete = this.formPassword.get('reasonForDelete')?.value;
+
+    let data = {
+      reasonForDelete: reasonForDelete
+    }
+   
+    this.api.sendDeleteRequest1(id, data).subscribe((response: any) => {
       console.log(response);});
   }
 
