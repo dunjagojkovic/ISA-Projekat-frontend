@@ -55,6 +55,7 @@ export class ReserveCottagesStandardComponent implements OnInit {
    
     const extraService = this.form.get('extraServices')?.value;
 
+  if(this.isPenalty()){
     let data = {
       name: this.name,
       extraServices: extraService,
@@ -78,12 +79,20 @@ export class ReserveCottagesStandardComponent implements OnInit {
         } 
        
     });
+  }
+
   
 }
 
 logout() {
   this.user = localStorage.clear();
   this.router.navigate(['/']);
+}
+
+isPenalty(){
+  if(this.user.penalty >= 3)
+    return this._snackBar.open('Sorry but you have more than 2 penalties!', 'Close', {duration: 5000});
+  return true;
 }
  
 
