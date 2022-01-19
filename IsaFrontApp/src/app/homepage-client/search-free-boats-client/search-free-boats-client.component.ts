@@ -20,6 +20,7 @@ export class SearchFreeBoatsClientComponent implements OnInit {
   address: any;
   boxVisible: boolean = false;
   result: any;
+  capacity: any;
 
 
   constructor(
@@ -31,7 +32,8 @@ export class SearchFreeBoatsClientComponent implements OnInit {
     this.form = this.formBuilder.group({
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
-      address: ['']
+      address: [''],
+      capacity: ['']
     })
    }
 
@@ -45,11 +47,13 @@ export class SearchFreeBoatsClientComponent implements OnInit {
     this.startDate = this.form.get('startDate')?.value;
     this.endDate = this.form.get('endDate')?.value;
     this.address = this.form.get('address')?.value;
+    this.capacity = this.form.get('capacity')?.value;
 
     let data = {
       startDate: this.startDate,
       endDate: this.endDate,
-      address: this.address
+      address: this.address,
+      capacity: this.capacity
     }
 
     this.api.searchFreeBoats(data).subscribe((response: any) => {
