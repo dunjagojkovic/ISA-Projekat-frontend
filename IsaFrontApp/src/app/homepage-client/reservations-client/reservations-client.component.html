@@ -63,9 +63,11 @@
           <td style="width: 240px;">kuca</td>
           <td style="width: 300px;">{{hr.startDate | date:'dd/MM/yyyy'}}</td>
           <td style="width: 280px;">{{hr.endDate | date:'dd/MM/yyyy'}}</td>
-          <button (click)="cancelHouse(hr.id)" >Cancel</button>
-          <button [routerLink]="['/cottage-evaluations-client']" [queryParams]="{id: hr.id, startDate: hr.startDate, endDate: hr.endDate}" >Evaluate</button>
-          <button [routerLink]="['/cottage-complaints-client']" [queryParams]="{id: hr.id, startDate: hr.startDate, endDate: hr.endDate}" >Complaints</button>
+          <div style="display: flex; flex-direction: row;">
+            <button class="btn-review"  (click)="cancelHouse(hr.id)" >Cancel</button>
+            <button class="btn-review"  [routerLink]="['/cottage-evaluations-client']" [queryParams]="{id: hr.id, startDate: hr.startDate, endDate: hr.endDate}" >Evaluate</button>
+            <button class="btn-review"  [routerLink]="['/cottage-complaints-client']" [queryParams]="{id: hr.id, startDate: hr.startDate, endDate: hr.endDate}" >Complaints</button>
+          </div>
         </tr>
         <tr *ngFor = "let br of boatReservations">
           <td>brod</td>

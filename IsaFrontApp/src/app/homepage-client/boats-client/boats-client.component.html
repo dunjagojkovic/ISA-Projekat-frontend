@@ -86,6 +86,9 @@
       <p>Price for extra service: {{b.extraPrice}}e per day</p>
       <p>Cancel conditions: {{b.cancelConditions}}</p>
       <p>Description: {{b.promoDescription}}</p>
+      <div>
+        <button (click)="SubscribeMe(b.id)" class="reserve-btn">Subscribe</button>
+      </div>
       </mat-card-content>
         </mat-card>  
         <mat-card >

@@ -198,4 +198,18 @@
     border-radius: 10px;
 }
 
+.reserve-btn{
+    border-radius: 20px;
+    border: 3px solid #84A98C ;
+    color:white;
+    background-color: #84A98C;
+    font-weight: bold;  
+    width: 120px;
+    height: 44px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+  
+}
+
 
