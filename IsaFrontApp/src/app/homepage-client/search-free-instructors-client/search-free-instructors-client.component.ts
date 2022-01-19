@@ -50,12 +50,13 @@ export class SearchFreeInstructorsClientComponent implements OnInit {
     this.address = this.form.get('address')?.value;
     this.maxNumberOfPeople = this.form.get('maxNumberOfPeople')?.value;
 
-    let data = {
+  if(this.isDateValid()){
+    let data = {    
       startDate: this.startDate,
       endDate: this.endDate,
       address: this.address,
       maxNumberOfPeople: this.maxNumberOfPeople
-    }
+      }
 
     this.api.searchFreeInstructors(data).subscribe((response: any) => {
       console.log(response);
@@ -69,6 +70,9 @@ export class SearchFreeInstructorsClientComponent implements OnInit {
         this.boxVisible = false;
       }    
     });
+    }
+
+    
   }
 
   sortInstructors(): any[] {
@@ -83,5 +87,14 @@ export class SearchFreeInstructorsClientComponent implements OnInit {
     this.user = localStorage.clear();
     this.router.navigate(['/']);
   }
+
+
+  isDateValid(){
+    if((this.startDate == null || this.startDate == "") && (this.endDate == null || this.endDate == ""))
+      return this._snackBar.open('Please enter dates and destination to start searching!', 'Close', {duration: 5000});
+    return true;
+  }
+
+ 
 
 }

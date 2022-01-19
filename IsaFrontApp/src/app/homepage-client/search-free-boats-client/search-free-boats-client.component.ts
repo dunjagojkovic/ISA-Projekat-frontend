@@ -49,6 +49,8 @@ export class SearchFreeBoatsClientComponent implements OnInit {
     this.address = this.form.get('address')?.value;
     this.capacity = this.form.get('capacity')?.value;
 
+if(this.isDateValid())
+  {
     let data = {
       startDate: this.startDate,
       endDate: this.endDate,
@@ -68,7 +70,15 @@ export class SearchFreeBoatsClientComponent implements OnInit {
         this.boxVisible = false;
       }     
     });
+      }
+   
   
+  }
+
+   isDateValid(){
+    if((this.startDate == null || this.startDate == "") && (this.endDate == null || this.endDate == ""))
+      return this._snackBar.open('Please enter dates and destination to start searching!', 'Close', {duration: 5000});
+    return true;
   }
 
   sortBoats(): any[] {

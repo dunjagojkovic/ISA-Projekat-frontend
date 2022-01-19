@@ -33,7 +33,7 @@ export class SearchFreeCottagesClientComponent implements OnInit {
     this.form = this.formBuilder.group({
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
-      address: ['', Validators.required],
+      address: [''],
       numberOfBeds: ['']
     })
   }
@@ -51,13 +51,16 @@ export class SearchFreeCottagesClientComponent implements OnInit {
     this.numberOfBeds = this.form.get('numberOfBeds')?.value;
 
 
-    let data = {
+if(this.isDateValid())
+  {
+ let data = {
       startDate: this.startDate,
       endDate: this.endDate,
       address: this.address,
       numberOfBeds: this.numberOfBeds
     }
 
+    
     this.api.searchFreeHouses(data).subscribe((response: any) => {
       console.log(response);
       this.houses = response;  
@@ -71,8 +74,17 @@ export class SearchFreeCottagesClientComponent implements OnInit {
         this.boxVisible = false;
       }    
     });
-   
+}      
   }
+
+
+  isDateValid(){
+    if((this.startDate == null || this.startDate == "") && (this.endDate == null || this.endDate == ""))
+      return this._snackBar.open('Please enter dates and destination to start searching!', 'Close', {duration: 5000});
+    return true;
+  }
+
+ 
 
   sortCottages(): any[] {
     return this.houses.sort((a: any, b: any) => (a.pricelist) - (b.pricelist));
