@@ -211,3 +211,8 @@
     text-align: center;
     margin-top: 20px;
   }
+
+  agm-map {
+    height: 500px;
+    width: 600px;
+  }

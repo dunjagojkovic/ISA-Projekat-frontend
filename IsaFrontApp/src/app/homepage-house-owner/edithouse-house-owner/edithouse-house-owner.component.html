@@ -91,6 +91,11 @@
                  (change)="handleInteriorImage($event)">
         </div>
       </div>
+      <div style="margin-left: 11%;">
+        <agm-map appGoogleFontsLoadingDisable [latitude]="lat" [longitude]="lon" (mapClick)="changePickupMarkerLocation($event)">
+          <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+      </agm-map>
+      </div>
       <button class="btn" (click)="onSave()">Save house</button>
     </form>
   </div>
