@@ -304,6 +304,10 @@ getReservationsForCharts(data: any){
   return this.http.post(this.baseURL + "/api/homeReservations/myReservationsForCharts", data, this.getAuthoHeader());
 }
 
+getBoatReservationsForCharts(data: any){
+  return this.http.post(this.baseURL + "/api/boatReservations/boatReservationsForCharts", data, this.getAuthoHeader());
+}
+
 getAllReservations(houseId: number, ownerId: number){
   return this.http.get(this.baseURL + "/api/homeReservations/getAllReservations/" +houseId + '/' + ownerId, this.getAuthoHeader());
 }
