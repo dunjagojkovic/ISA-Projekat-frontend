@@ -58,13 +58,9 @@ export class ReserveBoatOwnerComponent implements OnInit {
     });
   }
 
-  logout(): void{
-    localStorage.clear();
-  }
-
   onSubmit() {
 
-    const extraServices = this.form.get('extraService')?.value;
+    const extraService = this.form.get('extraService')?.value;
     const startDate = this.form.get('startDate')?.value;
     const endDate = this.form.get('endDate')?.value;
 
@@ -73,7 +69,7 @@ export class ReserveBoatOwnerComponent implements OnInit {
       startDate: startDate,
       boatId: this.boatId,
       endDate: endDate,
-      extraServices: extraServices,
+      extraServices: extraService,
       pricelist: this.pricelist,
       name: this.name,
       address: this.address
@@ -90,6 +86,10 @@ export class ReserveBoatOwnerComponent implements OnInit {
         this._snackBar.open('Sorry, you can not book this boat for dates you entered. Please, try again.', 'Close', {duration: 5000})
       } 
   });
+  }
+
+  logout(): void{
+    localStorage.clear();
   }
 
 }

@@ -50,17 +50,16 @@ export class ReserveHouseOwnerComponent implements OnInit {
   ngOnInit(): void {
     this.api.current().subscribe((response:any) => {
       this.user = response;     
-  });
-  this.api.loadOneHouse(this.houseId).subscribe((response:any) => {
-    this.house = response;
-  });
-  this.api.loadOneUserInfo(this.clientId).subscribe((response: any) => {
-    this.client = response;
-  });
+    });
+    this.api.loadOneHouse(this.houseId).subscribe((response:any) => {
+      this.house = response;
+    });
+    this.api.loadOneUserInfo(this.clientId).subscribe((response: any) => {
+      this.client = response;
+    });
   }
 
   onSubmit() {
-
     const extraService = this.form.get('extraService')?.value;
     const startDate = this.form.get('startDate')?.value;
     const endDate = this.form.get('endDate')?.value;
@@ -80,8 +79,8 @@ export class ReserveHouseOwnerComponent implements OnInit {
       console.log(response);
       if(response != null){
         this.house = response;
-        this.router.navigate(['/history-house-owner']);
         this._snackBar.open('The reservation was successfully completed!', 'Close');
+        this.router.navigate(['/history-house-owner']);
       }
       if(response == null){
         this._snackBar.open('Sorry, you can not book this house for dates you entered. Please, try again.', 'Close', {duration: 5000})
