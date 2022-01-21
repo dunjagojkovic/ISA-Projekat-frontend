@@ -40,7 +40,6 @@ constructor(
 
   this.api.getClients().subscribe((response:any) => {
     this.clients = response;      
-    //console.log(response);
   }, () => this.getFullName());
 
     let data = {
@@ -52,7 +51,6 @@ constructor(
   
   this.api.getReservationsForMyHouses(data).subscribe((response:any) => {
     this.reservations = response;      
-    //console.log(response);
   });
 }
 
@@ -66,7 +64,6 @@ constructor(
 
     this.api.getClients().subscribe((response:any) => {
       this.clients = response;      
-      //console.log(response);
     }, () => this.getFullName());
 
     this.api.getTodayReservationsForMyHouses(data).subscribe((response:any) => {

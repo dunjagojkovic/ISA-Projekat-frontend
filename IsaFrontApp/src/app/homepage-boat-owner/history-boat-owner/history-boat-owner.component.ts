@@ -60,6 +60,12 @@ todayReservation(): void{
     address: this.address,
     ownerId: this.user.id
   }
+
+  this.api.getClients().subscribe((response:any) => {
+    this.clients = response;      
+    console.log(response);
+  }, () => this.getFullName());
+
   this.api.getTodayReservationsForMyBoats(data).subscribe((response:any) => {
     this.todayReservations = response;      
   });
@@ -72,6 +78,12 @@ historyReservation(): void{
     address: this.address,
     ownerId: this.user.id
   }
+
+  this.api.getClients().subscribe((response:any) => {
+    this.clients = response;      
+    console.log(response);
+  }, () => this.getFullName());
+
   this.api.getHistoryReservationsForMyBoats(data).subscribe((response:any) => {
     this.historyReservations = response;      
   });
@@ -91,13 +103,13 @@ getFullName(): void{
   for(var reservation of this.todayReservations){
     for(var client of this.clients){
       if(client.id == reservation.clientId)
-        this.reservations.push(client);
+        this.todayReservations.push(client);
     }
   }
   for(var reservation of this.historyReservations){
     for(var client of this.clients){
       if(client.id == reservation.clientId)
-        this.reservations.push(client);
+        this.historyReservations.push(client);
     }
   }
 }
