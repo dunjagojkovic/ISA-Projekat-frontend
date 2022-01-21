@@ -23,6 +23,8 @@ export class HistoryHouseOwnerComponent implements OnInit {
   upcommingBox: boolean = true;
   client: any;
   clientId: any;
+  todayRes: any;
+
 
 constructor(
   private router: Router,
@@ -38,7 +40,7 @@ constructor(
 
   this.api.getClients().subscribe((response:any) => {
     this.clients = response;      
-    console.log(response);
+    //console.log(response);
   }, () => this.getFullName());
 
     let data = {
@@ -46,11 +48,11 @@ constructor(
       endDate: this.endDate,
       address: this.address,
       ownerId: this.user.id
-  }
+    }
   
   this.api.getReservationsForMyHouses(data).subscribe((response:any) => {
     this.reservations = response;      
-    console.log(response);
+    //console.log(response);
   });
 }
 
@@ -61,9 +63,17 @@ constructor(
       address: this.address,
       ownerId: this.user.id
     }
+
+    this.api.getClients().subscribe((response:any) => {
+      this.clients = response;      
+      //console.log(response);
+    }, () => this.getFullName());
+
     this.api.getTodayReservationsForMyHouses(data).subscribe((response:any) => {
-      this.todayReservations = response;      
+      this.todayReservations = response; 
+      console.log(this.todayReservations);     
     });
+
   }
 
   historyReservation(): void{
@@ -73,9 +83,14 @@ constructor(
       address: this.address,
       ownerId: this.user.id
     }
+
+    this.api.getClients().subscribe((response:any) => {
+      this.clients = response;      
+    }, () => this.getFullName());
+
     this.api.getHistoryReservationsForMyHouses(data).subscribe((response:any) => {
       this.historyReservations = response;      
-    });
+    },() => this.getFullName());
   }
 
   logout(): void{
@@ -87,20 +102,22 @@ constructor(
       for(var client of this.clients){
         if(client.id == reservation.clientId)
           this.reservations.push(client);
-      }
+     }
     }
     for(var reservation of this.todayReservations){
       for(var client of this.clients){
         if(client.id == reservation.clientId)
-          this.reservations.push(client);
+          this.todayReservations.push(client);
       }
     }
     for(var reservation of this.historyReservations){
       for(var client of this.clients){
         if(client.id == reservation.clientId)
-          this.reservations.push(client);
+          this.historyReservations.push(client);
       }
     }
   }
+
+  
 
 }

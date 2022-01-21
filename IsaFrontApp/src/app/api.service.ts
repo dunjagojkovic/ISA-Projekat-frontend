@@ -37,6 +37,10 @@ export class ApiService {
     return this.http.post(this.baseURL + "/api/users/client/register", data);
   }
 
+  getUserInfo(){
+    return this.http.get(this.baseURL + "/api/users/userInfo", this.getAuthoHeader());
+  }
+
   registerHouseOwner(data: any) {
     return this.http.post(this.baseURL + "/api/users/house-owner/register", data);
   }
