@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
-import { FormGroup } from '@angular/forms';
-import { FormBuilder } from '@angular/forms';
+import {MatTableDataSource} from '@angular/material/table';
+import { FormBuilder, FormGroup} from '@angular/forms';
+
 
 @Component({
   selector: 'app-history-boat-owner',
@@ -24,11 +25,21 @@ export class HistoryBoatOwnerComponent implements OnInit {
   upcommingBox: boolean = true;
   client: any;
   clientId: any;
+  dataSource = new MatTableDataSource(this.reservations);
+  form: FormGroup;
+  userBox: boolean = true;
+
+
 
   constructor(
-  private router: Router,
   private api: ApiService, 
-) { }
+  private formBuilder : FormBuilder
+) { 
+  this.form = this.formBuilder.group({
+    searchTerm: ['']
+   
+  })
+}
 
 ngOnInit(): void {
   this.api.current().subscribe((response:any) => {
@@ -48,7 +59,7 @@ let data = {
   ownerId: this.user.id
 }
 this.api.getReservationsForMyBoats(data).subscribe((response:any) => {
-  this.reservations = response;      
+  this.reservations = response;    
   console.log(response);
 });
 }
@@ -112,6 +123,29 @@ getFullName(): void{
         this.historyReservations.push(client);
     }
   }
+}
+
+applyFilter(event: Event) {
+  const filterValue = (event.target as HTMLInputElement).value;
+  this.dataSource.filter = filterValue.trim().toLowerCase();
+}
+
+onSearch(){
+  const searchTerm = this.form.get('searchTerm')?.value;
+ 
+  let data = {
+    searchTerm: searchTerm   
+  }
+
+  this.api.filterClients(data).subscribe((response: any) => {
+    console.log(response);
+    this.clients = response;
+    for(var client of this.clients){
+      if(client.id != this.reservations.clientId){
+          this.userBox = false;
+      }
+    }
+  });
 }
 
 }

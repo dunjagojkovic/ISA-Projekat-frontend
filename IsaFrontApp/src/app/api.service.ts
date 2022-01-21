@@ -332,4 +332,9 @@ getHistoryReservationsForMyBoats(data: any){
   return this.http.post(this.baseURL + "/api/boatReservations/myHistoryReservationsForMyBoats", data, this.getAuthoHeader());
 }
 
+ 
+filterClients(data:any){
+  return this.http.post(this.baseURL + "/api/users/filterUsers", data);
+}
+
 }

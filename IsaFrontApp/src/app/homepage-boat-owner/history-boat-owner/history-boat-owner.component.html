@@ -28,11 +28,11 @@
     <div class="col-md-4"></div>
   </div>
 
-  <form>
+  <form [formGroup]="form">
     <div class="search-box-rooms">
-      <input class="search-txt-rooms" type="text" formControlName="" matInput value="" placeholder="Search for..." />
+      <input class="search-txt-rooms" type="text" formControlName="searchTerm" matInput value="" placeholder="Search for..." />
       <a class="search-btn-rooms">
-        <mat-icon>search</mat-icon>
+        <mat-icon (click)="onSearch()">search</mat-icon>
       </a>
     </div>
   </form>
@@ -57,7 +57,7 @@
       <h2 style="margin-left: 43%; margin-top: 25px;">Upcomming reservations</h2>
     </div>
     <div class="panel-middle" *ngIf = "upcommingBox">
-      <table class="rooms-table">
+      <table class="table-striped rooms-table">
         <thead>
           <tr>
             <th style="width: 220px;">Boat</th>
@@ -67,17 +67,17 @@
           </tr>
         </thead>
         <tbody style="width: 870px;">
-          <tr *ngFor = "let r of reservations;">
-            <td style="width: 220px;">{{r.boatProfile.name}}</td>
-            <td style="width: 260px;">{{r.startDate | date:'dd/MM/yyyy'}}</td>
-            <td style="width: 210px;">{{r.endDate | date:'dd/MM/yyyy'}}</td>
-            <div *ngFor = "let client of clients;">
-              <td *ngIf = "client.id == r.clientId">{{client.name}} {{client.surname}} <br>
-                {{client.email}} <br>
-                {{client.phoneNumber}} 
-              </td>
-            </div>  
-          </tr>
+            <tr *ngFor = "let r of reservations;" >
+              <td style="width: 220px;">{{r.boatProfile.name}}</td>
+              <td style="width: 260px;">{{r.startDate | date:'dd/MM/yyyy'}}</td>
+              <td style="width: 210px;">{{r.endDate | date:'dd/MM/yyyy'}}</td>
+              <div *ngFor = "let client of clients;">
+                <td *ngIf = "client.id == r.clientId">{{client.name}} {{client.surname}} <br>
+                  {{client.email}} <br>
+                  {{client.phoneNumber}} 
+                </td>
+              </div>  
+            </tr>
         </tbody>
       </table>
   </div>
