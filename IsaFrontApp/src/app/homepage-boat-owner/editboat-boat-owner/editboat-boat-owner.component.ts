@@ -5,7 +5,7 @@ import { id } from 'date-fns/locale';
 import { ApiService } from 'src/app/api.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-
+import { LatLngLiteral } from '@agm/core';
 
 @Component({
   selector: 'app-editboat-boat-owner',
@@ -17,7 +17,11 @@ export class EditboatBoatOwnerComponent implements OnInit {
   form: FormGroup;
   user: any = {} as any;
   boat: any;
+  latitude: any;
+  longitude: any;
   id: any;
+  lat = 44.62049751048226;
+  lon = 20.50303520932738;
   images: any;
 
   constructor(
@@ -49,7 +53,9 @@ export class EditboatBoatOwnerComponent implements OnInit {
       navEquipment: [''],
       capacity: [''],
       fishingEquipment: [''],
-      cancelConditions: ['']
+      cancelConditions: [''],
+      longitude: [''],
+      latitude: ['']
     });
 
     this.images = {}
@@ -79,7 +85,9 @@ export class EditboatBoatOwnerComponent implements OnInit {
       navEquipment: this.boat.navEquipment,
       capacity: this.boat.capacity,
       fishingEquipment: this.boat.fishingEquipment,
-      cancelConditions: this.boat.cancelConditions
+      cancelConditions: this.boat.cancelConditions,
+      longitude: this.boat.longitude,
+      latitude: this.boat.latitude
     });
   });
   }
@@ -101,6 +109,8 @@ export class EditboatBoatOwnerComponent implements OnInit {
       const capacity = this.form.get('capacity')?.value;
       const fishingEquipment = this.form.get('fishingEquipment')?.value;
       const cancelConditions = this.form.get('cancelConditions')?.value;
+      const longitude = this.form.get('longitude')?.value;
+      const latitude = this.form.get('latitude')?.value;
 
       let data = {
         name: name,
@@ -119,6 +129,8 @@ export class EditboatBoatOwnerComponent implements OnInit {
         capacity: capacity,
         fishingEquipment: fishingEquipment,
         cancelConditions: cancelConditions,
+        longitude: longitude,
+        latitude: latitude,
         exteriorImage: this.images['exteriorImage'],
         interiorImage: this.images['interiorImage']
       }
@@ -171,6 +183,11 @@ export class EditboatBoatOwnerComponent implements OnInit {
     reader.onerror = function (error) {
     };
  }
+
+ changePickupMarkerLocation($event: { coords:LatLngLiteral}) {
+  this.latitude=$event.coords.lat;
+  this.longitude=$event.coords.lng;
+}
 
  logout(): void{
   localStorage.clear();

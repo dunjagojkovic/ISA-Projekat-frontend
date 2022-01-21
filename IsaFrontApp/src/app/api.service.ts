@@ -29,6 +29,10 @@ export class ApiService {
     return this.http.get(this.baseURL + "/api/users/current", this.getAuthoHeader());
   }
 
+  getClients() {
+    return this.http.get(this.baseURL + "/api/users/usersByType", this.getAuthoHeader());
+  }
+
   registerClient(data: any) {
     return this.http.post(this.baseURL + "/api/users/client/register", data);
   }
@@ -327,6 +331,10 @@ getHistoryReservationsForMyHouses(data: any){
 
 getReservationsForCharts(data: any){
   return this.http.post(this.baseURL + "/api/homeReservations/myReservationsForCharts", data, this.getAuthoHeader());
+}
+
+getBoatReservationsForCharts(data: any){
+  return this.http.post(this.baseURL + "/api/boatReservations/boatReservationsForCharts", data, this.getAuthoHeader());
 }
 
 getAllReservations(houseId: number, ownerId: number){

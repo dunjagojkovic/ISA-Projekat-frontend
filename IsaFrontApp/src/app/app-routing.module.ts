@@ -1,7 +1,5 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AuthGuard } from './auth.guard';
-
-
 import { RouterModule, Routes } from '@angular/router';
 import { FrontPageComponent } from './front-page/front-page.component';
 import { RegistrationComponent } from './registration/registration.component';
@@ -48,6 +46,7 @@ import { ReviewBoatOwnerComponent } from './homepage-boat-owner/review-boat-owne
 import { ReserveBoatOwnerComponent } from './homepage-boat-owner/reserve-boat-owner/reserve-boat-owner.component';
 import { ReportHouseOwnerComponent } from './homepage-house-owner/report-house-owner/report-house-owner.component';
 import { ReportBoatOwnerComponent } from './homepage-boat-owner/report-boat-owner/report-boat-owner.component';
+import { MapsClientComponent } from './homepage-client/maps-client/maps-client.component';
 
 const routes: Routes = [
   { path: '', component: FrontPageComponent},
@@ -56,45 +55,46 @@ const routes: Routes = [
   { path: "boats", component: BoatProfilesComponent},
   { path: "instructors", component: InstructorProfilesClientComponent},
   { path: "home-client", component: HomepageClientComponent, canActivate: [AuthGuard],  data: {role: 'Client'}},
-  { path: "settings-client", component: ProfileSettingsComponent},
-  { path: "cottages-client", component: CottagesClientComponent},
-  { path: "boats-client", component: BoatsClientComponent},
-  { path: "instructors-client", component: InstructorsClientComponent},
+  { path: "settings-client", component: ProfileSettingsComponent, canActivate: [AuthGuard],  data: {role: 'Client'}},
+  { path: "cottages-client", component: CottagesClientComponent, canActivate: [AuthGuard],  data: {role: 'Client'}},
+  { path: "boats-client", component: BoatsClientComponent, canActivate: [AuthGuard],  data: {role: 'Client'}},
+  { path: "instructors-client", component: InstructorsClientComponent, canActivate: [AuthGuard],  data: {role: 'Client'}},
   { path: "home-house-owner", component: HomepageHouseOwnerComponent, canActivate: [AuthGuard],  data: {role: 'House owner'}},
-  { path: "settings-house-owner", component: SettingsHouseOwnerComponent},
-  { path: "history-house-owner", component: HistoryHouseOwnerComponent},
-  { path: "set-house-terms", component: SetFreeTermsComponent},
-  { path: "edit-house-info", component: EdithouseHouseOwnerComponent},
-  { path: "filter-free-cottages", component: SearchFreeCottagesClientComponent},
-  { path: "filter-free-boats", component: SearchFreeBoatsClientComponent},
-  { path: "filter-free-instructors", component: SearchFreeInstructorsClientComponent},
-  { path: "reserve-boats-standard-client", component: ReserveBoatsStandardComponent},
-  { path: "reserve-instructors-standard-client", component: ReserveInstructorsStandardComponent},
-  { path: "reserve-cottages-standard-client", component: ReserveCottagesStandardComponent},
-  { path: "home-boat-owner", component: HomepageBoatOwnerComponent},
-  { path: "settings-boat-owner", component: SettingsBoatOwnerComponent},
-  { path: "cottage-reservations-client", component: CottageReservationsComponent},
-  { path: "reservations-client", component: ReservationsClientComponent},
-  { path: "cottage-actions-client", component: CottageActionsComponent},
-  { path: "boat-actions-client", component: BoatActionsComponent},
-  { path: "instructor-actions-client", component: InstructorActionsComponent},
-  { path: "edit-boat-info", component: EditboatBoatOwnerComponent},
-  { path: "set-boat-terms", component: SetTermsBoatsComponent},
-  { path: "cottage-complaints-client", component: CottageComplaintsComponent},
-  { path: "boat-complaints-client", component: BoatComplaintsComponent},
-  { path: "instructor-complaints-client", component: InstructorComplaintsComponent},
-  { path: "cottage-evaluations-client", component: CottageEvaluationsComponent},
-  { path: "boat-evaluations-client", component: BoatEvaluationsComponent},
-  { path: "instructor-evaluations-client", component: InstructorEvaluationsComponent},
-  { path: "review-house-owner", component: ReviewHouseOwnerComponent},
-  { path: "reserve-house-owner", component: ReserveHouseOwnerComponent},
-  { path: "history-boat-owner", component: HistoryBoatOwnerComponent},
-  { path: "maps-house-owner", component: MapsHouseOwnerComponent},
-  { path: "maps-boat-owner", component: MapsBoatOwnerComponent},
-  { path: "review-boat-owner", component: ReviewBoatOwnerComponent},
-  { path: "reserve-boat-owner", component: ReserveBoatOwnerComponent},
-  { path: "report-house-owner", component: ReportHouseOwnerComponent},
-  { path: "report-boat-owner", component: ReportBoatOwnerComponent}
+  { path: "settings-house-owner", component: SettingsHouseOwnerComponent, canActivate: [AuthGuard],  data: {role: 'House owner'}},
+  { path: "history-house-owner", component: HistoryHouseOwnerComponent, canActivate: [AuthGuard],  data: {role: 'House owner'}},
+  { path: "set-house-terms", component: SetFreeTermsComponent, canActivate: [AuthGuard],  data: {role: 'House owner'}},
+  { path: "edit-house-info", component: EdithouseHouseOwnerComponent, canActivate: [AuthGuard],  data: {role: 'House owner'}},
+  { path: "filter-free-cottages", component: SearchFreeCottagesClientComponent, canActivate: [AuthGuard],  data: {role: 'Client'}},
+  { path: "filter-free-boats", component: SearchFreeBoatsClientComponent, canActivate: [AuthGuard],  data: {role: 'Client'}},
+  { path: "filter-free-instructors", component: SearchFreeInstructorsClientComponent, canActivate: [AuthGuard],  data: {role: 'Client'}},
+  { path: "reserve-boats-standard-client", component: ReserveBoatsStandardComponent, canActivate: [AuthGuard],  data: {role: 'Client'}},
+  { path: "reserve-instructors-standard-client", component: ReserveInstructorsStandardComponent, canActivate: [AuthGuard],  data: {role: 'Client'}},
+  { path: "reserve-cottages-standard-client", component: ReserveCottagesStandardComponent, canActivate: [AuthGuard],  data: {role: 'Client'}},
+  { path: "home-boat-owner", component: HomepageBoatOwnerComponent, canActivate: [AuthGuard],  data: {role: 'Boat owner'}},
+  { path: "settings-boat-owner", component: SettingsBoatOwnerComponent, canActivate: [AuthGuard],  data: {role: 'Boat owner'}},
+  { path: "cottage-reservations-client", component: CottageReservationsComponent, canActivate: [AuthGuard],  data: {role: 'Client'}},
+  { path: "reservations-client", component: ReservationsClientComponent, canActivate: [AuthGuard],  data: {role: 'Client'}},
+  { path: "cottage-actions-client", component: CottageActionsComponent, canActivate: [AuthGuard],  data: {role: 'Client'}},
+  { path: "boat-actions-client", component: BoatActionsComponent, canActivate: [AuthGuard],  data: {role: 'Client'}},
+  { path: "instructor-actions-client", component: InstructorActionsComponent, canActivate: [AuthGuard],  data: {role: 'Client'}},
+  { path: "edit-boat-info", component: EditboatBoatOwnerComponent, canActivate: [AuthGuard],  data: {role: 'Boat owner'}},
+  { path: "set-boat-terms", component: SetTermsBoatsComponent, canActivate: [AuthGuard],  data: {role: 'Boat owner'}},
+  { path: "cottage-complaints-client", component: CottageComplaintsComponent, canActivate: [AuthGuard],  data: {role: 'Client'}},
+  { path: "boat-complaints-client", component: BoatComplaintsComponent, canActivate: [AuthGuard],  data: {role: 'Client'}},
+  { path: "instructor-complaints-client", component: InstructorComplaintsComponent, canActivate: [AuthGuard],  data: {role: 'Client'}},
+  { path: "cottage-evaluations-client", component: CottageEvaluationsComponent, canActivate: [AuthGuard],  data: {role: 'Client'}},
+  { path: "boat-evaluations-client", component: BoatEvaluationsComponent, canActivate: [AuthGuard],  data: {role: 'Client'}},
+  { path: "instructor-evaluations-client", component: InstructorEvaluationsComponent, canActivate: [AuthGuard],  data: {role: 'Client'}},
+  { path: "review-house-owner", component: ReviewHouseOwnerComponent, canActivate: [AuthGuard],  data: {role: 'House owner'}},
+  { path: "reserve-house-owner", component: ReserveHouseOwnerComponent, canActivate: [AuthGuard],  data: {role: 'House owner'}},
+  { path: "history-boat-owner", component: HistoryBoatOwnerComponent, canActivate: [AuthGuard],  data: {role: 'Boat owner'}},
+  { path: "maps-house-owner", component: MapsHouseOwnerComponent, canActivate: [AuthGuard],  data: {role: 'House owner'}},
+  { path: "maps-boat-owner", component: MapsBoatOwnerComponent, canActivate: [AuthGuard],  data: {role: 'Boat owner'}},
+  { path: "review-boat-owner", component: ReviewBoatOwnerComponent, canActivate: [AuthGuard],  data: {role: 'Boat owner'}},
+  { path: "reserve-boat-owner", component: ReserveBoatOwnerComponent, canActivate: [AuthGuard],  data: {role: 'Boat owner'}},
+  { path: "report-house-owner", component: ReportHouseOwnerComponent, canActivate: [AuthGuard],  data: {role: 'House owner'}},
+  { path: "report-boat-owner", component: ReportBoatOwnerComponent, canActivate: [AuthGuard],  data: {role: 'Boat owner'}},
+  { path: "maps-client", component: MapsClientComponent, canActivate: [AuthGuard],  data: {role: 'Client'}}
   
 ];
 

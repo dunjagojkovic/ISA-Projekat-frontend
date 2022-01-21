@@ -4,6 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import { id } from 'date-fns/locale';
 import { ApiService } from 'src/app/api.service';
 import { Router } from '@angular/router';
+import { LatLngLiteral } from '@agm/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -15,7 +16,11 @@ export class EdithouseHouseOwnerComponent implements OnInit {
   form: FormGroup;
   user: any = {} as any;
   home: any;
+  latitude: any;
+  longitude: any;
   id: any;
+  lat = 44.62049751048226;
+  lon = 20.50303520932738;
   images: any;
 
   constructor(
@@ -40,7 +45,9 @@ export class EdithouseHouseOwnerComponent implements OnInit {
       behaviourRules: [''],
       pricelist: [''],
       extraService: [''],
-      extraPrice: ['']
+      extraPrice: [''],
+      longitude: [''],
+      latitude: ['']
     });
 
     this.images = {}
@@ -53,6 +60,7 @@ export class EdithouseHouseOwnerComponent implements OnInit {
 
   this.api.loadOneHouse(this.id).subscribe((response:any) => {
     this.home = response;
+    console.log(response)
 
     this.form.setValue({
       name: this.home.name, 
@@ -63,7 +71,9 @@ export class EdithouseHouseOwnerComponent implements OnInit {
       behaviourRules: this.home.behaviourRules,
       pricelist: this.home.pricelist,
       extraService: this.home.extraService,
-      extraPrice: this.home.extraPrice
+      extraPrice: this.home.extraPrice,
+      longitude: this.home.longitude,
+      latitude: this.home.latitude
     });
   });
   }
@@ -78,6 +88,8 @@ export class EdithouseHouseOwnerComponent implements OnInit {
       const behaviourRules = this.form.get('behaviourRules')?.value;
       const extraService = this.form.get('extraService')?.value;
       const extraPrice = this.form.get('extraPrice')?.value;
+      const longitude = this.form.get('longitude')?.value;
+      const latitude = this.form.get('latitude')?.value;
 
       let data = {
         name: name,
@@ -89,6 +101,8 @@ export class EdithouseHouseOwnerComponent implements OnInit {
         behaviourRules: behaviourRules,
         extraService: extraService,
         extraPrice: extraPrice,
+        longitude: longitude,
+        latitude: latitude,
         exteriorImage: this.images['exteriorImage'],
         interiorImage: this.images['interiorImage']
       }
@@ -139,6 +153,11 @@ export class EdithouseHouseOwnerComponent implements OnInit {
     reader.onerror = function (error) {
     };
  }
+
+ changePickupMarkerLocation($event: { coords:LatLngLiteral}) {
+  this.latitude=$event.coords.lat;
+  this.longitude=$event.coords.lng;
+}
 
  logout(): void{
   localStorage.clear();

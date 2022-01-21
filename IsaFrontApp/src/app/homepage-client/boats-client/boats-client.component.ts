@@ -15,6 +15,10 @@ export class BoatsClientComponent implements OnInit {
   boats = [] as any;
   subscriptions = [] as any;
   user: any = {} as any;
+  latitude: any;
+  longitude: any;
+  lat = 44.62049751048226;
+  lon = 20.50303520932738;
  
   constructor(
     private router: Router,

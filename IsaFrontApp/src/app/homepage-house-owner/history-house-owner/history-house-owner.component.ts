@@ -12,6 +12,7 @@ export class HistoryHouseOwnerComponent implements OnInit {
 
   user: any = {} as any;
   reservations = [] as any;
+  clients = [] as any;
   todayReservations = [] as any;
   historyReservations = [] as any;
   startDate: any;
@@ -34,17 +35,19 @@ constructor(
       this.user = response;      
       console.log(response);
   });
-  this.api.loadOneUser(this.clientId).subscribe((response: any) => {
-    this.client = response;
-    console.log(response);
-  });
 
-  let data = {
-    startDate: this.startDate,
-    endDate: this.endDate,
-    address: this.address,
-    ownerId: this.user.id
+  this.api.getClients().subscribe((response:any) => {
+    this.clients = response;      
+    console.log(response);
+  }, () => this.getFullName());
+
+    let data = {
+      startDate: this.startDate,
+      endDate: this.endDate,
+      address: this.address,
+      ownerId: this.user.id
   }
+  
   this.api.getReservationsForMyHouses(data).subscribe((response:any) => {
     this.reservations = response;      
     console.log(response);
@@ -77,6 +80,27 @@ constructor(
 
   logout(): void{
     localStorage.clear();
+  }
+
+  getFullName(): void{
+    for(var reservation of this.reservations){
+      for(var client of this.clients){
+        if(client.id == reservation.clientId)
+          this.reservations.push(client);
+      }
+    }
+    for(var reservation of this.todayReservations){
+      for(var client of this.clients){
+        if(client.id == reservation.clientId)
+          this.reservations.push(client);
+      }
+    }
+    for(var reservation of this.historyReservations){
+      for(var client of this.clients){
+        if(client.id == reservation.clientId)
+          this.reservations.push(client);
+      }
+    }
   }
 
 }

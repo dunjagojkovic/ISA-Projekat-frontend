@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
+import { FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-history-boat-owner',
@@ -13,6 +15,7 @@ export class HistoryBoatOwnerComponent implements OnInit {
   reservations = [] as any;
   todayReservations = [] as any;
   historyReservations = [] as any;
+  clients = [] as any;
   startDate: any;
   endDate: any;
   address: any;
@@ -24,7 +27,7 @@ export class HistoryBoatOwnerComponent implements OnInit {
 
   constructor(
   private router: Router,
-  private api: ApiService   
+  private api: ApiService, 
 ) { }
 
 ngOnInit(): void {
@@ -32,6 +35,11 @@ ngOnInit(): void {
     this.user = response;      
     console.log(response);
 });
+
+this.api.getClients().subscribe((response:any) => {
+  this.clients = response;      
+  console.log(response);
+}, () => this.getFullName());
 
 let data = {
   startDate: this.startDate,
@@ -72,4 +80,26 @@ historyReservation(): void{
 logout(): void{
   localStorage.clear();
 }
+
+getFullName(): void{
+  for(var reservation of this.reservations){
+    for(var client of this.clients){
+      if(client.id == reservation.clientId)
+        this.reservations.push(client);
+    }
+  }
+  for(var reservation of this.todayReservations){
+    for(var client of this.clients){
+      if(client.id == reservation.clientId)
+        this.reservations.push(client);
+    }
+  }
+  for(var reservation of this.historyReservations){
+    for(var client of this.clients){
+      if(client.id == reservation.clientId)
+        this.reservations.push(client);
+    }
+  }
+}
+
 }
