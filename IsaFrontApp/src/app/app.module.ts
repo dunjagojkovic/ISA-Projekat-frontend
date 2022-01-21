@@ -22,7 +22,6 @@ import { ProfileSettingsComponent } from './homepage-client/profile-settings/pro
 import { SettingsHouseOwnerComponent } from './homepage-house-owner/settings-house-owner/settings-house-owner.component';
 import { SearchFreeCottagesClientComponent } from './homepage-client/search-free-cottages-client/search-free-cottages-client.component';
 import { ReserveCottagesStandardComponent } from './homepage-client/reserve-cottages-standard/reserve-cottages-standard.component';
-import { CottageReservationsComponent } from './homepage-client/cottage-reservations/cottage-reservations.component';
 import { SearchFreeBoatsClientComponent } from './homepage-client/search-free-boats-client/search-free-boats-client.component';
 import { SearchFreeInstructorsClientComponent } from './homepage-client/search-free-instructors-client/search-free-instructors-client.component';
 import { HistoryHouseOwnerComponent } from './homepage-house-owner/history-house-owner/history-house-owner.component';
@@ -77,6 +76,7 @@ import { ReportHouseOwnerComponent } from './homepage-house-owner/report-house-o
 import { ChartModule } from 'angular2-chartjs';
 import { ReportBoatOwnerComponent } from './homepage-boat-owner/report-boat-owner/report-boat-owner.component';
 import { MapsClientComponent } from './homepage-client/maps-client/maps-client.component';
+import { MapsComponent } from './maps/maps.component';
 
 @NgModule({
   declarations: [
@@ -99,7 +99,6 @@ import { MapsClientComponent } from './homepage-client/maps-client/maps-client.c
     EdithouseHouseOwnerComponent,
     SearchFreeCottagesClientComponent,
     ReserveCottagesStandardComponent,
-    CottageReservationsComponent,
     SearchFreeBoatsClientComponent,
     SearchFreeInstructorsClientComponent,
     ReserveBoatsStandardComponent,
@@ -128,7 +127,8 @@ import { MapsClientComponent } from './homepage-client/maps-client/maps-client.c
     ReserveBoatOwnerComponent,
     ReportHouseOwnerComponent,
     ReportBoatOwnerComponent,
-    MapsClientComponent
+    MapsClientComponent,
+    MapsComponent
   ],
 
   imports: [

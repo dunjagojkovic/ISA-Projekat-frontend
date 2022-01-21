@@ -200,6 +200,26 @@ getMyHouseFinishedReservations(){
   return this.http.get(this.baseURL + "/api/homeReservations/myFinishedReservations", this.getAuthoHeader());
 }
 
+getMyBoatFinishedReservations(){
+  return this.http.get(this.baseURL + "/api/boatReservations/myFinishedReservations", this.getAuthoHeader());
+}
+
+getMyHouseUpcomingReservations(){
+  return this.http.get(this.baseURL + "/api/homeReservations/myUpcomingReservations", this.getAuthoHeader());
+}
+
+getMyBoatUpcomingReservations(){
+  return this.http.get(this.baseURL + "/api/boatReservations/myUpcomingReservations", this.getAuthoHeader());
+}
+
+getMyInstructorUpcomingReservations(){
+  return this.http.get(this.baseURL + "/api/adventuresReservations/myUpcomingReservations", this.getAuthoHeader());
+}
+
+getMyInstructorFinishedReservations(){
+  return this.http.get(this.baseURL + "/api/adventuresReservations/myFinishedReservations", this.getAuthoHeader());
+}
+
 getMyBoatReservations(){
   return this.http.get(this.baseURL + "/api/boatReservations/myReservations", this.getAuthoHeader());
 }

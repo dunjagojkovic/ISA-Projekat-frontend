@@ -65,8 +65,11 @@
       <mat-card style="width: 500px; border: none; font-weight: bold; color: #52796F;">
         <div style="display: flex; flex-direction: row; justify-content: space-between;">
           <mat-card-title style="font-size: 28px; margin-top: 4%; font-weight: bold;">{{h.name}}</mat-card-title>
-          <div>
-            <p style="margin-right: 5px;" class="rate">{{h.avgRate}}</p>
+          <div style="display: flex; flex-direction: row;">
+            <p style="margin-right: 5px;">
+              <button class="map-btn" routerLink="/maps" [queryParams]="{id: h.id, latitude: h.latitude, longitude: h.longitude}"><mat-icon>place</mat-icon></button>
+            </p>
+            <p style="margin-right: 5px;" class="rate">4.5</p>
           </div>
         </div>       
     <mat-card-subtitle style="font-weight: bold; font-size: 16px; margin-top: 2%;">{{h.address}}</mat-card-subtitle>

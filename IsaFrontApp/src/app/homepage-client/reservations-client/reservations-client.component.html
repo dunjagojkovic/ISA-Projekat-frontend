@@ -37,9 +37,9 @@
       </div>
       <div class="col-md-4">
         <nav class="navMenu" style="font-size: 15px;">            
-          <a style="float:none">Finished reservations</a>
-          <a style="float:none">Reservations in progress</a>
-          <a style="float:none">Upcoming reservations</a>
+          <a style="float:none" (click)="houseBox = true; boatBox=false; instructorBox=false">Houses</a>
+          <a style="float:none" (click)="houseBox = false; boatBox=true; instructorBox=false">Boats</a>
+          <a style="float:none" (click)="houseBox = false; boatBox=false; instructorBox=true">Instructors</a>
         </nav>
       </div>
       <div class="col-md-4">
@@ -48,48 +48,98 @@
     </mat-toolbar> 
 
     
-   <div style="margin-left: 25%; margin-top: 2%;">
+   <div style="margin-left: 19%; margin-top: 2%; margin-bottom: 3%; display: flex; flex-direction: row;" *ngIf="houseBox">
+    <div style="display: flex; flex-direction: column; margin-right: 5%; margin-top: 8%;">
+      <button style="margin-bottom: 20px;" class="btn-review" (click)="HouseUpcomingReservations()">Upcomming</button>
+      <button class="btn-review" (click)="HouseFinishedReservations()">History</button>
+    </div>
     <table class="table table-striped rooms-table">
       <thead>
         <tr>
-          <th scope="col">House</th>
-          <th scope="col">Start date</th>
-          <th scope="col">End date</th>
-          <th style="color: #52796F;" scope="col">.</th>
+          <th scope="col" style="width: 210px;">House</th>
+          <th scope="col" style="width: 210px;">Start date</th>
+          <th scope="col" style="width: 210px;">End date</th>
+          <th style="color: #52796F; width: 170px;" scope="col">.</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor = "let hr of houseReservations ">
-          <td style="width: 240px;">kuca</td>
-          <td style="width: 300px;">{{hr.startDate | date:'dd/MM/yyyy'}}</td>
-          <td style="width: 280px;">{{hr.endDate | date:'dd/MM/yyyy'}}</td>
-          <div style="display: flex; flex-direction: row;">
-            <button class="btn-review"  (click)="cancelHouse(hr.id)" >Cancel</button>
-            <button class="btn-review"  [routerLink]="['/cottage-evaluations-client']" [queryParams]="{id: hr.id, startDate: hr.startDate, endDate: hr.endDate}" >Evaluate</button>
-            <button class="btn-review"  [routerLink]="['/cottage-complaints-client']" [queryParams]="{id: hr.id, startDate: hr.startDate, endDate: hr.endDate}" >Complaints</button>
+          <td style="width: 210px;">{{hr.homeProfile.name}}<br>{{hr.homeProfile.address}}</td>
+          <td style="width: 210px;">{{hr.startDate | date:'dd/MM/yyyy'}}</td>
+          <td style="width: 210px;">{{hr.endDate | date:'dd/MM/yyyy'}}</td>
+          <div style="display: flex; flex-direction: row; width: 150px;">
+            <button style="margin-top: 10px; margin-right: 10px;" class="btn-review" *ngIf="upcommingTable" (click)="cancelHouse(hr.id)" >Cancel</button>
+            <div style="margin-top: 5px; margin-bottom: 5px;">
+              <button class="btn-small" *ngIf="historyTable"  [routerLink]="['/cottage-evaluations-client']" [queryParams]="{id: hr.id, startDate: hr.startDate, endDate: hr.endDate}" >Evaluate</button>
+              <button class="btn-small" *ngIf="historyTable"  [routerLink]="['/cottage-complaints-client']" [queryParams]="{id: hr.id, startDate: hr.startDate, endDate: hr.endDate}" >Complaints</button>
+            </div>
           </div>
-        </tr>
-        <tr *ngFor = "let br of boatReservations">
-          <td>brod</td>
-          <td>{{br.startDate | date:'dd/MM/yyyy'}}</td>
-          <td>{{br.endDate | date:'dd/MM/yyyy'}}</td>
-          <button (click)="cancelBoat(br.id)" >Cancel</button>
-          <button [routerLink]="['/boat-evaluations-client']" [queryParams]="{id: br.id, startDate: br.startDate, endDate: br.endDate}" >Evaluate</button>
-          <button [routerLink]="['/boat-complaints-client']" [queryParams]="{id: br.id, startDate: br.startDate, endDate: br.endDate}" >Complaints</button>
-        </tr>
-        <tr *ngFor = "let i of instructorReservations">
-          <td>instrukor</td>
-          <td>{{i.startDate | date:'dd/MM/yyyy'}}</td>
-          <td>{{i.endDate | date:'dd/MM/yyyy'}}</td>
-          <button (click)="cancelInstructor(i.id)" >Cancel</button>
-          <button [routerLink]="['/instructor-evaluations-client']" [queryParams]="{id: i.id, startDate: i.startDate, endDate: i.endDate}" >Evaluate</button>
-          <button [routerLink]="['/instructor-complaints-client']" [queryParams]="{id: i.id, startDate: i.startDate, endDate: i.endDate}" >Complaints</button>
-
         </tr>
       </tbody>
     </table>
    </div>  
    
+   <div style="margin-left: 19%; margin-top: 2%; margin-bottom: 3%; display: flex; flex-direction: row;" *ngIf="boatBox">
+    <div style="display: flex; flex-direction: column; margin-right: 5%; margin-top: 8%;">
+      <button style="margin-bottom: 20px;" class="btn-review" (click)="BoatUpcomingReservations()">Upcomming</button> 
+      <button class="btn-review" (click)="BoatFinishedReservations()">History</button>
+    </div>
+    <table class="table table-striped rooms-table">
+      <thead>
+        <tr>
+          <th scope="col" style="width: 210px;">Boat</th>
+          <th scope="col" style="width: 210px;">Start date</th>
+          <th scope="col" style="width: 210px;">End date</th>
+          <th style="color: #52796F; width: 170px;" scope="col">.</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let br of boatReservations">
+          <td style="width: 210px;">{{br.boatProfile.name}}<br>{{br.boatProfile.address}}</td>
+          <td style="width: 210px;">{{br.startDate | date:'dd/MM/yyyy'}}</td>
+          <td style="width: 210px;">{{br.endDate | date:'dd/MM/yyyy'}}</td>
+          <div style="display: flex; flex-direction: row; width: 150px;">
+            <button style="margin-top: 10px; margin-right: 10px;" class="btn-review" (click)="cancelBoat(br.id)" *ngIf="upcommingTable">Cancel</button>
+            <div style="margin-top: 5px; margin-bottom: 5px;">
+              <button class="btn-small" *ngIf="historyTable"  [routerLink]="['/boat-evaluations-client']" [queryParams]="{id: br.id, startDate: br.startDate, endDate: br.endDate}" >Evaluate</button>
+              <button class="btn-small" *ngIf="historyTable"  [routerLink]="['/boat-complaints-client']" [queryParams]="{id: br.id, startDate: br.startDate, endDate: br.endDate}" >Complaints</button>
+            </div>
+          </div>
+        </tr>
+      </tbody>
+    </table>
+   </div>  
+
+   <div style="margin-left: 19%; margin-top: 2%; margin-bottom: 3%; display: flex; flex-direction: row;" *ngIf="instructorBox">
+    <div style="display: flex; flex-direction: column; margin-right: 5%; margin-top: 8%;">
+      <button style="margin-bottom: 20px;" class="btn-review" (click)="InstructorUpcomingReservations()">Upcomming</button> 
+      <button class="btn-review" (click)="InstructorFinishedReservations()">History</button>
+    </div>
+    <table class="table table-striped rooms-table">
+      <thead>
+        <tr>
+          <th scope="col" style="width: 210px;">Adventure</th>
+          <th scope="col" style="width: 210px;">Start date</th>
+          <th scope="col" style="width: 210px;">End date</th>
+          <th style="color: #52796F; width: 170px;" scope="col">.</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let i of instructorReservations">
+          <td style="width: 210px;">{{i.adventureProfile.name}}<br>{{i.adventureProfile.address}}</td>
+          <td style="width: 210px;">{{i.startDate | date:'dd/MM/yyyy'}}</td>
+          <td style="width: 210px;">{{i.endDate | date:'dd/MM/yyyy'}}</td>
+          <div style="display: flex; flex-direction: row; width: 150px;">
+            <button style="margin-top: 10px; margin-right: 10px;" (click)="cancelInstructor(i.id)" *ngIf="upcommingTable">Cancel</button>
+            <div style="margin-top: 5px; margin-bottom: 5px;">
+              <button class="btn-small" *ngIf="historyTable" [routerLink]="['/instructor-evaluations-client']" [queryParams]="{id: i.id, startDate: i.startDate, endDate: i.endDate}" >Evaluate</button>
+              <button class="btn-small" *ngIf="historyTable" [routerLink]="['/instructor-complaints-client']" [queryParams]="{id: i.id, startDate: i.startDate, endDate: i.endDate}" >Complaints</button>
+            </div>
+          </div>
+        </tr>
+      </tbody>
+    </table>
+   </div>  
 
   <div class="row d-flex align-items-center footer">
     <div class="col-md-3">
