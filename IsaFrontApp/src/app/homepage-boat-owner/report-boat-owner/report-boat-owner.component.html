@@ -97,28 +97,28 @@
       <mat-form-field appearance="outline" class="date-picker" color="#354F52">
         <mat-label style="font-weight: bold;">Start period - End period</mat-label>
         <mat-date-range-input [rangePicker]="picker">
-          <input style="font-weight: bold;" matStartDate  placeholder="Start date">
-          <input  style="font-weight: bold;" matEndDate placeholder="End date">
+          <input style="font-weight: bold;" matStartDate  [(ngModel)]="startCountPeriod"  placeholder="Start date">
+          <input  style="font-weight: bold;" matEndDate [(ngModel)]="endCountPeriod" placeholder="End date">
         </mat-date-range-input>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-date-range-picker #picker></mat-date-range-picker>          
       </mat-form-field> 
-      <button class="period-btn" style="margin-left: 5%;" (click)="applyWeek()">Apply</button>
+      <button class="period-btn" style="margin-left: 5%;" (click)="applyCountIncome()">Apply</button>
     </div>
 
-    <div *ngFor="let boat of boats;" style="margin-left: 34%; margin-bottom: 5%;">
+    <div *ngFor="let boat of boats;" style="margin-left: 35%; margin-bottom: 5%;">
       <mat-card class="example-card">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image">{{boat.avgRate}}</div>
-          <mat-card-title style="font-size: 26px;">{{boat.name}}</mat-card-title>
-          <mat-card-subtitle>{{boat.address}}</mat-card-subtitle>
+          <mat-card-title style="font-size: 22px; color: #52796F;">{{boat.name}}</mat-card-title>
+          <mat-card-subtitle  style="font-size: 14px;">{{boat.address}}</mat-card-subtitle>
         </mat-card-header>
-        <img style="height: 300px;" mat-card-image src="{{boat.exteriorImage}}">
+        <img style="height: 280px;" mat-card-image src="{{boat.exteriorImage}}">
         <mat-card-content>
-          <p>Incomes for the selected period</p>
-          <p></p><br>
-          <p>Number of reservations from selected period</p>
-          <p></p>
+          <p style="font-size: 16px; font-weight: bolder; color: #52796F;">Number of reservations from selected period</p>
+          <p style="font-size: 16px;">{{boat.totalReservations || 0}}</p>
+          <p style="font-size: 16px; font-weight: bolder; color: #52796F">Incomes for the selected period</p>
+          <p style="font-size: 16px;">{{boat.totalIncome || 0}}e</p>
         </mat-card-content>
       </mat-card>
     </div>
