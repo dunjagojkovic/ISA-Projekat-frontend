@@ -26,7 +26,7 @@ In the application.properties file, setup the required Enviromental Variables to
 If you decide on running the tests, verify their enviromental variables as well. Applications URL on local is https://localhost:8080.
 ###### Project launch - Maven
 Import project into workspace: Open -> Existing Maven Project, click on 'm' <br>
-![Explanation for running project](https://assets/start.png)
+![Explanation for running project](https://github.com/dunjagojkovic/ISA-Projekat-frontend/blob/develop/IsaFrontApp/src/assets/start.png)
 ###### Project launch - Angular
 Navigate to the workspace folder - IsaFrontApp and run the following commands: <br>
 ~~~ 
