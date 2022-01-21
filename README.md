@@ -3,6 +3,8 @@
 Booking agency is a web application where users will be able to book houses, boats or ships and fishing instructors on offer at any given time. 
 Project made for Faculty of Technical Sciences' in Novi Sad, course Internet Software Architectures. 
 <br><br><br>
+## Repository for backend
+- https://github.com/milica38/ISA-Projekat-backend <br><br>
 ## Technologies <br>
 - Spring Boot
 - Maven
