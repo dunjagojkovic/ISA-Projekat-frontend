@@ -130,7 +130,7 @@
           <td style="width: 210px;">{{i.startDate | date:'dd/MM/yyyy'}}</td>
           <td style="width: 210px;">{{i.endDate | date:'dd/MM/yyyy'}}</td>
           <div style="display: flex; flex-direction: row; width: 150px;">
-            <button style="margin-top: 10px; margin-right: 10px;" (click)="cancelInstructor(i.id)" *ngIf="upcommingTable">Cancel</button>
+            <button  class="btn-review" style="margin-top: 10px; margin-right: 10px;" (click)="cancelInstructor(i.id)" *ngIf="upcommingTable">Cancel</button>
             <div style="margin-top: 5px; margin-bottom: 5px;">
               <button class="btn-small" *ngIf="historyTable" [routerLink]="['/instructor-evaluations-client']" [queryParams]="{id: i.id, startDate: i.startDate, endDate: i.endDate}" >Evaluate</button>
               <button class="btn-small" *ngIf="historyTable" [routerLink]="['/instructor-complaints-client']" [queryParams]="{id: i.id, startDate: i.startDate, endDate: i.endDate}" >Complaints</button>

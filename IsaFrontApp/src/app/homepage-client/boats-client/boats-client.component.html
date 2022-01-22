@@ -40,10 +40,10 @@
         <nav class="navMenu" style="font-size: 15px;">            
           <a style="float:none">Sort by
            <mat-select style="max-width: 20px;" multiple>
-            <mat-option (click)="sortBoatsByLocation()" > Location</mat-option>
-            <mat-option (click)="sortBoatsByRate()">Rate</mat-option>
-            <mat-option (click)="sortBoatsByName()">Name</mat-option>
-            <mat-option (click)="sortBoatsByPrice()">Price</mat-option>
+            <mat-option  style="font-weight:bolder;" (click)="sortBoatsByLocation()" > Location</mat-option>
+            <mat-option  style="font-weight:bolder;" (click)="sortBoatsByRate()">Best reviewd</mat-option>
+            <mat-option  style="font-weight:bolder;" (click)="sortBoatsByName()">Name</mat-option>
+            <mat-option style="font-weight:bolder;" (click)="sortBoatsByPrice()">Price(lower first)</mat-option>
              </mat-select> 
           </a>
           <a [routerLink]="['/filter-free-boats']" style="float:none">Dates and price</a>

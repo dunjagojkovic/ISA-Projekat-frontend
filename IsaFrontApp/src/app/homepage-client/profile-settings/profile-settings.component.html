@@ -48,6 +48,14 @@
     </div>  
     </mat-toolbar>
 
+    <div style="margin-left: 40%; margin-top: 2%;" *ngIf="cattegoryAndPenaltiesBox">
+      <p style="font-weight: bolder;">Your category is: {{user.category}}</p>
+      <div style="display: flex; flex-direction: row;">
+        <p style="font-weight: bolder;">Number of penalties: </p><p style="font-size: 15px; font-weight:bold;">  {{user.penalty}}</p> 
+      </div>
+    </div>
+   
+
   <div class="example-form">
       <div class="double-input">
         <mat-form-field class="input-box1" appearance="outline">
@@ -115,16 +123,7 @@
             <button class="reason-btn" (click)="saveNewPassword()">Save</button>
         </form>
       </div>
-      <div class="delete-box" *ngIf="cattegoryAndPenaltiesBox">
-        <mat-form-field class="input-box2" appearance="outline">
-          <mat-label>Cttegory of user</mat-label>
-          <input disabled  matInput placeholder="" value="{{user.category}}">
-      </mat-form-field>
-      <mat-form-field class="input-box" appearance="outline">
-          <mat-label>Number of penalties</mat-label>
-          <input disabled matInput placeholder="" value="{{user.penalty}}">
-      </mat-form-field>
-      </div>
+   
   </div>
 
     

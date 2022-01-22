@@ -213,11 +213,11 @@ getMyBoatUpcomingReservations(){
 }
 
 getMyInstructorUpcomingReservations(){
-  return this.http.get(this.baseURL + "/api/adventuresReservations/myUpcomingReservations", this.getAuthoHeader());
+  return this.http.get(this.baseURL + "/api/adventuresReservation/myUpcomingReservations", this.getAuthoHeader());
 }
 
 getMyInstructorFinishedReservations(){
-  return this.http.get(this.baseURL + "/api/adventuresReservations/myFinishedReservations", this.getAuthoHeader());
+  return this.http.get(this.baseURL + "/api/adventuresReservation/myFinishedReservations", this.getAuthoHeader());
 }
 
 getMyBoatReservations(){
