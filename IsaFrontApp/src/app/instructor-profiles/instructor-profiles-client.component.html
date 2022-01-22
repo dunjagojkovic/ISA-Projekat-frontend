@@ -8,6 +8,7 @@
   </div>
 </div>
 
+
   
 <div class="row d-flex align-items-center w-100">
   <div class="col-md-4">
@@ -26,17 +27,30 @@
 </div> 
 
    
-  <div class="row d-flex align-items-center frontpage_gray_banner">
-    <div class="col-md-2">
-    </div>
-    <div class="col-md-8">
-      <div class="row d-flex align-items-center frontpage_gray_banner_label">BOOKING AGENCY:</div>
-      <div class="row d-flex align-items-center frontpage_gray_banner_label">TRUSTED PROFESSIONALS</div>
-    </div>
-    <div class="col-md-2">
-    </div>
+   
+<div class="row d-flex align-items-center frontpage_gray_banner">
+  <div class="col-md-2"></div>
+  <div class="col-md-6">
+    <div class="row d-flex align-items-center frontpage_gray_banner_label">BOOKING AGENCY:</div>
+    <div class="row d-flex align-items-center frontpage_gray_banner_label">TRUSTED PROFESSIONALS</div> 
   </div>
-
+  <div class="col-md-4">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="login-box" *ngIf="loginBox">
+        <mat-form-field class="input-box" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="" value="" formControlName="email">
+        </mat-form-field>
+        <mat-form-field class="input-box" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+      </mat-form-field>
+      <br /><br />
+      <button class="btn">Confirm</button>
+  </div>
+</form>
+</div>
+</div>
   
   <form [formGroup]="form">
     <div class="search-box-rooms">
@@ -52,21 +66,24 @@
       <mat-card style="width: 500px; border: none; font-weight: bold; color: #52796F;">
         <div style="display: flex; flex-direction: row; justify-content: space-between;">
           <mat-card-title style="font-size: 28px; margin-top: 4%; font-weight: bold;">{{i.name}}</mat-card-title>
-          <div>
+          <div style="display: flex; flex-direction: row;">
+            <p style="margin-right: 5px;">
+              <button class="map-btn" routerLink="/maps" [queryParams]="{id: i.id, latitude: i.latitude, longitude: i.longitude}"><mat-icon>place</mat-icon></button>
+            </p>
             <p style="margin-right: 5px;" class="rate">{{i.avgRate}}</p>
           </div>
         </div>
      <mat-card-subtitle style="font-weight: bold; font-size: 16px; margin-top: 2%;">{{i.address}}</mat-card-subtitle>
     <br>
     <mat-card-content style="width: 400px; font-weight: bold; font-size: 16px;">
-      <p>Cena:{{i.priceList}}</p>
-      <p>kapacitet {{i.maxNumberOfPeople}}</p>
-      <p>pecaroska oprema {{i.fishingEquipment}} </p>
-      <p>dodatne usluge:{{i.extraService}}} </p>
-      <p>pravila ponasanja {{i.behaviourRules}}</p>
-      <p>uslovi otkazivanja {{i.cancelConditions}} </p>
-      <p>Biographz {{i.instructorBiography}} </p>
-      <p>promotivni opis {{i.promoDescription}} </p>
+      <p>Price: {{i.priceList}}e per day</p>
+      <p>Max number of people: {{i.maxNumberOfPeople}}</p>
+      <p>Fishing equipment: {{i.fishingEquipment}} </p>
+      <p>Extra services: {{i.extraService}} </p>
+      <p>Behaviour rules: {{i.behaviourRules}}</p>
+      <p>Cancel conditions: {{i.cancelConditions}} </p>
+      <p>Instructor biography: {{i.instructorBiography}} </p>
+      <p>Description: {{i.promoDescription}} </p>
     </mat-card-content>
       </mat-card>  
       <mat-card >      

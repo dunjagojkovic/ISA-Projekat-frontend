@@ -10,6 +10,9 @@ import { ApiService } from 'src/app/api.service';
 export class ComplaintsFromClientsComponent implements OnInit {
 
   user: any = {} as any;
+  complaintResponseAdventure: any;
+  complaintResponseBoat: any;
+  complaintResponseHome: any;
   adventureComplaints = [] as any;
   boatComplaints = [] as any;
   homeComplaints = [] as any;
@@ -51,5 +54,7 @@ constructor(
     }); 
    
   }
+
+  
 
 }

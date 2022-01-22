@@ -10,8 +10,8 @@
     <div class="col-md-4">
       <nav class="navMenu">
         <a href="home-boat-owner" style="float:none">Boats</a>
-        <a href="" style="float:none">Business report</a>
         <a href="history-boat-owner" style="float:none">Reservations</a>
+        <a href="report-boat-owner" style="float:none">Business report</a>
         <a href="settings-boat-owner" style="float:none">User settings</a>
       </nav>
     </div>
@@ -28,26 +28,30 @@
     <div class="col-md-4"></div>
   </div>
 
-  <h1 class="heading" style="margin-top: 25px; margin-left:44%;">Reservation report</h1> 
+  <h1 class="heading" style="margin-top: 25px; margin-left:44%;"></h1> 
 
   <form [formGroup]="form">
     <div style="margin-bottom: 5%;">
-      <mat-card style="width: 750px;  margin-left: 30%; margin-right: 26%;">
-        <mat-card-title  style="font-size: 26px; margin-top: 4%; font-weight: bold;">Reservation for {{client.name}} {{client.surname}}</mat-card-title>
-        <mat-card-subtitle style="font-weight: bold; font-size: 16px; margin-top: 2%; text-transform: uppercase;">{{client.email}}</mat-card-subtitle>
-        <mat-card-subtitle style="font-weight: bold; font-size: 16px; margin-top: 2%; text-transform: uppercase;">{{client.phoneNumber}}</mat-card-subtitle>
+      <mat-card style="width: 750px;  margin-left: 29%; margin-right: 26%;">
+        <mat-card-title  style="font-size: 24px; margin-top: 4%; font-weight: bold;  margin-left: 32%; margin-bottom: 5%;">Reservation report</mat-card-title>
+        <mat-card-title style="font-weight: bold; text-transform: uppercase; font-size: 16px; margin-top: 2%;">Informations about client</mat-card-title>
         <hr><br>
+        <p style="text-transform: uppercase; font-weight: bold;">Client name</p>
+        <p style="font-weight: bolder; font-size: 16px; color: #969796">{{client.name}} {{client.surname}}</p>
+        <p style="text-transform: uppercase; font-weight: bold;">Email address</p>
+        <p style="font-weight: bolder; font-size: 16px; color: #969796;">{{client.email}}</p>
+        <br>
         <mat-card-title style="font-weight: bold; text-transform: uppercase; font-size: 16px; margin-top: 2%;">Booking summary</mat-card-title>
         <hr><br>
         <mat-card-content>
           <div>
-            <p style="text-transform: uppercase; font-weight: bold;">Property name</p>
-            <p style="font-weight: bolder; color: #bfc0bf;">{{boat.name}}</p>
+            <p style="text-transform: uppercase; font-weight: bold;">Boat name</p>
+            <p style="font-weight: bolder;  color: #969796;">{{boat.name}}</p>
           </div>
           <br>
           <div>
-            <p style="text-transform: uppercase; font-weight: bold;">Property address</p>
-            <p style="font-weight: bolder; color: #bfc0bf;">{{boat.address}}</p>
+            <p style="text-transform: uppercase; font-weight: bold;">Boat address</p>
+            <p style="font-weight: bolder; color: #969796;">{{boat.address}}</p>
           </div>
           <br>
           <div>
@@ -65,20 +69,22 @@
             </p>
           </div>
           <div>
-            <p style="text-transform: uppercase; font-weight: bold;">Total cost of accomodation</p>
-            <p style="font-weight: bolder; color: #bfc0bf;">{{boat.pricelist}} e</p>
+            <p style="text-transform: uppercase; font-weight: bold;">Cost of reservation</p>
+            <p style="font-weight: bolder; color: #969796;">{{boat.pricelist}} e</p>
           </div>
-          <br><br> 
+          <br>
           <mat-card-title style="font-weight: bold; text-transform: uppercase; font-size: 16px; margin-top: 2%;">Extra chargeabels</mat-card-title>
-        <hr>        
+        <hr><br> 
+        <p style="text-transform: uppercase; font-weight: bold;">Price for extra service</p>
+        <p style="font-weight: bold; margin-left: 8px; color: #969796;">{{boat.extraPrice}} e per day</p>
+        <p style="font-weight: bolder; font-size: 14px; margin-top: 3%;">Check if you want extra services!</p>       
         <div style="display: inline-flex; flex-direction: row;">
           <div>
             <mat-radio-group formControlName="extraServices" style=" display: flex; flex-direction: column;  margin: 15px 0;">
-              <mat-radio-button style="margin-left: 25px; margin-bottom: 20px; margin-top: 5%;" value=" "></mat-radio-button>
-              <mat-radio-button style="margin-left: 25px;" [value]='3'>No extra service</mat-radio-button>        
+              <mat-radio-button style="margin-left: 20px; color: #969796; margin-bottom: 20px; margin-top: 2%;" [value]="boat.extraService">{{boat.extraService}}</mat-radio-button>
+              <mat-radio-button style="margin-left: 20px; color: #969796;" value="No extra service">No extra services</mat-radio-button>        
            </mat-radio-group>
           </div>         
-            <p style="font-weight: bold; margin-left: 90px; margin-top: 33px;"></p>
         </div>
        <div>
          <div style="display: flex; flex-direction: row;">

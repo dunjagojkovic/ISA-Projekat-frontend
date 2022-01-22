@@ -5,6 +5,10 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './auth.guard';
 
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+
+
+
 
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
@@ -21,7 +25,6 @@ import { ProfileSettingsComponent } from './homepage-client/profile-settings/pro
 import { SettingsHouseOwnerComponent } from './homepage-house-owner/settings-house-owner/settings-house-owner.component';
 import { SearchFreeCottagesClientComponent } from './homepage-client/search-free-cottages-client/search-free-cottages-client.component';
 import { ReserveCottagesStandardComponent } from './homepage-client/reserve-cottages-standard/reserve-cottages-standard.component';
-import { CottageReservationsComponent } from './homepage-client/cottage-reservations/cottage-reservations.component';
 import { SearchFreeBoatsClientComponent } from './homepage-client/search-free-boats-client/search-free-boats-client.component';
 import { SearchFreeInstructorsClientComponent } from './homepage-client/search-free-instructors-client/search-free-instructors-client.component';
 import { HistoryHouseOwnerComponent } from './homepage-house-owner/history-house-owner/history-house-owner.component';
@@ -77,7 +80,7 @@ import { SettingsInstructorProfileComponent } from './homepage-instructor/settin
 
 import { BoatEvaluationsComponent } from './homepage-client/boat-evaluations/boat-evaluations.component';
 import { InstructorEvaluationsComponent } from './homepage-client/instructor-evaluations/instructor-evaluations.component';
-import { ApiService } from './api.service';
+
 import { ReviewHouseOwnerComponent } from './homepage-house-owner/review-house-owner/review-house-owner.component';
 import { ReserveHouseOwnerComponent } from './homepage-house-owner/reserve-house-owner/reserve-house-owner.component';
 import { HistoryBoatOwnerComponent } from './homepage-boat-owner/history-boat-owner/history-boat-owner.component';
@@ -95,10 +98,17 @@ import { ReserveBoatOwnerComponent } from './homepage-boat-owner/reserve-boat-ow
 import { ReportHouseOwnerComponent } from './homepage-house-owner/report-house-owner/report-house-owner.component';
 import { ChartModule } from 'angular2-chartjs';
 import { ReportBoatOwnerComponent } from './homepage-boat-owner/report-boat-owner/report-boat-owner.component';
+
 import { ReportInstructorComponent } from './homepage-instructor/report-instructor/report-instructor.component';
 import { ComplaintsFromClientsComponent } from './homepage-admin/complaints-from-clients/complaints-from-clients.component';
 import { EvaluationsFromClientsComponent } from './homepage-admin/evaluations-from-clients/evaluations-from-clients.component';
 import { ReviewsComponent } from './homepage-admin/reviews/reviews.component';
+
+
+import { MapsClientComponent } from './homepage-client/maps-client/maps-client.component';
+import { MapsComponent } from './maps/maps.component';
+import { MatTableModule } from '@angular/material/table';
+import { ApiService } from './api.service';
 
 
 @NgModule({
@@ -130,7 +140,6 @@ import { ReviewsComponent } from './homepage-admin/reviews/reviews.component';
     EdithouseHouseOwnerComponent,
     SearchFreeCottagesClientComponent,
     ReserveCottagesStandardComponent,
-    CottageReservationsComponent,
     SearchFreeBoatsClientComponent,
     SearchFreeInstructorsClientComponent,
     ReserveBoatsStandardComponent,
@@ -171,7 +180,11 @@ import { ReviewsComponent } from './homepage-admin/reviews/reviews.component';
     ReportInstructorComponent,
     ComplaintsFromClientsComponent,
     EvaluationsFromClientsComponent,
-    ReviewsComponent
+    ReviewsComponent,
+
+
+    MapsClientComponent,
+    MapsComponent
 
   ],
 
@@ -197,6 +210,7 @@ import { ReviewsComponent } from './homepage-admin/reviews/reviews.component';
     MatNativeDateModule,
     MatCheckboxModule,
     MatRadioModule,
+    MatTableModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,

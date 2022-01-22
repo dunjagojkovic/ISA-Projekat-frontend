@@ -51,7 +51,7 @@
             </mat-form-field>
             <mat-form-field class="input-box-small" appearance="outline" >
               <mat-label>Number of people</mat-label>
-              <input matInput placeholder="" value="" >
+              <input formControlName="numberOfBeds" matInput placeholder="" value="" >
             </mat-form-field>
         </div>  
         <button class="search-btn" (click)="onSearch()">Search</button>
@@ -59,7 +59,7 @@
     </div> 
 
 
-    <mat-toolbar class="navMenu" style="cursor: pointer; align-items: left;">      
+    <mat-toolbar *ngIf="boxVisible" class="navMenu" style="cursor: pointer; align-items: left;">      
       <div class="row d-flex align-items-center w-100">
         <div class="col-md-4">
         </div>
@@ -76,7 +76,7 @@
   
       
   <div>  
-    <div style="margin-left: 25%; font-weight: bold;">
+    <div  *ngIf="boxVisible" style="margin-left: 25%; font-weight: bold;">
       <h1>{{result}} properties found</h1>
     </div> 
     <div *ngFor="let h of houses; let i = index">    
@@ -91,11 +91,12 @@
        <mat-card-subtitle style="font-weight: bold; font-size: 16px; margin-top: 2%;">{{h.address}}</mat-card-subtitle>
       <br>
       <mat-card-content style="width: 400px; font-weight: bold; font-size: 16px;">
-        <p>Price: {{h.pricelist}}e per week</p>
+        <p>Price: {{h.pricelist}}e per day</p>
         <p>Number of rooms: {{h.numberOfRooms}}</p>
         <p>Sleeps: Up to {{h.numberOfBeds}} people</p>
         <p>Rules: {{h.behaviourRules}}</p>
         <p>Extra service: {{h.extraService}}</p>
+        <p>Price for extra service: {{h.extraPrice}}e per day</p>
         <p>Description: {{h.promoDescription}}</p>
         <div>
           <button [routerLink]="['/reserve-cottages-standard-client']" class="reserve-btn" [queryParams]="{id: h.id, startDate: startDate, endDate: endDate}">Book</button>

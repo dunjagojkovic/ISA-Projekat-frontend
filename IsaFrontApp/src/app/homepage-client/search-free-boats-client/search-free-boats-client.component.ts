@@ -18,6 +18,10 @@ export class SearchFreeBoatsClientComponent implements OnInit {
   startDate: any;
   endDate: any;
   address: any;
+  boxVisible: boolean = false;
+  result: any;
+  capacity: any;
+
 
   constructor(
     private router: Router,
@@ -28,7 +32,8 @@ export class SearchFreeBoatsClientComponent implements OnInit {
     this.form = this.formBuilder.group({
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
-      address: ['']
+      address: [''],
+      capacity: ['']
     })
    }
 
@@ -42,21 +47,38 @@ export class SearchFreeBoatsClientComponent implements OnInit {
     this.startDate = this.form.get('startDate')?.value;
     this.endDate = this.form.get('endDate')?.value;
     this.address = this.form.get('address')?.value;
+    this.capacity = this.form.get('capacity')?.value;
 
+if(this.isDateValid())
+  {
     let data = {
       startDate: this.startDate,
       endDate: this.endDate,
-      address: this.address
+      address: this.address,
+      capacity: this.capacity
     }
 
     this.api.searchFreeBoats(data).subscribe((response: any) => {
       console.log(response);
       this.boats = response;  
+      this.result = this.boats.length;
+      if(response.length != 0){
+        this.boxVisible = true;
+      }      
       if(response.length == 0){
         this._snackBar.open('There are no available boats for your dates on our site. If you are flexible, check out some alternative dates.', 'Close', {duration: 5000})
-      }    
+        this.boxVisible = false;
+      }     
     });
+      }
+   
   
+  }
+
+   isDateValid(){
+    if((this.startDate == null || this.startDate == "") && (this.endDate == null || this.endDate == ""))
+      return this._snackBar.open('Please enter dates and destination to start searching!', 'Close', {duration: 5000});
+    return true;
   }
 
   sortBoats(): any[] {

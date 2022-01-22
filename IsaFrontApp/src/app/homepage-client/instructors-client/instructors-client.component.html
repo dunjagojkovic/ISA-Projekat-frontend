@@ -39,15 +39,14 @@
         <nav class="navMenu" style="font-size: 15px;">            
           <a style="float:none">Sort by
            <mat-select style="max-width: 20px;" multiple>
-            <mat-option (click)="sortInstructorsByLocation()" > Location</mat-option>
-            <mat-option (click)="sortInstructorsByRate()">Rate</mat-option>
-            <mat-option (click)="sortInstructorsByName()">Name</mat-option>
-            <mat-option (click)="sortInstructorsByPrice()">Price</mat-option>
+            <mat-option  style="font-weight:bolder;" (click)="sortInstructorsByLocation()" > Location</mat-option>
+            <mat-option  style="font-weight:bolder;" (click)="sortInstructorsByRate()">Best reviewd</mat-option>
+            <mat-option  style="font-weight:bolder;" (click)="sortInstructorsByName()">Name</mat-option>
+            <mat-option  style="font-weight:bolder;" (click)="sortInstructorsByPrice()">Price(lower first)</mat-option>
              </mat-select> 
           </a>
           <a [routerLink]="['/filter-free-instructors']" style="float:none">Dates and price</a>
           <a [routerLink]="['/instructor-actions-client']" style="float:none">Our top picks</a>
-          <a style="float:none">View on map</a>
         </nav>
       </div>
       <div class="col-md-4">
@@ -60,21 +59,29 @@
         <mat-card style="width: 500px; border: none; font-weight: bold; color: #52796F;">
           <div style="display: flex; flex-direction: row; justify-content: space-between;">
             <mat-card-title style="font-size: 28px; margin-top: 4%; font-weight: bold;">{{i.name}}</mat-card-title>
-            <div>
+            <div style="display: flex; flex-direction: row;">
+              <p style="margin-right: 5px;">
+                <button class="map-btn" routerLink="/maps-client" [queryParams]="{id: i.id, latitude: i.latitude, longitude: i.longitude}"><mat-icon>place</mat-icon></button>
+              </p>
               <p style="margin-right: 5px;" class="rate">{{i.avgRate}}</p>
             </div>
           </div>
        <mat-card-subtitle style="font-weight: bold; font-size: 16px; margin-top: 2%;">{{i.address}}</mat-card-subtitle>
       <br>
       <mat-card-content style="width: 400px; font-weight: bold; font-size: 16px;">
-        <p>Cena:{{i.pricelist}}</p>
-        <p>kapacitet {{i.maxNumberOfPeople}}</p>
-        <p>pecaroska oprema {{i.fishingEquipment}} </p>
-        <p>dodatne usluge:{{i.extraService}} </p>
-        <p>pravila ponasanja {{i.behaviourRules}}</p>
-        <p>uslovi otkazivanja {{i.cancelConditions}} </p>
-        <p>Biography {{i.instructorBiography}} </p>
-        <p>promotivni opis {{i.promoDescription}} </p>
+      <p>Price: {{i.pricelist}}e per day</p>
+      <p>Max number of people: {{i.maxNumberOfPeople}}</p>
+      <p>Fishing equipment: {{i.fishingEquipment}} </p>
+      <p>Extra services: {{i.extraService}} </p>
+      <p>Behaviour rules: {{i.behaviourRules}}</p>
+      <p>Cancel conditions: {{i.cancelConditions}} </p>
+      <p>Instructor biography: {{i.instructorBiography}} </p>
+      <p>Description: {{i.promoDescription}} </p>
+      <div>
+        <section class="example-section">
+          <mat-checkbox class="example-margin"  (click)="SubscribeMe(i.id)">I want to recieve notifications for this house</mat-checkbox>
+        </section>
+      </div>
       </mat-card-content>
         </mat-card>  
         <mat-card >

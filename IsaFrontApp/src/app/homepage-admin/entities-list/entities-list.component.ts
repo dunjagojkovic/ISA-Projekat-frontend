@@ -36,7 +36,7 @@ constructor(
 
   userProfile(): void{
    
-    this.api.getAllUsers().subscribe((response:any) => {
+    this.api.getAllActiveUsers().subscribe((response:any) => {
       this.userProfiles = response;      
     });
   }
@@ -58,7 +58,23 @@ constructor(
   setDeleted(id: any)
   {
     
-    this.api.deleteUser(id).subscribe((response: any) => {
+    this.api.deleteThisUser(id).subscribe((response: any) => {
+      console.log(response)
+    });
+  }
+
+  setDeletedBoat(id: any)
+  {
+    
+    this.api.deleteMyBoat(id).subscribe((response: any) => {
+      console.log(response)
+    });
+  }
+
+  setDeletedHouse(id: any)
+  {
+    
+    this.api.deleteMyHouse(id).subscribe((response: any) => {
       console.log(response)
     });
   }

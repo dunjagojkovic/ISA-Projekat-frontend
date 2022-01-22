@@ -98,17 +98,17 @@
 
 .btn-review{
     border-radius: 20px;
-    border: 3px solid #84A98C;
+    border: 3px solid #b3bbae;
     color: white;
-    background-color: #84A98C;
+    background-color: #b3bbae;
     font-weight: bold;
-    padding: 8px 0px 8px 0px !important;
-    width: 80px;
+    padding: 6px 0px 8px 0px !important;
+    width: 45px;
     height: 40px;
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
-    margin-left: 30%;
+    margin-left: 40%;
 }
 
 .review-panel {
@@ -158,13 +158,13 @@
   
   .rooms-table th {
     display: inline-block;
-    padding: 15px 101.5px;
+    padding: 15px 20.5px;
     text-align: center;
     font-weight: bold;
     font-size: 15px;
     color: white;
     text-transform: uppercase;
-    background: #84A98C;
+    background: #CAD2C5;
   }
   
   .rooms-table tbody {
@@ -173,7 +173,7 @@
     text-align: center;
     overflow-y: scroll;
     background: #ebf0e9;
-    scrollbar-color: #84A98C;
+    scrollbar-color: #CAD2C5;
     width: 1065px;
   }
   
@@ -190,7 +190,6 @@
     font-size: 16px;
     color: #52796F;
     font-weight: bold;
-    word-wrap: break-word;
   }
 
 .footer {
@@ -250,3 +249,51 @@
     font-size: 16px;
     font-weight: bold;
 }
+
+.search-box-rooms {
+    position: absolute;
+    top: 60%;
+    right: 1%;
+    color: white;
+    background: #52796F;
+    height: 40px;
+    border-radius: 40px;
+    padding: 8px;
+  }
+  
+  .search-box-rooms:hover > .search-txt-rooms {
+    width: 220px;
+    padding: 0 6px;
+  }
+  
+  .search-box-rooms:hover > .search-btn-rooms {
+    background: white;
+    color: #52796F;
+  }
+  
+  .search-btn-rooms {
+    color: white;
+    float: right;
+    width: 25px;
+    height: 25px;
+    text-decoration: none;
+    border-radius: 50%;
+    background: #52796F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+  }
+  
+  .search-txt-rooms {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    transition: 0.4s;
+    width: 0px;
+    line-height: 25px;
+  }

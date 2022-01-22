@@ -10,8 +10,8 @@
     <div class="col-md-4">
       <nav class="navMenu">
         <a href="home-boat-owner" style="float:none">Boats</a>
-        <a href="" style="float:none">Calendar</a>
-        <a href="" style="float:none">Reservation history</a>
+        <a href="history-boat-owner" style="float:none">Reservations</a>
+        <a href="report-boat-owner" style="float:none">Business report</a>
         <a href="settings-boat-owner" style="float:none">User settings</a>
       </nav>
     </div>
@@ -135,6 +135,11 @@
                    id="file"
                    (change)="handleExteriorImage($event)">
           </div>
+      </div>
+      <div style="margin-left: 11%;">
+        <agm-map appGoogleFontsLoadingDisable [latitude]="lat" [longitude]="lon" (mapClick)="changePickupMarkerLocation($event)">
+          <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+      </agm-map>
       </div>
       <button class="btn" (click)="onSave()">Save boat</button>
     </form>
