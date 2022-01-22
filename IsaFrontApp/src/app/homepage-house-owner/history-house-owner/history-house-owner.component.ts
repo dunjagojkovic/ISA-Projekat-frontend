@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
+import { MatSnackBar} from '@angular/material/snack-bar';
 
 
 @Component({
@@ -28,7 +29,8 @@ export class HistoryHouseOwnerComponent implements OnInit {
 
 constructor(
   private router: Router,
-  private api: ApiService   
+  private api: ApiService,
+  private _snackBar: MatSnackBar  
 ) { }
 
 
@@ -72,6 +74,14 @@ constructor(
     });
 
   }
+
+  /* disableButton(reservation: any): boolean { 
+    if(reservation.writed === false) {
+      this._snackBar.open('Your review has been sent successfully.', 'Close');
+      return false;
+    }
+    return true;
+  }*/
 
   historyReservation(): void{
     let data = {
