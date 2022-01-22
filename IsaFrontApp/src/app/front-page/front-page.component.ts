@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
-import { FormBuilder, Validators, FormControl} from '@angular/forms';
-import {MatSnackBarModule, MatSnackBar} from '@angular/material/snack-bar';
+import { FormBuilder, Validators} from '@angular/forms';
+import { MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-front-page',
@@ -56,7 +56,7 @@ export class FrontPageComponent implements OnInit {
             this.router.navigate(['/home-boat-owner']);
           }
         }, error => {
-          this._snackBar.open('Password incorrect! Please try again.', 'Close', {duration: 5000})});
+          this._snackBar.open('Incorrect credentials! Please try again.', 'Close', {duration: 2000})});
       })
     }
   }

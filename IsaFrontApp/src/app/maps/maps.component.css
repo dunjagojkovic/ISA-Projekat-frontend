@@ -1,3 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+ }
+
+ /* GENERAL STYLES */
+
+.photo_stretch {
+    width: 100%;
+    height: 75%;
+    display: block;
+    margin: auto;
+    margin-bottom: 3%;
+}
+
+.gradient-custom {
+    /* fallback for old browsers */
+    background: #4facfe;
+  
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(79, 172, 254, 1), #08d);
+  
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(79, 172, 254, 1), #08d)
+  }
+
+  /* HEADER */
 
 .website_name_label {
     text-align: center;
@@ -72,6 +100,9 @@
     transition: all 0.2s ease-in-out;
     opacity: 1;
 }
+
+/* BANNER */
+
 .frontpage_gray_banner {
     background: #CAD2C5;    
     color: #354F52;
@@ -88,6 +119,72 @@
     vertical-align: center;
 }
 
+/* OPTIONS CARD */
+
+.left_frontpage_picture {
+    max-width: 100%;
+    max-height: 100%;
+    display: inline-block;
+}
+
+.front_page_right_card {
+    height: 158px;
+}
+
+.light_blue_card {
+    background: #568176;
+}
+
+.dark_blue_card {
+    background: #52796F;
+}
+
+.deep_dark_blue_card {
+    background: #4c746a;
+}
+
+.frontpage_card_picture_small {
+    max-width: 70%;
+    max-height: 70%;
+}
+
+.frontpage_options_card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 50px;
+}
+
+/* NEWS */
+
+.frontpage_news_background {
+    background: whitesmoke;  
+    margin-top: 35px;  
+    padding-top: 40px;
+    padding-bottom: 40px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.frontpage_news_item_picture {
+    width: 100%;
+    height: 200px;
+}
+
+.news_card {
+    height: 400px;
+    margin-left: 20px;
+    margin-right: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* FEEDBACK */
+
+.frontpage_feedback_section {
+    background: #52796F;
+    padding-top: 80px;
+    padding-bottom: 60px;
+}
+
+/* FOOTER */
+
 .footer {
     align-content: right;
     padding-left:20px !important;
@@ -98,6 +195,11 @@
     background: #ebf0e9;
 }
 
+hr{
+    width:100%;
+    border: 0;
+    border-top: 1px solid #b3cfee;
+}
 
 .footer-row{
     display: flex;
@@ -129,112 +231,6 @@
     justify-content: space-between;
     flex-wrap: wrap;
 }
-
-
-.cottages-panel {
-    padding-top: 100px;
-    padding-bottom: 100px;
-    background: whitesmoke;
-    background: -webkit-linear-gradient(to border-bottom, rgb(245, 245, 245), rgb(255, 255, 255));
-    background: linear-gradient(to border-bottom, rgb(245, 245, 245), rgb(255, 255, 255))
-}
-
-.cottages-left-col-left-col h1{
-    margin-left: 30%;
-    font-weight: bolder;
-}
-
-.input-box-small {
-    width: 185px;
-    color: #354F52;
-    align-items: center;
-    height: 58px;
-    margin-bottom: 5px;
-    border-radius: 25px;
-    border-color: #354F52;
-    margin-inline: 5px;
-    font-weight: bold;
-    position: relative;
-    left: 85%;
-    margin-top: 2%;
-  }
-
-.search-icon{
-    color:#84A98C;
-    height: 40px;
-    position: relative;
-    left: 1620px;
-    width: 20px;
-    cursor: pointer;
-    transform: scale(2);
-    top: 10px;
-}
-  
-  ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
-    color: #354F52!important;
-    font-weight: bold;
-}
-
-::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
-    color: #354F52!important;
-    font-weight: bold;
-}
-
-::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
-  color: #354F52!important;
-  font-weight: bold;
-}
-
-/* SEARCH */
-
-.search-box-rooms {
-    position: absolute;
-    top: 75%;
-    right: 1%;
-    color: white;
-    background: #52796F;
-    height: 40px;
-    border-radius: 40px;
-    padding: 8px;
-  }
-  
-  .search-box-rooms:hover > .search-txt-rooms {
-    width: 220px;
-    padding: 0 6px;
-  }
-  
-  .search-box-rooms:hover > .search-btn-rooms {
-    background: white;
-    color: #52796F;
-  }
-  
-  .search-btn-rooms {
-    color: white;
-    float: right;
-    width: 25px;
-    height: 25px;
-    text-decoration: none;
-    border-radius: 50%;
-    background: #52796F;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.4s;
-  }
-  
-  .search-txt-rooms {
-    border: none;
-    background: none;
-    outline: none;
-    float: left;
-    padding: 0;
-    color: white;
-    font-size: 16px;
-    transition: 0.4s;
-    width: 0px;
-    line-height: 25px;
-  }
-/* END SEARCH */
 
 
 .login-btn{
@@ -298,30 +294,6 @@
     font-weight: bold;
   }
 
-  
-  .map-btn{
-    border-radius: 20px;
-    border: 3px solid #354F52;
-    color:white;
-    background-color: #354F52;
-    font-weight: bold;
-    padding: 6px 0px 10px 0px !important;
-    width: 55px;
-    height: 40px;
-    cursor: pointer;
-    font-size: 1px;
-    font-weight: bold;
-}
-
-.rate{
-    color: white;
-    font-weight: bold;
-    padding: 10px 0px 10px 0px !important;
-    font-weight: bold;
-    font-size: 22px;
-    background-color: #354F52;
-    width: 55px;
-    height: 40px;
-    text-align: center;
-    border-radius: 20px;
-}
+  agm-map {
+    height: 800px;
+  }

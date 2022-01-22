@@ -48,6 +48,14 @@
     </div>  
     </mat-toolbar>
 
+    <div style="margin-left: 40%; margin-top: 2%;" *ngIf="cattegoryAndPenaltiesBox">
+      <p style="font-weight: bolder;">Your category is: {{user.category}}</p>
+      <div style="display: flex; flex-direction: row;">
+        <p style="font-weight: bolder;">Number of penalties: </p><p style="font-size: 15px; font-weight:bold;">  {{user.penalty}}</p> 
+      </div>
+    </div>
+   
+
   <div class="example-form">
       <div class="double-input">
         <mat-form-field class="input-box1" appearance="outline">
@@ -88,13 +96,15 @@
       </div><br />
       <button class="btn"(click)="savePersonalInfo()">Save changes</button>
     </form>
+    <form [formGroup]="deleteForm">
       <div class="delete-box" *ngIf="deleteAccountBox">
         <mat-form-field class="reason-area" appearance="outline">
             <mat-label>Reason for deleting account</mat-label>
-            <textarea matInput></textarea>
+            <textarea formControlName="reasonForDelete" matInput></textarea>
           </mat-form-field><br />
           <button class="reason-btn" (click)="onDeleteRequest(user.id)">Send request</button>
       </div>
+    </form>
       <div class="password-box" *ngIf="changePasswordBox">
         <form [formGroup]="formPassword" (ngSubmit)="saveNewPassword()">
           <mat-form-field class="input-password" appearance="outline">
@@ -113,16 +123,7 @@
             <button class="reason-btn" (click)="saveNewPassword()">Save</button>
         </form>
       </div>
-      <div class="delete-box" *ngIf="cattegoryAndPenaltiesBox">
-        <mat-form-field class="input-box2" appearance="outline">
-          <mat-label>Cttegory of user</mat-label>
-          <input disabled  matInput placeholder="" value="{{user.name}}">
-      </mat-form-field>
-      <mat-form-field class="input-box" appearance="outline">
-          <mat-label>Number of penalties</mat-label>
-          <input disabled matInput placeholder="" value="{{user.surname}}">
-      </mat-form-field>
-      </div>
+   
   </div>
 
     

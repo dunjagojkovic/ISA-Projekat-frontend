@@ -11,6 +11,12 @@ import { Router } from '@angular/router';
 })
 export class ReservationsClientComponent implements OnInit {
 
+  houseBox : boolean = true;
+  boatBox : boolean = false;
+  instructorBox : boolean = false;
+  upcommingTable: boolean = true;
+  historyTable: boolean = false;
+
   houseReservations = [] as any;
   boatReservations = [] as any;
   instructorReservations = [] as any;
@@ -25,17 +31,17 @@ export class ReservationsClientComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.api.getMyHouseFinishedReservations().subscribe((response: any) => {
+    this.api.getMyHouseUpcomingReservations().subscribe((response: any) => {
       this.houseReservations = response;
       console.log(response);     
       });
 
-    this.api.getMyBoatReservations().subscribe((response: any) => {
+    this.api.getMyBoatUpcomingReservations().subscribe((response: any) => {
         this.boatReservations = response;
         console.log(response);
         });
 
-      this.api.getMyInstructorReservations().subscribe((response: any) => {
+      this.api.getMyInstructorUpcomingReservations().subscribe((response: any) => {
           this.instructorReservations = response;
           console.log(response);
           });
@@ -45,7 +51,60 @@ export class ReservationsClientComponent implements OnInit {
         });
 
   }
+
+  HouseFinishedReservations() {
+    this.historyTable = true; 
+    this.upcommingTable = false;
+    this.api.getMyHouseFinishedReservations().subscribe((response: any) => {
+      this.houseReservations = response;
+      console.log(response);     
+      });
+  }
    
+  HouseUpcomingReservations() {
+    this.historyTable = false; 
+    this.upcommingTable = true;
+    this.api.getMyHouseUpcomingReservations().subscribe((response: any) => {
+      this.houseReservations = response;
+      console.log(response);     
+      });
+  }
+
+  BoatUpcomingReservations() {
+    this.historyTable = false; 
+    this.upcommingTable = true;
+    this.api.getMyBoatUpcomingReservations().subscribe((response: any) => {
+      this.boatReservations = response;
+      console.log(response);     
+      });
+  }
+
+  BoatFinishedReservations() {
+    this.historyTable = true; 
+    this.upcommingTable = false;
+    this.api.getMyBoatFinishedReservations().subscribe((response: any) => {
+      this.boatReservations = response;
+      console.log(response);     
+      });
+  }
+
+  InstructorFinishedReservations() {
+    this.historyTable = true; 
+    this.upcommingTable = false;
+    this.api.getMyInstructorFinishedReservations().subscribe((response: any) => {
+      this.instructorReservations = response;
+      console.log(response);     
+      });
+  }
+   
+  InstructorUpcomingReservations() {
+    this.historyTable = false; 
+    this.upcommingTable = true;
+    this.api.getMyInstructorUpcomingReservations().subscribe((response: any) => {
+      this.instructorReservations = response;
+      console.log(response);     
+      });
+  }
     
   cancelHouse(id: number){
     this.api.cancelHouseReservation(id).subscribe((response:any) => {      {

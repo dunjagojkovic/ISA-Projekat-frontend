@@ -33,7 +33,7 @@
     
 
   
-    <div>   
+    <div style="margin-top: 5%;">   
         <div *ngFor="let a of actions; let i = index;">    
           <div style="display: flex; flex-direction: row; margin-top: 1%; margin-left: 25%; margin-bottom: 5%; margin-right: 25%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
             <mat-card style="width: 500px; border: none; font-weight: bold; color: #52796F;">
@@ -46,13 +46,14 @@
            <mat-card-subtitle style="font-weight: bold; font-size: 16px; margin-top: 2%;">{{a.boatProfile.address}}</mat-card-subtitle>
           <br>
           <mat-card-content style="width: 400px; font-weight: bold; font-size: 16px;">
-            <p>Old price: {{a.boatProfile.pricelist}}e per week</p>
-            <p>New price: {{a.actionPrice}}e per week</p>
+            <p>Old price: {{a.boatProfile.pricelist}}e per day</p>
+            <p>New price: {{a.actionPrice}}e per day</p>
             <p>Start date: {{a.startDate | date:'dd/MM/yyyy'}}</p>
             <p>End date: {{a.endDate | date:'dd/MM/yyyy'}}</p>
             <p>Cancel conditions: {{a.boatProfile.cancelConditions}} </p>
             <p>Rules: {{a.boatProfile.behaviourRules}}</p>
             <p>Extra service: {{a.boatProfile.extraService}}</p>
+            <p>Price for extra service: {{a.boatProfile.extraPrice}}e per day</p>
             <div>
               <button (click)="onSubmit(a.id)" class="reserve-btn">Book</button>
             </div>

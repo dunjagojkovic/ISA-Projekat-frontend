@@ -61,20 +61,19 @@
           <br>
           <div>
             <p style="text-transform: uppercase;">Total cost of accomodation</p>
-            <p>{{instructor.pricelist}}</p>
+            <p>{{instructor.pricelist}}e per day</p>
           </div>
           <br>
           <br> 
           <mat-card-title style="font-weight: bold; text-transform: uppercase; font-size: 16px; margin-top: 2%;">Extra chargeabels</mat-card-title>
         <hr>        
         <mat-radio-group formControlName="extraServices" style=" display: flex; flex-direction: column;  margin: 15px 0;">
-          <mat-radio-button style="margin-left: 25px; margin-bottom: 20px; margin-top: 5%;" value=" ">{{instructor.extraService}}  {{instructor.extraPrice}}</mat-radio-button>
-          <mat-radio-button style="margin-left: 25px;" [value]='3'>No extra services</mat-radio-button>        
+          <mat-radio-button style="margin-left: 25px; margin-bottom: 20px; margin-top: 5%;" [value]="instructor.extraService">{{instructor.extraService}}   {{instructor.extraPrice}}e per day</mat-radio-button>
+          <mat-radio-button style="margin-left: 25px;" value="No extra service">No extra services</mat-radio-button>             
        </mat-radio-group>
        <div>
          <div style="display: flex; flex-direction: row;">
           <button (click)="onSubmit()" class="book-btn">Book</button>
-          <button class="back-btn" [routerLink]="['/filter-free-instructors']">Go back</button>
          </div>
       </div>
         </mat-card-content>       

@@ -40,15 +40,14 @@
         <nav class="navMenu" style="font-size: 15px;">            
           <a style="float:none">Sort by
            <mat-select style="max-width: 20px;" multiple>
-            <mat-option (click)="sortBoatsByLocation()" > Location</mat-option>
-            <mat-option (click)="sortBoatsByRate()">Rate</mat-option>
-            <mat-option (click)="sortBoatsByName()">Name</mat-option>
-            <mat-option (click)="sortBoatsByPrice()">Price</mat-option>
+            <mat-option  style="font-weight:bolder;" (click)="sortBoatsByLocation()" > Location</mat-option>
+            <mat-option  style="font-weight:bolder;" (click)="sortBoatsByRate()">Best reviewd</mat-option>
+            <mat-option  style="font-weight:bolder;" (click)="sortBoatsByName()">Name</mat-option>
+            <mat-option style="font-weight:bolder;" (click)="sortBoatsByPrice()">Price(lower first)</mat-option>
              </mat-select> 
           </a>
           <a [routerLink]="['/filter-free-boats']" style="float:none">Dates and price</a>
           <a [routerLink]="['/boat-actions-client']" style="float:none">Our top picks</a>
-          <a style="float:none">View on map</a>
         </nav>
       </div>
       <div class="col-md-4">
@@ -73,7 +72,7 @@
        <mat-card-subtitle style="font-weight: bold; font-size: 16px; margin-top: 2%;">{{b.address}}</mat-card-subtitle>
       <br>
       <mat-card-content style="width: 400px; font-weight: bold; font-size: 16px;">
-        <p>Price: {{b.pricelist}}e</p>
+        <p>Price: {{b.pricelist}}e per day</p>
       <p>Type: {{b.type}}&nbsp;&nbsp;&nbsp;
          Length: {{b.length}}m &nbsp;&nbsp;&nbsp;
          Capacity: {{b.capacity}}
@@ -83,13 +82,18 @@
         Engine pw: {{b.enginePower}}kW&nbsp;&nbsp;&nbsp;
       </p>
       <p> Max speed: {{b.maxSpeed}}km/h</p>
-      <p>Nav equipment: {{b.navEquipment}}</p>
+      <p>Navigation  equipment: {{b.navEquipment}}</p>
       <p>Fishing equipment: {{b.fishingEquipment}}</p>
       <p>Rules: {{b.behaviourRules}}</p>
       <p>Extra service: {{b.extraService}}</p>
-      <p>Price for extra service: {{b.extraPrice}}e</p>
-      <p>Cancel cond: {{b.cancelConditions}}</p>
+      <p>Price for extra service: {{b.extraPrice}}e per day</p>
+      <p>Cancel conditions: {{b.cancelConditions}}</p>
       <p>Description: {{b.promoDescription}}</p>
+      <div>
+          <section class="example-section">
+            <mat-checkbox class="example-margin"  (click)="SubscribeMe(b.id)">I want to recieve notifications for this boat</mat-checkbox>
+          </section>
+        </div>
       </mat-card-content>
         </mat-card>  
         <mat-card >

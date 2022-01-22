@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-profile-settings',
@@ -19,11 +20,13 @@ export class ProfileSettingsComponent implements OnInit {
   user: any = {} as any;
   form: FormGroup;
   formPassword: FormGroup;
+  deleteForm: FormGroup;
   
   constructor(
     private formBuilder : FormBuilder,
     private router: Router,
-    private api: ApiService   
+    private api: ApiService,
+    private _snackBar: MatSnackBar
     ) { 
 
       this.form = this.formBuilder.group({
@@ -38,7 +41,7 @@ export class ProfileSettingsComponent implements OnInit {
         password: [''],
         type: ['', Validators.required],
         id: ['', Validators.required]
-      })
+      });
 
       this.formPassword = this.formBuilder.group({
 
@@ -46,14 +49,20 @@ export class ProfileSettingsComponent implements OnInit {
         newPassword: [''],
         passwordRepeat: ['']
 
-      })
+      });
 
+      this.deleteForm = this.formBuilder.group({
+
+        reasonForDelete: ['', Validators.required]      
+
+      })
     }
 
 
   ngOnInit(): void {
     this.api.current().subscribe((response:any) => {
       this.user = response;     
+      console.log(response)
   });
   }
 
@@ -96,8 +105,16 @@ export class ProfileSettingsComponent implements OnInit {
   }
 
   onDeleteRequest(id: number) {
-    this.api.sendDeleteRequest(id).subscribe((response: any) => {
-      console.log(response);});
+    const reasonForDelete = this.formPassword.get('reasonForDelete')?.value;
+
+    let data = {
+      reasonForDelete: reasonForDelete
+    }
+   
+    this.api.sendDeleteRequest1(id, data).subscribe((response: any) => {
+     this._snackBar.open('We are sorry to hear that you do not want to be part of us anymore.', 'Close', {duration: 5000})
+
+    console.log(response);});
   }
 
   saveNewPassword() {

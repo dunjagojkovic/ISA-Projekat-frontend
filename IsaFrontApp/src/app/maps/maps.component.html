@@ -1,0 +1,67 @@
+<div class="row d-flex align-items-center w-100">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8 website_name_label" [routerLink]="['/']">
+     BOOKING AGENCY
+    </div>
+    <div class="col-md-2">
+    </div>
+  </div>
+  
+    
+  <div class="row d-flex align-items-center w-100">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <nav class="navMenu">
+        <a [routerLink]="['/']" style="float:none">Home</a>
+        <a [routerLink]="['/cottages']" style="float:none">Cottages</a>
+        <a [routerLink]="['/boats']" style="float:none">Boats</a>
+        <a [routerLink]="['/instructors']" style="float:none">Instructors</a>
+        <a [routerLink]="['/registration']" style="float:none">Sign up</a>
+      </nav>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div> 
+  
+     
+      
+  <div class="row d-flex align-items-center frontpage_gray_banner">
+    <div class="col-md-2"></div>
+    <div class="col-md-6">
+      <div class="row d-flex align-items-center frontpage_gray_banner_label">BOOKING AGENCY:</div>
+      <div class="row d-flex align-items-center frontpage_gray_banner_label">TRUSTED PROFESSIONALS</div> 
+    </div>
+    <div class="col-md-4">
+  </div>
+  </div>
+
+  <div>
+    <agm-map appGoogleFontsLoadingDisable [latitude]="lat" [longitude]="lon">
+        <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+    </agm-map>
+  </div>
+  
+<div class="row d-flex align-items-center footer">
+    <div class="col-md-3">
+      <h2 class="link_title">Product</h2>
+      <h4 class="link_subtitle">Our plan</h4>
+      <h4 class="link_subtitle">Free trial</h4>
+    </div>
+    <div class="col-md-3">
+      <h2 class="link_title">About us</h2>
+      <h4 class="link_subtitle">Request demo</h4>
+      <h4 class="link_subtitle">FAQs</h4>
+    </div>
+    <div class="col-md-3">
+      <h2 class="link_title">Support</h2>
+      <h4 class="link_subtitle">Services</h4>
+      <h4 class="link_subtitle">Contact us</h4>
+    </div>
+    <div class="col-md-3">
+      <h2 class="link_title">Covid-19 FAQs</h2>
+      <h4 class="link_subtitle">Reviews</h4>
+      <h4 class="link_subtitle">Safety</h4>
+    </div>
+  </div>

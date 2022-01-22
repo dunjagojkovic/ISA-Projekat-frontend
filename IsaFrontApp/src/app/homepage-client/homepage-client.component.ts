@@ -12,7 +12,8 @@ export class HomepageClientComponent implements OnInit {
 
   user: any = {} as any;
   subscriptions = [] as any;
-
+  boatSubscriptions = [] as any;
+  instructorSubscriptions =  [] as any;
 
 constructor(
   private router: Router,
@@ -25,6 +26,15 @@ constructor(
   });
   this.api.getMyHouseSubscriptions().subscribe((response:any) => {
     this.subscriptions = response;
+    console.log(response);
+  });
+   this.api.getMyBoatSubscriptions().subscribe((response:any) => {
+    this.boatSubscriptions = response;
+    console.log(response);
+  });
+
+   this.api.getMyInstructorSubscriptions().subscribe((response:any) => {
+    this.instructorSubscriptions = response;
     console.log(response);
   });
 
@@ -47,6 +57,52 @@ constructor(
     
     this.api.unSubscribeUserOnAction(id, data).subscribe((response: any) => {
       this.subscriptions = this.subscriptions.filter((e:any) => e.id != id);
+      console.log(response);
+  
+  });
+  }
+
+  
+ UnSubscribeMeFromBoats(id:any){
+    let boat: any;
+  
+    for(let b of this.boatSubscriptions) {
+        if(b.id === id) {
+          boat = b;
+        }
+    }
+  
+    let data = {
+      boatId:  boat.id,
+      isSubscribed: boat.isSubscribed,      
+      clientId: this.user.id
+    }
+    
+    this.api.unSubscribeUserOnBoatAction(id, data).subscribe((response: any) => {
+      this.boatSubscriptions = this.boatSubscriptions.filter((e:any) => e.id != id);
+      console.log(response);
+  
+  });
+  }
+
+  UnSubscribeMeFromInstructors(id:any){
+    let instructor: any;
+  
+    for(let i of this.instructorSubscriptions) {
+        if(i.id === id) {
+          instructor = i;
+        }
+    }
+  
+    let data = {
+      adventureId:  instructor.id,
+      isSubscribed: instructor.isSubscribed,      
+      clientId: this.user.id
+    }
+    
+    this.api.unSubscribeUserOnInstructorAction(id, data).subscribe((response: any) => {
+      this.instructorSubscriptions = this.instructorSubscriptions.filter((e:any) => e.id != id);
+      console.log(response);
   
   });
   }
