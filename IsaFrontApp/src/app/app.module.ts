@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './auth.guard';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { ApiService } from './api.service';
+import {MatTableModule} from '@angular/material/table';
+
 
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
@@ -153,6 +155,7 @@ import { MapsComponent } from './maps/maps.component';
     MatNativeDateModule,
     MatCheckboxModule,
     MatRadioModule,
+    MatTableModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,

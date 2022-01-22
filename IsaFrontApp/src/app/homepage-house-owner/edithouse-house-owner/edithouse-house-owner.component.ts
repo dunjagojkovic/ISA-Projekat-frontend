@@ -75,6 +75,8 @@ export class EdithouseHouseOwnerComponent implements OnInit {
       longitude: this.home.longitude,
       latitude: this.home.latitude
     });
+    this.longitude = this.home.longitude;
+    this.latitude = this.home.latitude;
   });
   }
 
@@ -88,8 +90,8 @@ export class EdithouseHouseOwnerComponent implements OnInit {
       const behaviourRules = this.form.get('behaviourRules')?.value;
       const extraService = this.form.get('extraService')?.value;
       const extraPrice = this.form.get('extraPrice')?.value;
-      const longitude = this.form.get('longitude')?.value;
-      const latitude = this.form.get('latitude')?.value;
+      const longitude = this.longitude;
+      const latitude = this.latitude;
 
       let data = {
         name: name,

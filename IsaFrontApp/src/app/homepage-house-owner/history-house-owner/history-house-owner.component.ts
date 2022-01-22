@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
+import { MatSnackBar} from '@angular/material/snack-bar';
 
 
 @Component({
@@ -23,10 +24,13 @@ export class HistoryHouseOwnerComponent implements OnInit {
   upcommingBox: boolean = true;
   client: any;
   clientId: any;
+  todayRes: any;
+
 
 constructor(
   private router: Router,
-  private api: ApiService   
+  private api: ApiService,
+  private _snackBar: MatSnackBar  
 ) { }
 
 
@@ -38,7 +42,6 @@ constructor(
 
   this.api.getClients().subscribe((response:any) => {
     this.clients = response;      
-    console.log(response);
   }, () => this.getFullName());
 
     let data = {
@@ -46,11 +49,10 @@ constructor(
       endDate: this.endDate,
       address: this.address,
       ownerId: this.user.id
-  }
+    }
   
   this.api.getReservationsForMyHouses(data).subscribe((response:any) => {
     this.reservations = response;      
-    console.log(response);
   });
 }
 
@@ -61,10 +63,25 @@ constructor(
       address: this.address,
       ownerId: this.user.id
     }
+
+    this.api.getClients().subscribe((response:any) => {
+      this.clients = response;      
+    }, () => this.getFullName());
+
     this.api.getTodayReservationsForMyHouses(data).subscribe((response:any) => {
-      this.todayReservations = response;      
+      this.todayReservations = response; 
+      console.log(this.todayReservations);     
     });
+
   }
+
+  /* disableButton(reservation: any): boolean { 
+    if(reservation.writed === false) {
+      this._snackBar.open('Your review has been sent successfully.', 'Close');
+      return false;
+    }
+    return true;
+  }*/
 
   historyReservation(): void{
     let data = {
@@ -73,9 +90,14 @@ constructor(
       address: this.address,
       ownerId: this.user.id
     }
+
+    this.api.getClients().subscribe((response:any) => {
+      this.clients = response;      
+    }, () => this.getFullName());
+
     this.api.getHistoryReservationsForMyHouses(data).subscribe((response:any) => {
       this.historyReservations = response;      
-    });
+    },() => this.getFullName());
   }
 
   logout(): void{
@@ -87,20 +109,22 @@ constructor(
       for(var client of this.clients){
         if(client.id == reservation.clientId)
           this.reservations.push(client);
-      }
+     }
     }
     for(var reservation of this.todayReservations){
       for(var client of this.clients){
         if(client.id == reservation.clientId)
-          this.reservations.push(client);
+          this.todayReservations.push(client);
       }
     }
     for(var reservation of this.historyReservations){
       for(var client of this.clients){
         if(client.id == reservation.clientId)
-          this.reservations.push(client);
+          this.historyReservations.push(client);
       }
     }
   }
+
+  
 
 }

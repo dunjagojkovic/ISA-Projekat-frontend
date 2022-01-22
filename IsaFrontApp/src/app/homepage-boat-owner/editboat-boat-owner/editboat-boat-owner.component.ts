@@ -89,6 +89,8 @@ export class EditboatBoatOwnerComponent implements OnInit {
       longitude: this.boat.longitude,
       latitude: this.boat.latitude
     });
+    this.longitude = this.boat.longitude;
+    this.latitude = this.boat.latitude;
   });
   }
 
@@ -109,8 +111,8 @@ export class EditboatBoatOwnerComponent implements OnInit {
       const capacity = this.form.get('capacity')?.value;
       const fishingEquipment = this.form.get('fishingEquipment')?.value;
       const cancelConditions = this.form.get('cancelConditions')?.value;
-      const longitude = this.form.get('longitude')?.value;
-      const latitude = this.form.get('latitude')?.value;
+      const longitude = this.longitude;
+      const latitude = this.latitude;
 
       let data = {
         name: name,

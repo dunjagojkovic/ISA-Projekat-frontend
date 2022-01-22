@@ -31,6 +31,8 @@ export class ReportBoatOwnerComponent implements OnInit {
   options = { responsive: true, maintainAspectRatio: false };
   chartType = 'bar';
   boats: any;
+  startCountPeriod = new Date();
+  endCountPeriod = new Date();
   
   constructor(
     private router: Router,
@@ -57,6 +59,29 @@ export class ReportBoatOwnerComponent implements OnInit {
         this.applyWeek();
       });
     });
+  }
+
+  getDateString = (date: Date):string => {
+    const month = date.getMonth();
+    return `${date.getFullYear()}-${month < 10 ? '0': ''}${date.getMonth()}-${date.getDate()}`;
+  }
+
+  applyCountIncome = () => {
+    const reservations = [...this.reservations];
+    for(let boat of this.boats){
+      boat.totalIncome = 0;
+      boat.totalReservations = 0;
+      for(let reservation of this.reservations){
+        const reservationDate = new Date(reservation.startDate)
+          if(this.startCountPeriod <= reservationDate && reservationDate <= this.endCountPeriod && reservation.boatProfile.id == boat.id){
+            if(!boat?.totalIncome) boat.totalIncome = 0;
+            boat.totalIncome += reservation.price;
+            if(!boat?.totalReservations) boat.totalReservations = 0;
+            boat.totalReservations ++;
+          }
+      }
+    }
+    console.log(this.boats);
   }
 
   applyYear = () => {

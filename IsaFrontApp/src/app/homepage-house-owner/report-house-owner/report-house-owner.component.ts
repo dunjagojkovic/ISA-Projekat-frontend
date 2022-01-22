@@ -31,6 +31,8 @@ export class ReportHouseOwnerComponent implements OnInit {
   options = { responsive: true, maintainAspectRatio: false };
   chartType = 'bar';
   houses: any;
+  startCountPeriod = new Date();
+  endCountPeriod = new Date();
 
   constructor(
     private router: Router,
@@ -41,7 +43,7 @@ export class ReportHouseOwnerComponent implements OnInit {
   ngOnInit(): void {
     this.api.loadHouse().subscribe((response:any) => {
       this.houses = response;
-  });
+    });
     this.api.current().subscribe((response:any) => {
       this.user = response;      
 
@@ -54,11 +56,33 @@ export class ReportHouseOwnerComponent implements OnInit {
         console.log(response);
         this.applyYear();
         this.applyMonth();
-        this.applyWeek();
+        this.applyWeek();        
       });
   });
 }
 
+  getDateString = (date: Date):string => {
+    const month = date.getMonth();
+    return `${date.getFullYear()}-${month < 10 ? '0': ''}${date.getMonth()}-${date.getDate()}`;
+  }
+
+  applyCountIncome = () => {
+    const reservations = [...this.reservations];
+    for(let house of this.houses){
+      house.totalIncome = 0;
+      house.totalReservations = 0;
+      for(let reservation of this.reservations){
+        const reservationDate = new Date(reservation.startDate)
+          if(this.startCountPeriod <= reservationDate && reservationDate <= this.endCountPeriod && reservation.homeProfile.id == house.id){
+            if(!house?.totalIncome) house.totalIncome = 0;
+            house.totalIncome += reservation.price;
+            if(!house?.totalReservations) house.totalReservations = 0;
+            house.totalReservations ++;
+          }
+      }
+    }
+    console.log(this.houses);
+  }
 
   applyYear = () => {
     let dataM = [0,0,0,0,0,0,0,0,0,0,0,0]
