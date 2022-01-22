@@ -96,6 +96,7 @@ export class ProfileSettingsComponent implements OnInit {
 
     this.api.editInfo(id, data).subscribe((response: any) => {
       console.log(response);
+      this.router.navigate(['/home-client']);
     });
   }
 

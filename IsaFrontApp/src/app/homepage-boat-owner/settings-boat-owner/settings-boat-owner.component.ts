@@ -4,6 +4,7 @@ import { ApiService } from 'src/app/api.service';
 import { FormGroup } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-settings-boat-owner',
@@ -22,7 +23,8 @@ export class SettingsBoatOwnerComponent implements OnInit {
   constructor(
     private formBuilder : FormBuilder,
     private router: Router,
-    private api: ApiService   
+    private api: ApiService,
+    private _snackBar: MatSnackBar   
     ) { 
 
       this.form = this.formBuilder.group({
@@ -115,6 +117,7 @@ export class SettingsBoatOwnerComponent implements OnInit {
 
   onDeleteRequest(id: number) {
     this.api.sendDeleteRequest(id).subscribe((response: any) => {
+      this._snackBar.open('We are sorry to hear that you do not want to be part of us anymore.', 'Close', {duration: 5000})
       console.log(response);});
   }
   
