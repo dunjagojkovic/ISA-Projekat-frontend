@@ -178,9 +178,9 @@
 
 .logout-btn{
     border-radius: 20px;
-    border: 3px solid #84A98C ;
+    border: 3px solid #52796F;
     color:white;
-    background-color: #84A98C;
+    background-color: #52796F;
     font-weight: bold;
     padding: 10px 0px 10px 0px !important;
     position: absolute;
@@ -222,7 +222,6 @@
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
-  
 }
 
 .example-form {
@@ -327,3 +326,58 @@
   .example-margin {
     margin: 0 12px;
   }
+
+.chartstyle {
+    height: 500px;
+    width: 1300px;
+    margin-left: 6%;
+    margin-bottom: 5%;
+}
+
+.period-btn{
+    border-radius: 20px;
+    border: 3px solid #84A98C ;
+    color:white;
+    background-color: #84A98C;
+    font-weight: bold;  
+    width: 120px;
+    height: 44px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.input-box {
+    width: 200px;
+    color: #354F52;
+    align-items: center;
+    height: 58px;
+    margin-left: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+
+  .example-card {
+    max-width: 550px;
+    height: 510px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+  
+  .example-header-image {
+    background-color: #52796F;
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+    font-weight: bold;
+    padding: 14px 0px 10px 17px !important;
+    font-size: 30px;
+    color: white;
+  }
+
+  .mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: 0 2px 3px -1px rgb(199, 197, 197), 
+                0 2px 3px 0 rgb(199, 197, 197), 
+                0 2px 3px 0 rgb(199, 197, 197);
+}

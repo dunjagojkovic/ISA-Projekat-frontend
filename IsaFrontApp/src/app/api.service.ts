@@ -29,8 +29,16 @@ export class ApiService {
     return this.http.get(this.baseURL + "/api/users/current", this.getAuthoHeader());
   }
 
+  getClients() {
+    return this.http.get(this.baseURL + "/api/users/usersByType", this.getAuthoHeader());
+  }
+
   registerClient(data: any) {
     return this.http.post(this.baseURL + "/api/users/client/register", data);
+  }
+
+  getUserInfo(){
+    return this.http.get(this.baseURL + "/api/users/userInfo", this.getAuthoHeader());
   }
 
   registerHouseOwner(data: any) {
@@ -300,6 +308,10 @@ getReservationsForCharts(data: any){
   return this.http.post(this.baseURL + "/api/homeReservations/myReservationsForCharts", data, this.getAuthoHeader());
 }
 
+getBoatReservationsForCharts(data: any){
+  return this.http.post(this.baseURL + "/api/boatReservations/boatReservationsForCharts", data, this.getAuthoHeader());
+}
+
 getAllReservations(houseId: number, ownerId: number){
   return this.http.get(this.baseURL + "/api/homeReservations/getAllReservations/" +houseId + '/' + ownerId, this.getAuthoHeader());
 }
@@ -318,6 +330,11 @@ getTodayReservationsForMyBoats(data: any){
 
 getHistoryReservationsForMyBoats(data: any){
   return this.http.post(this.baseURL + "/api/boatReservations/myHistoryReservationsForMyBoats", data, this.getAuthoHeader());
+}
+
+ 
+filterClients(data:any){
+  return this.http.post(this.baseURL + "/api/users/filterUsers", data);
 }
 
 }

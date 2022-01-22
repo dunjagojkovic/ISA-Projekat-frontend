@@ -5,6 +5,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './auth.guard';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import {MatTableModule} from '@angular/material/table';
+
 
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
@@ -75,6 +77,7 @@ import { ReserveBoatOwnerComponent } from './homepage-boat-owner/reserve-boat-ow
 import { ReportHouseOwnerComponent } from './homepage-house-owner/report-house-owner/report-house-owner.component';
 import { ChartModule } from 'angular2-chartjs';
 import { ReportBoatOwnerComponent } from './homepage-boat-owner/report-boat-owner/report-boat-owner.component';
+import { MapsClientComponent } from './homepage-client/maps-client/maps-client.component';
 
 @NgModule({
   declarations: [
@@ -125,7 +128,8 @@ import { ReportBoatOwnerComponent } from './homepage-boat-owner/report-boat-owne
     ReviewBoatOwnerComponent,
     ReserveBoatOwnerComponent,
     ReportHouseOwnerComponent,
-    ReportBoatOwnerComponent
+    ReportBoatOwnerComponent,
+    MapsClientComponent
   ],
 
   imports: [
@@ -150,6 +154,7 @@ import { ReportBoatOwnerComponent } from './homepage-boat-owner/report-boat-owne
     MatNativeDateModule,
     MatCheckboxModule,
     MatRadioModule,
+    MatTableModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,

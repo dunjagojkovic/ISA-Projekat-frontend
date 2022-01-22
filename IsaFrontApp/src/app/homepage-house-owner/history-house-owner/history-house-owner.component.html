@@ -28,7 +28,16 @@
     <div class="col-md-2"></div>
   </div>
 
-  <mat-toolbar class="navMenu" style="cursor: pointer; margin-top: 2%; align-items: left;">      
+  <form>
+    <div class="search-box-rooms">
+      <input class="search-txt-rooms" type="text" formControlName="" matInput value="" placeholder="Search for..." />
+      <a class="search-btn-rooms">
+        <mat-icon>search</mat-icon>
+      </a>
+    </div>
+  </form>
+
+  <mat-toolbar class="navMenu" style="cursor: pointer; margin-top: 0%; align-items: left;">      
     <div class="row d-flex align-items-center w-100">
       <div class="col-md-4">
       </div>
@@ -51,18 +60,23 @@
       <table class="rooms-table">
         <thead>
           <tr>
-            <th>House</th>
-            <th>Start date</th>
-            <th>End date</th>
-            <th>Client</th>
+            <th style="width: 220px;">House</th>
+            <th style="width: 200px;">Start date</th>
+            <th style="width: 200px;">End date</th>
+            <th style="width: 250px;">Client</th>
           </tr>
         </thead>
-        <tbody>
-          <tr *ngFor = "let r of reservations ">
-            <td style="width: 220px;">{{r.homeProfile.name}}</td>
-            <td style="width: 230px;">{{r.startDate | date:'dd/MM/yyyy'}}</td>
-            <td style="width: 50px;">{{r.endDate | date:'dd/MM/yyyy'}}</td>
-            <td style="width: 350px;">{{r.clientId}}</td>
+        <tbody style="width: 870px;">
+          <tr *ngFor = "let r of reservations;">
+             <td style="width: 220px;"><br>{{r.homeProfile.name}}</td> 
+            <td style="width: 260px;"><br>{{r.startDate | date:'dd/MM/yyyy'}}</td> 
+            <td style="width: 210px;"><br>{{r.endDate | date:'dd/MM/yyyy'}}</td> 
+            <div *ngFor = "let client of clients;">
+              <td *ngIf = "client.id == r.clientId">{{client.name}} {{client.surname}} <br>
+                {{client.email}} <br>
+                {{client.phoneNumber}} 
+              </td>
+            </div>  
           </tr>
         </tbody>
       </table>
@@ -75,21 +89,28 @@
       <table class="rooms-table">
         <thead>
           <tr>
-            <th style="width: 200px;">House</th>
-            <th style="width: 180px;">Start </th>
-            <th style="width: 180px;">End </th>
-            <th>Client</th>
-            <th style="width: 20px; height: 50px;"></th>
+            <th style="width: 220px;">House</th>
+            <th>Start date</th>
+            <th style="width: 210px;" >End date</th>
+            <th style="width: 140px;">Client</th>
+            <th style="width: 205px;">Write review</th>
           </tr>
         </thead>
-        <tbody>
-          <tr *ngFor = "let hr of historyReservations ">
-            <td style="width: 210px;">{{hr.homeProfile.name}}</td>
-            <td style="width: 240px;">{{hr.startDate | date:'dd/MM/yyyy'}}</td>
-            <td style="width: 50px;">{{hr.endDate | date:'dd/MM/yyyy'}}</td>
-            <td style="width: 350px;">{{hr.clientId}}</td>
+        <tbody style="width: 900px; text-align: left;">
+          <tr *ngFor = "let hr of historyReservations;">
+            <td style="width: 220px; position: relative;left: 4%;">{{hr.homeProfile.name}}</td>
+            <td style="width: 175px; position: relative;left: 1%;">{{hr.startDate | date:'dd/MM/yyyy'}}</td>
+            <td style="width: 160px;">{{hr.endDate | date:'dd/MM/yyyy'}}</td>
+            <div *ngFor = "let client of clients;">
+              <td *ngIf = "client.id == hr.clientId">{{client.name}} {{client.surname}} <br>
+                {{client.email}} <br>
+                {{client.phoneNumber}} 
+              </td>
+            </div>          
             <td>
-              <button class="btn-review" [routerLink]="['/review-house-owner']" [queryParams]="{id: hr.id, startDate: hr.startDate, endDate: hr.endDate, clientId: hr.clientId}" >Review</button>
+              <button class="btn-review" [routerLink]="['/review-house-owner']" [queryParams]="{id: hr.id, startDate: hr.startDate, endDate: hr.endDate, clientId: hr.clientId}" >
+                <span class="material-icons">edit</span>
+              </button>
             </td>
           </tr>
         </tbody>
@@ -103,22 +124,29 @@
     <table class="rooms-table">
       <thead>
         <tr>
-          <th style="width: 200px;">House</th>
-            <th style="width: 180px;">Start </th>
-            <th style="width: 180px;">End </th>
-            <th>Client</th>
-            <th style="width: 20px; height: 50px;"></th>
+          <th style="width: 220px;">House</th>
+          <th>Start date</th>
+          <th style="width: 210px;" >End date</th>
+          <th style="width: 140px;">Client</th>
+          <th style="width: 205px;">Reserve house</th>
         </tr>
       </thead>
-      <tbody>
-        <tr *ngFor = "let tr of todayReservations ">
-          <td style="width: 220px;">{{tr.homeProfile.name}}</td>
-          <td style="width: 230px;">{{tr.startDate | date:'dd/MM/yyyy'}}</td>
-          <td style="width: 50px;">{{tr.endDate | date:'dd/MM/yyyy'}}</td>
-          <td style="width: 350px;"></td>
-          <td>
-            <button class="btn-review" [routerLink]="['/reserve-house-owner']" [queryParams]="{clientId: tr.clientId, houseId: tr.homeProfile.id}">Reserve</button>
-          </td>
+      <tbody style="width: 900px; text-align: left;">
+        <tr *ngFor = "let tr of todayReservations;">
+          <td style="width: 220px; position: relative;left: 4%;">{{tr.homeProfile.name}}</td>
+            <td style="width: 175px; position: relative;left: 1%;">{{tr.startDate | date:'dd/MM/yyyy'}}</td>
+            <td style="width: 160px;">{{tr.endDate | date:'dd/MM/yyyy'}}</td>
+            <div *ngFor = "let client of clients;">
+              <td *ngIf = "client.id == tr.clientId">{{client.name}} {{client.surname}} <br>
+                {{client.email}} <br>
+                {{client.phoneNumber}} 
+              </td>
+            </div>  
+            <td>
+              <button class="btn-review" [routerLink]="['/reserve-house-owner']" [queryParams]="{clientId: tr.clientId, houseId: tr.homeProfile.id}" >
+                <span class="material-icons">add</span>
+              </button>
+            </td>
         </tr>
       </tbody>
     </table>
