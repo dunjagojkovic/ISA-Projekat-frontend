@@ -411,6 +411,18 @@ cancelInstructorReservation(id: number){
    return this.http.delete(this.baseURL + "/api/adventuresReservation/" +id, this.getAuthoHeader());
 }
 
+responseToAdventureComplaint(id: number, data: any){
+  return this.http.put(this.baseURL + "/api/adventureComplaints/responseToComplaint/" +id,data, this.getAuthoHeader());
+}
+
+responseToBoatComplaint(id: number, data:any){
+  return this.http.put(this.baseURL + "/api/boatComplaints/responseToComplaint/" +id,data, this.getAuthoHeader());
+}
+
+responseToHomeComplaint(id: number,data:any){
+  return this.http.put(this.baseURL + "/api/homeComplaints/responseToComplaint/" +id,data, this.getAuthoHeader());
+}
+
 editBoat(id: number, data: any) {
   return this.http.put(this.baseURL + "/api/boats/" +id, data, this.getAuthoHeader());
 }

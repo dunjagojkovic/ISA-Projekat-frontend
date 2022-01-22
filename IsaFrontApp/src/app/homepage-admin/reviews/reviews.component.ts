@@ -9,6 +9,7 @@ import { ApiService } from 'src/app/api.service';
 })
 export class ReviewsComponent implements OnInit {
 
+  id: any;
   user: any = {} as any;
   adventureReviews = [] as any;
   boatReviews = [] as any;
@@ -51,5 +52,24 @@ constructor(
     }); 
    
   }
+
+  strikeAdventureClient(id: any) {
+    this.api.strikeAdventureClient(id).subscribe((response: any) => {
+
+    });
+  }  
+
+  strikeBoatClient(id: any)
+  {
+    this.api.strikeBoatClient(id).subscribe((response: any) => {
+
+    });
+  }
+
+  strikeHomeClient(id: any) {
+    this.api.strikeHomeClient(id).subscribe((response: any) => {
+
+    });
+  }  
 
 }

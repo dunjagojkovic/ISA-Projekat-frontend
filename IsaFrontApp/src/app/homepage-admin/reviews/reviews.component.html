@@ -90,7 +90,7 @@
                   <td style="width: 1000x;">{{ar.isAppear}}</td>
                   <td style="width: 1000x;">{{ar.isBadComment}}</td>
                   <td style="width: 1000x;">{{ar.content}}</td>
-                  <td><button >Strike one penalty</button></td>
+                  <td><button (click)="strikeAdventureClient(ar.id)">Strike one penalty</button></td>
                 
                   
                 </tr>
@@ -127,7 +127,7 @@
                     <td style="width: 1000x;">{{hr.isAppear}}</td>
                     <td style="width: 1000x;">{{hr.isBadComment}}</td>
                     <td style="width: 1000x;">{{hr.content}}</td>
-                    <td><button >Strike one penalty</button></td>
+                    <td><button (click)="strikeHomeClient(hr.id)">Strike one penalty</button></td>
                 
               </tr>
             </tbody>
@@ -162,7 +162,7 @@
                 <td style="width: 1000x;">{{br.isAppear}}</td>
                 <td style="width: 1000x;">{{br.isBadComment}}</td>
                 <td style="width: 1000x;">{{br.content}}</td>
-                <td><button >Strike one penalty</button></td>
+                <td><button (click)="strikeBoatClient(br.id)">Strike one penalty</button></td>
             
             </tr>
           </tbody>
