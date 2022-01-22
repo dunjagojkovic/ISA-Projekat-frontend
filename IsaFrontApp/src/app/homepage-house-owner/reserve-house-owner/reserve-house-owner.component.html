@@ -10,8 +10,8 @@
     <div class="col-md-4">
       <nav class="navMenu">
         <a href="home-house-owner" style="float:none">Houses</a>
-        <a href="" style="float:none">Calendar</a>
         <a href="history-house-owner" style="float:none">Reservations</a>
+        <a href="report-house-owner" style="float:none">Business report</a>
         <a href="settings-house-owner" style="float:none">User settings</a>
       </nav>
     </div>
@@ -22,65 +22,53 @@
     <div class="col-md-2">
     </div>
     <div class="col-md-8">
-      <div class="row d-flex align-items-center frontpage_gray_banner_label">Welcome,</div>
-      <div class="row d-flex align-items-center frontpage_gray_banner_label">{{user.name}} {{user.surname}}</div> 
+      <div class="row d-flex align-items-center frontpage_gray_banner_label">Welcome {{user.name}},</div>
+      <div class="row d-flex align-items-center frontpage_gray_banner_label" style="font-size: 34px;">make a reservation for your guests...</div> 
     </div>
     <div class="col-md-2"></div>
   </div>
 
-
-  <h1 class="heading" style="margin-top: 25px; margin-left:44%;">Make a reservation</h1>
+  <h1 class="heading" style="margin-top: 25px; margin-left:44%;">Reservation report</h1> 
 
 <form [formGroup]="form">
-  <mat-form-field appearance="outline" class="date-picker" color="#354F52" >
-    <mat-label style="font-weight: bold;">Check in - Check out</mat-label>
-    <mat-date-range-input [min]="todayDate" [rangePicker]="picker">
-      <input style="font-weight: bold;" matStartDate formControlName="startDate" placeholder="Start date">
-      <input  style="font-weight: bold;" matEndDate formControlName="endDate" placeholder="End date">
-    </mat-date-range-input>
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-date-range-picker #picker></mat-date-range-picker>          
-  </mat-form-field> 
-  <div>
-    <mat-radio-group formControlName="extraServices" style=" display: flex; flex-direction: column;  margin: 15px 0;">
-      <mat-radio-button style="margin-left: 25px; margin-bottom: 20px; margin-top: 5%;" value=" "></mat-radio-button>
-      <mat-radio-button style="margin-left: 25px;" [value]='3'>No extra service</mat-radio-button>        
-   </mat-radio-group>
-  </div> 
-  <button (click) = "onSubmit()">Save</button>
-</form>
-  <!-- FORMA -->
-  <div style="margin-bottom: 10%;">
+  <div style="margin-bottom: 5%;">
     <mat-card style="width: 750px;  margin-left: 30%; margin-right: 26%;">
-      <mat-card-title  style="font-size: 26px; margin-top: 4%; font-weight: bold;">NAME</mat-card-title>
-      <mat-card-subtitle style="font-weight: bold; font-size: 16px; margin-top: 2%; text-transform: uppercase;">DATE</mat-card-subtitle>
-      <hr>
-      <br>
+      <mat-card-title  style="font-size: 26px; margin-top: 4%; font-weight: bold;">Reservation for {{client.name}} {{client.surname}}</mat-card-title>
+      <mat-card-subtitle style="font-weight: bold; font-size: 16px; margin-top: 2%; text-transform: uppercase;">{{client.email}}</mat-card-subtitle>
+      <mat-card-subtitle style="font-weight: bold; font-size: 16px; margin-top: 2%; text-transform: uppercase;">{{client.phoneNumber}}</mat-card-subtitle>
+      <hr><br>
       <mat-card-title style="font-weight: bold; text-transform: uppercase; font-size: 16px; margin-top: 2%;">Booking summary</mat-card-title>
-      <hr>
-      <br>
+      <hr><br>
       <mat-card-content>
         <div>
           <p style="text-transform: uppercase; font-weight: bold;">Property name</p>
-          <p style="font-weight: bolder;"></p>
+          <p style="font-weight: bolder; color: #bfc0bf;">{{house.name}}</p>
         </div>
         <br>
         <div>
-          <p style="text-transform: uppercase; font-weight: bold;">Date of arrival</p>
-          <p style="font-weight: bolder;"></p>
+          <p style="text-transform: uppercase; font-weight: bold;">Property address</p>
+          <p style="font-weight: bolder; color: #bfc0bf;">{{house.address}}</p>
         </div>
         <br>
         <div>
-          <p style="text-transform: uppercase; font-weight: bold;">Date of departure</p>
-          <p style="font-weight: bolder;"></p>
+          <p style="text-transform: uppercase; font-weight: bold;">Date of arrival/departure</p>
+          <p style="font-weight: bolder; margin-top: -3%; margin-left: -1%;">
+            <mat-form-field appearance="outline" class="date-picker" color="#354F52" >
+              <mat-label style="font-weight: bold;">Check in - Check out</mat-label>
+              <mat-date-range-input [min]="todayDate" [rangePicker]="picker">
+                <input style="font-weight: bold;" matStartDate formControlName="startDate" placeholder="Start date">
+                <input  style="font-weight: bold;" matEndDate formControlName="endDate" placeholder="End date">
+              </mat-date-range-input>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>          
+            </mat-form-field> 
+          </p>
         </div>
-        <br>
         <div>
           <p style="text-transform: uppercase; font-weight: bold;">Total cost of accomodation</p>
-          <p style="font-weight: bolder;"></p>
+          <p style="font-weight: bolder; color: #bfc0bf;">{{house.pricelist}} e</p>
         </div>
-        <br>
-        <br> 
+        <br><br> 
         <mat-card-title style="font-weight: bold; text-transform: uppercase; font-size: 16px; margin-top: 2%;">Extra chargeabels</mat-card-title>
       <hr>        
       <div style="display: inline-flex; flex-direction: row;">
@@ -94,12 +82,13 @@
       </div>
      <div>
        <div style="display: flex; flex-direction: row;">
-        <button class="book-btn">Book</button>
+        <button class="book-btn" (click) = "onSubmit()">Book</button>
        </div>
     </div>
       </mat-card-content>       
     </mat-card>
   </div>
+</form>
 
   <div class="row d-flex align-items-center footer">
     <div class="col-md-3">

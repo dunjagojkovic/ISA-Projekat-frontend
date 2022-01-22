@@ -10,8 +10,8 @@
     <div class="col-md-4">
       <nav class="navMenu">
         <a href="home-house-owner" style="float:none">Houses</a>
-        <a href="" style="float:none">Calendar</a>
         <a href="history-house-owner" style="float:none">Reservations</a>
+        <a href="report-house-owner" style="float:none">Business report</a>
         <a href="settings-house-owner" style="float:none">User settings</a>
       </nav>
     </div>
@@ -89,7 +89,7 @@
             <td style="width: 50px;">{{hr.endDate | date:'dd/MM/yyyy'}}</td>
             <td style="width: 350px;">{{hr.clientId}}</td>
             <td>
-              <button class="btn-review" [routerLink]="['/review-house-owner']" [queryParams]="{id: hr.id, startDate: hr.startDate, endDate: hr.endDate}" >Review</button>
+              <button class="btn-review" [routerLink]="['/review-house-owner']" [queryParams]="{id: hr.id, startDate: hr.startDate, endDate: hr.endDate, clientId: hr.clientId}" >Review</button>
             </td>
           </tr>
         </tbody>
@@ -115,7 +115,7 @@
           <td style="width: 220px;">{{tr.homeProfile.name}}</td>
           <td style="width: 230px;">{{tr.startDate | date:'dd/MM/yyyy'}}</td>
           <td style="width: 50px;">{{tr.endDate | date:'dd/MM/yyyy'}}</td>
-          <td style="width: 350px;">{{tr.clientId}}</td>
+          <td style="width: 350px;"></td>
           <td>
             <button class="btn-review" [routerLink]="['/reserve-house-owner']" [queryParams]="{clientId: tr.clientId, houseId: tr.homeProfile.id}">Reserve</button>
           </td>

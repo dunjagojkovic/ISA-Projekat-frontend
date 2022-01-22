@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
+import { AuthGuard } from './auth.guard';
+
 
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
@@ -73,7 +75,9 @@ import { EditAdventureComponent } from './homepage-instructor/edit-adventure/edi
 import { SettingsInstructorProfileComponent } from './homepage-instructor/settings-instructor-profile/settings-instructor-profile.component';
 
 
-
+import { BoatEvaluationsComponent } from './homepage-client/boat-evaluations/boat-evaluations.component';
+import { InstructorEvaluationsComponent } from './homepage-client/instructor-evaluations/instructor-evaluations.component';
+import { ApiService } from './api.service';
 import { ReviewHouseOwnerComponent } from './homepage-house-owner/review-house-owner/review-house-owner.component';
 import { ReserveHouseOwnerComponent } from './homepage-house-owner/reserve-house-owner/reserve-house-owner.component';
 import { HistoryBoatOwnerComponent } from './homepage-boat-owner/history-boat-owner/history-boat-owner.component';
@@ -82,9 +86,19 @@ import { MapsHouseOwnerComponent } from './homepage-house-owner/maps-house-owner
 import { GoogleFontsLoadingDisableDirective } from 'google-fonts-loading-disable.directive';
 import { MapsBoatOwnerComponent } from './homepage-boat-owner/maps-boat-owner/maps-boat-owner.component';
 import { ReviewBoatOwnerComponent } from './homepage-boat-owner/review-boat-owner/review-boat-owner.component';
+
 import { HistoryAdventureReservationComponent } from './homepage-instructor/history-adventure-reservation/history-adventure-reservation.component';
 import { ReviewInstructorComponent } from './homepage-instructor/review-instructor/review-instructor.component';
-import { InstructorEvaluationsComponent } from './homepage-client/instructor-evaluations/instructor-evaluations.component';
+
+
+import { ReserveBoatOwnerComponent } from './homepage-boat-owner/reserve-boat-owner/reserve-boat-owner.component';
+import { ReportHouseOwnerComponent } from './homepage-house-owner/report-house-owner/report-house-owner.component';
+import { ChartModule } from 'angular2-chartjs';
+import { ReportBoatOwnerComponent } from './homepage-boat-owner/report-boat-owner/report-boat-owner.component';
+import { ReportInstructorComponent } from './homepage-instructor/report-instructor/report-instructor.component';
+import { ComplaintsFromClientsComponent } from './homepage-admin/complaints-from-clients/complaints-from-clients.component';
+import { EvaluationsFromClientsComponent } from './homepage-admin/evaluations-from-clients/evaluations-from-clients.component';
+import { ReviewsComponent } from './homepage-admin/reviews/reviews.component';
 
 
 @NgModule({
@@ -133,6 +147,8 @@ import { InstructorEvaluationsComponent } from './homepage-client/instructor-eva
     BoatComplaintsComponent,
     InstructorComplaintsComponent,
     CottageEvaluationsComponent,
+    BoatEvaluationsComponent,
+    InstructorEvaluationsComponent,
     HistoryHouseOwnerComponent,
     FreeTermsAdventureComponent,
     EditAdventureComponent,
@@ -148,10 +164,19 @@ import { InstructorEvaluationsComponent } from './homepage-client/instructor-eva
     ReviewBoatOwnerComponent,
     HistoryAdventureReservationComponent,
     ReviewInstructorComponent,
-    InstructorEvaluationsComponent
+    InstructorEvaluationsComponent,
+    ReserveBoatOwnerComponent,
+    ReportHouseOwnerComponent,
+    ReportBoatOwnerComponent,
+    ReportInstructorComponent,
+    ComplaintsFromClientsComponent,
+    EvaluationsFromClientsComponent,
+    ReviewsComponent
 
   ],
+
   imports: [
+    ChartModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -181,7 +206,11 @@ import { InstructorEvaluationsComponent } from './homepage-client/instructor-eva
       apiKey: 'AIzaSyCkTOjUv92qCadQ4j9fN3Ez7mZHSXuyKco'
     })
    ],
-  providers: [],
+   providers: [
+    ApiService,
+    AuthGuard
+  
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 

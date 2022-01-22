@@ -1,0 +1,197 @@
+<div class="row d-flex align-items-center w-100">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 website_name_label">BOOKING AGENCY</div>
+    <div class="col-md-2"></div>
+    <button class="logout-btn" >Log out</button>
+  </div>
+
+  <div class="row d-flex align-items-center w-100">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <nav class="navMenu">
+        <a href="registration-requests" style="float:none">Registration requests</a>
+        <a href="register-admin" style="float:none">Register new admins</a>
+        <a href="entities-list" style="float:none">Users/Boats/Cottages</a>
+        <a href="complaints-from-clients" style="float:none">Complaints from clients</a>
+        <a href="evaluations-from-clients" style="float:none">Evaluations from clients</a>
+        <a href="reviews" style="float:none">Reviews</a>
+      </nav>
+    </div>
+    <div class="col-md-4"></div>
+  </div> 
+
+  <div class="row d-flex align-items-center frontpage_gray_banner">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
+      <div class="row d-flex align-items-center frontpage_gray_banner_label">Welcome,</div>
+      <div class="row d-flex align-items-center frontpage_gray_banner_label">{{user.name}} {{user.surname}}</div> 
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+
+  <mat-toolbar class="navMenu" style="cursor: pointer; margin-top: 2%; align-items: left;">      
+    <div class="row d-flex align-items-center w-100">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <nav class="navMenu" style="font-size: 15px;">            
+          <a style="float:none" >Reviews</a>
+        </nav>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div>  
+    </mat-toolbar>
+
+   
+    <mat-toolbar class="navMenu" style="cursor: pointer; margin-top: 2%; align-items: left;">      
+        <div class="row d-flex align-items-center w-100">
+          <div class="col-md-4">
+          </div>
+          <div class="col-md-4">
+            <nav class="navMenu" style="font-size: 15px;">            
+              <a style="float:none" (click) = "adventureBox = false; homeBox = false; boatBox = true; boatReview()">Boat owner reviews</a>
+              <a style="float:none" (click) = "adventureBox = true; homeBox = false; boatBox = false; adventureReview()">Instructor reviews</a>
+              <a style="float:none" (click) = "adventureBox = false; homeBox = true; boatBox = false; homeReview()">Home owner reviews</a>
+            </nav>
+          </div>
+          <div class="col-md-4">
+          </div>
+        </div>  
+        </mat-toolbar>
+    
+        <div *ngIf = "adventureBox">
+          <h2 style="margin-left: 44%; margin-top: 25px;">Instructor reviews</h2>
+        </div>
+          <div class="panel-middle" *ngIf = "adventureBox">
+            <table class="rooms-table">
+              <thead>
+                <tr>
+                  <th>Adventure name</th>
+                  <th>Start date</th>
+                  <th>End date</th>
+                  <th>Client</th>
+                  <th>Instructor</th>
+                  <th>Client appeared</th>
+                  <th>Bad comment</th>
+                  <th>Review</th>
+                  <th style="width: 20px; height: 50px;"></th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor = "let ar of adventureReviews ">
+                  <td style="width: 1600px;">{{ar.adventureReservation.adventureProfile.name}}</td>
+                  <td style="width: 1000px;">{{ar.adventureReservation.startDate | date:'dd/MM/yyyy'}}</td>
+                  <td style="width: 1000px;">{{ar.adventureReservation.endDate | date:'dd/MM/yyyy'}}</td>
+                  <td style="width: 1000px;">{{ar.adventureReservation.clientId}}</td>
+                  <td style="width: 1000px;">{{ar.adventureReservation.adventureProfile.instructorId}}</td>
+                  <td style="width: 1000x;">{{ar.isAppear}}</td>
+                  <td style="width: 1000x;">{{ar.isBadComment}}</td>
+                  <td style="width: 1000x;">{{ar.content}}</td>
+                  <td><button >Strike one penalty</button></td>
+                
+                  
+                </tr>
+              </tbody>
+            </table>
+        </div>
+    
+      <div *ngIf = "homeBox">
+        <h2 style="margin-left: 44%; margin-top: 25px;">Home owner reviews</h2>
+      </div>
+        <div class="panel-middle" *ngIf = "homeBox">
+          <table class="rooms-table">
+            <thead>
+              <tr>
+                <th>Property name</th>
+                <th>Start date</th>
+                <th>End date</th>
+                <th>Client</th>
+                <th>Hosue owner</th>
+                <th>Client appeared</th>
+                <th>Bad comment</th>
+                <th>Review</th>
+                <th style="width: 20px; height: 50px;"></th>
+                
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let hr of homeReviews ">
+                    <td style="width: 1600px;">{{hr.homeReservation.homeProfile.name}}</td>
+                    <td style="width: 1000px;">{{hr.homeReservation.startDate | date:'dd/MM/yyyy'}}</td>
+                    <td style="width: 1000px;">{{hr.homeReservation.endDate | date:'dd/MM/yyyy'}}</td>
+                    <td style="width: 1000px;">{{hr.homeReservation.clientId}}</td>
+                    <td style="width: 1000px;">{{hr.homeReservation.homeProfile.ownerId}}</td>
+                    <td style="width: 1000x;">{{hr.isAppear}}</td>
+                    <td style="width: 1000x;">{{hr.isBadComment}}</td>
+                    <td style="width: 1000x;">{{hr.content}}</td>
+                    <td><button >Strike one penalty</button></td>
+                
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    
+      <div *ngIf = "boatBox">
+        <h2 style="margin-left: 44%; margin-top: 25px;">Boat owner reviews</h2>
+      </div>
+      <div class="panel-middle" *ngIf = "boatBox">
+        <table class="rooms-table">
+          <thead>
+            <tr>
+                <th>Boat name</th>
+                <th>Start date</th>
+                <th>End date</th>
+                <th>Client</th>
+                <th>Boat owner</th>
+                <th>Client appeared</th>
+                <th>Bad comment</th>
+                <th>Review</th>
+                <th style="width: 20px; height: 50px;"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let br of boatReviews ">
+                <td style="width: 1600px;">{{br.boatReservation.boatProfile.name}}</td>
+                <td style="width: 1000px;">{{br.boatReservation.startDate | date:'dd/MM/yyyy'}}</td>
+                <td style="width: 1000px;">{{br.boatReservation.endDate | date:'dd/MM/yyyy'}}</td>
+                <td style="width: 1000px;">{{br.boatReservation.clientId}}</td>
+                <td style="width: 1000px;">{{br.boatReservation.boatProfile.boatId}}</td>
+                <td style="width: 1000x;">{{br.isAppear}}</td>
+                <td style="width: 1000x;">{{br.isBadComment}}</td>
+                <td style="width: 1000x;">{{br.content}}</td>
+                <td><button >Strike one penalty</button></td>
+            
+            </tr>
+          </tbody>
+        </table>
+    </div>
+
+  
+
+  
+
+  <div class="row d-flex align-items-center footer">
+    <div class="col-md-3">
+      <h2 class="link_title">Product</h2>
+      <h4 class="link_subtitle">Our plan</h4>
+      <h4 class="link_subtitle">Free trial</h4>
+    </div>
+    <div class="col-md-3">
+      <h2 class="link_title">About us</h2>
+      <h4 class="link_subtitle">Request demo</h4>
+      <h4 class="link_subtitle">FAQs</h4>
+    </div>
+    <div class="col-md-3">
+      <h2 class="link_title">Support</h2>
+      <h4 class="link_subtitle">Services</h4>
+      <h4 class="link_subtitle">Contact us</h4>
+    </div>
+    <div class="col-md-3">
+      <h2 class="link_title">Covid-19 FAQs</h2>
+      <h4 class="link_subtitle">Reviews</h4>
+      <h4 class="link_subtitle">Safety</h4>
+    </div>
+  </div>

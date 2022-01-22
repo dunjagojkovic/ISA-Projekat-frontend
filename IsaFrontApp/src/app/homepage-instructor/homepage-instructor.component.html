@@ -18,7 +18,8 @@
           <a href="adventure-profile" style="float:none">Adventure profile</a>
           <a href="history-adventure-reservation" style="float:none">Reservations</a>
           <a href="/#" style="float:none">Calendar</a>
-          <a href="/#" style="float:none">User settins</a>
+          <a href="settings-instructor-profile" style="float:none">User settins</a>
+          <a href="report-instructor" style="float:none">Instructor report</a>
         </nav>
       </div>
       <div class="col-md-4">
@@ -31,7 +32,7 @@
       </div>
       <div class="col-md-8">
         <div class="row d-flex align-items-center frontpage_gray_banner_label">Welcome,</div>
-        <div class="row d-flex align-items-center frontpage_gray_banner_label">Jovana Ostojic</div>
+        <div class="row d-flex align-items-center frontpage_gray_banner_label">{{user.name}} {{user.surname}}</div>
       </div>
       <div class="col-md-2">
       </div>
@@ -117,7 +118,7 @@
           <div class="double-input">
             <mat-form-field class="text-area" appearance="outline">
               <mat-label>Cancel conditions</mat-label>
-              <textarea matInput formControlName="cancelCodnitions"></textarea>
+              <textarea matInput formControlName="cancelConditions"></textarea>
             </mat-form-field>
           </div>
           <div style="display: flex; flex-direction: row;">
@@ -154,9 +155,9 @@
           <p>Max number of people: {{adventure.maxNumberOfPeople}}</p>
           <p>Behaviour rules: {{adventure.behaviourRules}}</p>
           <p>Fishing equipment: {{adventure.fishingEquipment}}</p>
-          <p>Price: {{adventure.pricelist}} din</p>
+          <p>Price: {{adventure.pricelist}} e</p>
           <p>Extra service: {{adventure.extraService}}</p>
-          <p>Cancel conditions: {{adventure.cancelCodnitions}}</p>
+          <p>Cancel conditions: {{adventure.cancelConditions}}</p>
       </mat-card-content>
         </mat-card>  
         <mat-card >

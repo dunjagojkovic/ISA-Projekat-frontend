@@ -284,3 +284,15 @@
  ::ng-deep .mat-calendar-body-today{
     color: #354F52!important;
 }
+
+.rate{
+    color: white;
+    font-weight: bold;
+    padding: 6px 0px 10px 0px !important;
+    font-weight: bold;
+    font-size: 25px;
+    background-color: #84A98C;
+    width: 50px;
+    text-align: center;
+    border-radius: 10px;
+}

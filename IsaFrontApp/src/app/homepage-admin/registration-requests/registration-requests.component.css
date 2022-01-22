@@ -195,19 +195,44 @@
     display:block;
   }
 
-.table {
-    
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-    .td,th {
-        border: 1px solid #000000;
-        text-align: left;
-        padding: 8px;
-    } 
-
-    .tr:nth-child(even) {
-        background-color: #354F52;
-    }
+  .rooms-table {
+    display: block;
+    background-color: white;
+  }
+  
+  .rooms-table th {
+    display: inline-block;
+    padding: 15px 101.5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    text-transform: uppercase;
+    background: #84A98C;
+  }
+  
+  .rooms-table tbody {
+    display: inline-block;
+    height: 350px;
+    text-align: center;
+    overflow-y: scroll;
+    background: #ebf0e9;
+    scrollbar-color: #84A98C;
+    width: 1065px;
+  }
+  
+  .rooms-table thead {
+    width: 560px;
+  }
+  
+  .rooms-table tbody tr {
+    height: 15px;
+  }
+  
+  .rooms-table td {
+    padding: 10px;  
+    font-size: 16px;
+    color: #52796F;
+    font-weight: bold;
+    word-wrap: break-word;
+  }

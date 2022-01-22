@@ -2,7 +2,7 @@
     <div class="col-md-2"></div>
     <div class="col-md-8 website_name_label" [routerLink]="['/home-client']">BOOKING AGENCY</div>
     <div class="col-md-2"></div>
-    <button class="logout-btn"  routerLink="/">Log out</button>
+    <button class="logout-btn"  (click)="logout()">Log out</button>
   </div>
     
   <div class="row d-flex align-items-center w-100">
@@ -37,9 +37,9 @@
       </div>
       <div class="col-md-4">
         <nav class="navMenu" style="font-size: 15px;">            
-          <a style="float:none">Cottage reservations</a>
-          <a style="float:none">Boat reservations</a>
-          <a style="float:none">Instructor reservations</a>
+          <a style="float:none">Finished reservations</a>
+          <a style="float:none">Reservations in progress</a>
+          <a style="float:none">Upcoming reservations</a>
         </nav>
       </div>
       <div class="col-md-4">
@@ -55,14 +55,14 @@
           <th scope="col">House</th>
           <th scope="col">Start date</th>
           <th scope="col">End date</th>
-          <th scope="col">oceni</th>
+          <th style="color: #52796F;" scope="col">.</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor = "let hr of houseReservations ">
-          <td>kuca</td>
-          <td>{{hr.startDate | date:'dd/MM/yyyy'}}</td>
-          <td>{{hr.endDate | date:'dd/MM/yyyy'}}</td>
+          <td style="width: 240px;">kuca</td>
+          <td style="width: 300px;">{{hr.startDate | date:'dd/MM/yyyy'}}</td>
+          <td style="width: 280px;">{{hr.endDate | date:'dd/MM/yyyy'}}</td>
           <button (click)="cancelHouse(hr.id)" >Cancel</button>
           <button [routerLink]="['/cottage-evaluations-client']" [queryParams]="{id: hr.id, startDate: hr.startDate, endDate: hr.endDate}" >Evaluate</button>
           <button [routerLink]="['/cottage-complaints-client']" [queryParams]="{id: hr.id, startDate: hr.startDate, endDate: hr.endDate}" >Complaints</button>
@@ -72,6 +72,7 @@
           <td>{{br.startDate | date:'dd/MM/yyyy'}}</td>
           <td>{{br.endDate | date:'dd/MM/yyyy'}}</td>
           <button (click)="cancelBoat(br.id)" >Cancel</button>
+          <button [routerLink]="['/boat-evaluations-client']" [queryParams]="{id: br.id, startDate: br.startDate, endDate: br.endDate}" >Evaluate</button>
           <button [routerLink]="['/boat-complaints-client']" [queryParams]="{id: br.id, startDate: br.startDate, endDate: br.endDate}" >Complaints</button>
         </tr>
         <tr *ngFor = "let i of instructorReservations">
@@ -81,6 +82,7 @@
           <button (click)="cancelInstructor(i.id)" >Cancel</button>
           <button [routerLink]="['/instructor-evaluations-client']" [queryParams]="{id: i.id, startDate: i.startDate, endDate: i.endDate}" >Evaluate</button>
           <button [routerLink]="['/instructor-complaints-client']" [queryParams]="{id: i.id, startDate: i.startDate, endDate: i.endDate}" >Complaints</button>
+
         </tr>
       </tbody>
     </table>

@@ -1,108 +1,166 @@
 <div class="row d-flex align-items-center w-100">
-    <div class="col-md-2">
-    </div>
-    <div class="col-md-8 website_name_label">
-     BOOKING AGENCY
-    </div>
-    <div class="col-md-2">
-    </div>
-    <img src="assets/user.png" class="profile" [routerLink]="['/settings-admin']">
+  <div class="col-md-2"></div>
+  <div class="col-md-8 website_name_label">BOOKING AGENCY</div>
+  <div class="col-md-2"></div>
+  <button class="logout-btn" >Log out</button>
+</div>
+
+<div class="row d-flex align-items-center w-100">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <nav class="navMenu">
+      <a href="registration-requests" style="float:none">Registration requests</a>
+      <a href="register-admin" style="float:none">Register new admins</a>
+      <a href="entities-list" style="float:none">Users/Boats/Cottages</a>
+      <a href="complaints-from-clients" style="float:none">Complaints from clients</a>
+      <a href="evaluations-from-clients" style="float:none">Evaluations from clients</a>
+      <a href="reviews" style="float:none">Reviews</a>
+    </nav>
   </div>
-    
-    <div class="row d-flex align-items-center w-100">
-      <div class="col-md-4">
-      </div>
-      <div class="col-md-4">
-        <nav class="navMenu">
-          <a href="registration-requests" style="float:none">Registration requests</a>
-          <a href="register-admin" style="float:none">Register new admins</a>
-          <a href="entities-list" style="float:none">Users/Boats/Cottages</a>
-       </nav>
-      </div>
-      <div class="col-md-4">
-      </div>
-    </div> 
-  
-    <div class="row d-flex align-items-center frontpage_gray_banner">
-        <div class="col-md-2">
-        </div>
-        <div class="col-md-8">
-          <div class="row d-flex align-items-center frontpage_gray_banner_label">Welcome,</div>
-          <div class="row d-flex align-items-center frontpage_gray_banner_label">Masa Rikert</div>
-        </div>
-        <div class="col-md-2">
-        </div>
-      </div>
-  
-      <table>
-          <p><b>User's table</b></p>
-        <tr > 
-          <th>  Name </th>
-          <th>  Surname  </th>
-          <th>  Registration type  </th>
-          <th>  Email  </th>
-        </tr>
-        <tr *ngFor="let user of users">
-          <td>{{user.name}}</td>
-          <td>{{user.surname}}</td>
-          <td>{{user.type}}</td>
-          <td>{{user.email}}</td>
-          
-          <td><button (click)="setDeleted(user.id)">Delete</button></td>
-        </tr>
-      </table>
+  <div class="col-md-4"></div>
+</div> 
 
-      <table>
-        <p><b>Cottages's table</b></p>
-        <tr> 
-          <th>  Name  </th>
-          <th>  Address  </th>
-        </tr>
-        <tr *ngFor="let cottage of cottages">
-          <td>{{cottage.name}}</td>
-          <td>{{cottage.address}}</td>
-          
-          <td><button >Delete</button></td>
-        </tr>
-      </table>
+<div class="row d-flex align-items-center frontpage_gray_banner">
+  <div class="col-md-2">
+  </div>
+  <div class="col-md-8">
+    <div class="row d-flex align-items-center frontpage_gray_banner_label">Welcome,</div>
+    <div class="row d-flex align-items-center frontpage_gray_banner_label">{{user.name}} {{user.surname}}</div> 
+  </div>
+  <div class="col-md-2"></div>
+</div>
 
-      <table>
-        <p><b>Boat's table</b></p>
-        <tr> 
-          <th>  Name  </th>
-          <th>  Type </th>
-          <th> Adress</th>
-        </tr>
-        <tr *ngFor="let boat of boats">
-          <td>{{boat.name}}</td>
-          <td>{{boat.type}}</td>
-          <td>{{boat.address}}</td>
-          
-          <td><button >Delete</button></td>
-        </tr>
-      </table>
-   
-  
-  
-    <div class="row d-flex align-items-center footer">
-      <div class="col-md-3">
-        <h2 class="link_title">Product</h2>
-        <h4 class="link_subtitle">Our plan</h4>
-        <h4 class="link_subtitle">Free trial</h4>
-      </div>
-      <div class="col-md-3">
-        <h2 class="link_title">About us</h2>
-        <h4 class="link_subtitle">Request demo</h4>
-        <h4 class="link_subtitle">FAQs</h4>
-      </div>
-      <div class="col-md-3">
-        <h2 class="link_title">Support</h2>
-        <h4 class="link_subtitle">Services</h4>
-        <h4 class="link_subtitle">Contact us</h4>
-      </div>
-      <div class="col-md-3">
-        <h2 class="link_title">Covid-19 FAQs</h2>
-        <h4 class="link_subtitle">Reviews</h4>
-        <h4 class="link_subtitle">Safety</h4>
-      </div>
+<mat-toolbar class="navMenu" style="cursor: pointer; margin-top: 2%; align-items: left;">      
+  <div class="row d-flex align-items-center w-100">
+    <div class="col-md-4">
     </div>
+    <div class="col-md-4">
+      <nav class="navMenu" style="font-size: 15px;">            
+        <a style="float:none" >USERS/HOMES/BOATS</a>
+      </nav>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>  
+  </mat-toolbar>
+
+ 
+  <mat-toolbar class="navMenu" style="cursor: pointer; margin-top: 2%; align-items: left;">      
+      <div class="row d-flex align-items-center w-100">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+          <nav class="navMenu" style="font-size: 15px;">            
+            <a style="float:none" (click) = "userBox = false; homeBox = false; boatBox = true; boatProfile()">Boats</a>
+            <a style="float:none" (click) = "userBox = true; homeBox = false; boatBox = false; userProfile()">Users</a>
+            <a style="float:none" (click) = "userBox = false; homeBox = true; boatBox = false; homeProfile()">Homes</a>
+          </nav>
+        </div>
+        <div class="col-md-4">
+        </div>
+      </div>  
+      </mat-toolbar>
+  
+      <div *ngIf = "userBox">
+        <h2 style="margin-left: 44%; margin-top: 25px;">Users</h2>
+      </div>
+        <div class="panel-middle" *ngIf = "userBox">
+          <table class="rooms-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>E-mail</th>
+                <th>Type</th>
+                <th style="width: 20px; height: 50px;"></th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor = "let up of userProfiles ">
+                <td style="width: 1600px;">{{up.name}}</td>
+                <td style="width: 1000px;">{{up.surname}}</td>
+                <td style="width: 1000px;">{{up.email}}</td>
+                <td style="width: 1000px;">{{up.type}}</td>
+                <td><button (click)="setDeleted(up.id)">Delete</button></td>
+                
+              </tr>
+            </tbody>
+          </table>
+      </div>
+  
+    <div *ngIf = "homeBox">
+      <h2 style="margin-left: 44%; margin-top: 25px;">Homes</h2>
+    </div>
+      <div class="panel-middle" *ngIf = "homeBox">
+        <table class="rooms-table">
+          <thead>
+            <tr>
+              <th>Property name</th>
+              <th>Address</th>
+              <th style="width: 20px; height: 50px;"></th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let hp of homeProfiles ">
+              <td style="width: 220px;">{{hp.name}}</td>
+              <td style="width: 230px;">{{hp.address}}</td>
+              <td><button >Delete</button></td>
+              
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  
+    <div *ngIf = "boatBox">
+      <h2 style="margin-left: 44%; margin-top: 25px;">Boats</h2>
+    </div>
+    <div class="panel-middle" *ngIf = "boatBox">
+      <table class="rooms-table">
+        <thead>
+          <tr>
+              <th>Boat name</th>
+              <th>Address</th>
+              <th>Type</th>
+              <th style="width: 20px; height: 50px;"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let bp of boatProfiles ">
+            <td style="width: 220px;">{{bp.name}}</td>
+            <td style="width: 230px;">{{bp.address}}</td>
+            <td style="width: 50px;">{{bp.type}}</td>
+            <td><button >Delete</button></td>
+          
+          </tr>
+        </tbody>
+      </table>
+  </div>
+
+
+
+
+
+<div class="row d-flex align-items-center footer">
+  <div class="col-md-3">
+    <h2 class="link_title">Product</h2>
+    <h4 class="link_subtitle">Our plan</h4>
+    <h4 class="link_subtitle">Free trial</h4>
+  </div>
+  <div class="col-md-3">
+    <h2 class="link_title">About us</h2>
+    <h4 class="link_subtitle">Request demo</h4>
+    <h4 class="link_subtitle">FAQs</h4>
+  </div>
+  <div class="col-md-3">
+    <h2 class="link_title">Support</h2>
+    <h4 class="link_subtitle">Services</h4>
+    <h4 class="link_subtitle">Contact us</h4>
+  </div>
+  <div class="col-md-3">
+    <h2 class="link_title">Covid-19 FAQs</h2>
+    <h4 class="link_subtitle">Reviews</h4>
+    <h4 class="link_subtitle">Safety</h4>
+  </div>
+</div>

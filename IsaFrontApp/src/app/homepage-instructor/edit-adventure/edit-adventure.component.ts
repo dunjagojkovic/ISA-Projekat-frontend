@@ -76,7 +76,7 @@ export class EditAdventureComponent implements OnInit {
       const address = this.form.get('address')?.value;
       const promoDescription = this.form.get('promoDescription')?.value;
       const instructorBiography = this.form.get('instructorBiography')?.value;
-      const maxNumberOfPeople = this.form.get('maxNumberOfPoeple')?.value;
+      const maxNumberOfPeople = this.form.get('maxNumberOfPeople')?.value;
       const behaviourRules = this.form.get('behaviourRules')?.value;
       const fishingEquipment = this.form.get('fishingEquipment')?.value;
       const pricelist = this.form.get('pricelist')?.value;

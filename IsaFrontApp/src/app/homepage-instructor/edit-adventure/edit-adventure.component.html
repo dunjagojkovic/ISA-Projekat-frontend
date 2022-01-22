@@ -32,7 +32,7 @@
       </div>
       <div class="col-md-8">
         <div class="row d-flex align-items-center frontpage_gray_banner_label">Welcome,</div>
-        <div class="row d-flex align-items-center frontpage_gray_banner_label">Jovana Ostojic</div>
+        <div class="row d-flex align-items-center frontpage_gray_banner_label">{{user.name}} {{user.surname}}</div>
       </div>
       <div class="col-md-2">
       </div>
@@ -89,7 +89,7 @@
             </div>
             <mat-form-field style="width: 210px;" class="input-box" appearance="outline">
                 <mat-label>Cancel conditions</mat-label>
-                <input matInput placeholder="" formControlName="cancelCodnitions">
+                <input matInput placeholder="" formControlName="cancelConditions">
             </mat-form-field>
             <div style="display: flex; flex-direction: row;">
               <div class="form-group" style="margin-top: 10px; margin-left: 8%;">

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit, Type } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import { ApiService } from 'src/app/api.service';
 
 @Component({
@@ -45,15 +46,20 @@ export class InstructorEvaluationsComponent implements OnInit {
       console.log(response);
   });
 
+
   this.api.loadOneAdventureReservation(this.id).subscribe((response:any) => {
+
     this.reservation = response;
     console.log(response);
 
   });
   }
 
+
   logout(): void{
     localStorage.clear();
+
+
   }
 
   onSubmit(){
@@ -69,7 +75,9 @@ export class InstructorEvaluationsComponent implements OnInit {
       rate: rate
     }
 
+
     this.api.sendEvaliationsForAdventureReservation(data).subscribe((response: any) => {
+
       console.log(response);
       if(response != null){
         this.evaluation = response;  

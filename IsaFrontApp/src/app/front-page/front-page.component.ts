@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
 import { FormBuilder, Validators, FormControl} from '@angular/forms';
+import {MatSnackBarModule, MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-front-page',
@@ -15,7 +16,8 @@ export class FrontPageComponent implements OnInit {
   constructor(
     private router: Router,
     private formBuilder : FormBuilder,
-    private api: ApiService
+    private api: ApiService,
+    private _snackBar: MatSnackBar
     ) {
       this.form = this.formBuilder.group({
         email: ['', Validators.email],
@@ -53,6 +55,7 @@ export class FrontPageComponent implements OnInit {
           else if(user.type == "Boat owner"){
             this.router.navigate(['/home-boat-owner']);
           }
+
           else if(user.type == "Fishing instructor"){
             this.router.navigate(['/homepage-instructor']);
           }
@@ -60,8 +63,12 @@ export class FrontPageComponent implements OnInit {
             this.router.navigate(['/homepage-admin']);
           }
         });
-      })
+
+        }, error => {
+          this._snackBar.open('Password incorrect! Please try again.', 'Close', {duration: 5000})});
+
+      }
     }
   }
 
-}
+

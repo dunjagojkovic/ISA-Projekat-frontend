@@ -20,6 +20,8 @@ export class HistoryHouseOwnerComponent implements OnInit {
   historyBox: boolean = false;
   todayBox: boolean = false;
   upcommingBox: boolean = true;
+  client: any;
+  clientId: any;
 
 constructor(
   private router: Router,
@@ -31,6 +33,10 @@ constructor(
     this.api.current().subscribe((response:any) => {
       this.user = response;      
       console.log(response);
+  });
+  this.api.loadOneUser(this.clientId).subscribe((response: any) => {
+    this.client = response;
+    console.log(response);
   });
 
   let data = {

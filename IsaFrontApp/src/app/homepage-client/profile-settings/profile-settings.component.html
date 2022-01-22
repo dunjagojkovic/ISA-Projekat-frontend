@@ -32,14 +32,15 @@
   </div>
 
 
-  <mat-toolbar class="navMenu" style="cursor: pointer; margin-top: 2%; align-items: left;">      
+  <mat-toolbar class="toolbar" style="cursor: pointer; margin-top: 2%; align-items: left;">      
     <div class="row d-flex align-items-center w-100">
       <div class="col-md-4">
       </div>
       <div class="col-md-4">
-        <nav class="navMenu" style="font-size: 15px;">            
+        <nav class="toolbar" style="font-size: 15px;">            
           <a style="float:none" (click)="deleteAccountBox = true">Delete account</a>
           <a style="float:none" (click)="changePasswordBox = true">Change password</a>
+          <a style="float:none" (click)="cattegoryAndPenaltiesBox = true">Category and penalties</a>
         </nav>
       </div>
       <div class="col-md-4">
@@ -111,6 +112,16 @@
         <br />
             <button class="reason-btn" (click)="saveNewPassword()">Save</button>
         </form>
+      </div>
+      <div class="delete-box" *ngIf="cattegoryAndPenaltiesBox">
+        <mat-form-field class="input-box2" appearance="outline">
+          <mat-label>Cttegory of user</mat-label>
+          <input disabled  matInput placeholder="" value="{{user.name}}">
+      </mat-form-field>
+      <mat-form-field class="input-box" appearance="outline">
+          <mat-label>Number of penalties</mat-label>
+          <input disabled matInput placeholder="" value="{{user.surname}}">
+      </mat-form-field>
       </div>
   </div>
 

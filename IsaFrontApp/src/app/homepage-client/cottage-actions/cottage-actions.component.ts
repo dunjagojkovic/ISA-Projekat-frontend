@@ -14,6 +14,9 @@ export class CottageActionsComponent implements OnInit {
   actions = [] as any; 
   todayDate:Date = new Date();
   house:any = {} as any; 
+  user: any = {} as any;
+  id: any;
+  subscriptions = [] as any;
 
   constructor(
     private router: Router,
@@ -26,6 +29,9 @@ export class CottageActionsComponent implements OnInit {
         this.actions = response;
         console.log(response);
         });
+      this.api.current().subscribe((response:any) => {
+          this.user = response;     
+      });
 
   }
 
@@ -44,7 +50,8 @@ export class CottageActionsComponent implements OnInit {
       startDate:  action.startDate,
       endDate: action.endDate,
       houseId:  action.homeProfile.id,
-      pricelist: action.actionPrice
+      pricelist: action.actionPrice,
+      clientId: this.user.id
     }  
 
     this.api.bookHouse(data).subscribe((response: any) => {
@@ -59,6 +66,11 @@ export class CottageActionsComponent implements OnInit {
         } 
        
     });
-
 }
+
+logout() {
+  this.user = localStorage.clear();
+  this.router.navigate(['/']);
+}
+
 }

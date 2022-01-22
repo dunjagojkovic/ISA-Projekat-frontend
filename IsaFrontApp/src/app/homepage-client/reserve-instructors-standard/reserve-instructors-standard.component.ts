@@ -80,4 +80,9 @@ export class ReserveInstructorsStandardComponent implements OnInit {
   
 }
 
+logout() {
+  this.user = localStorage.clear();
+  this.router.navigate(['/']);
+}
+
 }

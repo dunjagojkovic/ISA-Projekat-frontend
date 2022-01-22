@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { Component, OnInit, Type } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
+import { MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-instructor-complaints',
@@ -51,8 +52,9 @@ export class InstructorComplaintsComponent implements OnInit {
     });
     }
   
-    logout(): void{
-      localStorage.clear();
+    logout() {
+      this.user = localStorage.clear();
+      this.router.navigate(['/']);
     }
 
     onSubmit(){
@@ -75,7 +77,7 @@ export class InstructorComplaintsComponent implements OnInit {
           this._snackBar.open('Cannot send complaint. ', 'Close', {duration: 3000});       
          }
        
-    });    
+    });  
     
   }
 

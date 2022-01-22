@@ -53,10 +53,11 @@ export class CottageEvaluationsComponent implements OnInit {
   });
   }
 
-  logout(): void{
-    localStorage.clear();
+  logout() {
+    this.user = localStorage.clear();
+    this.router.navigate(['/']);
   }
-
+  
   onSubmit(){
 
     const content = this.form.get('content')?.value;

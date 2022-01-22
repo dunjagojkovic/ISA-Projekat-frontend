@@ -13,6 +13,7 @@ export class BoatActionsComponent implements OnInit {
   actions = [] as any; 
   todayDate:Date = new Date();
   boat:any = {} as any; 
+  user: any;
 
   constructor(
     private router: Router,
@@ -25,6 +26,10 @@ export class BoatActionsComponent implements OnInit {
       this.actions = response;
       console.log(response);
       });
+      this.api.current().subscribe((response:any) => {
+        this.user = response;     
+        console.log(response);
+    });
 }
 
 onSubmit(id:any) {
@@ -59,5 +64,11 @@ onSubmit(id:any) {
   });
 
 }
+
+logout() {
+  this.user = localStorage.clear();
+  this.router.navigate(['/']);
+}
+
 
 }

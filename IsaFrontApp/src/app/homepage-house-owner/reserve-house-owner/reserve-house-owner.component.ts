@@ -22,6 +22,8 @@ export class ReserveHouseOwnerComponent implements OnInit {
   pricelist: any;
   name:any;
   reservation: any;
+  client: any;
+  address : any;
   
   constructor(
     private router: Router,
@@ -49,8 +51,11 @@ export class ReserveHouseOwnerComponent implements OnInit {
     this.api.current().subscribe((response:any) => {
       this.user = response;     
   });
-  this.api.loadOneHouseReservation(this.houseId).subscribe((response:any) => {
+  this.api.loadOneHouse(this.houseId).subscribe((response:any) => {
     this.house = response;
+  });
+  this.api.loadOneUserInfo(this.clientId).subscribe((response: any) => {
+    this.client = response;
   });
   }
 
@@ -67,7 +72,8 @@ export class ReserveHouseOwnerComponent implements OnInit {
       endDate: endDate,
       extraServices: extraServices,
       pricelist: this.pricelist,
-      name: this.name
+      name: this.name,
+      address: this.address
     }
 
     this.api.bookByOwnerHouse(data).subscribe((response: any) => {
@@ -75,13 +81,11 @@ export class ReserveHouseOwnerComponent implements OnInit {
       if(response != null){
         this.house = response;
         this.router.navigate(['/history-house-owner']);
-        this._snackBar.open('Thank you for your reservation', 'Close');
-
+        this._snackBar.open('The reservation was successfully completed!', 'Close');
       }
       if(response == null){
-        this._snackBar.open('Sorry the house is booked in the meantime.  If you are flexible, check out some alternative dates.', 'Close', {duration: 5000})
+        this._snackBar.open('Sorry, you can not book this house for dates you entered. Please, try again.', 'Close', {duration: 5000})
       } 
-     
   });
   }
 

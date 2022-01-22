@@ -14,6 +14,7 @@ export class InstructorActionsComponent implements OnInit {
   actions = [] as any; 
   todayDate: Date = new Date();
   instructor: any = {} as any; 
+  user: any;
 
   constructor(
     private router: Router,
@@ -60,6 +61,11 @@ export class InstructorActionsComponent implements OnInit {
        
     });
 
+}
+
+logout() {
+  this.user = localStorage.clear();
+  this.router.navigate(['/']);
 }
 
 }

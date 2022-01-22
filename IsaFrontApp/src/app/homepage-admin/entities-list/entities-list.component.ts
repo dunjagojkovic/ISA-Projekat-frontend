@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 
 @Component({
@@ -8,39 +9,56 @@ import { ApiService } from 'src/app/api.service';
 })
 export class EntitiesListComponent implements OnInit {
   
-  users : any;
-  id : any;
-  boats : any;
-  cottages : any;
+  id: any;
+  boatId: any;
+  homeId: any;
+  user: any = {} as any;
+  userProfiles = [] as any;
+  boatProfiles = [] as any;
+  homeProfiles = [] as any;
+  userBox: boolean = false;
+  boatBox: boolean = false;
+  homeBox: boolean = true;
 
-  constructor(private apiService : ApiService) {
+constructor(
+  private router: Router,
+  private api: ApiService   
+) { }
 
-    this.users = []
-   }
 
   ngOnInit(): void {
+    this.api.current().subscribe((response:any) => {
+      this.user = response;      
+      console.log(response);
+  });
 
-    this.apiService.getAllUsers().subscribe((response : any) => {
-  
-      this.users = response;
-    })
+}
 
-    this.apiService.getAllCottages().subscribe((response : any) => {
-  
-      this.cottages = response;
-    })
+  userProfile(): void{
+   
+    this.api.getAllUsers().subscribe((response:any) => {
+      this.userProfiles = response;      
+    });
+  }
 
-    this.apiService.getAllBoats().subscribe((response : any) => {
-  
-      this.boats = response;
-    })
+  boatProfile(): void{
+    this.api.getAllBoats().subscribe((response:any) => {
+      this.boatProfiles = response;      
+    });
+   
+  }
 
+  homeProfile(): void{
+    this.api.getAllCottages().subscribe((response:any) => {
+      this.homeProfiles = response;      
+    }); 
+   
   }
 
   setDeleted(id: any)
   {
     
-    this.apiService.deleteUser(id).subscribe((response: any) => {
+    this.api.deleteUser(id).subscribe((response: any) => {
       console.log(response)
     });
   }

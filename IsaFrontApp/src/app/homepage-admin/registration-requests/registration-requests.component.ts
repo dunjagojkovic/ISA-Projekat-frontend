@@ -13,14 +13,14 @@ export class RegistrationRequestsComponent implements OnInit {
   users: any;
   status: any;
   id: any;
-
+ 
   constructor(private apiService: ApiService) 
   {
     this.users = []
   }
 
   ngOnInit(): void {
-    
+
     this.apiService.getUsers().subscribe((response : any) => {
   
       this.users = response;
