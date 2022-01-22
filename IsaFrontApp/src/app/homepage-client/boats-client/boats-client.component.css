@@ -226,3 +226,17 @@
     font-size: 1px;
     font-weight: bold;
 }
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-ripple .mat-ripple-element {
+    opacity: 0.03 !important;
+    background-color: #84A98C!important;
+  }
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: #84A98C;
+  }
+
+
+  ::ng-deep.mat-checkbox.mat-accent.checkbox-checked .checkbox-outer-circle {
+    border-color:#84A98C!important; 
+   }

@@ -90,8 +90,10 @@
       <p>Cancel conditions: {{b.cancelConditions}}</p>
       <p>Description: {{b.promoDescription}}</p>
       <div>
-        <button (click)="SubscribeMe(b.id)" class="reserve-btn">Subscribe</button>
-      </div>
+          <section class="example-section">
+            <mat-checkbox class="example-margin"  (click)="SubscribeMe(b.id)">I want to recieve notifications for this boat</mat-checkbox>
+          </section>
+        </div>
       </mat-card-content>
         </mat-card>  
         <mat-card >

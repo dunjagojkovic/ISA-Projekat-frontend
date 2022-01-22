@@ -78,7 +78,9 @@
         <p>Price for extra service: {{h.extraPrice}}e per day</p>
         <p>Description: {{h.promoDescription}}</p>
         <div>
-          <button (click)="SubscribeMe(h.id)" class="reserve-btn">Subscribe</button>
+          <section class="example-section">
+            <mat-checkbox class="example-margin"  (click)="SubscribeMe(h.id)">I want to recieve notifications for this house</mat-checkbox>
+          </section>
         </div>
       </mat-card-content>
         </mat-card>  
