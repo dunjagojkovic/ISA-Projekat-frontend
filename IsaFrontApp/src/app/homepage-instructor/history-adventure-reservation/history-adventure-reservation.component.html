@@ -62,7 +62,12 @@
             <td style="width: 220px;">{{r.adventureProfile.name}}</td>
             <td style="width: 230px;">{{r.startDate | date:'dd/MM/yyyy'}}</td>
             <td style="width: 50px;">{{r.endDate | date:'dd/MM/yyyy'}}</td>
-            <td style="width: 350px;">{{r.clientId}}</td>
+            <div *ngFor = "let client of clients;">
+              <td *ngIf = "client.id == r.clientId">{{client.name}} {{client.surname}} <br>
+                {{client.email}} <br>
+                {{client.phoneNumber}} 
+              </td>
+            </div>  
           </tr>
         </tbody>
       </table>
@@ -87,9 +92,16 @@
             <td style="width: 210px;">{{hr.adventureProfile.name}}</td>
             <td style="width: 240px;">{{hr.startDate | date:'dd/MM/yyyy'}}</td>
             <td style="width: 50px;">{{hr.endDate | date:'dd/MM/yyyy'}}</td>
-            <td style="width: 350px;">{{hr.clientId}}</td>
+            <div *ngFor = "let client of clients;">
+              <td *ngIf = "client.id == hr.clientId">{{client.name}} {{client.surname}} <br>
+                {{client.email}} <br>
+                {{client.phoneNumber}} 
+              </td>
+            </div>  
             <td>
-              <button class="btn-review" [routerLink]="['/review-instructor']" [queryParams]="{id: hr.id, startDate: hr.startDate, endDate: hr.endDate}" >Review</button>
+              <button class="btn-review" [routerLink]="['/review-instructor']" [queryParams]="{id: hr.id, startDate: hr.startDate, endDate: hr.endDate}" >
+                <span class="material-icons">edit</span>
+              </button>
             </td>
           </tr>
         </tbody>
@@ -115,7 +127,12 @@
           <td style="width: 220px;">{{tr.adventureProfile.name}}</td>
           <td style="width: 230px;">{{tr.startDate | date:'dd/MM/yyyy'}}</td>
           <td style="width: 50px;">{{tr.endDate | date:'dd/MM/yyyy'}}</td>
-          <td style="width: 350px;">{{tr.clientId}}</td>
+          <div *ngFor = "let client of clients;">
+            <td *ngIf = "client.id == tr.clientId">{{client.name}} {{client.surname}} <br>
+              {{client.email}} <br>
+              {{client.phoneNumber}} 
+            </td>
+          </div>  
           <td>
             
           </td>

@@ -84,11 +84,13 @@
       <button class="btn"(click)="savePersonalInfo()">Save changes</button>
     </form>
       <div class="delete-box" *ngIf="deleteAccountBox">
+        <form [formGroup]="formDelete">
         <mat-form-field class="reason-area" appearance="outline">
             <mat-label>Reason for deleting account</mat-label>
+            <input matInput placeholder=""value="" formControlName="reasonForDelete">
             <textarea matInput></textarea>
           </mat-form-field><br />
-          <button class="reason-btn" (click)="onDeleteRequest(user.id)">Send request</button>
+          <button class="reason-btn" (click)="onRequestDelete(user.id)">Send request</button> </form>
       </div>
       <div class="password-box" *ngIf="changePasswordBox">
         <form [formGroup]="formPassword" (ngSubmit)="saveNewPassword()">

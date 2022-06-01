@@ -7,6 +7,7 @@
   <div class="col-md-2">
   </div>
   <img src="assets/user.png" class="profile" [routerLink]="['/settings-admin']">
+  <button class="logout-btn"  (click) = "logout()" routerLink="/">Log out</button>
 </div>
   
   <div class="row d-flex align-items-center w-100">
@@ -19,8 +20,9 @@
         <a href="entities-list" style="float:none">Users/Boats/Cottages</a>
         <a href="complaints-from-clients" style="float:none">Complaints from clients</a>
         <a href="evaluations-from-clients" style="float:none">Evaluations from clients</a>
+        <a href="loyalty-programme" style="float:none">Loyalty programme</a>
         <a href="reviews" style="float:none">Reviews</a>
-    
+        <a href="business-report" style="float:none">Business report</a>
       </nav>
     </div>
     <div class="col-md-4">

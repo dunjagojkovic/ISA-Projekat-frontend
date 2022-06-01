@@ -41,7 +41,6 @@
           </div>
           <div class="col-md-4">
             <nav class="navMenu" style="font-size: 15px;">            
-            
               <a style="float:none" (click)="changePasswordBox = true">Change password</a>
             </nav>
           </div>
@@ -90,20 +89,29 @@
           </div><br />
           <button class="btn"(click)="savePersonalInfo()">Save changes</button>
         </form>
-        
+      
           <div class="password-box" *ngIf="changePasswordBox">
             <form [formGroup]="formPassword" (ngSubmit)="saveNewPassword()">
               <mat-form-field class="input-password" appearance="outline">
                 <mat-label>Old password</mat-label>
-                <input matInput placeholder="" formControlName="oldPassword">
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="oldPassword">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
             </mat-form-field>
             <mat-form-field class="input-password" appearance="outline">
               <mat-label>New password</mat-label>
-              <input matInput placeholder="" formControlName="newPassword">
+              <input matInput [type]="hide ? 'password' : 'text'" formControlName="newPassword">
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
             </mat-form-field>
             <mat-form-field class="input-password" appearance="outline">
               <mat-label>Confirm password</mat-label>
-              <input matInput placeholder=""  formControlName="passwordRepeat">
+              <input matInput [type]="hide ? 'password' : 'text'" formControlName="passwordRepeat">
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
             </mat-form-field>
             <br />
                 <button class="reason-btn" (click)="saveNewPassword()">Save</button>

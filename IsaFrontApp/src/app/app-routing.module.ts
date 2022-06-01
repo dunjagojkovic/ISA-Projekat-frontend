@@ -75,6 +75,9 @@ import { ReviewsComponent } from './homepage-admin/reviews/reviews.component';
 
 import { MapsClientComponent } from './homepage-client/maps-client/maps-client.component';
 import { MapsComponent } from './maps/maps.component';
+import { LoyaltyProgrammeComponent } from './homepage-admin/loyalty-programme/loyalty-programme.component';
+import { HomePagePredefinedAdminComponent } from './homepage-admin/home-page-predefined-admin/home-page-predefined-admin.component';
+import { BusinessReportComponent } from './homepage-admin/business-report/business-report.component';
 
 
 
@@ -141,6 +144,9 @@ const routes: Routes = [
   {path: "complaints-from-clients", component: ComplaintsFromClientsComponent},
   {path: "evaluations-from-clients", component: EvaluationsFromClientsComponent},
   {path: "reviews", component: ReviewsComponent},
+  {path: "loyalty-programme", component: LoyaltyProgrammeComponent},
+  {path: "predefined-admin", component: HomePagePredefinedAdminComponent},
+  {path: "business-report", component: BusinessReportComponent},
 
 
 

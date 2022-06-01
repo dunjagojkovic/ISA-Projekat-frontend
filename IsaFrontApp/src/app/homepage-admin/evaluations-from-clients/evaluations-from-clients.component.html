@@ -75,8 +75,6 @@
                   <th>Instructor</th>
                   <th>Rate</th>
                   <th>Comment</th>
-                  <th>Approve</th>
-                  <th>Decline</th>
                   <th style="width: 20px; height: 50px;"></th>
                   
                 </tr>
@@ -90,8 +88,6 @@
                   <td style="width: 1000px;">{{ae.adventureReservation.adventureProfile.instructorId}}</td>
                   <td style="width: 1000x;">{{ae.rate}}</td>
                   <td style="width: 1000x;">{{ae.content}}</td>
-                  <td style="width: 1000x;">{{ae.isApproved}}</td>
-                  <td style="width: 1000x;">{{ae.isDeclined}}</td>
                   <td><button (click)="setApprovedAdventure(ae.id)">Approve</button></td>
                   <td><button (click)="setDeclinedAdventure(ae.id)">Decline</button></td>
                 

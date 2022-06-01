@@ -69,6 +69,29 @@
           <button class="btnn" (click)="onSave()">Add term</button>
         </form>
       </div>
+
+      <div class="example-form">
+        <h1>Set unavalible terms for adventure</h1>
+        <form [formGroup]="form1">
+          <div>
+            <mat-form-field appearance="outline" class="date-picker">
+              <mat-label>Choose a start date</mat-label>
+              <input [min]="today"formControlName="startDate" matInput [matDatepicker]="pickerStart">
+              <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
+              <mat-datepicker #pickerStart></mat-datepicker>
+            </mat-form-field>
+      
+            <mat-form-field appearance="outline" class="date-picker">
+              <mat-label>Choose a end date</mat-label>
+              <input [min]="today" formControlName="endDate" matInput [matDatepicker]="pickerEnd">
+              <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+              <mat-datepicker #pickerEnd></mat-datepicker>
+            </mat-form-field>
+      
+          </div>
+          <button class="btnn" (click)="onSave1()">Add term</button>
+        </form>
+      </div>
       
       <div style="display: flex; flex-direction: row;">
         <button class="circle"></button>
@@ -77,6 +100,8 @@
         <label style="margin-left: 10px;">Free terms</label>
         <button style="margin-left: 25px; background-color: #f0f194; border: 3px solid #f0f194;" class="circle"></button>
         <label style="margin-left: 10px;">Action terms</label>
+        <button style="margin-left: 25px; background-color: #a3a8e7; border: 3px solid #a3a8e7;" class="circle"></button>
+        <label style="margin-left: 10px;">Unavalible</label>
       </div>
       
         <div style="background-color: #CAD2C5; height: max-content; width: max-content; position: relative; justify-content: center; margin-left: 30%; margin-bottom: 35%;">

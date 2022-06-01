@@ -1,0 +1,381 @@
+<div class="row d-flex align-items-center w-100">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 website_name_label">BOOKING AGENCY</div>
+    <div class="col-md-2"></div>
+    <button class="logout-btn" (click) = "logout()" routerLink="/">Log out</button>
+  </div>
+
+  <div class="row d-flex align-items-center w-100">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <nav class="navMenu">
+        <a href="registration-requests" style="float:none">Registration requests</a>
+        <a href="register-admin" style="float:none">Register new admins</a>
+        <a href="entities-list" style="float:none">Users/Boats/Cottages</a>
+        <a href="complaints-from-clients" style="float:none">Complaints from clients</a>
+        <a href="evaluations-from-clients" style="float:none">Evaluations from clients</a>
+        <a href="loyalty-programme" style="float:none">Loyalty programme</a>
+        <a href="reviews" style="float:none">Reviews</a>
+        <a href="business-report" style="float:none">Business report</a>
+      </nav>
+    </div>
+    <div class="col-md-4"></div>
+  </div> 
+
+  <div class="row d-flex align-items-center frontpage_gray_banner">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
+      <div class="row d-flex align-items-center frontpage_gray_banner_label">Welcome,</div>
+      <div class="row d-flex align-items-center frontpage_gray_banner_label">{{user.name}} {{user.surname}}</div> 
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+
+  <mat-toolbar class="navMenu" style="cursor: pointer; margin-top: 2%; align-items: left;">      
+    <div class="row d-flex align-items-center w-100">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <nav class="navMenu" style="font-size: 15px;">            
+          <a style="float:none" (click) = "adventureBox = true; homeBox = false; boatBox = false; percantageBox = false"  style="float:none">Adventures</a>
+          <a style="float:none" (click) = "adventureBox = false; homeBox = true; boatBox = false; percantageBox = false; onHomes()"  style="float:none">Homes</a>
+          <a style="float:none" (click) = "adventureBox = false; homeBox = false; boatBox = true; percantageBox = false; onBoats()"  style="float:none">Boats</a>
+          <a style="float:none" (click) = "adventureBox = false; homeBox = false; boatBox = false; percantageBox = true"  style="float:none">Revenues from reservations</a>
+        </nav>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div>  
+    </mat-toolbar>
+
+    <div *ngIf = "adventureBox">
+      <h2 style="margin-left: 44%; margin-top: 25px;">Adventures</h2>
+    </div>
+      <div class="panel-middle" *ngIf = "adventureBox">
+
+  <mat-toolbar class="navMenu" style="cursor: pointer; align-items: left;">      
+    <div class="row d-flex align-items-center w-100">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <nav class="navMenu" style="font-size: 15px;">            
+          <a (click)="reservationsBox = true; financeBox = false; yearBox = true" style="float:none">reservations</a>
+          <a (click)="reservationsBox = false; financeBox = true; monthBox = false; weekBox = false" style="float:none">finance</a>
+        </nav>
+      </div>
+      <div class="col-md-4"></div>
+    </div>  
+  </mat-toolbar>
+
+  <div *ngIf="weekBox" style="margin-left: 43%; display: flex; flex-direction: column; margin-top: 1%;">
+    <mat-form-field appearance="outline" class="date-picker" color="#354F52">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [(ngModel)]="startDate"  [matDatepicker]="picker">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <button class="period-btn" style="margin-left: 5%;" (click)="applyWeek()">Apply</button>
+  </div>
+
+  <div *ngIf="monthBox" style="margin-left: 39%; display: flex; flex-direction: column; margin-top: 1%;">
+    <div style="display: flex; flex-direction: row;">
+      <mat-form-field class="input-box" appearance="outline">
+        <mat-label>Year</mat-label>
+       <mat-select [(ngModel)]="selectedYear">
+        <mat-option style="font-weight: bold;" *ngFor="let year of years" [value]="year">{{year}}</mat-option>
+       </mat-select>  
+      </mat-form-field>
+      <mat-form-field class="input-box" appearance="outline">
+        <mat-label>Month</mat-label>
+       <mat-select [(ngModel)]="selectedMonth">
+        <mat-option style="font-weight: bold;" *ngFor="let month of months" [value]="month">{{month}}</mat-option>
+       </mat-select>  
+      </mat-form-field>
+    </div>
+    <button class="period-btn" style="margin-left: 14%;" (click)="applyMonth()">Apply</button>
+  </div>
+
+  <div *ngIf="reservationsBox" style="display: flex; flex-direction: row; margin-left: 5%; margin-top: 2%;">
+    <div style="margin-top: 10%; display: flex; flex-direction: column;">
+      <button class="period-btn" (click)="weekBox = true; yearBox = false; monthBox = false;">Week</button>
+      <button class="period-btn" (click)="weekBox = false; yearBox = false; monthBox = true;">Month</button>
+      <button class="period-btn" (click)="weekBox = false; yearBox = true; monthBox = false;">Year</button>
+    </div>
+  
+    <div *ngIf="reservationsBox">
+      <div *ngIf="yearBox">
+        <chart class="chartstyle" *ngIf="dataMonth!=null" [type]="type" [data]="dataMonth" [options]="options"></chart>
+      </div>
+  
+      <div *ngIf="monthBox">
+        <chart class="chartstyle" *ngIf="dataYear!=null" [type]="type" [data]="dataYear" [options]="options"></chart>
+      </div>
+  
+      <div *ngIf="weekBox">
+        <chart class="chartstyle" *ngIf="dataWeek!=null" [type]="chartType" [data]="dataWeek" [options]="options"></chart>
+      </div>
+    </div>
+  </div>
+  
+
+  <div *ngIf="financeBox" style="margin-bottom: 2%; margin-top: 5%;">
+    <div style="margin-left: 43%; display: flex; flex-direction: column; margin-top: -4%; margin-bottom: 3%;">
+      <mat-form-field appearance="outline" class="date-picker" color="#354F52">
+        <mat-label style="font-weight: bold;">Start period - End period</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input style="font-weight: bold;" matStartDate  [(ngModel)]="startCountPeriod"   placeholder="Start date">
+          <input  style="font-weight: bold;" matEndDate [(ngModel)]="endCountPeriod" placeholder="End date">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>          
+      </mat-form-field> 
+      <button class="period-btn" style="margin-left: 5%;" (click)="applyCountIncome()">Apply</button>
+    </div>
+
+    <div *ngFor="let adventure of adventures;" style="margin-left: 35%; margin-bottom: 5%;">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image">{{adventure.avgRate}}</div>
+          <mat-card-title style="font-size: 22px; color: #52796F;">{{adventure.name}}</mat-card-title>
+          <mat-card-subtitle style="font-size: 14px;">{{adventure.address}}</mat-card-subtitle>
+        </mat-card-header>
+        <img style="height: 280px;" mat-card-image src="{{adventure.ambientImage}}">
+        <mat-card-content>
+          <p style="font-size: 16px; font-weight: bolder; color: #52796F;">Number of reservations from selected period</p>
+          <p style="font-size: 16px;">{{adventure.totalReservations || 0}}</p>
+          <p style="font-size: 16px; font-weight: bolder; color: #52796F">Incomes for the selected period</p>
+          <p style="font-size: 16px;">{{adventure.totalIncome || 0}}e</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>    
+  </div>
+
+  <div *ngIf = "homeBox">
+    <h2 style="margin-left: 44%; margin-top: 25px;">Homes</h2>
+  </div>
+    <div class="panel-middle" *ngIf = "homeBox">
+
+<mat-toolbar class="navMenu" style="cursor: pointer; align-items: left;">      
+  <div class="row d-flex align-items-center w-100">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <nav class="navMenu" style="font-size: 15px;">            
+        <a (click)="reservationsBox = true; financeBox = false; yearBox = true" style="float:none">reservations</a>
+        <a (click)="reservationsBox = false; financeBox = true; monthBox = false; weekBox = false" style="float:none">finance</a>
+      </nav>
+    </div>
+    <div class="col-md-4"></div>
+  </div>  
+</mat-toolbar>
+
+<div *ngIf="weekBox" style="margin-left: 43%; display: flex; flex-direction: column; margin-top: 1%;">
+  <mat-form-field appearance="outline" class="date-picker" color="#354F52">
+    <mat-label>Choose a date</mat-label>
+    <input matInput [(ngModel)]="startDate"  [matDatepicker]="picker">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <button class="period-btn" style="margin-left: 5%;" (click)="applyHomeWeek()">Apply</button>
+</div>
+
+<div *ngIf="monthBox" style="margin-left: 39%; display: flex; flex-direction: column; margin-top: 1%;">
+  <div style="display: flex; flex-direction: row;">
+    <mat-form-field class="input-box" appearance="outline">
+      <mat-label>Year</mat-label>
+     <mat-select [(ngModel)]="selectedYear">
+      <mat-option style="font-weight: bold;" *ngFor="let year of years" [value]="year">{{year}}</mat-option>
+     </mat-select>  
+    </mat-form-field>
+    <mat-form-field class="input-box" appearance="outline">
+      <mat-label>Month</mat-label>
+     <mat-select [(ngModel)]="selectedMonth">
+      <mat-option style="font-weight: bold;" *ngFor="let month of months" [value]="month">{{month}}</mat-option>
+     </mat-select>  
+    </mat-form-field>
+  </div>
+  <button class="period-btn" style="margin-left: 14%;" (click)="applyHomeMonth()">Apply</button>
+</div>
+
+<div *ngIf="reservationsBox" style="display: flex; flex-direction: row; margin-left: 5%; margin-top: 2%;">
+  <div style="margin-top: 10%; display: flex; flex-direction: column;">
+    <button class="period-btn" (click)="weekBox = true; yearBox = false; monthBox = false;">Week</button>
+    <button class="period-btn" (click)="weekBox = false; yearBox = false; monthBox = true;">Month</button>
+    <button class="period-btn" (click)="weekBox = false; yearBox = true; monthBox = false;">Year</button>
+  </div>
+
+  <div *ngIf="reservationsBox">
+    <div *ngIf="yearBox">
+      <chart class="chartstyle" *ngIf="dataMonth!=null" [type]="type" [data]="dataMonth" [options]="options"></chart>
+    </div>
+
+    <div *ngIf="monthBox">
+      <chart class="chartstyle" *ngIf="dataYear!=null" [type]="type" [data]="dataYear" [options]="options"></chart>
+    </div>
+
+    <div *ngIf="weekBox">
+      <chart class="chartstyle" *ngIf="dataWeek!=null" [type]="chartType" [data]="dataWeek" [options]="options"></chart>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="financeBox" style="margin-bottom: 2%; margin-top: 5%;">
+  <div style="margin-left: 43%; display: flex; flex-direction: column; margin-top: -4%; margin-bottom: 3%;">
+    <mat-form-field appearance="outline" class="date-picker" color="#354F52">
+      <mat-label style="font-weight: bold;">Start period - End period</mat-label>
+      <mat-date-range-input [rangePicker]="picker">
+        <input style="font-weight: bold;" matStartDate  [(ngModel)]="startCountPeriod"   placeholder="Start date">
+        <input  style="font-weight: bold;" matEndDate [(ngModel)]="endCountPeriod" placeholder="End date">
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>          
+    </mat-form-field> 
+    <button class="period-btn" style="margin-left: 5%;" (click)="applyHomeCountIncome()">Apply</button>
+  </div>
+
+  <div *ngFor="let home of homes;" style="margin-left: 35%; margin-bottom: 5%;">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image">{{home.avgRate}}</div>
+        <mat-card-title style="font-size: 22px; color: #52796F;">{{home.name}}</mat-card-title>
+        <mat-card-subtitle style="font-size: 14px;">{{home.address}}</mat-card-subtitle>
+      </mat-card-header>
+      <img style="height: 280px;" mat-card-image src="{{home.exteriorImage}}">
+      <mat-card-content>
+        <p style="font-size: 16px; font-weight: bolder; color: #52796F;">Number of reservations from selected period</p>
+        <p style="font-size: 16px;">{{home.totalReservations || 0}}</p>
+        <p style="font-size: 16px; font-weight: bolder; color: #52796F">Incomes for the selected period</p>
+        <p style="font-size: 16px;">{{home.totalIncome || 0}}e</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>    
+</div>
+
+<div *ngIf = "boatBox">
+  <h2 style="margin-left: 44%; margin-top: 25px;">Boats</h2>
+</div>
+  <div class="panel-middle" *ngIf = "boatBox">
+<mat-toolbar class="navMenu" style="cursor: pointer; align-items: left;">      
+  <div class="row d-flex align-items-center w-100">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <nav class="navMenu" style="font-size: 15px;">            
+        <a (click)="reservationsBox = true; financeBox = false; yearBox = true" style="float:none">reservations</a>
+        <a (click)="reservationsBox = false; financeBox = true; monthBox = false; weekBox = false" style="float:none">finance</a>
+      </nav>
+    </div>
+    <div class="col-md-4"></div>
+  </div>  
+</mat-toolbar>
+
+<div *ngIf="weekBox" style="margin-left: 43%; display: flex; flex-direction: column; margin-top: 1%;">
+  <mat-form-field appearance="outline" class="date-picker" color="#354F52">
+    <mat-label>Choose a date</mat-label>
+    <input matInput [(ngModel)]="startDate"  [matDatepicker]="picker">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <button class="period-btn" style="margin-left: 5%;" (click)="applyBoatWeek()">Apply</button>
+</div>
+
+<div *ngIf="monthBox" style="margin-left: 39%; display: flex; flex-direction: column; margin-top: 1%;">
+  <div style="display: flex; flex-direction: row;">
+    <mat-form-field class="input-box" appearance="outline">
+      <mat-label>Year</mat-label>
+     <mat-select [(ngModel)]="selectedYear">
+      <mat-option style="font-weight: bold;" *ngFor="let year of years" [value]="year">{{year}}</mat-option>
+     </mat-select>  
+    </mat-form-field>
+    <mat-form-field class="input-box" appearance="outline">
+      <mat-label>Month</mat-label>
+     <mat-select [(ngModel)]="selectedMonth">
+      <mat-option style="font-weight: bold;" *ngFor="let month of months" [value]="month">{{month}}</mat-option>
+     </mat-select>  
+    </mat-form-field>
+  </div>
+  <button class="period-btn" style="margin-left: 14%;" (click)="applyBoatMonth()">Apply</button>
+</div>
+
+<div *ngIf="reservationsBox" style="display: flex; flex-direction: row; margin-left: 5%; margin-top: 2%;">
+  <div style="margin-top: 10%; display: flex; flex-direction: column;">
+    <button class="period-btn" (click)="weekBox = true; yearBox = false; monthBox = false;">Week</button>
+    <button class="period-btn" (click)="weekBox = false; yearBox = false; monthBox = true;">Month</button>
+    <button class="period-btn" (click)="weekBox = false; yearBox = true; monthBox = false;">Year</button>
+  </div>
+
+  <div *ngIf="reservationsBox">
+    <div *ngIf="yearBox">
+      <chart class="chartstyle" *ngIf="dataMonth!=null" [type]="type" [data]="dataMonth" [options]="options"></chart>
+    </div>
+
+    <div *ngIf="monthBox">
+      <chart class="chartstyle" *ngIf="dataYear!=null" [type]="type" [data]="dataYear" [options]="options"></chart>
+    </div>
+
+    <div *ngIf="weekBox">
+      <chart class="chartstyle" *ngIf="dataWeek!=null" [type]="chartType" [data]="dataWeek" [options]="options"></chart>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="financeBox" style="margin-bottom: 2%; margin-top: 5%;">
+  <div style="margin-left: 43%; display: flex; flex-direction: column; margin-top: -4%; margin-bottom: 3%;">
+    <mat-form-field appearance="outline" class="date-picker" color="#354F52">
+      <mat-label style="font-weight: bold;">Start period - End period</mat-label>
+      <mat-date-range-input [rangePicker]="picker">
+        <input style="font-weight: bold;" matStartDate  [(ngModel)]="startCountPeriod"  placeholder="Start date">
+        <input  style="font-weight: bold;" matEndDate [(ngModel)]="endCountPeriod" placeholder="End date">
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>          
+    </mat-form-field> 
+    <button class="period-btn" style="margin-left: 5%;" (click)="applyBoatCountIncome()">Apply</button>
+  </div>
+
+  <div *ngFor="let boat of boats;" style="margin-left: 35%; margin-bottom: 5%;">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image">{{boat.avgRate}}</div>
+        <mat-card-title style="font-size: 22px; color: #52796F;">{{boat.name}}</mat-card-title>
+        <mat-card-subtitle  style="font-size: 14px;">{{boat.address}}</mat-card-subtitle>
+      </mat-card-header>
+      <img style="height: 280px;" mat-card-image src="{{boat.exteriorImage}}">
+      <mat-card-content>
+        <p style="font-size: 16px; font-weight: bolder; color: #52796F;">Number of reservations from selected period</p>
+        <p style="font-size: 16px;">{{boat.totalReservations || 0}}</p>
+        <p style="font-size: 16px; font-weight: bolder; color: #52796F">Incomes for the selected period</p>
+        <p style="font-size: 16px;">{{boat.totalIncome || 0}}e</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+</div>
+
+
+  <div class="row d-flex align-items-center footer">
+    <div class="col-md-3">
+      <h2 class="link_title">Product</h2>
+      <h4 class="link_subtitle">Our plan</h4>
+      <h4 class="link_subtitle">Free trial</h4>
+    </div>
+    <div class="col-md-3">
+      <h2 class="link_title">About us</h2>
+      <h4 class="link_subtitle">Request demo</h4>
+      <h4 class="link_subtitle">FAQs</h4>
+    </div>
+    <div class="col-md-3">
+      <h2 class="link_title">Support</h2>
+      <h4 class="link_subtitle">Services</h4>
+      <h4 class="link_subtitle">Contact us</h4>
+    </div>
+    <div class="col-md-3">
+      <h2 class="link_title">Covid-19 FAQs</h2>
+      <h4 class="link_subtitle">Reviews</h4>
+      <h4 class="link_subtitle">Safety</h4>
+    </div>
+  </div>

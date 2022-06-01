@@ -109,6 +109,9 @@ import { MapsClientComponent } from './homepage-client/maps-client/maps-client.c
 import { MapsComponent } from './maps/maps.component';
 import { MatTableModule } from '@angular/material/table';
 import { ApiService } from './api.service';
+import { LoyaltyProgrammeComponent } from './homepage-admin/loyalty-programme/loyalty-programme.component';
+import { HomePagePredefinedAdminComponent } from './homepage-admin/home-page-predefined-admin/home-page-predefined-admin.component';
+import { BusinessReportComponent } from './homepage-admin/business-report/business-report.component';
 
 
 @NgModule({
@@ -184,7 +187,10 @@ import { ApiService } from './api.service';
 
 
     MapsClientComponent,
-    MapsComponent
+    MapsComponent,
+    LoyaltyProgrammeComponent,
+    HomePagePredefinedAdminComponent,
+    BusinessReportComponent
 
   ],
 

@@ -25,6 +25,7 @@ export class SetFreeTermsComponent implements OnInit {
   refresh = new Subject<void>();
   terms = [] as any;
   reservations = [] as any;
+  clients = [] as any;
   today = new Date();
   events: CalendarEvent[] = [];
   monthNames = ["January", "February", "March", "April", "May", "June",
@@ -125,6 +126,15 @@ export class SetFreeTermsComponent implements OnInit {
       }
       location.reload();
     });
+  }
+
+  getFullName(): void{
+    for(var reservation of this.reservations){
+      for(var client of this.clients){
+        if(client.id == reservation.clientId)
+          this.reservations.push(client);
+      }
+    }
   }
 
   setView(view: CalendarView) {

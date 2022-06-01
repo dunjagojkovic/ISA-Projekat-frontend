@@ -47,7 +47,7 @@ export class HomepageInstructorComponent implements OnInit {
   images: any;
 
   ngOnInit(): void {
-    this.api.getAllAdventures().subscribe((response:any) => {
+    this.api.loadAdventure().subscribe((response:any) => {
         this.adventures = response;
     });
 

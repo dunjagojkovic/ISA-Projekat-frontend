@@ -69,6 +69,10 @@ export class ApiService {
     return this.http.post(this.baseURL + "/api/homes", data, this.getAuthoHeader());
   }
 
+  addLoyaltyProgramme(data:any){
+    return this.http.post(this.baseURL + "/api/loyalty",data, this.getAuthoHeader());
+  }
+
   addBoat(data: any) {
     return this.http.post(this.baseURL + "/api/boats", data, this.getAuthoHeader());
   }
@@ -105,7 +109,7 @@ export class ApiService {
     return this.http.get(this.baseURL + "/api/adventures/adventure-profiles");
   }
 
-  editInfo(id: number, data: any) {
+  editInfo(id: number,data: any) {
     return this.http.put(this.baseURL + "/api/users/", data, this.getAuthoHeader());
   }
 
@@ -128,8 +132,16 @@ export class ApiService {
     return this.http.post(this.baseURL + "/api/users/deleteThisUser/" + id, {}, this.getAuthoHeader());
   }
 
-  declineUser(id: any) {
-    return this.http.post(this.baseURL + "/api/users/decline/" + id, {}, this.getAuthoHeader());
+  declineUser(data:any) {
+    return this.http.put(this.baseURL + "/api/users/declineRegistration",data, this.getAuthoHeader());
+  }
+
+  requestDeletingAccount(data:any) {
+    return this.http.put(this.baseURL + "/api/users/requestForDeleting",data, this.getAuthoHeader());
+  }
+
+  deleteUserAccount(data:any) {
+    return this.http.put(this.baseURL + "/api/users/deleteAccount",data, this.getAuthoHeader());
   }
 
   approveAdventureEvaluation(id: any) {
@@ -181,6 +193,11 @@ export class ApiService {
   getAllActiveUsers(){
     return this.http.get(this.baseURL + '/api/users/userStatusActive', this.getAuthoHeader());
   }
+
+  getAllPendingUsers(){
+    return this.http.get(this.baseURL + '/api/users/userStatusPending', this.getAuthoHeader());
+  }
+
 
   getAllAdventureComplaints() {
     return this.http.get(this.baseURL + '/api/adventureComplaints/getAllAdventureComplaints', this.getAuthoHeader());
@@ -252,12 +269,21 @@ export class ApiService {
     return this.http.post(this.baseURL + "/api/adventureFreeTerms", data, this.getAuthoHeader());
   }
 
+  addAdventureNotFreeTerms(data: any)
+  {
+    return this.http.post(this.baseURL + "/api/adventureNotFreeTerms", data, this.getAuthoHeader());
+  }
+
   loadHouseFreeTerms(id: any){
     return this.http.get(this.baseURL + "/api/hometerms/" + id, this.getAuthoHeader());
   }
 
   loadAdventureFreeTerms(id: any) {
     return this.http.get(this.baseURL + "/api/adventureFreeTerms/" + id, this.getAuthoHeader());
+  }
+
+  loadAdventureNotFreeTerms(id: any) {
+    return this.http.get(this.baseURL + "/api/adventureNotFreeTerms/" + id, this.getAuthoHeader());
   }
 
 
@@ -605,13 +631,27 @@ getReservationsForCharts(data: any){
 
 }
 
+getHomeReservationsForCharts(data: any){
+  return this.http.post(this.baseURL + "/api/homeReservations/homeReservationsForCharts", data, this.getAuthoHeader());
+
+}
+
 getAdventureReservationsForCharts(data: any){
   return this.http.post(this.baseURL + "/api/adventuresReservation/myReservationsForCharts", data, this.getAuthoHeader());
 
 }
 
+getAllAdventureReservationsForCharts(data: any){
+  return this.http.post(this.baseURL + "/api/adventuresReservation/allAdventureReservationsForCharts", data, this.getAuthoHeader());
+
+}
+
 getBoatReservationsForCharts(data: any){
   return this.http.post(this.baseURL + "/api/boatReservations/boatReservationsForCharts", data, this.getAuthoHeader());
+}
+
+getAllBoatReservationsForCharts(data: any){
+  return this.http.post(this.baseURL + "/api/boatReservations/allBoatReservationsForCharts", data, this.getAuthoHeader());
 }
 
 getAllReservations(houseId: number, ownerId: number){

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api.service';
+import { ApiService } from 'src/app/api.service';
 
 @Component({
-  selector: 'app-homepage-admin',
-  templateUrl: './homepage-admin.component.html',
-  styleUrls: ['./homepage-admin.component.css']
+  selector: 'app-home-page-predefined-admin',
+  templateUrl: './home-page-predefined-admin.component.html',
+  styleUrls: ['./home-page-predefined-admin.component.css']
 })
-export class HomepageAdminComponent implements OnInit {
+export class HomePagePredefinedAdminComponent implements OnInit {
 
   user: any = {} as any;
   constructor( private api: ApiService ) { }
@@ -20,4 +20,5 @@ export class HomepageAdminComponent implements OnInit {
   logout(): void{
     localStorage.clear();
   }
+
 }

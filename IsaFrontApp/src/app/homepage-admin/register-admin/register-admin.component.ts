@@ -14,6 +14,7 @@ export class RegisterAdminComponent implements OnInit {
 form: FormGroup;
 hide = true;
 
+
   constructor(
     private formBuilder : FormBuilder,
     private router : Router,

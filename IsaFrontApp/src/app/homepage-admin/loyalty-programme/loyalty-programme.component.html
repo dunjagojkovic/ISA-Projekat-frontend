@@ -1,0 +1,64 @@
+<div class="row d-flex align-items-center w-100">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8 website_name_label">
+     BOOKING AGENCY
+    </div>
+    <div class="col-md-2">
+    </div>
+    <img src="assets/user.png" class="profile" [routerLink]="['/settings-admin']">
+  </div>
+    
+  
+<div class="row d-flex align-items-center w-100">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <nav class="navMenu">
+      <a href="registration-requests" style="float:none">Registration requests</a>
+      <a href="register-admin" style="float:none">Register new admins</a>
+      <a href="entities-list" style="float:none">Users/Boats/Cottages</a>
+      <a href="complaints-from-clients" style="float:none">Complaints from clients</a>
+      <a href="evaluations-from-clients" style="float:none">Evaluations from clients</a>
+      <a href="reviews" style="float:none">Reviews</a>
+    </nav>
+  </div>
+  <div class="col-md-4"></div>
+</div> 
+
+
+
+  <p><b>DEFINE LOYALTY</b></p>
+    <div class="example-form">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <mat-form-field class="input-box" appearance="outline" >
+          <mat-label>Number of all reservations</mat-label>
+          <input matInput placeholder="" value="" formControlName="numberOfAllReservations">
+        </mat-form-field>
+        <div class="double-input">
+        <mat-form-field class="input-box-small" appearance="outline">
+            <mat-label>Number of boat reservations</mat-label>
+            <input matInput placeholder="" value="" formControlName="numberOfBoatReservations">
+        </mat-form-field>
+        <mat-form-field class="input-box-small" appearance="outline">
+            <mat-label>Number of house reservations</mat-label>
+            <input matInput placeholder="" value="" formControlName="numberOfHouseReservations">
+        </mat-form-field>
+        </div>  
+        <mat-form-field class="input-box" appearance="outline">
+            <mat-label>Number of instructor reservations</mat-label>
+            <input matInput placeholder="" value="" formControlName="numberOfInstructorReservations">
+        </mat-form-field>  
+        <div class="double-input">
+          <mat-form-field class="input-box-small" appearance="outline">
+              <mat-label>Action</mat-label>
+              <input matInput placeholder="" value="" formControlName="action">
+          </mat-form-field>
+          </div>  
+      
+        
+        
+
+        <button class="btn">Submit </button>
+      </form> 
+    </div>
+  

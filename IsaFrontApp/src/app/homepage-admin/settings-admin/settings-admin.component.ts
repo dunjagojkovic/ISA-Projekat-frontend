@@ -11,6 +11,7 @@ import { Validators } from '@angular/forms';
   styleUrls: ['./settings-admin.component.css']
 })
 export class SettingsAdminComponent implements OnInit {
+  deleteAccountBox : boolean = false;
   changePasswordBox : boolean = false;
   hide = true;
   user: any = {} as any;
@@ -109,6 +110,15 @@ export class SettingsAdminComponent implements OnInit {
       console.log(response);
       this.router.navigate(['/homepage-admin']);
     });
+  }
+
+  onDeleteRequest(id: number) {
+    this.api.sendDeleteRequest(id).subscribe((response: any) => {
+      console.log(response);});
+  }
+  
+  logout(): void{
+    localStorage.clear();
   }
 
  

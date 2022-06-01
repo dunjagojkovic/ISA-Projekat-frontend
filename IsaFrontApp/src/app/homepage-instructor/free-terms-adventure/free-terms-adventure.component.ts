@@ -14,6 +14,7 @@ import { Subject } from 'rxjs';
 })
 export class FreeTermsAdventureComponent implements OnInit {
   form: FormGroup;
+  form1 : FormGroup;
   id: any;
   adventureId: any;
   instructorId: any;
@@ -23,6 +24,8 @@ export class FreeTermsAdventureComponent implements OnInit {
   CalendarView = CalendarView;
   refresh = new Subject<void>();
   terms = [] as any;
+  unavalibleTerms = [] as any;
+  clients = [] as any;
   reservations = [] as any;
   today = new Date();
   events: CalendarEvent[] = [];
@@ -64,6 +67,12 @@ export class FreeTermsAdventureComponent implements OnInit {
       actionPrice: [''],
       isAction: ['']
     })
+
+    this.form1 = this.formBuilder.group({
+      startDate: ['', Validators.required],
+      endDate: ['', Validators.required]
+      
+    })
   }
 
   ngOnInit(): void {
@@ -80,6 +89,11 @@ export class FreeTermsAdventureComponent implements OnInit {
     this.api.getAllAdventureReservations(this.id, this.user.id).subscribe((response:any) => {
       this.reservations = response;
       console.log(response);
+
+      this.api.getClients().subscribe((response:any) => {
+        this.clients = response;      
+        console.log(response);
+      }, () => this.getFullName());
   
       for(let event of this.reservations) {
         this.events.push({
@@ -108,6 +122,26 @@ export class FreeTermsAdventureComponent implements OnInit {
           })
         }
     });
+
+    
+    this.api.loadAdventureNotFreeTerms(this.id).subscribe((response:any) => {
+      this.unavalibleTerms = response;
+      console.log('unavalible terms', this.unavalibleTerms);
+
+      for(let event of response) {
+        
+        if(this.isReserved(event.startDate, event.endDate, this.reservations)) {
+          continue;
+        }
+        
+        this.events.push({
+          start: new Date(event.startDate),
+          end: new Date(event.endDate),
+          title:  "Unavalible terms",
+          color: this.colors.yellow
+        })
+      }
+  });
   });
   }
 
@@ -148,6 +182,37 @@ export class FreeTermsAdventureComponent implements OnInit {
       }
       this.load();
     });
+  }
+
+  onSave1() {
+
+    const startDate = this.form.get('startDate')?.value;
+    const endDate = this.form.get('endDate')?.value;
+
+
+    let data = {
+      startDate : startDate,
+      endDate : endDate,
+      adventureId: this.id
+    }
+
+    this.api.addAdventureNotFreeTerms(data).subscribe((response:any) => {
+      console.log(response);
+      if(response == null){
+        this._snackBar.open('You can not add this term. ', 'Close', {duration: 6000});   
+
+      }
+      this.load();
+    });
+  }
+
+  getFullName(): void{
+    for(var reservation of this.reservations){
+      for(var client of this.clients){
+        if(client.id == reservation.clientId)
+          this.reservations.push(client);
+      }
+    }
   }
 
   setView(view: CalendarView) {

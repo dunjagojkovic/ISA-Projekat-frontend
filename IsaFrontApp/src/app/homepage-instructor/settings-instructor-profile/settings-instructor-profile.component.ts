@@ -4,6 +4,7 @@ import { ApiService } from 'src/app/api.service';
 import { FormGroup } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-settings-instructor-profile',
@@ -17,11 +18,15 @@ export class SettingsInstructorProfileComponent implements OnInit {
   user: any = {} as any;
   form: FormGroup;
   formPassword: FormGroup;
+  id: any;
+  reasonForDelete: any;
+  formDelete: FormGroup;
   
   constructor(
     private formBuilder : FormBuilder,
     private router: Router,
-    private api: ApiService   
+    private api: ApiService,
+    private _snackBar : MatSnackBar   
     ) { 
 
       this.form = this.formBuilder.group({
@@ -46,6 +51,11 @@ export class SettingsInstructorProfileComponent implements OnInit {
         passwordRepeat: ['']
 
       })
+
+      this.formDelete = this.formBuilder.group({
+        reasonForDelete: ['', Validators.pattern('[a-zA-Z]*')]
+       
+     })
 
     }
 
@@ -115,6 +125,24 @@ export class SettingsInstructorProfileComponent implements OnInit {
   onDeleteRequest(id: number) {
     this.api.sendDeleteRequest(id).subscribe((response: any) => {
       console.log(response);});
+  }
+
+  onRequestDelete(id: number){
+    const reasonForDelete = this.formDelete.get('reasonForDelete')?.value;
+    
+
+    let data = {
+      reasonForDelete: reasonForDelete,
+      id: id
+    }
+    console.log(data);
+
+  this.api.requestDeletingAccount(data).subscribe((response:any) => {
+    this.user = response;
+    this._snackBar.open('Admin has been notified.', 'Close', {duration: 5000});
+    this.router.navigate(['/']);
+  
+  });
   }
   
 }

@@ -51,9 +51,10 @@
         </div>
         <div class="col-md-4">
           <nav class="navMenu" style="font-size: 15px;">            
-            <a style="float:none" (click) = "userBox = false; homeBox = false; boatBox = true; boatProfile()">Boats</a>
-            <a style="float:none" (click) = "userBox = true; homeBox = false; boatBox = false; userProfile()">Users</a>
-            <a style="float:none" (click) = "userBox = false; homeBox = true; boatBox = false; homeProfile()">Homes</a>
+            <a style="float:none" (click) = "userBox = false; homeBox = false; boatBox = true; deleteRequestsBox = false; boatProfile()">Boats</a>
+            <a style="float:none" (click) = "userBox = true; homeBox = false; boatBox = false; deleteRequestsBox = false; userProfile()">Users</a>
+            <a style="float:none" (click) = "userBox = false; homeBox = true; boatBox = false; deleteRequestsBox = false; homeProfile()">Homes</a>
+            <a style="float:none" (click) = "userBox = false; homeBox = false; boatBox = false; deleteRequestsBox = true; deleteRequestsProfile()">Requests for deleting account</a>
           </nav>
         </div>
         <div class="col-md-4">
@@ -137,6 +138,36 @@
         </tbody>
       </table>
   </div>
+
+
+  <div *ngIf = "deleteRequestsBox">
+    <h2 style="margin-left: 44%; margin-top: 25px;">Requests for deleting account</h2>
+  </div>
+  <div class="panel-middle" *ngIf = "deleteRequestsBox">
+    <table class="rooms-table">
+      <thead>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Email</th>
+            <th>Type</th>
+            <th>Reason for deleting account</th>
+            <th style="width: 20px; height: 50px;"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let drp of deleteRequestsProfiles ">
+          <td style="width: 220px;">{{drp.name}}</td>
+          <td style="width: 230px;">{{drp.surname}}</td>
+          <td style="width: 50px;">{{drp.email}}</td>
+          <td style="width: 50px;">{{drp.type}}</td>
+          <td style="width: 50px;">{{drp.reasonForDelete}}</td>
+          <td> <form [formGroup]="form" > <label>Response for deleting: </label><input type="text" id="cancelReason" value="" formControlName="cancelReason" /> <button class="button" (click)="onDeleteAccount(drp.id)">Delete account</button> </form></td>
+        
+        </tr>
+      </tbody>
+    </table>
+</div>
 
 
 

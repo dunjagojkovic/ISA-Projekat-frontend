@@ -14,7 +14,13 @@
       </div>
       <div class="col-md-4">
         <nav class="navMenu">
-       <p style="float:none">Registration requests</p>
+          <a href="homepage-admin" style="float:none">Homepage</a>
+          <a href="register-admin" style="float:none">Register new admins</a>
+          <a href="entities-list" style="float:none">Users/Boats/Cottages</a>
+          <a href="complaints-from-clients" style="float:none">Complaints from clients</a>
+          <a href="evaluations-from-clients" style="float:none">Evaluations from clients</a>
+          <a href="loyalty-programme" style="float:none">Loyalty programme</a>
+          <a href="reviews" style="float:none">Reviews</a>
         </nav>
       </div>
       <div class="col-md-4">
@@ -44,8 +50,8 @@
               <td style="width: 1000px;">{{user.type}}</td>
               <td style="width: 1000px;">{{user.email}}</td>
               <td style="width: 1000px;">{{user.status}}</td>
-              <td><button (click)="setActive(user.id)">Approve</button></td>
-              <td><button (click)="setDeclined(user.id)">Decline</button> <label>Reason for refusal: </label><input type="text" id="cancelReason" value="{{user.cancelReason}}" /> </td>
+              <td><button (click)="setActive(user.id)" class="button">Approve</button></td>
+              <td> <form [formGroup]="form" > <label>Reason for refusal: </label><input type="text" id="cancelReason" value="" formControlName="cancelReason" /> <button class="button" (click)="onSave(user.id)">Decline</button> </form></td>
             
               
             </tr>
