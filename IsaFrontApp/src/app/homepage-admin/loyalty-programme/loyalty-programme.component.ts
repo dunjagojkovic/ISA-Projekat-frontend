@@ -21,11 +21,12 @@ export class LoyaltyProgrammeComponent implements OnInit {
     ) {
 
       this.form = this.formBuilder.group({
-        numberOfAllReservations: ['', Validators.minLength(1)],
-        numberOfBoateReservations: ['', Validators.minLength(1)],
-        numberOfHouseReservations: ['', Validators.minLength(1)],
-        numberOfInstructorReservations: ['', Validators.minLength(1)],
-        action: ['', Validators.minLength(1)],
+        silverPoints: ['', Validators.minLength(1)],
+        goldPoints: ['', Validators.minLength(1)],
+        reservationPoints: ['', Validators.minLength(1)],
+        reservedPoints: ['', Validators.minLength(1)],
+        silverAction: ['', Validators.minLength(1)],
+        goldAction: ['', Validators.minLength(1)]
   
      })
          
@@ -37,25 +38,27 @@ export class LoyaltyProgrammeComponent implements OnInit {
     onSubmit() {
       if(this.form.valid) {
   
-        const numberOfAllReservations = this.form.get('numberOfAllReservations')?.value;
-        const numberOfBoateReservations = this.form.get('numberOfBoatReservations')?.value;
-        const numberOfHouseReservations = this.form.get('numberOfHouseReservations')?.value;
-        const numberOfInstructorReservations = this.form.get('numberOfInstructorReservations')?.value;
-        const action = this.form.get('action')?.value;
+        const silverPoints = this.form.get('silverPoints')?.value;
+        const goldPoints = this.form.get('goldPoints')?.value;
+        const reservationPoints = this.form.get('reservationPoints')?.value;
+        const reservedPoints = this.form.get('reservedPoints')?.value;
+        const silverAction = this.form.get('silverAction')?.value;
+        const goldAction = this.form.get('goldAction')?.value;
       
   
   
   
         let data = {
-          numberOfAllReservations: numberOfAllReservations,
-          numberOfBoateReservations: numberOfBoateReservations,
-          numberOfHouseReservations: numberOfHouseReservations,
-          numberOfInstructorReservations: numberOfInstructorReservations,
-          action: action,
+          silverPoints: silverPoints,
+          goldPoints: goldPoints,
+          reservationPoints: reservationPoints,
+          reservedPoints: reservedPoints,
+          silverAction: silverAction,
+          goldAction: goldAction
         }
   
         
-        this.api.addLoyaltyProgramme(data).subscribe((response: any) => {
+        this.api.addLoyalProgramme(data).subscribe((response: any) => {
           console.log(response)
       });
 

@@ -106,7 +106,7 @@ constructor(
   setDeletedBoat(id: any)
   {
     
-    this.api.deleteMyBoat(id).subscribe((response: any) => {
+    this.api.deleteThisBoat(id).subscribe((response: any) => {
       console.log(response)
     });
   }
@@ -115,7 +115,11 @@ constructor(
   {
     
     this.api.deleteMyHouse(id).subscribe((response: any) => {
-      console.log(response)
+      this.homeProfiles = response; 
+      if(response == true){
+     
+        window.location.reload();
+      }
     });
   }
 

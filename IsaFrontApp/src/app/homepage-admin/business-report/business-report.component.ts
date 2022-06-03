@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 
@@ -18,6 +19,7 @@ export class BusinessReportComponent implements OnInit {
   yearBox: boolean = true;
   monthBox: boolean = false;
   weekBox: boolean = false;
+  form: FormGroup;
 
   user: any = {} as any;
   instructorId : any;
@@ -40,14 +42,40 @@ export class BusinessReportComponent implements OnInit {
   adventures: any;
   boats: any;
   homes : any;
+  incomes : any;
+  percentage : any;
   startCountPeriod = new Date();
   endCountPeriod = new Date();
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private api: ApiService
-  ) { }
+    private api: ApiService,
+    private formBuilder : FormBuilder
+  ) {
+    this.form = this.formBuilder.group({
+
+      percentage: ['', Validators.minLength(1)]
+
+    })
+   }
+
+   savePercentage() {
+
+    const percentage = this.form.get('percentage')?.value;
+  
+
+    let data = {
+
+      percentage: percentage
+    
+    }
+
+    this.api.addIncome(data).subscribe((response: any) => {
+      console.log(response);
+      
+    });
+  }
 
   ngOnInit(): void {
     this.api. loadIstructorsForClients().subscribe((response:any) => {
@@ -118,18 +146,23 @@ onHomes(): void {
   }
 
   applyCountIncome = () => {
+    this.api.getAllIncomes().subscribe((response:any) => {
+      this.incomes = response;
+    });
     const adventureReservations  = [...this.adventureReservations ];
     for(let adventure of this.adventures){
       adventure.totalIncome = 0;
       adventure.totalReservations = 0;
       for(let adventureReservations  of this.adventureReservations ){
+        for(let income of this.incomes){
         const reservationDate = new Date(adventureReservations .startDate)
           if(this.startCountPeriod <= reservationDate && reservationDate <= this.endCountPeriod && adventureReservations .adventureProfile.id == adventure.id){
             if(!adventure?.totalIncome) adventure.totalIncome = 0;
-            adventure.totalIncome += adventureReservations .price;
+            adventure.totalIncome += adventureReservations .price*income.percentage/100;
             if(!adventure?.totalReservations) adventure.totalReservations = 0;
             adventure.totalReservations ++;
           }
+        }
       }
     }
     console.log(this.adventures);
@@ -208,17 +241,22 @@ onHomes(): void {
   }
 
   applyHomeCountIncome = () => {
+    this.api.getAllIncomes().subscribe((response:any) =>{
+      this.incomes = response;
+    });
     const homeReservations = [...this.homeReservations];
     for(let home of this.homes){
       home.totalIncome = 0;
       home.totalReservations = 0;
       for(let reservation of this.homeReservations){
+        for(let income of this.incomes){
         const reservationDate = new Date(reservation.startDate)
           if(this.startCountPeriod <= reservationDate && reservationDate <= this.endCountPeriod && reservation.homeProfile.id == home.id){
             if(!home?.totalIncome) home.totalIncome = 0;
-            home.totalIncome += reservation.price;
+            home.totalIncome += reservation.price*income.percentage/100;
             if(!home?.totalReservations) home.totalReservations = 0;
             home.totalReservations ++;
+          }
           }
       }
     }
@@ -299,17 +337,22 @@ onHomes(): void {
 
 
   applyBoatCountIncome = () => {
+    this.api.getAllIncomes().subscribe((response:any) =>{
+      this.incomes = response;
+    });
     const boatReservations = [...this.boatReservations];
     for(let boat of this.boats){
       boat.totalIncome = 0;
       boat.totalReservations = 0;
       for(let reservation of this.boatReservations){
+        for(let income of this.incomes){
         const reservationDate = new Date(reservation.startDate)
           if(this.startCountPeriod <= reservationDate && reservationDate <= this.endCountPeriod && reservation.boatProfile.id == boat.id){
             if(!boat?.totalIncome) boat.totalIncome = 0;
-            boat.totalIncome += reservation.price;
+            boat.totalIncome += reservation.price*income.percentage/100;
             if(!boat?.totalReservations) boat.totalReservations = 0;
             boat.totalReservations ++;
+          }
           }
       }
     }

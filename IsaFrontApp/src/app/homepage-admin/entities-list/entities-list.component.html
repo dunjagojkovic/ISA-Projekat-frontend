@@ -83,7 +83,7 @@
                 <td style="width: 1000px;">{{up.surname}}</td>
                 <td style="width: 1000px;">{{up.email}}</td>
                 <td style="width: 1000px;">{{up.type}}</td>
-                <td><button (click)="setDeleted(up.id)">Delete</button></td>
+                <td><button class="btn" (click)="setDeleted(up.id)">Delete</button></td>
                 
               </tr>
             </tbody>
@@ -107,7 +107,7 @@
             <tr *ngFor = "let hp of homeProfiles ">
               <td style="width: 220px;">{{hp.name}}</td>
               <td style="width: 230px;">{{hp.address}}</td>
-              <td><button (click)="setDeletedHouse(hp.id)">Delete</button></td>
+              <td><button class="btn" (click)="setDeletedHouse(hp.id)">Delete</button></td>
               
             </tr>
           </tbody>
@@ -132,7 +132,7 @@
             <td style="width: 220px;">{{bp.name}}</td>
             <td style="width: 230px;">{{bp.address}}</td>
             <td style="width: 50px;">{{bp.type}}</td>
-            <td><button (click)="setDeletedBoat(bp.id)">Delete</button></td>
+            <td><button class="btn" (click)="setDeletedBoat(bp.id)">Delete</button></td>
           
           </tr>
         </tbody>

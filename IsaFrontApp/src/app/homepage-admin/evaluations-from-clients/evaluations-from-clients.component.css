@@ -151,6 +151,19 @@
     justify-content: center;
 }
 
+.btn{
+    border-radius: 20px;
+    border: 3px solid #52796F ;
+    color:white;
+    background-color: #52796F;
+    font-weight: bold;
+    width: 120px;
+    height: 44px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
 .rooms-table {
     display: block;
     background-color: white;
@@ -165,6 +178,7 @@
     color: white;
     text-transform: uppercase;
     background: #84A98C;
+    width: auto;
   }
   
   .rooms-table tbody {
@@ -174,7 +188,7 @@
     overflow-y: scroll;
     background: #ebf0e9;
     scrollbar-color: #84A98C;
-    width: 1065px;
+    width: 1705px;
   }
   
   .rooms-table thead {

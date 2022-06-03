@@ -31,30 +31,35 @@
     <div class="example-form">
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <mat-form-field class="input-box" appearance="outline" >
-          <mat-label>Number of all reservations</mat-label>
-          <input matInput placeholder="" value="" formControlName="numberOfAllReservations">
+          <mat-label>Points to reach silver cathegory</mat-label>
+          <input matInput placeholder="" value="" formControlName="silverPoints">
         </mat-form-field>
         <div class="double-input">
         <mat-form-field class="input-box-small" appearance="outline">
-            <mat-label>Number of boat reservations</mat-label>
-            <input matInput placeholder="" value="" formControlName="numberOfBoatReservations">
+            <mat-label>Points to reach gold cathegory</mat-label>
+            <input matInput placeholder="" value="" formControlName="goldPoints">
         </mat-form-field>
         <mat-form-field class="input-box-small" appearance="outline">
-            <mat-label>Number of house reservations</mat-label>
-            <input matInput placeholder="" value="" formControlName="numberOfHouseReservations">
+            <mat-label>Points for every reservation</mat-label>
+            <input matInput placeholder="" value="" formControlName="reservationPoints">
         </mat-form-field>
         </div>  
         <mat-form-field class="input-box" appearance="outline">
-            <mat-label>Number of instructor reservations</mat-label>
-            <input matInput placeholder="" value="" formControlName="numberOfInstructorReservations">
+            <mat-label>Points for being reserved</mat-label>
+            <input matInput placeholder="" value="" formControlName="reservedPoints">
         </mat-form-field>  
         <div class="double-input">
           <mat-form-field class="input-box-small" appearance="outline">
-              <mat-label>Action</mat-label>
-              <input matInput placeholder="" value="" formControlName="action">
+              <mat-label>Action for silver cathegory</mat-label>
+              <input matInput placeholder="" value="" formControlName="silverAction">
           </mat-form-field>
           </div>  
-      
+          <div class="double-input">
+            <mat-form-field class="input-box-small" appearance="outline">
+                <mat-label>Action for gold cathegory</mat-label>
+                <input matInput placeholder="" value="" formControlName="goldAction">
+            </mat-form-field>
+            </div>  
         
         
 

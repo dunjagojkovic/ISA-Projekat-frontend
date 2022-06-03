@@ -41,7 +41,6 @@
           <a style="float:none" (click) = "adventureBox = true; homeBox = false; boatBox = false; percantageBox = false"  style="float:none">Adventures</a>
           <a style="float:none" (click) = "adventureBox = false; homeBox = true; boatBox = false; percantageBox = false; onHomes()"  style="float:none">Homes</a>
           <a style="float:none" (click) = "adventureBox = false; homeBox = false; boatBox = true; percantageBox = false; onBoats()"  style="float:none">Boats</a>
-          <a style="float:none" (click) = "adventureBox = false; homeBox = false; boatBox = false; percantageBox = true"  style="float:none">Revenues from reservations</a>
         </nav>
       </div>
       <div class="col-md-4">
@@ -130,6 +129,13 @@
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-date-range-picker #picker></mat-date-range-picker>          
       </mat-form-field> 
+      <form [formGroup]="form" (ngSubmit)="savePercentage()">
+      <mat-form-field class="input-box" appearance="outline">
+        <mat-label>Input percentage(%)</mat-label>
+        <input matInput placeholder="" value="" formControlName="percentage">
+    </mat-form-field>
+    <button class="period-btn" style="margin-left: 5%;" (click)="savePercentage()" >Save percentage</button>
+    </form>
       <button class="period-btn" style="margin-left: 5%;" (click)="applyCountIncome()">Apply</button>
     </div>
 
@@ -233,6 +239,13 @@
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-date-range-picker #picker></mat-date-range-picker>          
     </mat-form-field> 
+    <form [formGroup]="form" (ngSubmit)="savePercentage()">
+      <mat-form-field class="input-box" appearance="outline">
+        <mat-label>Input percentage(%)</mat-label>
+        <input matInput placeholder="" value="" formControlName="percentage">
+    </mat-form-field>
+    <button class="period-btn" style="margin-left: 5%;" (click)="savePercentage()" >Save percentage</button>
+    </form>
     <button class="period-btn" style="margin-left: 5%;" (click)="applyHomeCountIncome()">Apply</button>
   </div>
 
@@ -334,6 +347,13 @@
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-date-range-picker #picker></mat-date-range-picker>          
     </mat-form-field> 
+    <form [formGroup]="form" (ngSubmit)="savePercentage()">
+      <mat-form-field class="input-box" appearance="outline">
+        <mat-label>Input percentage(%)</mat-label>
+        <input matInput placeholder="" value="" formControlName="percentage">
+    </mat-form-field>
+    <button class="period-btn" style="margin-left: 5%;" (click)="savePercentage()" >Save percentage</button>
+    </form>
     <button class="period-btn" style="margin-left: 5%;" (click)="applyBoatCountIncome()">Apply</button>
   </div>
 

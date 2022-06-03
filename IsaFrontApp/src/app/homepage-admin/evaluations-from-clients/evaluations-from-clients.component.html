@@ -88,8 +88,8 @@
                   <td style="width: 1000px;">{{ae.adventureReservation.adventureProfile.instructorId}}</td>
                   <td style="width: 1000x;">{{ae.rate}}</td>
                   <td style="width: 1000x;">{{ae.content}}</td>
-                  <td><button (click)="setApprovedAdventure(ae.id)">Approve</button></td>
-                  <td><button (click)="setDeclinedAdventure(ae.id)">Decline</button></td>
+                  <td><button class="btn" (click)="setApprovedAdventure(ae.id)">Approve</button></td>
+                  <td><button class="btn" (click)="setDeclinedAdventure(ae.id)">Decline</button></td>
                 
                   
                 </tr>
@@ -128,8 +128,8 @@
                 <td style="width: 350px;">{{he.content}}</td>
                 <td style="width: 1000x;">{{he.isApproved}}</td>
                 <td style="width: 1000x;">{{he.isDeclined}}</td>
-                <td><button (click)="setApprovedHome(he.id)">Approve</button></td>
-                <td><button (click)="setDeclinedHome(he.id)">Decline</button></td>
+                <td><button class="btn" (click)="setApprovedHome(he.id)">Approve</button></td>
+                <td><button class="btn" (click)="setDeclinedHome(he.id)">Decline</button></td>
                 
               </tr>
             </tbody>
@@ -166,8 +166,8 @@
               <td style="width: 350px;">{{be.content}}</td>
               <td style="width: 1000x;">{{be.isApproved}}</td>
               <td style="width: 1000x;">{{be.isDeclined}}</td>
-              <td><button (click)="setApprovedBoat(be.id)">Approve</button></td>
-              <td><button (click)="setDeclinedBaot(be.id)">  Decline</button></td>
+              <td><button class="btn" (click)="setApprovedBoat(be.id)">Approve</button></td>
+              <td><button class="btn" (click)="setDeclinedBaot(be.id)">  Decline</button></td>
             
             </tr>
           </tbody>
