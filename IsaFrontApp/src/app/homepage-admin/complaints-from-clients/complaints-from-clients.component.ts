@@ -23,6 +23,13 @@ export class ComplaintsFromClientsComponent implements OnInit {
   boatBox: boolean = false;
   homeBox: boolean = true;
   form: FormGroup;
+  clients = [] as any;
+  instructors = [] as any;
+  homeOwners = [] as any;
+  boatOwners = [] as any;
+  adventureReservations = [] as any;
+  homeReservations = [] as any;
+  boatReservations = [] as any;
 
 constructor(
   private router: Router,
@@ -45,9 +52,91 @@ constructor(
       console.log(response);
   });
 
+  this.api.getClients().subscribe((response:any) => {
+    this.clients = response;      
+    console.log(response);
+  }, () => this.getFullName());
+
+  this.api.getInstructors().subscribe((response:any) => {
+    this.instructors = response;      
+    console.log(response);
+  }, () => this.getFullName1());
+
+  this.api.getHomeOwners().subscribe((response:any) => {
+    this.homeOwners = response;      
+    console.log(response);
+  }, () => this.getFullName1());
+
+  this.api.getBoatOwners().subscribe((response:any) => {
+    this.boatOwners = response;      
+    console.log(response);
+  }, () => this.getFullName1());
+
+}
+
+
+
+getFullName(): void{
+  for(var complaint of this.adventureComplaints){
+    for(var client of this.clients){
+      if(client.id == complaint.clientId)
+        this.adventureComplaints.push(client);
+    }
+  }
+  for(var complaint of this.boatComplaints){
+    for(var client of this.clients){
+      if(client.id == complaint.clientId)
+        this.boatComplaints.push(client);
+    }
+  }
+  for(var complaint of this.homeComplaints){
+    for(var client of this.clients){
+      if(client.id == complaint.clientId)
+        this.homeComplaints.push(client);
+    }
+  }
+}
+
+getFullName1(): void{
+  for(var complaint of this.adventureComplaints){
+    for(var reservation of this.adventureReservations){
+      if(reservation.id == complaint.adventureReservationId)
+        for(var instructor of this.instructors){
+          if(instructor.id == reservation.instructorId)
+          this.adventureComplaints.push(instructor);
+        }
+    }
+  }
+  for(var complaint of this.boatComplaints){
+    for(var reservation of this.boatReservations){
+      if(reservation.id == complaint.boatReservationId)
+        for(var owner of this.boatOwners){
+          if(owner.id == reservation.ownerId)
+          this.boatComplaints.push(owner);
+        }
+    }
+  }
+  for(var complaint of this.homeComplaints){
+    for(var reservation of this.homeReservations){
+      if(reservation.id == complaint.homeReservationId)
+        for(var owner of this.homeOwners){
+          if(owner.id == reservation.ownerId)
+          this.homeComplaints.push(owner);
+        }
+    }
+  }
 }
 
   adventureComplaint(): void{
+    this.api.getClients().subscribe((response:any) => {
+      this.clients = response;      
+      console.log(response);
+    }, () => this.getFullName());
+
+    this.api.getInstructors().subscribe((response:any) => {
+      this.instructors = response;      
+      console.log(response);
+    }, () => this.getFullName1());
    
     this.api.getAllAdventureComplaintsWithoutResponse().subscribe((response:any) => {
       this.adventureComplaints = response;      
@@ -55,6 +144,16 @@ constructor(
   }
 
   boatComplaint(): void{
+    this.api.getClients().subscribe((response:any) => {
+      this.clients = response;      
+      console.log(response);
+    }, () => this.getFullName());
+
+    this.api.getBoatOwners().subscribe((response:any) => {
+      this.boatOwners = response;      
+      console.log(response);
+    }, () => this.getFullName1());
+
     this.api.getAllBoatComplaintsWithoutResponse().subscribe((response:any) => {
       this.boatComplaints = response;      
     });
@@ -62,6 +161,17 @@ constructor(
   }
 
   homeComplaint(): void{
+
+    this.api.getClients().subscribe((response:any) => {
+      this.clients = response;      
+      console.log(response);
+    }, () => this.getFullName());
+
+    this.api.getHomeOwners().subscribe((response:any) => {
+      this.homeOwners = response;      
+      console.log(response);
+    }, () => this.getFullName1());
+
     this.api.getAllHomeComplaintsWithoutResponse().subscribe((response:any) => {
       this.homeComplaints = response;      
     }); 

@@ -84,8 +84,12 @@
                   <td style="width: 1600px;">{{ae.adventureReservation.adventureProfile.name}}</td>
                   <td style="width: 1000px;">{{ae.adventureReservation.startDate | date:'dd/MM/yyyy'}}</td>
                   <td style="width: 1000px;">{{ae.adventureReservation.endDate | date:'dd/MM/yyyy'}}</td>
-                  <td style="width: 1000px;">{{ae.clientId}}</td>
-                  <td style="width: 1000px;">{{ae.adventureReservation.adventureProfile.instructorId}}</td>
+                  <div *ngFor = "let client of clients;">
+                    <td *ngIf = "client.id == ae.clientId">{{client.name}} {{client.surname}} </td>
+                    </div>
+                    <div *ngFor = "let instructor of instructors;">
+                      <td style="width:500px;" *ngIf = "instructor.id == ae.adventureReservation.adventureProfile.instructorId">{{instructor.name}} {{instructor.surname}} </td>
+                      </div>
                   <td style="width: 1000x;">{{ae.rate}}</td>
                   <td style="width: 1000x;">{{ae.content}}</td>
                   <td><button class="btn" (click)="setApprovedAdventure(ae.id)">Approve</button></td>
@@ -122,8 +126,12 @@
                 <td style="width: 220px;">{{he.homeReservation.homeProfile.name}}</td>
                 <td style="width: 230px;">{{he.homeReservation.startDate | date:'dd/MM/yyyy'}}</td>
                 <td style="width: 50px;">{{he.homeReservation.endDate | date:'dd/MM/yyyy'}}</td>
-                <td style="width: 350px;">{{he.clientId}}</td>
-                <td style="width: 350px;">{{he.homeReservation.homeProfile.ownerId}}</td>
+                <div *ngFor = "let client of clients;">
+                  <td *ngIf = "client.id == he.clientId">{{client.name}} {{client.surname}} </td>
+                  </div>
+                  <div *ngFor = "let owner of homeOwners;">
+                    <td style="width:500px;" *ngIf = "owner.id == he.homeReservation.homeProfile.ownerId">{{owner.name}} {{owner.surname}} </td>
+                    </div>
                 <td style="width: 1000x;">{{he.rate}}</td>
                 <td style="width: 350px;">{{he.content}}</td>
                 <td style="width: 1000x;">{{he.isApproved}}</td>
@@ -160,8 +168,12 @@
               <td style="width: 220px;">{{be.boatReservation.boatProfile.name}}</td>
               <td style="width: 230px;">{{be.boatReservation.startDate | date:'dd/MM/yyyy'}}</td>
               <td style="width: 50px;">{{be.boatReservation.endDate | date:'dd/MM/yyyy'}}</td>
-              <td style="width: 350px;">{{be.clientId}}</td>
-              <td style="width: 350px;">{{be.boatReservation.boatProfile.ownerId}}</td>
+              <div *ngFor = "let client of clients;">
+                <td *ngIf = "client.id == be.clientId">{{client.name}} {{client.surname}} </td>
+                </div>
+                <div *ngFor = "let owner of boatOwners;">
+                  <td style="width:500px;" *ngIf = "owner.id == be.boatReservation.boatProfile.ownerId">{{owner.name}} {{owner.surname}} </td>
+                  </div>
               <td style="width: 1000x;">{{be.rate}}</td>
               <td style="width: 350px;">{{be.content}}</td>
               <td style="width: 1000x;">{{be.isApproved}}</td>

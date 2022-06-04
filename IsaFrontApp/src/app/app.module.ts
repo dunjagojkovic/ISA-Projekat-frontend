@@ -112,6 +112,7 @@ import { ApiService } from './api.service';
 import { LoyaltyProgrammeComponent } from './homepage-admin/loyalty-programme/loyalty-programme.component';
 import { HomePagePredefinedAdminComponent } from './homepage-admin/home-page-predefined-admin/home-page-predefined-admin.component';
 import { BusinessReportComponent } from './homepage-admin/business-report/business-report.component';
+import { EditLoyaltyComponent } from './homepage-admin/edit-loyalty/edit-loyalty.component';
 
 
 @NgModule({
@@ -190,7 +191,8 @@ import { BusinessReportComponent } from './homepage-admin/business-report/busine
     MapsComponent,
     LoyaltyProgrammeComponent,
     HomePagePredefinedAdminComponent,
-    BusinessReportComponent
+    BusinessReportComponent,
+    EditLoyaltyComponent
 
   ],
 

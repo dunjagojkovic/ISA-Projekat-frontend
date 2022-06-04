@@ -65,6 +65,9 @@ export class FrontPageComponent implements OnInit {
           else if(user.type == "PredefinedAdmin"){
             this.router.navigate(['/homepage-admin']);
           }
+          else if(user.type == "NewAdmin"){
+            this.router.navigate(['/settings-admin']);
+          }
         });
 
         }, error => {

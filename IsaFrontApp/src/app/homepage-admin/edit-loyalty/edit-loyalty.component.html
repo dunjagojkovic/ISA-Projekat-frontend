@@ -1,0 +1,116 @@
+<div class="row d-flex align-items-center w-100">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8 website_name_label">
+     BOOKING AGENCY
+    </div>
+    <div class="col-md-2">
+    </div>
+    <img src="assets/user.png" class="profile" [routerLink]="['/settings-admin']">
+  </div>
+    
+  
+<div class="row d-flex align-items-center w-100">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <nav class="navMenu">
+      <a href="registration-requests" style="float:none">Registration requests</a>
+      <a href="register-admin" style="float:none">Register new admins</a>
+      <a href="entities-list" style="float:none">Users/Boats/Cottages</a>
+      <a href="complaints-from-clients" style="float:none">Complaints from clients</a>
+      <a href="evaluations-from-clients" style="float:none">Evaluations from clients</a>
+      <a href="reviews" style="float:none">Reviews</a>
+    </nav>
+  </div>
+  <div class="col-md-4"></div>
+</div> 
+
+<mat-toolbar class="navMenu" style="cursor: pointer; margin-top: 2%; align-items: left;">      
+  <div class="row d-flex align-items-center w-100">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <nav class="navMenu" style="font-size: 15px;">            
+        <a style="float:none">Edit loyalty programme</a>
+      </nav>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>  
+  </mat-toolbar>
+
+
+  
+    <div class="example-form">
+      <form [formGroup]="form" >
+    <div claas="double-input">
+        <p>Reservation points</p>
+        <mat-form-field class="input-box-small" appearance="outline" >
+          <mat-label>Points for every reservation</mat-label>
+          <input matInput placeholder="" value="" formControlName="reservationPoints">
+        </mat-form-field>
+        <mat-form-field class="input-box-small" appearance="outline">
+            <mat-label>Points for being reserved</mat-label>
+            <input matInput placeholder="" value="" formControlName="reservedPoints">
+        </mat-form-field>
+    </div>
+    <p>Silver users benefits</p>
+    <div class="double-input">
+     
+        <mat-form-field class="input-box-small" appearance="outline">
+            <mat-label>Points to reach silver cathegory</mat-label>
+            <input matInput placeholder="" value="" formControlName="silverPoints">
+        </mat-form-field>
+        
+        <mat-form-field class="input-box-small" appearance="outline">
+            <mat-label>Action for silver cathegory</mat-label>
+            <input matInput placeholder="" value="" formControlName="silverAction">
+        </mat-form-field> 
+        </div> 
+        <p>Gold users benefits</p>
+        <div class="double-input">
+           
+          <mat-form-field class="input-box-small" appearance="outline">
+              <mat-label>Points to reach gold cathegory</mat-label>
+              <input matInput placeholder="" value="" formControlName="goldPoints">
+          </mat-form-field>
+          
+        
+            <mat-form-field class="input-box-small" appearance="outline">
+                <mat-label>Action for gold cathegory</mat-label>
+                <input matInput placeholder="" value="" formControlName="goldAction">
+            </mat-form-field>
+            </div>  
+        
+        
+
+        <button class="btn" (click)="editLoyalty()">Submit </button>
+
+      </form> 
+    </div>
+    
+
+    <div class="row d-flex align-items-center footer">
+        <div class="col-md-3">
+          <h2 class="link_title">Product</h2>
+          <h4 class="link_subtitle">Our plan</h4>
+          <h4 class="link_subtitle">Free trial</h4>
+        </div>
+        <div class="col-md-3">
+          <h2 class="link_title">About us</h2>
+          <h4 class="link_subtitle">Request demo</h4>
+          <h4 class="link_subtitle">FAQs</h4>
+        </div>
+        <div class="col-md-3">
+          <h2 class="link_title">Support</h2>
+          <h4 class="link_subtitle">Services</h4>
+          <h4 class="link_subtitle">Contact us</h4>
+        </div>
+        <div class="col-md-3">
+          <h2 class="link_title">Covid-19 FAQs</h2>
+          <h4 class="link_subtitle">Reviews</h4>
+          <h4 class="link_subtitle">Safety</h4>
+        </div>
+      </div>
+
+       

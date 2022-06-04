@@ -37,6 +37,18 @@ export class ApiService {
     return this.http.get(this.baseURL + "/api/users/usersByType", this.getAuthoHeader());
   }
 
+  getInstructors() {
+    return this.http.get(this.baseURL + "/api/users/instructors", this.getAuthoHeader());
+  }
+
+  getHomeOwners() {
+    return this.http.get(this.baseURL + "/api/users/homeOwneres", this.getAuthoHeader());
+  }
+
+  getBoatOwners() {
+    return this.http.get(this.baseURL + "/api/users/boatOwners", this.getAuthoHeader());
+  }
+
   registerClient(data: any) {
     return this.http.post(this.baseURL + "/api/users/client/register", data);
   }
@@ -117,8 +129,9 @@ export class ApiService {
     return this.http.put(this.baseURL + "/api/users/", data, this.getAuthoHeader());
   }
 
+
   editLoyalProgramme(id: number, data: any) {
-    return this.http.put(this.baseURL+ "/api/loyal/" + id, data, this.getAuthoHeader());
+    return this.http.put(this.baseURL+ "/api/loyal/editLoyalty/" + id, data, this.getAuthoHeader());
   }
 
 
@@ -204,6 +217,10 @@ export class ApiService {
 
   getAllUsers(){
     return this.http.get(this.baseURL + '/api/users/allUsers', this.getAuthoHeader());
+  }
+
+  getAllLoyalties(){
+    return this.http.get(this.baseURL + '/api/loyal/loyalties', this.getAuthoHeader());
   }
 
   getAllActiveUsers(){
@@ -390,6 +407,10 @@ export class ApiService {
 
   loadOneAdventure(id: any) {
     return this.http.get(this.baseURL + "/api/adventures/" + id, this.getAuthoHeader());
+  }
+
+  loadOneLoyalty(id: any) {
+    return this.http.get(this.baseURL + "/api/loyal/oneLoyalty/" + id, this.getAuthoHeader());
   }
 
   loadOneInstructor(id: any) {

@@ -25,9 +25,21 @@
   <div class="col-md-4"></div>
 </div> 
 
+<mat-toolbar class="navMenu" style="cursor: pointer; margin-top: 2%; align-items: left;">      
+  <div class="row d-flex align-items-center w-100">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <nav class="navMenu" style="font-size: 15px;">            
+        <a style="float:none" >Register new admin</a>
+      </nav>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>  
+  </mat-toolbar>
 
 
-  <p><b>REGISTER NEW ADMIN</b></p>
     <div class="example-form">
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <mat-form-field class="input-box" appearance="outline">

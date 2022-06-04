@@ -82,15 +82,19 @@
               </thead>
               <tbody>
                 <tr *ngFor = "let ar of adventureReviews ">
-                  <td style="width: 1600px;">{{ar.adventureReservation.adventureProfile.name}}</td>
-                  <td style="width: 1000px;">{{ar.adventureReservation.startDate | date:'dd/MM/yyyy'}}</td>
-                  <td style="width: 1000px;">{{ar.adventureReservation.endDate | date:'dd/MM/yyyy'}}</td>
-                  <td style="width: 1000px;">{{ar.adventureReservation.clientId}}</td>
-                  <td style="width: 1000px;">{{ar.adventureReservation.adventureProfile.instructorId}}</td>
-                  <td style="width: 1000x;">{{ar.isAppear}}</td>
-                  <td style="width: 1000x;">{{ar.isBadComment}}</td>
-                  <td style="width: 1000x;">{{ar.content}}</td>
-                  <td><button (click)="strikeAdventureClient(ar.id)">Strike one penalty</button></td>
+                  <td style="width: 400px;">{{ar.adventureReservation.adventureProfile.name}}</td>
+                  <td style="width: 200px;">{{ar.adventureReservation.startDate | date:'dd/MM/yyyy'}}</td>
+                  <td style="width: 200px;">{{ar.adventureReservation.endDate | date:'dd/MM/yyyy'}}</td>
+                  <div *ngFor = "let client of clients;">
+                    <td style="width:200px;" *ngIf = "client.id == ar.adventureReservation.clientId">{{client.name}} {{client.surname}} </td>
+                    </div>
+                    <div *ngFor = "let instructor of instructors;">
+                      <td style="width:200px;" *ngIf = "instructor.id == ar.instructorId">{{instructor.name}} {{instructor.surname}} </td>
+                      </div>
+                  <td style="width: 200x;" type="checkbox">{{ar.isAppear}}</td>
+                  <td style="width: 200x;">{{ar.isBadComment}}</td>
+                  <td style="width: 500x;">{{ar.content}}</td>
+                  <td><button class="btn" (click)="strikeAdventureClient(ar.id)">Strike one penalty</button></td>
                 
                   
                 </tr>
@@ -122,12 +126,16 @@
                     <td style="width: 1600px;">{{hr.homeReservation.homeProfile.name}}</td>
                     <td style="width: 1000px;">{{hr.homeReservation.startDate | date:'dd/MM/yyyy'}}</td>
                     <td style="width: 1000px;">{{hr.homeReservation.endDate | date:'dd/MM/yyyy'}}</td>
-                    <td style="width: 1000px;">{{hr.homeReservation.clientId}}</td>
-                    <td style="width: 1000px;">{{hr.homeReservation.homeProfile.ownerId}}</td>
+                    <div *ngFor = "let client of clients;">
+                      <td *ngIf = "client.id == hr.homeReservation.clientId">{{client.name}} {{client.surname}} </td>
+                      </div>
+                      <div *ngFor = "let owner of homeOwners;">
+                        <td style="width:500px;" *ngIf = "owner.id == hr.ownerId">{{owner.name}} {{owner.surname}} </td>
+                        </div>
                     <td style="width: 1000x;">{{hr.isAppear}}</td>
                     <td style="width: 1000x;">{{hr.isBadComment}}</td>
                     <td style="width: 1000x;">{{hr.content}}</td>
-                    <td><button (click)="strikeHomeClient(hr.id)">Strike one penalty</button></td>
+                    <td><button class="btn" (click)="strikeHomeClient(hr.id)">Strike one penalty</button></td>
                 
               </tr>
             </tbody>
@@ -157,12 +165,17 @@
                 <td style="width: 1600px;">{{br.boatReservation.boatProfile.name}}</td>
                 <td style="width: 1000px;">{{br.boatReservation.startDate | date:'dd/MM/yyyy'}}</td>
                 <td style="width: 1000px;">{{br.boatReservation.endDate | date:'dd/MM/yyyy'}}</td>
-                <td style="width: 1000px;">{{br.boatReservation.clientId}}</td>
-                <td style="width: 1000px;">{{br.boatReservation.boatProfile.boatId}}</td>
+                <div *ngFor = "let client of clients;">
+                  <td *ngIf = "client.id == br.boatReservation.clientId">{{client.name}} {{client.surname}} </td>
+                  </div>
+                  <div *ngFor = "let owner of boatOwners;">
+                    <td style="width:500px;" *ngIf = "owner.id == br.ownerId">{{owner.name}} {{owner.surname}} </td>
+                    </div>
+        
                 <td style="width: 1000x;">{{br.isAppear}}</td>
                 <td style="width: 1000x;">{{br.isBadComment}}</td>
                 <td style="width: 1000x;">{{br.content}}</td>
-                <td><button (click)="strikeBoatClient(br.id)">Strike one penalty</button></td>
+                <td><button class="btn" (click)="strikeBoatClient(br.id)">Strike one penalty</button></td>
             
             </tr>
           </tbody>

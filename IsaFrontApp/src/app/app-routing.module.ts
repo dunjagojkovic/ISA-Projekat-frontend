@@ -78,6 +78,7 @@ import { MapsComponent } from './maps/maps.component';
 import { LoyaltyProgrammeComponent } from './homepage-admin/loyalty-programme/loyalty-programme.component';
 import { HomePagePredefinedAdminComponent } from './homepage-admin/home-page-predefined-admin/home-page-predefined-admin.component';
 import { BusinessReportComponent } from './homepage-admin/business-report/business-report.component';
+import { EditLoyaltyComponent } from './homepage-admin/edit-loyalty/edit-loyalty.component';
 
 
 
@@ -147,6 +148,7 @@ const routes: Routes = [
   {path: "loyalty-programme", component: LoyaltyProgrammeComponent},
   {path: "predefined-admin", component: HomePagePredefinedAdminComponent},
   {path: "business-report", component: BusinessReportComponent},
+  {path: "edit-loyalty", component: EditLoyaltyComponent},
 
 
 

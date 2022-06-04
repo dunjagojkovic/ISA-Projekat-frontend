@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 
 @Component({
-  selector: 'app-loyalty-programme',
-  templateUrl: './loyalty-programme.component.html',
-  styleUrls: ['./loyalty-programme.component.css']
+  selector: 'app-edit-loyalty',
+  templateUrl: './edit-loyalty.component.html',
+  styleUrls: ['./edit-loyalty.component.css']
 })
-export class LoyaltyProgrammeComponent implements OnInit {
+export class EditLoyaltyComponent implements OnInit {
 
   form: FormGroup;
-  loyalties: any;
-  editLoyaltyBox : boolean = false;
+  user: any = {} as any;
   loyalty: any;
   id: any;
   
@@ -20,16 +19,24 @@ export class LoyaltyProgrammeComponent implements OnInit {
     constructor(
       private formBuilder : FormBuilder,
       private router : Router,
+      private route: ActivatedRoute,
       private api : ApiService
     ) {
 
+      this.route.queryParams
+      .subscribe(params => {
+        this.id=params.id;
+      }
+      );
+
+
       this.form = this.formBuilder.group({
-        silverPoints: ['', Validators.minLength(1)],
-        goldPoints: ['', Validators.minLength(1)],
-        reservationPoints: ['', Validators.minLength(1)],
-        reservedPoints: ['', Validators.minLength(1)],
-        silverAction: ['', Validators.minLength(1)],
-        goldAction: ['', Validators.minLength(1)]
+        silverPoints: [''],
+        goldPoints: [''],
+        reservationPoints: [''],
+        reservedPoints: [''],
+        silverAction: [''],
+        goldAction: ['']
       
   
      })
@@ -37,8 +44,8 @@ export class LoyaltyProgrammeComponent implements OnInit {
 
     }
     ngOnInit(): void {
-      this.api.getAllLoyalties().subscribe((response:any) => {
-        this.loyalties = response;
+      this.api.current().subscribe((response:any) => {
+        this.user = response;
     });
 
     this.api.loadOneLoyalty(this.id).subscribe((response:any) => {
@@ -64,7 +71,7 @@ export class LoyaltyProgrammeComponent implements OnInit {
       const reservedPoints = this.form.get('reservedPoints')?.value;
       const silverAction = this.form.get('silverAction')?.value;
       const goldAction = this.form.get('goldAction')?.value;
-      const id = this.form.get('id')?.value;
+    
   
       let data = {
         silverPoints: silverPoints,
@@ -73,7 +80,7 @@ export class LoyaltyProgrammeComponent implements OnInit {
         reservedPoints: reservedPoints,
         silverAction: silverAction,
         goldAction: goldAction,
-        id: parseInt(this.loyalties.id)
+        id: parseInt(this.loyalty.id)
       }
   
       this.api.editLoyalProgramme(this.id, data).subscribe((response:any) => {
@@ -85,39 +92,5 @@ export class LoyaltyProgrammeComponent implements OnInit {
         }
     });
     }
-  
-    onSubmit() {
-      if(this.form.valid) {
-  
-        const silverPoints = this.form.get('silverPoints')?.value;
-        const goldPoints = this.form.get('goldPoints')?.value;
-        const reservationPoints = this.form.get('reservationPoints')?.value;
-        const reservedPoints = this.form.get('reservedPoints')?.value;
-        const silverAction = this.form.get('silverAction')?.value;
-        const goldAction = this.form.get('goldAction')?.value;
-      
-  
-  
-  
-        let data = {
-          silverPoints: silverPoints,
-          goldPoints: goldPoints,
-          reservationPoints: reservationPoints,
-          reservedPoints: reservedPoints,
-          silverAction: silverAction,
-          goldAction: goldAction
-        }
-  
-        
-        this.api.addLoyalProgramme(data).subscribe((response: any) => {
-          console.log(response)
-      });
 
-      location.reload();
-        
-       
-    }  
-         
-          
-  }
 }

@@ -83,8 +83,13 @@
                   <td style="width: 1600px;">{{ac.adventureReservation.adventureProfile.name}}</td>
                   <td style="width: 1000px;">{{ac.adventureReservation.startDate | date:'dd/MM/yyyy'}}</td>
                   <td style="width: 1000px;">{{ac.adventureReservation.endDate | date:'dd/MM/yyyy'}}</td>
-                  <td style="width: 1000px;">{{ac.clientId}}</td>
-                  <td style="width: 1000px;">{{ac.adventureReservation.adventureProfile.instructorId}}</td>
+                  <div *ngFor = "let client of clients;">
+                    <td style="width:500px;" *ngIf = "client.id == ac.clientId">{{client.name}} {{client.surname}} </td>
+                    </div>
+                    
+                    <div *ngFor = "let instructor of instructors;">
+                      <td style="width:500px;" *ngIf = "instructor.id == ac.adventureReservation.adventureProfile.instructorId">{{instructor.name}} {{instructor.surname}} </td>
+                      </div>
                   <td style="width: 1000x;">{{ac.content}}</td>
                   <td> <form [formGroup]="form" > <label>Complaint response: </label><input type="text" id="complaintResponse" value="" formControlName="complaintResponse" /> <button class="btn" (click)="onSendResponse(ac.id)">Send response</button> </form></td>
                   
@@ -115,8 +120,12 @@
                 <td style="width: 220px;">{{hc.homeReservation.homeProfile.name}}</td>
                 <td style="width: 230px;">{{hc.homeReservation.startDate | date:'dd/MM/yyyy'}}</td>
                 <td style="width: 50px;">{{hc.homeReservation.endDate | date:'dd/MM/yyyy'}}</td>
-                <td style="width: 350px;">{{hc.clientId}}</td>
-                <td style="width: 350px;">{{hc.homeReservation.homeProfile.ownerId}}</td>
+                <div *ngFor = "let client of clients;">
+                  <td *ngIf = "client.id == hc.clientId">{{client.name}} {{client.surname}} </td>
+                  </div>
+                  <div *ngFor = "let owner of homeOwners;">
+                    <td style="width:500px;" *ngIf = "owner.id == hc.homeReservation.homeProfile.ownerId">{{owner.name}} {{owner.surname}} </td>
+                    </div>
                 <td style="width: 350px;">{{hc.content}}</td>
                 <td> <form [formGroup]="form" > <label>Complaint response: </label><input type="text" id="complaintResponse" value="" formControlName="complaintResponse" /> <button class="btn" (click)="onSendHomeResponse(hc.id)">Send response</button> </form></td>
                 
@@ -146,7 +155,12 @@
               <td style="width: 220px;">{{bc.boatReservation.boatProfile.name}}</td>
               <td style="width: 230px;">{{bc.boatReservation.startDate | date:'dd/MM/yyyy'}}</td>
               <td style="width: 50px;">{{bc.boatReservation.endDate | date:'dd/MM/yyyy'}}</td>
-              <td style="width: 350px;">{{bc.clientId}}</td>
+              <div *ngFor = "let client of clients;">
+                <td *ngIf = "client.id == bc.clientId">{{client.name}} {{client.surname}} </td>
+                </div>
+                <div *ngFor = "let owner of boatOwners;">
+                  <td style="width:500px;" *ngIf = "owner.id == bc.boatReservation.boatProfile.ownerId">{{owner.name}} {{owner.surname}} </td>
+                  </div>
               <td style="width: 350px;">{{bc.boatReservation.boatProfile.ownerId}}</td>
               <td style="width: 350px;">{{bc.content}}</td>
               <td> <form [formGroup]="form" > <label>Complaint response: </label><input type="text" id="complaintResponse" value="" formControlName="complaintResponse" /> <button class="btn" (click)="onSendBoatResponse(bc.id)">Send response</button> </form></td>

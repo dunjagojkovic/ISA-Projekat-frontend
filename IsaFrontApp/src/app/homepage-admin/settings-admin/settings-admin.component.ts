@@ -108,7 +108,7 @@ export class SettingsAdminComponent implements OnInit {
 
     this.api.changePassword(data).subscribe((response: any) => {
       console.log(response);
-      this.router.navigate(['/homepage-admin']);
+      this.router.navigate(['/predefined-admin']);
     });
   }
 
