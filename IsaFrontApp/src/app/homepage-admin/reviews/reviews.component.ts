@@ -121,7 +121,7 @@ getFullName1(): void{
       console.log(response);
     }, () => this.getFullName());
    
-    this.api.getAllAdventureReviewsWithoutOnePenalty().subscribe((response:any) => {
+    this.api.getAllAdventureReviewsWithoutOnePenaltyAndBadComment().subscribe((response:any) => {
       this.adventureReviews = response;      
     });
   }
@@ -138,7 +138,7 @@ getFullName1(): void{
       console.log(response);
     }, () => this.getFullName());
 
-    this.api.getAllBoatReviewsWithoutOnePenalty().subscribe((response:any) => {
+    this.api.getAllAdventureReviewsWithoutOnePenaltyAndBadComment().subscribe((response:any) => {
       this.boatReviews = response;      
     });
    
@@ -156,7 +156,7 @@ getFullName1(): void{
       console.log(response);
     }, () => this.getFullName());
 
-    this.api.getAllHomeReviewsWithoutOnePenalty().subscribe((response:any) => {
+    this.api.getAllAdventureReviewsWithoutOnePenaltyAndBadComment().subscribe((response:any) => {
       this.homeReviews = response;      
     }); 
    

@@ -181,6 +181,7 @@
     color: white;
     text-transform: uppercase;
     background: #84A98C;
+    width: auto;
   }
   
   .rooms-table tbody {

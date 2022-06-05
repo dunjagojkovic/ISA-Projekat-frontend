@@ -103,18 +103,19 @@ constructor(
     });
   }
 
-  setDeletedBoat(id: any)
+  setDeletedBoat(id: number)
   {
     
     this.api.deleteThisBoat(id).subscribe((response: any) => {
+      this.boatProfiles = response; 
       console.log(response)
     });
   }
 
-  setDeletedHouse(id: any)
+  setDeletedHouse(id: number)
   {
     
-    this.api.deleteMyHouse(id).subscribe((response: any) => {
+    this.api.deleteCottage(id).subscribe((response: any) => {
       this.homeProfiles = response; 
       if(response == true){
      

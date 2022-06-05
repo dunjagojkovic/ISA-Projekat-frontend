@@ -67,16 +67,14 @@
           <div class="panel-middle" *ngIf = "adventureBox">
             <table class="rooms-table">
               <thead>
-                <tr>
+                <tr >
                   <th>Adventure name</th>
                   <th>Start date</th>
                   <th>End date</th>
                   <th>Client</th>
                   <th>Instructor</th>
-                  <th>Client appeared</th>
-                  <th>Bad comment</th>
                   <th>Review</th>
-                  <th style="width: 20px; height: 50px;"></th>
+                  
                   
                 </tr>
               </thead>
@@ -91,8 +89,6 @@
                     <div *ngFor = "let instructor of instructors;">
                       <td style="width:200px;" *ngIf = "instructor.id == ar.instructorId">{{instructor.name}} {{instructor.surname}} </td>
                       </div>
-                  <td style="width: 200x;" type="checkbox">{{ar.isAppear}}</td>
-                  <td style="width: 200x;">{{ar.isBadComment}}</td>
                   <td style="width: 500x;">{{ar.content}}</td>
                   <td><button class="btn" (click)="strikeAdventureClient(ar.id)">Strike one penalty</button></td>
                 
@@ -114,10 +110,8 @@
                 <th>End date</th>
                 <th>Client</th>
                 <th>Hosue owner</th>
-                <th>Client appeared</th>
-                <th>Bad comment</th>
                 <th>Review</th>
-                <th style="width: 20px; height: 50px;"></th>
+               
                 
               </tr>
             </thead>
@@ -132,8 +126,6 @@
                       <div *ngFor = "let owner of homeOwners;">
                         <td style="width:500px;" *ngIf = "owner.id == hr.ownerId">{{owner.name}} {{owner.surname}} </td>
                         </div>
-                    <td style="width: 1000x;">{{hr.isAppear}}</td>
-                    <td style="width: 1000x;">{{hr.isBadComment}}</td>
                     <td style="width: 1000x;">{{hr.content}}</td>
                     <td><button class="btn" (click)="strikeHomeClient(hr.id)">Strike one penalty</button></td>
                 
@@ -154,10 +146,8 @@
                 <th>End date</th>
                 <th>Client</th>
                 <th>Boat owner</th>
-                <th>Client appeared</th>
-                <th>Bad comment</th>
                 <th>Review</th>
-                <th style="width: 20px; height: 50px;"></th>
+            
             </tr>
           </thead>
           <tbody>
@@ -171,9 +161,6 @@
                   <div *ngFor = "let owner of boatOwners;">
                     <td style="width:500px;" *ngIf = "owner.id == br.ownerId">{{owner.name}} {{owner.surname}} </td>
                     </div>
-        
-                <td style="width: 1000x;">{{br.isAppear}}</td>
-                <td style="width: 1000x;">{{br.isBadComment}}</td>
                 <td style="width: 1000x;">{{br.content}}</td>
                 <td><button class="btn" (click)="strikeBoatClient(br.id)">Strike one penalty</button></td>
             

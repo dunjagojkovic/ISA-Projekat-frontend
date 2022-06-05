@@ -161,6 +161,10 @@ export class ApiService {
     return this.http.post(this.baseURL + "/api/users/deleteThisBoat/" + id, {}, this.getAuthoHeader());
   }
 
+  deleteCottage(id: any) {
+    return this.http.post(this.baseURL + "/api/homes/deleteHouse/" +id, {}, this.getAuthoHeader());
+  }
+
   declineUser(data:any) {
     return this.http.put(this.baseURL + "/api/users/declineRegistration",data, this.getAuthoHeader());
   }
@@ -487,6 +491,18 @@ getAllBoatReviewsWithoutOnePenalty(){
 
 getAllHomeReviewsWithoutOnePenalty(){
   return this.http.get(this.baseURL + "/api/homeReviews/withoutOnePenalty", this.getAuthoHeader());
+}
+
+getAllAdventureReviewsWithoutOnePenaltyAndBadComment(){
+  return this.http.get(this.baseURL + "/api/adventureReviews/withoutOnePenaltyAndBadComment", this.getAuthoHeader());
+}
+
+getAllBoatReviewsWithoutOnePenaltyAndBadComment(){
+  return this.http.get(this.baseURL + "/api/boatReviews/withoutOnePenaltyAndBadComment", this.getAuthoHeader());
+}
+
+getAllHomeReviewsWithoutOnePenaltyAndBadComment(){
+  return this.http.get(this.baseURL + "/api/homeReviews/withoutOnePenaltyAndBadComment", this.getAuthoHeader());
 }
 
 
