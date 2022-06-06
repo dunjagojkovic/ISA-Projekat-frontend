@@ -78,10 +78,14 @@
               </mat-form-field>
             </div> 
             <div class="double-input">
-              <mat-form-field style="width: 430px;" class="input-box" appearance="outline">
+              <mat-form-field style="width: 230px;" class="input-box" appearance="outline">
                   <mat-label>Price</mat-label>
                   <input matInput placeholder="" formControlName="pricelist">
               </mat-form-field>
+              <mat-form-field style="width: 210px;" class="input-box" appearance="outline">
+                <mat-label>Price for extra service</mat-label>
+                <input matInput placeholder="" formControlName="extraPrice">
+            </mat-form-field>
               <mat-form-field style="width: 210px;" class="input-box" appearance="outline">
                 <mat-label>Extra service</mat-label>
                 <input matInput placeholder="" formControlName="extraService">
@@ -89,7 +93,7 @@
             </div>
             <mat-form-field style="width: 210px;" class="input-box" appearance="outline">
                 <mat-label>Cancel conditions</mat-label>
-                <input matInput placeholder="" formControlName="cancelConditions">
+                <textarea matInput placeholder="" formControlName="cancelConditions"></textarea>
             </mat-form-field>
             <div style="display: flex; flex-direction: row;">
               <div class="form-group" style="margin-top: 10px; margin-left: 8%;">

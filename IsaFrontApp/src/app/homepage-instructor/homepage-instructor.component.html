@@ -7,6 +7,7 @@
     <div class="col-md-2">
     </div>
     <img src="assets/user.png" class="profile" [routerLink]="['/settings-instructor-profile']">
+    <button class="logout-btn"  (click) = "logout()" routerLink="/">Log out</button>
   </div>
     
     <div class="row d-flex align-items-center w-100">
@@ -94,6 +95,10 @@
           <mat-label>Price</mat-label>
           <input matInput placeholder="" formControlName="pricelist">
         </mat-form-field>
+        <mat-form-field style="width: 210px;" class="input-box" appearance="outline">
+          <mat-label>Price for extra service</mat-label>
+          <input matInput placeholder="" formControlName="extraPrice">
+      </mat-form-field>
       </div>  
       <div class="double-input">     
        <mat-form-field class="text-area" appearance="outline">
@@ -157,6 +162,7 @@
           <p>Fishing equipment: {{adventure.fishingEquipment}}</p>
           <p>Price: {{adventure.pricelist}} e</p>
           <p>Extra service: {{adventure.extraService}}</p>
+          <p>Price for extra service: {{adventure.extraPrice}} e</p>
           <p>Cancel conditions: {{adventure.cancelConditions}}</p>
       </mat-card-content>
         </mat-card>  

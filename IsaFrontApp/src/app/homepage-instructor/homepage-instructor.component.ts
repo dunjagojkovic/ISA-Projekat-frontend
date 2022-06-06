@@ -36,6 +36,7 @@ export class HomepageInstructorComponent implements OnInit {
         fishingEquipment: ['', Validators.required],
         pricelist: ['', Validators.required],
         extraService: ['', Validators.required],
+        extraPrice:['', Validators.required],
         cancelConditions: ['', Validators.required]
       })
 
@@ -83,6 +84,7 @@ export class HomepageInstructorComponent implements OnInit {
       const fishingEquipment = this.form.get('fishingEquipment')?.value;
       const pricelist = this.form.get('pricelist')?.value;
       const extraService = this.form.get('extraService')?.value;
+      const extraPrice = this.form.get('extraPrice')?.value;
       const cancelConditions = this.form.get('cancelConditions')?.value;
 
       let data = {
@@ -95,6 +97,7 @@ export class HomepageInstructorComponent implements OnInit {
         fishingEquipment: fishingEquipment,
         pricelist: pricelist,
         extraService: extraService,
+        extraPrice: extraPrice,
         cancelConditions: cancelConditions,
         ambientImage: this.images['ambientImage']
         
@@ -147,6 +150,10 @@ export class HomepageInstructorComponent implements OnInit {
     console.log(response);
     this.adventures = response;
   });
+}
+
+logout(): void{
+  localStorage.clear();
 }
 
 

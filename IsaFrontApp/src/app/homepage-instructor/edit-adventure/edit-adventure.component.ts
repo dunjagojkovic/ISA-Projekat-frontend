@@ -42,6 +42,7 @@ export class EditAdventureComponent implements OnInit {
       fishingEquipment: [''],
       pricelist: [''],
       extraService: [''],
+      extraPrice: [''],
       cancelConditions: ['']
     });
 
@@ -66,6 +67,7 @@ export class EditAdventureComponent implements OnInit {
       fishingEquipment: this.adventure.fishingEquipment,
       pricelist: this.adventure.pricelist,
       extraService: this.adventure.extraService,
+      extraPrice: this.adventure.extraPrice,
       cancelConditions: this.adventure.cancelConditions
     });
   });
@@ -81,6 +83,7 @@ export class EditAdventureComponent implements OnInit {
       const fishingEquipment = this.form.get('fishingEquipment')?.value;
       const pricelist = this.form.get('pricelist')?.value;
       const extraService = this.form.get('extraService')?.value;
+      const extraPrice = this.form.get('extraPrice')?.value;
       const cancelConditions = this.form.get('cancelConditions')?.value;      
 
       let data = {
@@ -93,6 +96,7 @@ export class EditAdventureComponent implements OnInit {
         fishingEquipment: fishingEquipment,
         pricelist: pricelist,
         extraService: extraService,
+        extraPrice: extraPrice,
         cancelConditions: cancelConditions,
         ambientImage: this.images['ambientImage'],
         id: parseInt(this.adventure.id)
